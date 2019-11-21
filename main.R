@@ -9,6 +9,11 @@ install.packages("psych")
 library(psych)
 install.packages("corrplot")
 library(corrplot)
+install.packages("ggplot2")
+library(ggplot2)
+install.packages("plyr")
+library(plyr)
+library(tidyr)
 
 # Wczytanie danych
 data <- readRDS("data.rds")
@@ -23,12 +28,12 @@ country_name <- c("Austria", "Belgium", "Bulgaria", "Cyprus", "Czech Republic", 
                   "Ireland", "Netherlands", "Poland", "Portugal", "Slovakia", "Slovenia", "Spain",
                   "Switzerland", "Great Britain", "Malta", "Romania")
 
-countries <- cbind(country_nr, country_name)
+countries <- data.frame(country_nr, country_name)
 
 # Wybrane zmienne
 # V2 - Country (nr)
 
-# Skala 1 : 1 - Bardzo dobrze, 4 - Bardzo źle
+# Skala 1 : 1 - Bardzo źle, 4 - Bardzo dobrze
 # V127 - leader - silny lider rządzi
 # V128 - experts - Rządy ekspertów
 # V129 - army - Arma rządzi
@@ -50,16 +55,66 @@ countries <- cbind(country_nr, country_name)
 
 # Kody ujemne oznaczają braki odpowiedzi
 # Poniżej poleceniem filter_at wybieram tylko te wiersze, które mają odpowiedź na każde pytanie
-dem_data <- data %>% select(wave = V1, country = V2,
+dem_data <- data %>% select(country = V2,
                     leader = V127, experts = V128, army = V129, democracy = V130,
                     taxRich = V131, religiousLaw = V132, freeElection = V133, helpUnemp = V134,
                     armyTakesOver = V135, civilRights = V136, equalIncome = V137, 
                     obeyRulers = V138, genderEquality = V139, importance = V140) %>%
             filter(country %in% country_nr) %>%
-            filter_at(vars(leader:importance), all_vars(. > 0))
+            filter_at(vars(leader:importance), all_vars(. > 0)) %>%
+            mutate(leader = 5-leader, experts = 5-experts, army = 5-army, democracy = 5-democracy) 
+            # Ustawienie zmiennych w tym samym "kierunku"
+
+# Zmiana oznaczeń numerycznych na nazwy krajów
+dem_data$country <- as.factor(dem_data$country)
+dem_data$country <- mapvalues(dem_data$country, from = country_nr, to = country_name)
 
 head(dem_data)
 
+# Przegląd danych
+
+# Liczba odpowiedzi w różnych grupach => zdecydowanie więcej mają Niemcy
+ggplot(dem_data, aes(country)) + geom_bar()
+
+# Rozkład odpowiedzi dla lidera (przykład)
+ggplot(dem_data) +
+  geom_bar(aes(leader)) +
+  facet_wrap(~country, ncol = 7) +
+  ggtitle("Poparcie dla modelu władzy lidera")
+
+
+distribution <- dem_data %>% gather(key = "variable", value = "answer", -country, factor_key = T) %>%
+                            dplyr::group_by(country, variable, answer) %>%
+                            dplyr::summarise(nr = n()) %>%
+                            ungroup()
+# Odpowiedzi o liczności 0 występują dla Holandii (importance - brak 3, genderEquality - brak 2)
+# Oraz Hiszpanii (importance - brak 2)
+
+# Rozkład stylu odpowiedzi dla Rumunii (przykład)
+dem_data %>% 
+  gather(key = "variable", value = "answer", -country, factor_key = T) %>%
+  dplyr::group_by(country, variable, answer) %>% 
+  filter(country == "Romania") %>%
+ggplot() +
+  geom_bar(aes(answer)) +
+  facet_wrap(~variable, ncol = 7, scales = "free_x") +
+  ggtitle("Rozkład odpowiedzi dla Rumunii")
+
+
+# Rozkład stylu odpowiedzi dla Niemiec (przykład)
+dem_data %>% 
+  gather(key = "variable", value = "answer", -country, factor_key = T) %>%
+  dplyr::group_by(country, variable, answer) %>% 
+  filter(country == "Germany") %>%
+  ggplot() +
+  geom_bar(aes(answer)) +
+  facet_wrap(~variable, ncol = 7, scales = "free_x") +
+  ggtitle("Rozkład odpowiedzi dla Niemiec")
+
+# Widać, że Niemcy są dużo bardziej jednomyślni. Dla większości zmiennych przeważała zdecydowanie
+# jedna, skrajna opinia. Z kolei W Rumunii dla większości pytań wyraźnie "wystają" dwa skrajne słupki
+# oraz środkowy (odpowiedź 5). Najwyraźniej Rumunii chętniej udzielają zdecydowanej odpowiedzi,
+# (bardzo za, bardzo przeciw lub całkowicie obojętne).
 
 
 # Wstępna analiza korelacji - "polychoric correlation"
@@ -73,7 +128,7 @@ corrplot(poly.cor.matrix, method="circle")
 
 # Dla pozostałych pytań (które mają dłuższą skalę odpowiedzi)
 # Stosuję korelację rangową
-# (funkcja polychoric zwraca błąd, że przy więcej niż 8 wartości nie sensu jej stosowanie)
+# (funkcja polychoric zwraca błąd, że przy więcej niż 8 wartości nie ma sensu jej stosowanie)
 cor.matrix <- cor(dem_data[,7:16], method="spearman")
 corrplot(cor.matrix, method="circle", order='hclust')
 

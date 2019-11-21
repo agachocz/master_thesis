@@ -1,0 +1,78 @@
+---
+title: "EFA z pakietem lavaan"
+author: "Agnieszka Choczyńska"
+date: "18 listopada 2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Analiza Czynnikowa
+## Wprowadzenie
+
+Własności świata szczególnie interesujące dla badaczy nie zawsze są możliwe do zmierzenia. Nazywa się je **zmiennymi latentnymi/ukrytymi** Problem ten dotyczy szczególnie nauk społecznych, jak socjologia czy psychologia. 
+
+Zwykle naukowcy starają się znaleźć jakąś **mierzalną cechę** (lub kombinację takich cech), która będzie dobrze oddawać faktyczną własność. Problem w tym, że można znaleźć bardzo dużo różnych takich cech.
+
+## Przykład
+
+*Nie da się zmierzyć poziomu zakochania pary ludzi. Ale można:*
+*- zadać im o to pytania w ankiecie,*
+*- badać poziomy niektórych hormonów,*
+*- przeprowadzić analizę sentymentalną wiadomości, które do siebie piszą,*
+*- ...*
+
+
+## Podstawowe błędy
+
+- Badacz wybiera mierzalną cechę, która bardzo luźno dotyczy zmiennej latentnej: *ocena z religii jako miara wiary w Boga*
+- Badacz utożsamia cechę mierzalną z latentną: *IQ nie jest miarą inteligencji, tylko miarą zdolności rozwiązywania specyficznych zadań*
+- Badacz nie weryfikuje, czy cecha mierzalna w taki sam sposób łączy się z latentną we wszystkich badanych grupach: 
+
+
+## Model
+
+Tu będzie wzór
+
+## Exploratory Factor Analysis
+
+***Eksploracyjna Analiza Czynnikowa** jest badaniem, w którym próbuje się odkryć zależności między grupami zmiennych mierzalnych, które wskazują na istnienie wpływających na nie zmiennych ukrytych.
+
+W tym celu stosuje się zwykle **analizę korelacji**.
+
+# Przykład (demokracja)
+
+## Zmienne
+
+Mam wyniki kilku pytań ankietowych dotyczących poglądów na demokrację. Ankieta została przeprowadzona w kilku krajach europejskich.
+
+Tu będą pytania
+
+## Przegląd danych [1]
+
+```{r echo=FALSE}
+
+```
+
+
+## Przegląd danych [2]
+
+
+
+
+## Analiza korelacji [1]
+
+
+## Analiza korelacji [2]
+
+## Model
+
+## Estymacja
+
+
+## Wyniki
+
+
+# Równoważność pomiarowa
