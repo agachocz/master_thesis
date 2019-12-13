@@ -71,6 +71,24 @@ dem_data$country <- mapvalues(dem_data$country, from = country_nr, to = country_
 
 head(dem_data)
 
+
+# Braki niektórych poziomów
+
+distribution <- dem_data %>% gather(key = "variable", value = "answer", -country, factor_key = T) %>%
+                            dplyr::group_by(country, variable, answer) %>%
+                            dplyr::summarise(nr = n()) %>%
+                            ungroup()
+# Odpowiedzi o liczności 0 występują dla Holandii (importance - brak 3, genderEquality - brak 2)
+# Oraz Hiszpanii (importance - brak 2)
+
+dem_data <- dem_data %>% filter(country != "Netherlands" & country != "Spain")
+
+processed_data <- dem_data %>% select(country, taxRich : importance)
+# Zapisanie już przetworzonych danych
+write.csv(processed_data, "processed_data.csv", sep = ";", row.names = F)
+
+
+
 # Przegląd danych
 
 # Liczba odpowiedzi w różnych grupach => zdecydowanie więcej mają Niemcy
@@ -81,14 +99,6 @@ ggplot(dem_data) +
   geom_bar(aes(leader)) +
   facet_wrap(~country, ncol = 7) +
   ggtitle("Poparcie dla modelu władzy lidera")
-
-
-distribution <- dem_data %>% gather(key = "variable", value = "answer", -country, factor_key = T) %>%
-                            dplyr::group_by(country, variable, answer) %>%
-                            dplyr::summarise(nr = n()) %>%
-                            ungroup()
-# Odpowiedzi o liczności 0 występują dla Holandii (importance - brak 3, genderEquality - brak 2)
-# Oraz Hiszpanii (importance - brak 2)
 
 # Rozkład stylu odpowiedzi dla Rumunii (przykład)
 dem_data %>% 
@@ -105,7 +115,7 @@ ggplot() +
 dem_data %>% 
   gather(key = "variable", value = "answer", -country, factor_key = T) %>%
   dplyr::group_by(country, variable, answer) %>% 
-  filter(country == "Germany") %>%
+  filter(country == "Slovenia") %>%
   ggplot() +
   geom_bar(aes(answer)) +
   facet_wrap(~variable, ncol = 7, scales = "free_x") +
@@ -129,7 +139,7 @@ corrplot(poly.cor.matrix, method="circle")
 # Dla pozostałych pytań (które mają dłuższą skalę odpowiedzi)
 # Stosuję korelację rangową
 # (funkcja polychoric zwraca błąd, że przy więcej niż 8 wartości nie ma sensu jej stosowanie)
-cor.matrix <- cor(dem_data[,7:16], method="spearman")
+cor.matrix <- cor(dem_data[,7:15], method="spearman")
 corrplot(cor.matrix, method="circle", order='hclust')
 
 # Są tu trzy główne skupiska:
@@ -174,12 +184,17 @@ model <- 'not_democratic =~ leader + experts + army;
           economic =~ taxRich + equalIncome + helpUnemp;
           liberal =~ freeElection + genderEquality + civilRights + importance'
 
-
+# Struktura modelu
+model <- '
+fundamentalistic =~ obeyRulers + religiousLaw + armyTakesOver;
+economic =~ taxRich + equalIncome + helpUnemp;
+liberal =~ freeElection + genderEquality + civilRights + importance'
 
 # Dopasowanie modelu CFA
 
 fit <- cfa(model, data = dem_data)
 summary(fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
+cf <- coef(fit)
 
 # Modele do testowania równoważności pomiarowej ~~ błędy
 
@@ -192,8 +207,24 @@ strict <- cfa(model, data=dem_data, group="country", group.equal=c("loadings", "
 
 #Test
 
+# W podsumowaniu widać, że ładunki w różnych grupach są bardzo różne
+# We wszystkich grupach wszystkie zmienne są istotne, więc równoważność konfiguralna jest zachowana
+summary(configural, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
+
 anova(configural, weak)
 # P-value bardzo małe, z czego by wynikało, że słaba równoważność nie jest spełniona
 
 # modelsCat <- list(fit.configural = configural, fit.loadings = weak)
 # partialInvarianceCat(modelsCat, type = "metric")
+
+
+library(knitr)
+kable(parameterEstimates(fit, digits = 3, caption = "Wyniki estymacji"))
+params <- parameterEstimates(configural)
+params <- params %>% select(lhs, op, rhs, group, est, pvalue) %>% filter (op == "=~")
+
+param_names <- params[1:10, 1:3]
+compare_params <- data.frame(param_names, Estonia = params[1:10, 5], Germany = params[11:20, 5],
+                  Poland = params[21:30, 5], Romania = params[31:40, 5], Slovenia = params[41:50, 5])
+
+
