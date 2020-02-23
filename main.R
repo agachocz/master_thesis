@@ -14,6 +14,12 @@ library(ggplot2)
 install.packages("plyr")
 library(plyr)
 library(tidyr)
+install.packages("devtools")
+library(devtools)
+devtools::install_github("sachaepskamp/semPlot")
+install.packages("semPlot")
+library(semPlot)
+
 
 # Wczytanie danych
 data <- readRDS("data.rds")
@@ -227,4 +233,27 @@ param_names <- params[1:10, 1:3]
 compare_params <- data.frame(param_names, Estonia = params[1:10, 5], Germany = params[11:20, 5],
                   Poland = params[21:30, 5], Romania = params[31:40, 5], Slovenia = params[41:50, 5])
 
+
+# Poprawiona struktura modelu
+modificationIndices(fit, standardized = T, sort = T)
+
+# Struktura modelu
+model_2 <- '
+fundamentalistic =~ obeyRulers + religiousLaw + armyTakesOver + equalIncome;
+economic =~ taxRich + equalIncome + helpUnemp;
+liberal =~ freeElection + genderEquality + civilRights + importance + helpUnemp + equalIncome'
+
+fit_2 <- cfa(model_2, data = dem_data)
+summary(fit_2, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
+
+reliability(fit_2) # total composite reliability jest > 0.7
+reliability(fit) # jest wyższe
+
+
+# schematy równań strukturalnych
+semPaths(object = fit_2,
+         whatLabels = "std",           
+         edge.label.cex = 1,           
+         layout = "tree",          
+         what = "std", edge.color = "black")
 

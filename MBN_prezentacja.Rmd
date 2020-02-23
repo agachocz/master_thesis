@@ -1,0 +1,199 @@
+---
+title: "Równoważność pomiarowa w badaniach postrzegania demokracji"
+author: "Agnieszka Choczyńska"
+date: "15 grudnia 2019"
+output: 
+  ioslides_presentation:
+    widescreen: true
+    logo: aghlogo.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+```
+
+# Analiza Czynnikowa
+## Wprowadzenie
+
+Własności świata szczególnie interesujące dla badaczy nie zawsze są możliwe do zmierzenia. Nazywa się je **zmiennymi latentnymi/ukrytymi** Problem ten dotyczy szczególnie nauk społecznych, jak socjologia czy psychologia. 
+
+Zwykle naukowcy starają się znaleźć jakąś **mierzalną cechę** (lub kombinację takich cech), która będzie dobrze oddawać faktyczną własność. Problem w tym, że można znaleźć bardzo dużo różnych takich cech.
+
+$$\ x_{1} = \lambda_{11}f_{1} + \lambda_{12}f_{2} + ... + \lambda_{1k}f_{k} + u_{1}$$
+$$\ x_{2} = \lambda_{21}f_{1} + \lambda_{22}f_{2} + ... + \lambda_{2k}f_{k} + u_{2}$$
+$$\ ...$$
+$$\ x_{n} = \lambda_{n1}f_{1} + \lambda_{n2}f_{2} + ... + \lambda_{nk}f_{k} + u_{n}$$
+
+
+## Exploratory Factor Analysis
+
+**Eksploracyjna Analiza Czynnikowa** jest badaniem, w którym próbuje się odkryć zależności między grupami zmiennych mierzalnych, które wskazują na istnienie wpływających na nie zmiennych ukrytych.
+
+W tym celu stosuje się zwykle **analizę korelacji**.
+
+# Przykład (demokracja)
+
+## Zmienne [1]
+
+Mam wyniki kilku pytań ankietowych dotyczących poglądów na demokrację. Ankieta została przeprowadzona w paru krajach europejskich.
+
+**Skala: 1 - Nie jest istotną cechą demokracji, 10 - jest istotną cechą demokracji**
+
+- *taxRich* - Rząd opodatkowuje bogatych i oddaje ubogim
+- *religiousLaw* - Autorytety religijne interpretują prawo
+- *freeElection* - Liderzy są wybierani w wolnych wyborach
+- *helpUnemp* - Bezrobotni otrzymują pomoc od państwa
+
+## Zmienne [2]
+
+- *armyTakesOver* - Armia przejmuje władzę jeśli rząd jest niekompetentny
+- *civilRights* - Prawa obywatelskie chronią człowieka przed opresją państwa
+- *equalIncome* - Państwo dba o równość dochodów
+- *obeyRulers* - Ludzie są posłuszni rządzącym
+- *genderEquality* - Kobiety mają takie same prawa jak mężczyźni
+
+- *importance*: 1 - Demokracja nie jest istotna, 10 - Demokracja jest absolutnie istotna
+
+## Przegląd danych [1] {.smaller}
+
+Na potrzeby prezentacji dane są już po selekcji, filtrowaniu, usuwaniu braków itd.
+
+```{r echo=FALSE}
+library(knitr)
+dem_data <- read.csv("processed_data.csv")
+
+kable(head(dem_data))
+```
+
+
+## Przegląd danych [2] - różnice międzykrajowe
+
+```{r echo=F}
+library(ggplot2)
+
+ggplot(dem_data) +
+  geom_bar(aes(taxRich)) +
+  facet_wrap(~country, ncol = 7) +
+  ggtitle("Wyższe opodatkowanie bogatych jako istotna cecha demokracji")
+```
+
+## Przegląd danych [3] - styl odpowiedzi (Rumunia)
+
+```{r echo=F}
+library(dplyr)
+library(tidyr)
+
+dem_data %>% 
+  gather(key = "variable", value = "answer", -country, factor_key = T) %>%
+  dplyr::group_by(country, variable, answer) %>% 
+  filter(country == "Romania") %>%
+ggplot() +
+  geom_bar(aes(answer)) +
+  facet_wrap(~variable, ncol = 10, scales = "free_x") +
+  ggtitle("Rozkład odpowiedzi dla Rumunii")
+```
+
+## Przegląd danych [4] - styl odpowiedzi (Niemcy)
+
+```{r echo=F}
+library(dplyr)
+library(tidyr)
+
+dem_data %>% 
+  gather(key = "variable", value = "answer", -country, factor_key = T) %>%
+  dplyr::group_by(country, variable, answer) %>% 
+  filter(country == "Germany") %>%
+ggplot() +
+  geom_bar(aes(answer)) +
+  facet_wrap(~variable, ncol = 10, scales = "free_x") +
+  ggtitle("Rozkład odpowiedzi dla Niemiec")
+```
+
+## Analiza korelacji [1] {.smaller}
+
+```{r}
+library(corrplot)
+cor.matrix <- cor(dem_data[,2:11], method="spearman")
+corrplot(cor.matrix, method="circle", order='hclust')
+```
+
+## Analiza korelacji [2] {.smaller}
+
+Są tu trzy główne skupiska:
+
+- *fundamentalistyczne*: istotność autorytetów religijnych, posłuszeństwo wobec władzy i armia,
+                        która może przejąć władzę, gdy rząd jest niekompetentny
+- *ekonomiczne*: państwo demokratyczne powinno opodatkować bogatych, a wspierać biednych,
+                 w demokracji powinny być w miarę równomierne zarobki
+- *liberalne*: demokracja jest ważna, wiąże się z prawami człowieka, równością płci, wolnymi wyborami
+
+Dodatkowo: państwo wspierające bezrobotnych pasuje zarówno do "libearlnej" jak i "ekonomiecznej"
+            "liberalna" najbardziej "kłóci się" z "fundamentalistyczną"
+
+## Model
+
+```{r}
+library(lavaan)
+
+model <- '
+fundamentalistic =~ obeyRulers + religiousLaw + armyTakesOver;
+economic =~ taxRich + equalIncome + helpUnemp;
+liberal =~ freeElection + genderEquality + civilRights + importance'
+
+fit <- cfa(model, data = dem_data)
+```
+
+## Wyniki estymacji {.smaller}
+
+```{r}
+kable(parameterEstimates(fit)[,c(1:4, 7)], digits = 3, caption = "Wyniki estymacji")
+```
+
+
+# Równoważność pomiarowa
+
+## Równoważność konfiguralna {.smaller}
+
+Model jest estymowany osobno dla każdej grupy. Jeśli jest zachowana równoważność konfiguralna, to w każdej grupie powinien mieć tę samą postać (te same zmienne powinny być istotne).
+
+```{r eval = F}
+configural <- cfa(model, data=dem_data, group="country")
+```
+
+**Jeśli nie jest zachowana, to nie należy w ogóle stosować modelu do tych grup.**
+
+## Równoważność metryczna (słaba) {.smaller}
+
+Model jest estymowany osobno dla każdej grupy, z nałożonymi na *ładunki czynnikowe* restrykcjami, że we wszystkich grupach są równe. Jeśli jest zachowana równoważność metryczna (czyli restrykcje odzwierciedlają stan faktyczny), to model nie będzie się różnił od tego bez nałożonych restrykcji.
+
+```{r eval = F}
+weak <- cfa(model, data=dem_data, group="country", group.equal="loadings")
+```
+
+**Równoważność metryczna pozwala na porównywanie stosunku zmiennej latentnej do innych, np. czy poziom PKB wpływa na nastawienie do demokracji (wyrażone tym modelem).** 
+
+
+## Równoważność skalarna (silna) {.smaller}
+
+Model jest estymowany osobno dla każdej grupy, z nałożonymi na *ładunki czynnikowe oraz wyrazy wolne* restrykcjami, że we wszystkich grupach są równe. Jeśli jest zachowana równoważność skalarna (czyli restrykcje odzwierciedlają stan faktyczny), to model nie będzie się różnił od tego bez nałożonych restrykcji.
+
+```{r eval = F}
+strong <- cfa(model, data=dem_data, group="country", 
+              group.equal=c("loadings", "intercepts"))
+```
+
+**Równoważność skalarna pozwala na porównywanie poziomu zmiennej latentnej w różnych grupach.** 
+
+## Równoważność ścisła {.smaller}
+
+Model jest estymowany osobno dla każdej grupy, z nałożonymi na *ładunki czynnikowe, wyrazy wolne oraz reszty* restrykcjami, że we wszystkich grupach są równe. Jeśli jest zachowana równoważność skalarna (czyli restrykcje odzwierciedlają stan faktyczny), to model nie będzie się różnił od tego bez nałożonych restrykcji.
+
+```{r eval = F}
+strict <- cfa(model, data=dem_data, group="country", 
+              group.equal=c("loadings", "intercepts", "residuals"))
+```
+
+**Ścisła równoważność jest praktycznie niespotykana.** 
+
