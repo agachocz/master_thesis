@@ -180,7 +180,7 @@ dem_data$importance = factor(dem_data$importance, ordered = T)
 
 
 
-# Struktura modelu
+# Struktura modelu (#stare)
 model <- 'not_democratic =~ leader + experts + army;
           democratic =~ democracy;
           fundamentalistic =~ obeyRulers + religiousLaw + armyTakesOver;
