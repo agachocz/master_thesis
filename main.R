@@ -1,22 +1,22 @@
 # Pakiety
 install.packages("dplyr")
-library(dplyr)
 install.packages("lavaan")
-library(lavaan)
 install.packages("semTools")
-library(semTools)
 install.packages("psych")
-library(psych)
 install.packages("corrplot")
-library(corrplot)
 install.packages("ggplot2")
-library(ggplot2)
 install.packages("plyr")
+install.packages("semPlot")
+
+library(dplyr)
+library(lavaan)
+library(semTools)
+library(psych)
+library(corrplot)
+library(ggplot2)
 library(plyr)
 library(tidyr)
-install.packages("semPlot")
 library(semPlot)
-
 
 # Wczytanie danych
 data <- readRDS("data.rds")
