@@ -1,28 +1,5 @@
 # koncepcja: szukanie podobnych krajów metodą aglomeracyjną
 
-# Przegląd macierzy korelacji
-unique(dem_data$country)
-
-dem_data %>% filter(country == "Poland") %>% select(taxRich : importance) %>%
-  cor(method="spearman") %>%
-  corrplot(method="circle", order='hclust')
-
-dem_data %>% filter(country == "Estonia") %>% select(taxRich : importance) %>%
-  cor(method="spearman") %>%
-  corrplot(method="circle", order='hclust')
-
-dem_data %>% filter(country == "Germany") %>% select(taxRich : importance) %>%
-  cor(method="spearman") %>%
-  corrplot(method="circle", order='hclust')
-
-dem_data %>% filter(country == "Romania") %>% select(taxRich : importance) %>%
-  cor(method="spearman") %>%
-  corrplot(method="circle", order='hclust')
-
-dem_data %>% filter(country == "Slovenia") %>% select(taxRich : importance) %>%
-  cor(method="spearman") %>%
-  corrplot(method="circle", order='hclust')
-
 
 # włączenie wszystkich państw europejskich
 
@@ -120,7 +97,17 @@ liberal =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
 
 
 fit <- cfa(model, data = dem_data)
-summary(fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
+summary_fit <- summary(fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
+reliability(fit)
+
+# schematy równań strukturalnych
+semPaths(object = fit,
+         whatLabels = "std",           
+         edge.label.cex = 1,           
+         layout = "tree",          
+         what = "std", edge.color = "black")
+
+# modificationIndices(fit, standardized = T, sort = T)
 
 # NIE MOŻNA ZNALEŹĆ ROZWIĄZANIA
 configural <- cfa(model, data=dem_data, group="country")
@@ -130,6 +117,8 @@ summary(configural, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
 ###
 
 measurementInvariance(model = model, data = dem_data, group="country")
+
+
 
 # Podział na grupy wg. drzewa
 
@@ -151,6 +140,13 @@ summary(group1_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
 
 measurementInvariance(model = group1_model, data = group1_data, group="country")
 
+# schemat równań strukturalnych
+semPaths(object = group1_fit,
+         whatLabels = "std",           
+         edge.label.cex = 1,           
+         layout = "tree",          
+         what = "std", edge.color = "black")
+
 
 # GRUPA 2
 group2_countries <- countries[tree == 2]
@@ -170,6 +166,12 @@ summary(group2_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
 
 measurementInvariance(model = group2_model, data = group2_data, group="country")
 
+# schemat równań strukturalnych
+semPaths(object = group2_fit,
+         whatLabels = "std",           
+         edge.label.cex = 1,           
+         layout = "tree",          
+         what = "std", edge.color = "black")
 
 # GRUPA 3
 group3_countries <- countries[tree == 3]
@@ -188,6 +190,13 @@ group3_fit <- cfa(group3_model, data = group3_data)
 summary(group3_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
 
 measurementInvariance(model = group3_model, data = group3_data, group="country")
+
+# schemat równań strukturalnych
+semPaths(object = group3_fit,
+         whatLabels = "std",           
+         edge.label.cex = 1,           
+         layout = "tree",          
+         what = "std", edge.color = "black")
 
 
 # Próba z najbliższą podgrupą
