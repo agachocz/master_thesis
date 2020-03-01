@@ -88,6 +88,20 @@ countries[tree == 3]
 cor.matrix <- cor(dem_data[,2:11], method="spearman")
 corrplot(cor.matrix, method="circle", order='hclust')
 
+# Test losowości
+cor.vec <- vector()
+
+for(i in 2:10){
+  cor.vec <- c(cor.vec, cor.matrix[i, 1:(i-1)])   
+}
+
+uniform <- runif(45, -1, 1)
+
+test_unif <- ks.test(cor.vec, uniform)
+
+
+
+
 
 # Struktura modelu
 model <- '
