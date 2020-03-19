@@ -16,15 +16,15 @@ countries <- data.frame(country_nr, country_name)
 
 
 # wszystkie kraje
-country_nr <- c(12, 31, 32, 36, 48, 51, 76, 112, 152, 156, 158, 170, 196, 218, 233, 268, 275, 276, 288, 332, 344, 
-                356, 368, 392, 398, 400, 410, 414, 417, 422, 434, 458, 484, 504, 554, 566, 586, 604, 608, 616, 642,
-                643, 646, 702, 710, 716, 752, 764, 788, 792, 804, 818, 840, 858, 860, 887)
-country_name <- c("Algeria",  "Azerbaijan", "Argentina",  "Australia",  "Bahrain",  "Armenia",  "Brazil", "Belarus",  "Chile",
-                  "China",  "Taiwan", "Colombia", "Cyprus", "Ecuador", "Estonia", "Georgia",  "Palestine",  "Germany", "Ghana",
-                  "Haiti",  "Hong Kong",  "India",  "Iraq", "Japan",  "Kazakhstan", "Jordan", "South Korea", "Kuwait", "Kyrgyzstan",
-                  "Lebanon",  "Libya",  "Malaysia", "Mexico", "Morocco", "New Zealand", "Nigeria", "Pakistan",  "Peru",  "Philippines",  
-                  "Poland", "Romania",  "Russia", "Rwanda", "Singapore", "South Africa", "Zimbabwe", "Sweden", "Thailand",  "Tunisia",
-                  "Turkey", "Ukraine",  "Egypt",  "United States",  "Uruguay",  "Uzbekistan", "Yemen")
+#country_nr <- c(12, 31, 32, 36, 48, 51, 76, 112, 152, 156, 158, 170, 196, 218, 233, 268, 275, 276, 288, 332, 344, 
+#                356, 368, 392, 398, 400, 410, 414, 417, 422, 434, 458, 484, 504, 554, 566, 586, 604, 608, 616, 642,
+#                643, 646, 702, 710, 716, 752, 764, 788, 792, 804, 818, 840, 858, 860, 887)
+#country_name <- c("Algeria",  "Azerbaijan", "Argentina",  "Australia",  "Bahrain",  "Armenia",  "Brazil", "Belarus",  "Chile",
+#                  "China",  "Taiwan", "Colombia", "Cyprus", "Ecuador", "Estonia", "Georgia",  "Palestine",  "Germany", "Ghana",
+#                  "Haiti",  "Hong Kong",  "India",  "Iraq", "Japan",  "Kazakhstan", "Jordan", "South Korea", "Kuwait", "Kyrgyzstan",
+#                  "Lebanon",  "Libya",  "Malaysia", "Mexico", "Morocco", "New Zealand", "Nigeria", "Pakistan",  "Peru",  "Philippines",  
+#                  "Poland", "Romania",  "Russia", "Rwanda", "Singapore", "South Africa", "Zimbabwe", "Sweden", "Thailand",  "Tunisia",
+#                  "Turkey", "Ukraine",  "Egypt",  "United States",  "Uruguay",  "Uzbekistan", "Yemen")
 
 
 dem_data <- data %>% select(country = V2,
@@ -81,12 +81,21 @@ countries[tree == 1]
 countries[tree == 2]
 countries[tree == 3]
 
-
+sil <- silhouette(tree, clustering$diss)
+windows()
+plot(sil)
 
 # analiza CFA
 
 cor.matrix <- cor(dem_data[,2:11], method="spearman")
+cortest.bartlett(cor.matrix, n = dim(dem_data)[1])
+
 corrplot(cor.matrix, method="circle", order='hclust')
+
+
+
+
+
 
 # Test losowości
 cor.vec <- vector()
@@ -143,6 +152,16 @@ group1_data <- dem_data %>% filter(country %in% group1_countries)
 group1_cor <- cor(group1_data[,2:11], method="spearman")
 corrplot(group1_cor, method="circle", order='hclust')
 
+# Test losowości
+cor.vec <- vector()
+
+for(i in 2:10){
+  cor.vec <- c(cor.vec, group1_cor[i, 1:(i-1)])   
+}
+
+test_unif_1 <- ks.test(cor.vec, uniform)
+cortest.bartlett(group1_cor, n = dim(dem_data)[1])
+
 # Struktura modelu dla pierwszej grupy
 group1_model <- '
 fundam_econ =~ obeyRulers + religiousLaw + armyTakesOver + 
@@ -168,6 +187,16 @@ group2_data <- dem_data %>% filter(country %in% group2_countries)
 
 group2_cor <- cor(group2_data[,2:11], method="spearman")
 corrplot(group2_cor, method="circle", order='hclust')
+cortest.bartlett(group2_cor, n = dim(dem_data)[1])
+
+# Test losowości
+cor.vec <- vector()
+
+for(i in 2:10){
+  cor.vec <- c(cor.vec, group2_cor[i, 1:(i-1)])   
+}
+
+test_unif_2 <- ks.test(cor.vec, uniform)
 
 # Struktura modelu dla pierwszej grupy
 group2_model <- '
@@ -193,6 +222,17 @@ group3_data <- dem_data %>% filter(country %in% group3_countries)
 
 group3_cor <- cor(group3_data[,2:11], method="spearman")
 corrplot(group3_cor, method="circle", order='hclust')
+cortest.bartlett(group3_cor, n = dim(dem_data)[1])
+
+# Test losowości
+cor.vec <- vector()
+
+for(i in 2:10){
+  cor.vec <- c(cor.vec, group3_cor[i, 1:(i-1)])   
+}
+
+test_unif_3 <- ks.test(cor.vec, uniform)
+
 
 # Struktura modelu dla pierwszej grupy
 group3_model <- '
