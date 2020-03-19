@@ -160,7 +160,7 @@ for(i in 2:10){
 }
 
 test_unif_1 <- ks.test(cor.vec, uniform)
-cortest.bartlett(group1_cor, n = dim(dem_data)[1])
+cortest.bartlett(group1_cor, n = dim(group1_data)[1])
 
 # Struktura modelu dla pierwszej grupy
 group1_model <- '
@@ -187,7 +187,7 @@ group2_data <- dem_data %>% filter(country %in% group2_countries)
 
 group2_cor <- cor(group2_data[,2:11], method="spearman")
 corrplot(group2_cor, method="circle", order='hclust')
-cortest.bartlett(group2_cor, n = dim(dem_data)[1])
+cortest.bartlett(group2_cor, n = dim(group2_data)[1])
 
 # Test losowości
 cor.vec <- vector()
@@ -222,7 +222,7 @@ group3_data <- dem_data %>% filter(country %in% group3_countries)
 
 group3_cor <- cor(group3_data[,2:11], method="spearman")
 corrplot(group3_cor, method="circle", order='hclust')
-cortest.bartlett(group3_cor, n = dim(dem_data)[1])
+cortest.bartlett(group3_cor, n = dim(group3_data)[1])
 
 # Test losowości
 cor.vec <- vector()
