@@ -17,7 +17,7 @@ cortest.bartlett(east_cor, n = dim(east_data)[1])
 east_model <- '
 fundamentalistic =~ obeyRulers + religiousLaw + armyTakesOver;
 economic =~ taxRich + equalIncome + helpUnemp;
-liberal =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
+liberal =~ freeElection + genderEquality + civilRights + importance + helpUnemp + taxRich'
 
 east_fit <- cfa(east_model, data = east_data)
 summary(east_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
