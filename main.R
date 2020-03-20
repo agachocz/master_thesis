@@ -74,6 +74,12 @@ dem_data$country <- mapvalues(dem_data$country, from = country_nr, to = country_
 
 head(dem_data)
 
+# Ogólne wykresy odpowiedzi
+dem_data %>% 
+  gather(key = "variable", value = "answer", -country, factor_key = T) %>%
+  ggplot(aes(answer)) + geom_histogram(bins = 10, col = "black") +
+  facet_wrap(~variable, nrow = 5, scales = "free")
+
 
 # Braki niektórych poziomów
 
