@@ -97,21 +97,6 @@ corrplot(cor.matrix, method="circle", order='hclust')
 
 
 
-# Test losowości
-cor.vec <- vector()
-
-for(i in 2:10){
-  cor.vec <- c(cor.vec, cor.matrix[i, 1:(i-1)])   
-}
-
-uniform <- runif(45, -1, 1)
-
-test_unif <- ks.test(cor.vec, uniform)
-
-
-
-
-
 # Struktura modelu
 model <- '
 fundamentalistic =~ obeyRulers + religiousLaw + armyTakesOver + equalIncome;
@@ -119,7 +104,7 @@ economic =~ taxRich + equalIncome + helpUnemp;
 liberal =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
 
 
-fit <- cfa(model, data = dem_data)
+fit <- cfa(model, data = dem_data, estimator = "MLR")
 summary_fit <- summary(fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
 reliability(fit)
 
@@ -133,13 +118,8 @@ semPaths(object = fit,
 # modificationIndices(fit, standardized = T, sort = T)
 
 # NIE MOŻNA ZNALEŹĆ ROZWIĄZANIA
-configural <- cfa(model, data=dem_data, group="country")
-weak <- cfa(model, data=dem_data, group="country", group.equal="loadings")
 
-summary(configural, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
-###
-
-measurementInvariance(model = model, data = dem_data, group="country")
+measurementInvariance(model = model, data = dem_data, group="country", estimator = "MLR")
 
 
 
@@ -152,26 +132,18 @@ group1_data <- dem_data %>% filter(country %in% group1_countries)
 group1_cor <- cor(group1_data[,2:11], method="spearman")
 corrplot(group1_cor, method="circle", order='hclust')
 
-# Test losowości
-cor.vec <- vector()
-
-for(i in 2:10){
-  cor.vec <- c(cor.vec, group1_cor[i, 1:(i-1)])   
-}
-
-test_unif_1 <- ks.test(cor.vec, uniform)
 cortest.bartlett(group1_cor, n = dim(group1_data)[1])
 
 # Struktura modelu dla pierwszej grupy
 group1_model <- '
-fundam_econ =~ obeyRulers + religiousLaw + armyTakesOver + 
-                taxRich + equalIncome + helpUnemp;
+fundamentalistic =~ obeyRulers + religiousLaw + armyTakesOver;
+economic =~ taxRich + equalIncome + helpUnemp + obeyRulers;
 liberal =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
 
-group1_fit <- cfa(group1_model, data = group1_data)
+group1_fit <- cfa(group1_model, data = group1_data, estimator = "MLR")
 summary(group1_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
-
-measurementInvariance(model = group1_model, data = group1_data, group="country")
+reliability(group1_fit)
+measurementInvariance(model = group1_model, data = group1_data, group="country", estimator = "MLR")
 
 # schemat równań strukturalnych
 semPaths(object = group1_fit,
@@ -189,14 +161,6 @@ group2_cor <- cor(group2_data[,2:11], method="spearman")
 corrplot(group2_cor, method="circle", order='hclust')
 cortest.bartlett(group2_cor, n = dim(group2_data)[1])
 
-# Test losowości
-cor.vec <- vector()
-
-for(i in 2:10){
-  cor.vec <- c(cor.vec, group2_cor[i, 1:(i-1)])   
-}
-
-test_unif_2 <- ks.test(cor.vec, uniform)
 
 # Struktura modelu dla pierwszej grupy
 group2_model <- '
@@ -204,10 +168,10 @@ fundamentalistic =~ obeyRulers + religiousLaw + armyTakesOver;
 economic =~ taxRich + equalIncome + helpUnemp;
 liberal =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
 
-group2_fit <- cfa(group2_model, data = group2_data)
+group2_fit <- cfa(group2_model, data = group2_data, estimator = "MLR")
 summary(group2_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
-
-measurementInvariance(model = group2_model, data = group2_data, group="country")
+reliability(group2_fit)
+measurementInvariance(model = group2_model, data = group2_data, group="country", estimator = "MLR")
 
 # schemat równań strukturalnych
 semPaths(object = group2_fit,
@@ -224,26 +188,18 @@ group3_cor <- cor(group3_data[,2:11], method="spearman")
 corrplot(group3_cor, method="circle", order='hclust')
 cortest.bartlett(group3_cor, n = dim(group3_data)[1])
 
-# Test losowości
-cor.vec <- vector()
-
-for(i in 2:10){
-  cor.vec <- c(cor.vec, group3_cor[i, 1:(i-1)])   
-}
-
-test_unif_3 <- ks.test(cor.vec, uniform)
 
 
 # Struktura modelu dla pierwszej grupy
 group3_model <- '
 fundamentalistic =~ obeyRulers + religiousLaw + armyTakesOver; 
 liberal_economic =~ taxRich + equalIncome + helpUnemp +
-                     freeElection + genderEquality + civilRights + importance'
+                     freeElection + genderEquality + civilRights + importance + obeyRulers'
 
-group3_fit <- cfa(group3_model, data = group3_data)
+group3_fit <- cfa(group3_model, data = group3_data, estimator = "MLR")
 summary(group3_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
-
-measurementInvariance(model = group3_model, data = group3_data, group="country")
+reliability(group3_fit)
+measurementInvariance(model = group3_model, data = group3_data, group="country", estimator = "MLR")
 
 # schemat równań strukturalnych
 semPaths(object = group3_fit,
