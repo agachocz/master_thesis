@@ -141,7 +141,7 @@ economic =~ taxRich + equalIncome + helpUnemp + obeyRulers;
 liberal =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
 
 group1_fit <- cfa(group1_model, data = group1_data, estimator = "MLR")
-summary(group1_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
+group1_summary <- summary(group1_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
 reliability(group1_fit)
 measurementInvariance(model = group1_model, data = group1_data, group="country", estimator = "MLR")
 
@@ -169,7 +169,7 @@ economic =~ taxRich + equalIncome + helpUnemp;
 liberal =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
 
 group2_fit <- cfa(group2_model, data = group2_data, estimator = "MLR")
-summary(group2_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
+group2_summary <- summary(group2_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
 reliability(group2_fit)
 measurementInvariance(model = group2_model, data = group2_data, group="country", estimator = "MLR")
 
@@ -197,7 +197,7 @@ liberal_economic =~ taxRich + equalIncome + helpUnemp +
                      freeElection + genderEquality + civilRights + importance + obeyRulers'
 
 group3_fit <- cfa(group3_model, data = group3_data, estimator = "MLR")
-summary(group3_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
+group3_summary <- summary(group3_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
 reliability(group3_fit)
 measurementInvariance(model = group3_model, data = group3_data, group="country", estimator = "MLR")
 
