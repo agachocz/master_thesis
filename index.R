@@ -21,8 +21,8 @@ all_stats <- dem_data %>% mutate(fnd = (obeyRulers*fnd_all_w[1]+religiousLaw*fnd
                     lib = (freeElection*lib_all_w[1]+genderEquality*lib_all_w[2]+
                     civilRights*lib_all_w[3]+importance*lib_all_w[4]+
                       helpUnemp*lib_all_w[5])/sum(lib_all_w)) %>%
-            mutate(leading = if_else( (fnd > econ) && (fnd > lib), "fundamentalistic",
-                             if_else( (econ > lib) && (econ > fnd), "economic", "liberal")))
+            mutate(leading = if_else(fnd > econ, if_else(fnd > lib, "fundamentalistic", "liberal"),
+                             if_else(econ > lib, "economic", "liberal")))
 
 
 all_stats_summary <- all_stats %>% summarise(fnd_mean = mean(fnd), 
@@ -41,7 +41,7 @@ levels <- c("fundamentalistic", "economic", "liberal")
 all_stats$leading <- factor(all_stats$leading, levels)
 
 bar <- all_stats %>% select(leading) %>% 
-              ggplot() + geom_bar(aes(leading, fill = "leading"), fill="gray") + 
+              ggplot() + geom_bar(aes(leading, fill = "leading"), fill=c("blue", "yellow", "grey")) + 
               scale_x_discrete(drop=F)
         
 
@@ -71,8 +71,8 @@ gr2_stats <- group2_data %>% mutate(fnd = (obeyRulers*fnd_2_w[1]+religiousLaw*fn
                                  lib = (freeElection*lib_2_w[1]+genderEquality*lib_2_w[2]+
                                           civilRights*lib_2_w[3]+importance*lib_2_w[4]+
                                           helpUnemp*lib_2_w[5])/sum(lib_2_w)) %>%
-  mutate(leading = if_else( (fnd > econ) && (fnd > lib), "fundamentalistic",
-                   if_else( (econ > lib) && (econ > fnd), "economic", "liberal")))
+  mutate(leading = if_else(fnd > econ, if_else(fnd > lib, "fundamentalistic", "liberal"),
+                           if_else(econ > lib, "economic", "liberal")))
 
 
 bxp <- gr2_stats %>% select(fnd, econ, lib) %>% gather(key="concept", value="value") %>%
@@ -83,7 +83,7 @@ levels <- c("fundamentalistic", "economic", "liberal")
 gr2_stats$leading <- factor(gr2_stats$leading, levels)
 
 bar <- gr2_stats %>% select(leading) %>% 
-  ggplot() + geom_bar(aes(leading, fill = "leading"), fill="gray") + 
+  ggplot() + geom_bar(aes(leading, fill = "leading"), fill= c("blue", "yellow", "grey")) + 
   scale_x_discrete(drop=F)
 
 
@@ -114,8 +114,12 @@ gr1_stats <- group1_data %>% mutate(fnd = (obeyRulers*fnd_1_w[1]+religiousLaw*fn
                                     lib = (freeElection*lib_1_w[1]+genderEquality*lib_1_w[2]+
                                              civilRights*lib_1_w[3]+importance*lib_1_w[4]+
                                              helpUnemp*lib_1_w[5])/sum(lib_1_w)) %>%
-  mutate(leading = if_else( (fnd > econ) && (fnd > lib), "fundamentalistic",
-                            if_else( (econ > lib) && (econ > fnd), "economic", "liberal")))
+  mutate(leading = if_else(fnd > econ, if_else(fnd > lib, "fundamentalistic", "liberal"),
+                           if_else(econ > lib, "economic", "liberal")))
+
+gr1_stats_summary <- gr1_stats %>% summarise(fnd_mean = mean(fnd), 
+                                             econ_mean = mean(econ),
+                                             lib_mean = mean(lib))
 
 
 bxp <- gr1_stats %>% select(fnd, econ, lib) %>% gather(key="concept", value="value") %>%
@@ -126,7 +130,7 @@ levels <- c("fundamentalistic", "economic", "liberal")
 gr1_stats$leading <- factor(gr1_stats$leading, levels)
 
 bar <- gr1_stats %>% select(leading) %>% 
-  ggplot() + geom_bar(aes(leading, fill = "leading"), fill="gray") + 
+  ggplot() + geom_bar(aes(leading, fill = "leading"), fill=c("blue", "yellow", "grey")) + 
   scale_x_discrete(drop=F)
 
 
@@ -157,6 +161,8 @@ gr3_stats <- group3_data %>% mutate(fnd = (obeyRulers*fnd_3_w[1]+religiousLaw*fn
                                     importance*lib_econ_3_w[7]+obeyRulers*lib_econ_3_w[8])/sum(lib_econ_3_w)) %>%
   mutate(leading = if_else( (fnd >= lib_econ), "fundamentalistic","economic-liberal"))
 
+gr3_stats_summary <- gr3_stats %>% summarise(fnd_mean = mean(fnd), 
+                                             lib_econ_mean = mean(lib_econ))
 
 bxp <- gr3_stats %>% select(fnd, lib_econ) %>% gather(key="concept", value="value") %>%
   ggboxplot(x = "concept", y = "value",

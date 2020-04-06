@@ -82,8 +82,9 @@ countries[tree == 2]
 countries[tree == 3]
 
 sil <- silhouette(tree, clustering$diss)
+
 windows()
-plot(sil)
+plot(sil, col = c("green", "blue", "red"), border = "black")
 
 # analiza CFA
 
