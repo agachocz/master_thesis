@@ -1,0 +1,197 @@
+% !TeX program = pdfLaTeX
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx,psfrag,epsf}
+\usepackage{enumerate}
+\usepackage{natbib}
+\usepackage{textcomp}
+\usepackage[hyphens]{url} % not crucial - just used below for the URL
+\usepackage{hyperref}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%\pdfminorversion=4
+% NOTE: To produce blinded version, replace "0" with "1" below.
+\newcommand{\blind}{0}
+
+% DON'T change margins - should be 1 inch all around.
+\addtolength{\oddsidemargin}{-.5in}%
+\addtolength{\evensidemargin}{-.5in}%
+\addtolength{\textwidth}{1in}%
+\addtolength{\textheight}{1.3in}%
+\addtolength{\topmargin}{-.8in}%
+
+%% load any required packages here
+
+
+
+
+\usepackage[T1]{fontenc}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\begin{document}
+
+
+\def\spacingset#1{\renewcommand{\baselinestretch}%
+{#1}\small\normalsize} \spacingset{1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\if0\blind
+{
+  \title{\bf Zagadnienie równoważności pomiarowej w badaniach różnic w postrzeganiu demokracji w UE.}
+
+  \author{
+        Agnieszka Choczyńska \\
+    \\
+      }
+  \maketitle
+} \fi
+
+\if1\blind
+{
+  \bigskip
+  \bigskip
+  \bigskip
+  \begin{center}
+    {\LARGE\bf Zagadnienie równoważności pomiarowej w badaniach różnic w postrzeganiu demokracji w UE.}
+  \end{center}
+  \medskip
+} \fi
+
+\bigskip
+\begin{abstract}
+The text of your abstract. 200 or fewer words.
+\end{abstract}
+
+\noindent%
+{\it Keywords:} measurement invariance, factor analysis, democracy, Europe
+\vfill
+
+\newpage
+\spacingset{1.45} % DON'T change the spacing!
+
+\hypertarget{wprowadzenie}{%
+\section*{Wprowadzenie}\label{wprowadzenie}}
+\addcontentsline{toc}{section}{Wprowadzenie}
+
+Słowo ``demokracja'' jest odmieniane przez wszystkie przypadki w deklaracjach polityków, na demonstracjach, w mediach i w codziennych rozmowach. Niejednokrotnie przedmiot tych wypowiedzi wychodzi daleko poza zwięzłą, przyjętą przez politologów definicję, tj. demokracja to system, w którym obywatele mogą przyjąć lub odrzucić elity mające nimi rządzić \citep{Schumpeter}. Rozdźwięk między formalną definicją a społecznym postrzeganiem zjawiska nie jest niczym niezwykłym, jednak w tym przypadku nabiera szczególnego znaczenia. Choć Ziemia nie przestanie krążyć wokół Słońca, nawet gdyby cała ludzkość uważała inaczej, to kształt systemów demokratycznych zależy od tego, jak ich obywatele wyobrażają sobie demokrację.
+
+Problem ma szczególne znaczenie w badaniach naukowych, w których dokonywana jest ocena demokratyczności państw lub nastawienia do demokracji grup czy całych społeczeństw, aby następnie porównywać je między sobą. Jest to zawsze odniesienie do jednej, eksperckiej koncepcji demokracji, więc nie pozwala na pełne zrozumienie wyborów ludzi, którzy kierują się funkcjonującymi w ich społecznościach koncepcjami, niekoniecznie ``poprawnymi'' i niekoniecznie ponadnarodowymi.
+
+Dlatego jest tak ważne, żeby wciąż badać, czym demokracja w społecznym przekonaniu tak naprawdę jest. Ta praca stawia sobie na cel eksplorację przekonań mieszkańców Europy na temat istoty demokracji, wyrażonych w odpowiedziach na ankietę World Values Survey. Na tej podstawie zostanie podjęta próba skonstruowania społecznych koncepcji demokracji, pozwalających wyrazić liczbowo siłę tych przekonań.
+
+Struktura pracy jest następująca: w pierwszym rozdziale przedstawiono pokrótce dotychczasowe sposoby definiowania i mierzenia demokracji, zarówno na podstawie wiedzy eksperckiej jak i dzięki analizie danych zebranych w badaniach społecznych. W rozdziale drugim omówiono model analizy czynnikowej, który zostanie wykorzystany w badaniu, oraz zagadnienie równoważności pomiarowej, która jest warunkiem przeprowadzania analizy międzygrupowej. W następnych rozdziałach opisano kolejne etapy badania wraz z wynikami i wnioskami z analizy.
+
+\hypertarget{iloux15bciowe-badania-nad-demokracjux105-w-literaturze-przedmiotu}{%
+\section{Ilościowe badania nad demokracją w literaturze przedmiotu}\label{iloux15bciowe-badania-nad-demokracjux105-w-literaturze-przedmiotu}}
+
+\hypertarget{motywacje-iloux15bciowego-badania-demokracji}{%
+\subsection{Motywacje ilościowego badania demokracji}\label{motywacje-iloux15bciowego-badania-demokracji}}
+
+Potrzeba ilościowego wyrażenia stopnia zdemokratyzowania państwa narodziła się w drugiej połowie XX wieku w Stanach Zjednoczonych Ameryki. Według panującego wówczas paradygmatu, państwa demokratyczne charakteryzują się mniejszą skłonnością do prowadzenia wojen, zwłaszcza przeciwko innym demokracjom. Dla ludzi odpowiedzialnych za politykę zagraniczną USA, podwyższenie poziomu demokracji w kluczowych regionach było niezbędne do zapewnienia pokoju \citep{Doorenspleet}.
+
+Stąd zrodziła się potrzeba stworzenia wskaźnika demokratyczności, który pozwalałby porównywać państwa pod tym kątem, określać, jak daleko są od ``idealnej'' demokracji, oraz oceniać po czasie wyniki podjętych działań. Wyrażenie takiej własności liczbą otwiera również szerokie możliwości tworzenia modeli, w których stopień zdemokratyzowania państwa występuje jako zmienna objaśniana lub objaśniająca, co pozwala wyjaśniać przyczyny, skutki i własności demokracji w sposób dużo bardziej ścisły, poprawny metodologicznie oraz możliwy do zreprodukowania przez innych badaczy.
+
+Między innymi dzięki tym możliwościom, bezpośredni związek stopnia demokratyzacji państwa z jego skłonnością do wojen został przez wielu badaczy podważony lub uznany za słabszy niż inne czynniki, np. wolnorynkowość czy stabilność struktur władzy \citep{Doorenspleet}. Wciąż, demokracja jest przedmiotem intensywnych badań socjologów i politologów. A fakt, że badacze interesują się zrozumieniem zjawiska samego w sobie, a nie tylko kontekstem polityki zagranicznej danego państwa, wymusza bliższe przyjrzenie się kwestii obiektywności takich badań.
+
+Zachowanie obiektywności nie jest w tym przypadku proste, z kilku powodów.
+
+Po pierwsze, ustrój polityczny dotyczy tak wielkich jednostek jak państwa, wobec czego badania nad demokracją, które muszą uwzględnić wiele krajów, borykają się ze wszystkimi problemami dotyczącymi różnic kulturowych i językowych.
+
+Po drugie, problematyczna jest sama kwestia definiowania demokracji. W klasycznym rozumieniu jej istotą była władza w rękach ludu, nadanie obywatelom prawa do decydowania o sprawach politycznych. W latach 40. XX w. zaczęło dominować alternatywne podejście, zaproponowane przez J. Schumpetera. Jego zdaniem, \emph{``demokracja oznacza tylko tyle, że ludzie mają możliwość zaakceptować lub odrzucić tych, którzy mają nimi rządzić''} \citep{Schumpeter}. Społeczeństwo jako całość nie musi w jakikolwiek czynny sposób angażować się w politykę; jedynie wyznaczać elity, które będą się tym zajmować. Partycypacja, kluczowa w klasycznej definicji, dla Schumpetera była nieistotna, lub nawet szkodliwa. Taką koncepcję nazywa się elektoralną.
+
+Wymienia się jeszcze kilka innych, szeroko wykorzystywanych podejść, które przedstawia tabela Tabela 1.
+
+Tabela 1: Koncepcje demokracji. Źródło \citep{Coppedge}
+
+\begin{longtable}{l|>{\raggedright\arraybackslash}p{30em}}
+\hline
+Typ demokracji &  Postulaty\\
+\hline
+liberalna & wolności obywatelskie, prawa mniejszości, praworządność i przejrzystość, możliwość kontrolowania rządzących\\
+\hline
+większościowa & najważniejsza jest wola większości, silna, jednostkowa władza\\
+\hline
+bezpośrednia & jak największy udział obywateli w bezpośrednim podejmowaniu decyzji (w kontraście do wybierania przedstawicieli)\\
+\hline
+deliberatywna & decyzje podejmowane w drodze dyskusji i wypracowywania konsensusu (w kontraście do przegłosowania przeciwników)\\
+\hline
+egalitarna & równość w prawach, ale też dostępie do zasobów; każdy obywatel ma szansę w takim samym stopniu korzystać ze wspólnego państwa\\
+\hline
+\end{longtable}
+
+Po trzecie wreszcie, badacze zauważają, że pojęcie demokracji jest silnie nacechowane emocjonalnie \citep{JaskoKoss}. Ludzie mają skłonność do uznawania demokracji nie za jedną z możliwych form systemu politycznego, ale raczej za stan idealny. Stąd tak wiele państw, które mają demokrację w nazwie, a są powszechnie uważane za autorytarne. Można by powiedzieć w uproszczeniu, że ludzie zawsze są za demokracją, tylko zazwyczaj ta demokracja ma niewiele wspólnego z którąkolwiek z definicji. Z jednej strony powoduje to przypisanie do czysto politycznego pojęcia demokracji licznych postulatów o charakterze gospodarczym czy etycznym. Z drugiej, przyjęcie jednej definicji, stworzonej przez człowieka ukształtowanego w określonej kulturze, zamyka na faktyczną różnorodność zjawiska demokracji.
+
+Według minimalistycznej definicji, istotą demokracji jest mechanizm wykorzystania argumentu siły bez używania przemocy. Akceptuje się wolę większości, nie dlatego, że większość ma rację, ale dlatego, że bunt wobec tej woli oznacza bunt wobec przeważającej siły - mimo, że współcześnie siła zależy bardziej od przewagi technicznej niż liczebności \citep{Przeworski}. Głos jest walutą władzy; demokracja była rewolucją ustrojową na miarę wynalezienia pieniądza w gospodarce. Jak jednak zauważa dalej Przeworski, trwałość i jakość demokracji zależą od szeregu czynników, zarówno politycznych, jak i ekonomicznych. Dlatego warto spróbować określić istotę demokracji nie od strony mechanizmu przekazywania władzy, ale od strony oczekiwań, jakie ma ten mechanizm spełnić. Ponieważ właśnie to, a nie minimalistyczna definicja, może pomóc odpowiedzieć na pytanie, dlaczego demokracja bywa popierana albo odrzucana.
+
+\hypertarget{wskaux17aniki-demokracji}{%
+\subsection{Wskaźniki demokracji}\label{wskaux17aniki-demokracji}}
+
+Zdecydowana większość wskaźników demokracji jest tworzona na podstawie oceny ekspertów. Obliczenie wartości polega na przyznaniu państwu punktów za każdy spełniony standard demokratyczny oraz pewną procedurę agregacji. To oznacza, że każdy przypadek porównuje się z pewną, wybraną przez twórców metody, koncepcją demokracji. Istnieją wskaźniki oceniające państwa według minimalistycznej koncepcji, w skali binarnej (jest demokracją lub nie jest), ale ze względu na swoją prostotę mają zastosowanie głównie przy badaniu ciągłości demokracji \citep{Coppedge}. Do celu porównywania ze sobą różnych państw demokratycznych powstały inne wskaźniki, oparte o węższe koncepcje.
+
+Jeden z najczęściej używanych jest obliczany co roku przez amerykańską organizację Freedom House, powiązaną z CIA \citep{Doorenspleet}. Freedom House Index (FH) wykorzystuje 7-stopniową skalę do oceny praw politycznych oraz obywatelskich (im niższa ocena, tym lepiej). Pomimo, że według intencji twórców nie miał być nawet wskaźnikiem demokracji, to jest jako taki powszechnie wykorzystywany przez badaczy \citep{Coppedge}, ponieważ wyraża własności obecnie dominującej koncepcji liberalnej. Inne wskaźniki mogą nieco różnić się konstrukcją oraz skalą, ale generalnie opierają się o tę samą metodykę.
+
+Przede wszystkim zakładają, że przeciwieństwem demokracji jest system autorytarny, i pozwalają umiejscowić każde badane państwo na osi autorytaryzm - demokracja. Przejście jest tonalne, nie ma ścisłego punktu, od którego kraj jest klasyfikowany jako któraś z tych dwóch opcji. Ponadto mniej więcej środek skali określa się jako odrębny typ ustroju, tak zwaną demokrację hybrydową, w której łączą się pewne rozwiązania z obu skrajnych typów \citep{Doorenspleet}.
+
+Wskaźniki demokracji weszły do powszechnego użytku, ale doczekały się też krytyki. Argumentowano, że zbyt mocno opierają się na procedurach i formalnym stanie prawnym, a za mało na stanie faktycznym, oraz że zbyt ogólne i niejednoznaczne kryteria pozwalają wystawiającym ocenę projektować swoje wyobrażenia o demokratyczności państw na liczbę punktów \citep{Coppedge}. Szczególnie wobec FH pojawiły się również zarzuty konserwatywnego i pro-rynkowego skrzywienia, oraz zaniżania oceny dla lewicowych i muzułmańskich rządów \citep{Doorenspleet}. To by oznaczało, że wskaźnik nie ocenia wyłącznie stopnia spełnienia bardzo szerokiej, lecz precyzyjnej definicji, ale też nie uwzględnia całej istniejącej różnorodności systemów demokratycznych.
+
+\hypertarget{spoux142eczna-koncepcja-demokracji}{%
+\subsection{Społeczna koncepcja demokracji}\label{spoux142eczna-koncepcja-demokracji}}
+
+Zupełnie innym podejściem do mierzenia demokracji jest oparcie wskaźnika o zdanie samych obywateli. Nie jest to alternatywny sposób na osiągnięcie tego samego celu, ale raczej próba badania demokracji takiej, jaka jest - niekoniecznie zgodnej z definicją, za to odzwierciedlającej zamysł ludzi, którzy ją wprowadzali i podtrzymywali.
+
+Jak wskazuje \citet{Campbell}, u podstaw poparcia dla demokracji i demokratycznych rządów leży proces modernizacji, który dotknął każdej dziedziny ludzkiego życia, przez co zmiany stały się właściwie ``sprawą każdego''. Jako wskazywane przez badaczy wyjaśnienia tego poparcia podaje: a) zaangażowanie w działalność społeczną, która \emph{``zapewnia antidotum na uczucie apatii i alienacji, oraz projektuje atmosferę zaufania na organy rządowe''}\footnote{Tłumaczenie własne}, b) czynniki ekonomiczne - sprzyjająca sytuacja powoduje wyższe poparcie, które spada w trudniejszych czasach, c) czynniki behawioralne, które powodują, że ludzie generalnie popierają wygrywających.
+
+Badania przeprowadzone na polskim gruncie również wykazały utożsamianie demokracji z realizowaniem określonego zestawu wartości (standard wolności) albo ``zapewnieniem obywatelom bezpieczeństwa, dobrych warunków życia i rozwiązaniem problemów uboższych członków społeczeństwa'' (standard opiekuńczości) \citep{JaskoKoss}.
+
+Poparcie demokracji nie wynika więc głównie z jej własności ściśle politycznych, ale częściowo z tego, że jest opcją, która się przyjęła, a częściowo ze względu na poczucie wolności obywatelskiej i bezpieczeństwa ekonomicznego, z którymi się wiąże.
+
+\hypertarget{modele-teoretyczne---miux119dzygrupowa-analiza-czynnikowa}{%
+\section{Modele teoretyczne - Międzygrupowa analiza czynnikowa}\label{modele-teoretyczne---miux119dzygrupowa-analiza-czynnikowa}}
+
+\hypertarget{model-analizy-czynnikowej}{%
+\subsection{Model analizy czynnikowej}\label{model-analizy-czynnikowej}}
+
+W naukach społecznych bardzo często badacze zajmują się własnościami, które nie są mierzalne. Ich istnienia można się domyślać, obserwując wpływ jaki wywierają na poziom innych, mierzalnych własności. Taka własnością jest również społeczna koncepcja demokracji, której kształt i wpływ można badać wyłącznie przez badanie poglądów poszczególnych członków społeczeństwa. Metoda została sformalizowana w postaci analizy czynnikowej przez psychologów, takich jak Spearman, Thomson, Thurstone i Burt \citep{Everitt}.
+
+Ogólna postać modelu czynnikowego została opisana układem równań \ref{eq:latent-model}. Czynniki (inaczej określane jako zmienne ukryte lub latentne) \(\lambda\) wpływają na zmienne mierzalne \(X\) z siłą wyrażoną ładunkami czynnikowymi \(\alpha\), zgodnie z układem równań \ref{eq:latent-model}.
+
+\begin{equation}
+\label{eq:latent-model}
+\begin{aligned} 
+x_1 = \alpha_01 + \alpha_11 \lambda_1 + ... + \alpha_k1 \lambda_k + \epsilon_1\\
+...\\
+x_p = \alpha_0p + \alpha_1p \lambda_1 + ... + \alpha_kp \lambda_k + \epsilon_p\\
+\end{aligned}
+\end{equation}
+
+Każdy element \(x\) oraz \(\epsilon\) jest n-elementowym wektorem. Zakładamy, że zmienne mierzalne są warunkowo niezależne. Oznacza to, że wzajemny związek dwóch dowolnych \(x\) wynika wyłącznie z uzależnienia każdego z nich od jednej lub więcej wspólnych zmiennych latentnych. Można to wyrazić wzorem
+
+\begin{equation}
+\label{eq:shared-var}
+\sigma_ij = \sum_{r=1}^k \alpha_ir \alpha_jr
+\end{equation}
+
+gdzie \(\sigma_ij\) jest elementem macierzy wariancji i kowariancji \(x\).
+Jeśli jako \(\psi_i\) oznaczymy wariancję błędu (\(\epsilon\)) i-tej zmiennej, wariancję zmiennych \(X\) można przedstawić w postaci:
+
+\bibliographystyle{agsm}
+\bibliography{bibliography.bib}
+
+\end{document}

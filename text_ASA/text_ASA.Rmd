@@ -1,0 +1,364 @@
+---
+title: Zagadnienie równoważności pomiarowej w badaniach różnic w postrzeganiu demokracji w UE.
+
+# to produce blinded version set to 1
+blinded: 0
+
+authors: 
+- name: Agnieszka Choczyńska
+
+keywords:
+- measurement invariance
+- factor analysis
+- democracy
+- Europe
+
+abstract: |
+  The text of your abstract.  200 or fewer words.
+
+bibliography: bibliography.bib
+output: 
+  bookdown::pdf_book:
+   base_format: rticles::asa_article
+   include:
+    in_header: preamble.tex
+      
+fontsize: 12pt
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(captioner)
+
+table_nums <- captioner(prefix = "Tabela")
+fig_nums <- captioner(prefix = "Rys.")
+
+```
+
+# Wprowadzenie {.unnumbered}
+
+Słowo “demokracja” jest odmieniane przez wszystkie przypadki w deklaracjach polityków, na demonstracjach, w mediach i w codziennych rozmowach. Niejednokrotnie przedmiot tych wypowiedzi wychodzi daleko poza zwięzłą, przyjętą przez politologów definicję, tj. demokracja to system, w którym obywatele mogą przyjąć lub odrzucić elity mające nimi rządzić [@Schumpeter]. Rozdźwięk między formalną definicją a społecznym postrzeganiem zjawiska nie jest niczym niezwykłym, jednak w tym przypadku nabiera szczególnego znaczenia. Choć Ziemia nie przestanie krążyć wokół Słońca, nawet gdyby cała ludzkość uważała inaczej, to kształt systemów demokratycznych zależy od tego, jak ich obywatele wyobrażają sobie demokrację.
+
+Problem ma szczególne znaczenie w badaniach naukowych, w których dokonywana jest ocena demokratyczności państw lub nastawienia do demokracji grup czy całych społeczeństw, aby następnie porównywać je między sobą. Jest to zawsze odniesienie do jednej, eksperckiej koncepcji demokracji, więc nie pozwala na pełne zrozumienie wyborów ludzi, którzy kierują się funkcjonującymi w ich społecznościach koncepcjami, niekoniecznie “poprawnymi” i niekoniecznie ponadnarodowymi.
+
+Dlatego jest tak ważne, żeby wciąż badać, czym demokracja w społecznym przekonaniu tak naprawdę jest. Ta praca stawia sobie na cel eksplorację przekonań mieszkańców Europy na temat istoty demokracji, wyrażonych w odpowiedziach na ankietę World Values Survey. Na tej podstawie zostanie podjęta próba skonstruowania społecznych koncepcji demokracji, pozwalających wyrazić liczbowo siłę tych przekonań.
+
+Struktura pracy jest następująca: w pierwszym rozdziale przedstawiono pokrótce dotychczasowe sposoby definiowania i mierzenia demokracji, zarówno na podstawie wiedzy eksperckiej jak i dzięki analizie danych zebranych w badaniach społecznych. W rozdziale drugim omówiono model analizy czynnikowej, który zostanie wykorzystany w badaniu, oraz zagadnienie równoważności pomiarowej, która jest warunkiem przeprowadzania analizy międzygrupowej. W następnych rozdziałach opisano kolejne etapy badania wraz z wynikami i wnioskami z analizy.
+
+
+# Ilościowe badania nad demokracją w literaturze przedmiotu
+
+## Motywacje ilościowego badania demokracji
+
+Potrzeba ilościowego wyrażenia stopnia zdemokratyzowania państwa narodziła się w drugiej połowie XX wieku w Stanach Zjednoczonych Ameryki. Według panującego wówczas paradygmatu, państwa demokratyczne charakteryzują się mniejszą skłonnością do prowadzenia wojen, zwłaszcza przeciwko innym demokracjom. Dla ludzi odpowiedzialnych za politykę zagraniczną USA, podwyższenie poziomu demokracji w kluczowych regionach było niezbędne do zapewnienia pokoju [@Doorenspleet].
+
+Stąd zrodziła się potrzeba stworzenia wskaźnika demokratyczności, który pozwalałby porównywać państwa pod tym kątem, określać, jak daleko są od "idealnej" demokracji, oraz oceniać po czasie wyniki podjętych działań. Wyrażenie takiej własności liczbą otwiera również szerokie możliwości tworzenia modeli, w których stopień zdemokratyzowania państwa występuje jako zmienna objaśniana lub objaśniająca, co pozwala wyjaśniać przyczyny, skutki i własności demokracji w sposób dużo bardziej ścisły, poprawny metodologicznie oraz możliwy do zreprodukowania przez innych badaczy. 
+
+Między innymi dzięki tym możliwościom, bezpośredni związek stopnia demokratyzacji państwa z jego skłonnością do wojen został przez wielu badaczy podważony lub uznany za słabszy niż inne czynniki, np. wolnorynkowość czy stabilność struktur władzy [@Doorenspleet]. Wciąż, demokracja jest przedmiotem intensywnych badań socjologów i politologów. A fakt, że badacze interesują się zrozumieniem zjawiska samego w sobie, a nie tylko kontekstem polityki zagranicznej danego państwa, wymusza bliższe przyjrzenie się kwestii obiektywności takich badań.
+
+Zachowanie obiektywności nie jest w tym przypadku proste, z kilku powodów. 
+
+Po pierwsze, ustrój polityczny dotyczy tak wielkich jednostek jak państwa, wobec czego badania nad demokracją, które muszą uwzględnić wiele krajów, borykają się ze wszystkimi problemami dotyczącymi różnic kulturowych i językowych.
+
+Po drugie, problematyczna jest sama kwestia definiowania demokracji. W klasycznym rozumieniu jej istotą była władza w rękach ludu, nadanie obywatelom prawa do decydowania o sprawach politycznych. W latach 40. XX w. zaczęło dominować alternatywne podejście, zaproponowane przez J. Schumpetera. Jego zdaniem, *“demokracja oznacza tylko tyle, że ludzie mają możliwość zaakceptować lub odrzucić tych, którzy mają nimi rządzić”* [@Schumpeter]. Społeczeństwo jako całość nie musi w jakikolwiek czynny sposób angażować się w politykę; jedynie wyznaczać elity, które będą się tym zajmować. Partycypacja, kluczowa w klasycznej definicji, dla Schumpetera była nieistotna, lub nawet szkodliwa. Taką koncepcję nazywa się elektoralną.
+
+Wymienia się jeszcze kilka innych, szeroko wykorzystywanych podejść, które przedstawia `r table_nums(name = "dem-types", display = "cite")`.
+
+
+`r table_nums("dem-types", "Koncepcje demokracji. Źródło [@Coppedge]")`
+```{r dem-types}
+
+dem_types <- data.frame(c("liberalna", "większościowa", "bezpośrednia", 
+             "deliberatywna", "egalitarna"), c("wolności obywatelskie, prawa mniejszości, praworządność i przejrzystość, możliwość kontrolowania rządzących", " najważniejsza jest wola większości, silna, jednostkowa władza", "jak największy udział obywateli w bezpośrednim podejmowaniu decyzji (w kontraście do wybierania przedstawicieli)", 
+        " decyzje podejmowane w drodze dyskusji i wypracowywania konsensusu (w kontraście do przegłosowania przeciwników)", "równość w prawach, ale też dostępie do zasobów; każdy obywatel ma szansę w takim samym stopniu korzystać ze wspólnego państwa"))
+
+kable(dem_types, format = "latex", col.names = c("Typ demokracji", " Postulaty"), longtable = T) %>%
+  column_spec(2, width = "35em")
+
+```
+
+Po trzecie wreszcie, badacze zauważają, że pojęcie demokracji jest silnie nacechowane emocjonalnie [@JaskoKoss]. Ludzie mają skłonność do uznawania demokracji nie za jedną z możliwych form systemu politycznego, ale raczej za stan idealny. Stąd tak wiele państw, które mają demokrację w nazwie, a są powszechnie uważane za autorytarne. Można by powiedzieć w uproszczeniu, że ludzie zawsze są za demokracją, tylko zazwyczaj ta demokracja ma niewiele wspólnego z którąkolwiek z definicji. Z jednej strony powoduje to przypisanie do czysto politycznego pojęcia demokracji licznych postulatów o charakterze gospodarczym czy etycznym. Z drugiej, przyjęcie jednej definicji, stworzonej przez człowieka ukształtowanego w określonej kulturze, zamyka na faktyczną różnorodność zjawiska demokracji.  
+
+Według minimalistycznej definicji, istotą demokracji jest mechanizm wykorzystania argumentu siły bez używania przemocy. Akceptuje się wolę większości, nie dlatego, że większość ma rację, ale dlatego, że bunt wobec tej woli oznacza bunt wobec przeważającej siły - mimo, że współcześnie siła zależy bardziej od przewagi technicznej niż liczebności [@Przeworski]. Głos jest walutą władzy; demokracja była rewolucją ustrojową na miarę wynalezienia pieniądza w gospodarce. Jak jednak zauważa dalej Przeworski, trwałość i jakość demokracji zależą od szeregu czynników, zarówno politycznych, jak i ekonomicznych. Dlatego warto spróbować określić istotę demokracji nie od strony mechanizmu przekazywania władzy, ale od strony oczekiwań, jakie ma ten mechanizm spełnić. Ponieważ właśnie to, a nie minimalistyczna definicja, może pomóc odpowiedzieć na pytanie, dlaczego demokracja bywa popierana albo odrzucana.
+
+
+## Wskaźniki demokracji
+
+Zdecydowana większość wskaźników demokracji jest tworzona na podstawie oceny ekspertów. Obliczenie wartości polega na przyznaniu państwu punktów za każdy spełniony standard demokratyczny oraz pewną procedurę agregacji. To oznacza, że każdy przypadek porównuje się z pewną, wybraną przez twórców metody, koncepcją demokracji. Istnieją wskaźniki oceniające państwa według minimalistycznej koncepcji, w skali binarnej (jest demokracją lub nie jest), ale ze względu na swoją prostotę mają zastosowanie głównie przy badaniu ciągłości demokracji [@Coppedge]. Do celu porównywania ze sobą różnych państw demokratycznych powstały inne wskaźniki, oparte o węższe koncepcje.
+
+Jeden z najczęściej używanych jest obliczany co roku przez amerykańską organizację Freedom House, powiązaną z CIA [@Doorenspleet]. Freedom House Index (FH) wykorzystuje 7-stopniową skalę do oceny praw politycznych oraz obywatelskich (im niższa ocena, tym lepiej). Pomimo, że według intencji twórców nie miał być nawet wskaźnikiem demokracji, to jest jako taki powszechnie wykorzystywany przez badaczy [@Coppedge], ponieważ wyraża własności obecnie dominującej koncepcji liberalnej. Inne wskaźniki mogą nieco różnić się konstrukcją oraz skalą, ale generalnie opierają się o tę samą metodykę. 
+
+Przede wszystkim zakładają, że przeciwieństwem demokracji jest system autorytarny, i pozwalają umiejscowić każde badane państwo na osi autorytaryzm - demokracja. Przejście jest tonalne, nie ma ścisłego punktu, od którego kraj jest klasyfikowany jako któraś z tych dwóch opcji. Ponadto mniej więcej środek skali określa się jako odrębny typ ustroju, tak zwaną demokrację hybrydową, w której łączą się pewne rozwiązania z obu skrajnych typów [@Doorenspleet].
+
+Wskaźniki demokracji weszły do powszechnego użytku, ale doczekały się też krytyki. Argumentowano, że zbyt mocno opierają się na procedurach i formalnym stanie prawnym, a za mało na stanie faktycznym, oraz że zbyt ogólne i niejednoznaczne kryteria pozwalają wystawiającym ocenę projektować swoje wyobrażenia o demokratyczności państw na liczbę punktów [@Coppedge]. Szczególnie wobec FH pojawiły się również zarzuty konserwatywnego i pro-rynkowego skrzywienia, oraz zaniżania oceny dla lewicowych i muzułmańskich rządów [@Doorenspleet]. To by oznaczało, że wskaźnik nie ocenia wyłącznie stopnia spełnienia bardzo szerokiej, lecz precyzyjnej definicji, ale też nie uwzględnia całej istniejącej różnorodności systemów demokratycznych.
+
+
+## Społeczna koncepcja demokracji
+
+Zupełnie innym podejściem do mierzenia demokracji jest oparcie wskaźnika o zdanie samych obywateli. Nie jest to alternatywny sposób na osiągnięcie tego samego celu, ale raczej próba badania demokracji takiej, jaka jest - niekoniecznie zgodnej z definicją, za to odzwierciedlającej zamysł ludzi, którzy ją wprowadzali i podtrzymywali.
+
+Jak wskazuje @Campbell, u podstaw poparcia dla demokracji i demokratycznych rządów leży proces modernizacji, który dotknął każdej dziedziny ludzkiego życia, przez co zmiany stały się właściwie “sprawą każdego”. Jako wskazywane przez badaczy wyjaśnienia tego poparcia podaje: a) zaangażowanie w działalność społeczną, która *“zapewnia antidotum na uczucie apatii i alienacji, oraz projektuje atmosferę zaufania na organy rządowe”*^[Tłumaczenie własne], b) czynniki ekonomiczne - sprzyjająca sytuacja powoduje wyższe poparcie, które spada w trudniejszych czasach, c) czynniki behawioralne, które powodują, że ludzie generalnie popierają wygrywających. 
+
+Badania przeprowadzone na polskim gruncie również wykazały utożsamianie demokracji z realizowaniem określonego zestawu wartości (standard wolności) albo “zapewnieniem obywatelom bezpieczeństwa, dobrych warunków życia i rozwiązaniem problemów uboższych członków społeczeństwa” (standard opiekuńczości) [@JaskoKoss].
+
+Poparcie demokracji nie wynika więc głównie z jej własności ściśle politycznych, ale częściowo z tego, że jest opcją, która się przyjęła, a częściowo ze względu na poczucie wolności obywatelskiej i bezpieczeństwa ekonomicznego, z którymi się wiąże.
+
+# Modele teoretyczne - Międzygrupowa analiza czynnikowa
+
+## Model analizy czynnikowej
+
+W naukach społecznych bardzo często badacze zajmują się własnościami, które nie są mierzalne. Ich istnienia można się domyślać, obserwując wpływ jaki wywierają na poziom innych, mierzalnych własności. Taka własnością jest również społeczna koncepcja demokracji, której kształt i wpływ można badać wyłącznie przez badanie poglądów poszczególnych członków społeczeństwa. Metoda została sformalizowana w postaci analizy czynnikowej przez psychologów, takich jak Spearman, Thomson, Thurstone i Burt [@Everitt].
+
+Ogólna postać modelu czynnikowego została opisana układem równań \ref{eq:latent-model}. Czynniki (inaczej określane jako zmienne ukryte lub latentne) $\lambda$ wpływają na zmienne mierzalne $X$ z siłą wyrażoną ładunkami czynnikowymi $\alpha$, zgodnie z układem równań \ref{eq:latent-model}. 
+
+\begin{equation}
+\label{eq:latent-model}
+\begin{aligned} 
+x_1 = \alpha_01 + \alpha_11 \lambda_1 + ... + \alpha_k1 \lambda_k + \epsilon_1\\
+...\\
+x_p = \alpha_0p + \alpha_1p \lambda_1 + ... + \alpha_kp \lambda_k + \epsilon_p\\
+\end{aligned}
+\end{equation}
+
+
+Każdy element $x$ oraz $\epsilon$ jest n-elementowym wektorem. Zakładamy, że zmienne mierzalne są warunkowo niezależne. Oznacza to, że wzajemny związek dwóch dowolnych $x$ wynika wyłącznie z uzależnienia każdego z nich od jednej lub więcej wspólnych zmiennych latentnych. Można to wyrazić wzorem:
+
+\begin{equation}
+\label{eq:shared-var}
+\sigma_ij = \sum_{r=1}^k \alpha_ir \alpha_jr, i != j
+\end{equation}
+
+gdzie $\sigma_ij$ jest elementem macierzy wariancji i kowariancji $x$.
+Jeśli jako $\psi_i$ oznaczymy wariancję błędu ($\epsilon$) i-tej zmiennej, wariancję zmiennych $X$ można przedstawić w postaci:
+
+\begin{equation}
+\label{eq:spec-var}
+\sigma_ii = \sum_{j=1}^k \alpha_ij^2 + \psi_i
+\end{equation}
+
+gdzie pierwszy człon oznacza zmienność, którą $x_i$ dzieli z innymi zmiennymi mierzalnymi poprzez wspólne zmienne latentne, a drugi to jej wariancja specyficzna.
+
+Istotą estymacji jest więc znalezienie takich wartości parametrów, żeby między zmiennymi mierzalnymi występowały związki założone w strukturze modelu i nie występowały żadne inne. Model o błędnej specyfikacji może okazać się nieidentyfikowalny lub cechować się złymi własnościami, np. negatywnymi wariancjami zmiennych.
+
+## Identyfikowalność modelu analizy czynnikowej
+
+Model jest identyfikowalny, jeśli dla danego rozkładu zmiennych mierzalnych istnieje jeden możliwy zestaw parametrów modelu. Jeżeli ten warunek nie jest spełniony i można znaleźć więcej zestawów parametrów, skutkujących tym samym rozkładem zmiennych mierzalnych, to parametrów nie można jednoznacznie zinterpretować [Katsikatsou, Kuha, ?]. Można zauważyć, że model ze zmiennymi latentnymi nigdy nie jest ściśle identyfikowalny.
+
+Macierz wariancji i kowariancji, której elementy zostały wcześniej podane wzorami \ref{eq:shared-var} i \ref{eq:spec-var}, można zapisać w postaci macierzowej:
+
+\begin{equation}
+\label{eq:var-matrix}
+\Sigma = \Alpha \Alpha' + \Psi
+\end{equation}
+
+gdzie $\Alpha$ jest macierzą ładunków czynnikowych o rozmiarze $k x n$, a $\Psi$ jest macierzą diagonalną wariancji specyficznych. Można zauważyć, że dla ortogonalnej macierzy $T$ (tzn. takiej, że przemnożona przez swoją transpozycję daje macierz jednostkową) o rozmiarze $n x n$, zachodzi równość:
+
+\begin{equation}
+\label{eq:scaling}
+\Alpha T (\Alpha T)' + \Psi = \Alpha T T' \Alpha' + \Psi = \Alpha \Alpha' + \Psi = \Sigma
+\end{equation}
+
+Oznacza to, że ładunków czynnikowych nie da się jednoznacznie zidentyfikować; macierz $A$ może być wyznaczona tylko z dokładnością do przemnożenia przez dowolną ortogonalną macierz [@Shapiro]. Ładunki czynnikowe nie mają więc bezpośredniej interpretacji, jak współczynniki w modelu regresji, i mogą zostać przeskalowane, tak żeby ustawić wartość oczekiwaną lub wariancję zmiennej latentnej na określonym poziomie.
+
+O modelu analizy czynnikowej mówi się, że jest identyfikowalny, kiedy wszystkie możliwe zestawy parametrów wynikają z przeskalowania macierzy ładunków czynnikowych. Jeśli po wybraniu skali model nie jest w pełni identyfikowalny, musi zostać zmodyfikowany [Katsikatsou, Kuha, ?].
+
+Warunkiem koniecznym identyfikowalności jest, aby liczba estymowanych parametrów nie przekraczała liczby wariancji i kowariancji zmiennych mierzalnych $N_c$, która dla $p$ zmiennych mierzalnych wynosi:
+
+\begin{equation}
+\label{eq:ident-condition}
+N_c = \frac{p(p+1)/2}
+\end{equation}
+
+Dla ogólnego przypadku z układu równań \ref{eq:latent-model}, gdzie każda z $p$ mierzalnych zmiennych może być objaśniana przez wszystkie $k$ zmiennych latentnych, można określić liczbę stopni swobody modelu na poziomie:
+
+\begin{equation}
+\label{eq:df}
+df = \frac{(p-k)^2 - (p+k)}{2}
+\end{equation}
+
+Model \ref{eq:latent-model} jest identyfikowalny, jeśli $df$ jest nieujemne. Każda restrykcja nałożona na model (w najczęstszym przypadku ustalenie części ładunków czynnikowych na 0, tak że poszczególne zmienne $X$ są objaśniane tylko przez niektóre czynniki) zmniejsza liczbę parametrów do estymacji. 
+
+## Estymacja modelu analizy czynnikowej
+
+Analiza czynnikowa składa się zazwyczaj z dwóch etapów, niekoniecznie ściśle od siebie odseparowanych. Pierwszy, określany jako Eksploracyjna Analiza Czynnikowa, polega na wykryciu w danych wszystkich nielosowych wzorców, które wymagają wyjaśnienia. Te wzorce mogą być interpretowane jako przejawy istnienia ukrytych zmiennych. Drugi etap wymaga postawienia hipotez na temat zależności między zmiennymi mierzalnymi i ukrytymi, i testowania ich za pomocą modelu; określany jest jako Konfirmacyjna Analiza Czynnikowa [@Everitt].
+
+Mając realizacje zmiennych $X$ można obliczyć macierz wariancji i kowariancji $S$, a następnie estymować parametry modelu, minimalizując różnicę między $S$ i $\Sigma$. W najbardziej podstawowej Metodzie Najmniejszych Kwadratów minimalizuje się sumę kwadratów różnic między poszczególnymi elementami tych dwóch macierzy. Nie jest to jednak najlepsza miara, ponieważ elementy $S$ są ze sobą na ogół skorelowane i mają nierówne wariancje [@Everitt].
+
+Powszechnie wykorzystywana Metoda Największej Wiarygodności przyjmuje założenie, że obserwacje mają wielowymiarowy rozkład normalny. Funkcja przeciwna do log-wiarygodności, którą minimalizuje się w procesie estymacji, przyjmuje postać:
+
+\begin{equation}
+\label{eq:loglikelihood}
+l(S, \Sigma) = ln|\Sigma| - ln|S| + trace(S \Sigma^{-1}) - p
+\end{equation}
+
+Do zbadania istotności modelu można wykorzystać statystykę GFI (Goodness of Fit Index):
+
+\begin{equation}
+\label{eq:gfi}
+GFI = \frac{l(S, \Sigma)}{n-1} ~\Chi^2 (\frac{(p-k)^2 - (p+k)}{2})
+\end{equation}
+
+Dzięki tej statystyce można testować hipotezę zerową, że zakładana macierz wariancji i kowariancji jest identyczna z zaobserwowaną. Ta statystyka jest jednak zależna od $n$ i dla dużych prób test jest zbyt czuły na drobne niedopasowanie do danych, żeby stosować go w praktyce [Cheung, Rensvold, 2002]. Istnieje wiele wskaźników dopasowania modelu do danych. Przyjmuje się, że wartości CFI (Comparative Fit Index) oraz TLI (Tucker-Lewis Index) powinny być w okolicach lub powyżej 0,95, natomiast RMSEA (Root Mean Square Error of Approximation) nie powinno przekraczać 0,06 [@HuBentler]. 
+
+W przypadku, gdy dane nie pochodzą z wielowymiarowego rozkładu normalnego, można wykorzystać estymator ADF (asymptotically distribution-free), ale tylko jeśli próba jest bardzo duża (n > 5000). Dlatego częściej stosowanym wyjściem jest stosowanie MNW z pewnymi korektami. Złamanie założenia o normalności prowadzi do poprawnych estymacji, ale z mocno niedoszacowanymi błędami standardowymi i zawyżoną statystyką GFI. Można to skorygować, stosując przeskalowaną statystykę Satorry-Bentlera oraz odporne błędy standardowe [Rosseel, 2012]. Również w sytuacji porównywania dwóch zagnieżdżonych modeli Testem Ilorazu Wiarygodności (Likelihood Ratio Test) stosuje się przeskalowanie statystyki testowej, tak by miała rozkład $\Chi^2$ [Satorra, Bentler, 2010].
+
+## Zagadnienie równoważności pomiarowej
+
+Badania porównawcze stanowią podstawowy cel stosowania analizy czynnikowej. Wartości zmiennych latentnych zwykle nie mają interpretacji same z siebie, ale nabierają znaczenia dzięki porównaniu ich poziomów w innych grupach, np. wiekowych, płciowych, kulturowych, albo w innym punkcie czasowym [@Pokropek]. Poważnym mankamentem modeli czynnikowych jest to, że jeśli badacz chce przeprowadzać analizy międzygrupowe - szczególnie, jeśli wiadomo, że grupy są pod wieloma względami zróżnicowane - musi mieć pewność, że relacja między zmiennymi mierzalnymi i ukrytymi, opisana modelem czynnikowym, jest we wszystkich grupach taka sama. Taką własność nazywa się równoważnością pomiarową [@ChenEtAl].
+
+W modelu czynnikowym poziom zmiennej ukrytej jest estymowany na podstawie zależności łączących mierzalne zmienne. Inaczej mówiąc, badacz uznaje, że ta zależność wynika z powiązania wszystkich^[W modelu opisanym równaniem \ref{eq:latent-model}] zmiennych mierzalnych w modelu ze zmienną ukrytą. Niespełnienie równoważności pomiarowej oznacza, że w niektórych grupach występuje inna, nieuwzględniona zależność, której wpływ zostanie zinterpretowany jako wpływ zmiennej ukrytej [@HirBra].
+
+Taką sytuację można by opisać, przyjmując, że rzeczywistym opisem zjawiska w grupie **A** jest układ równań \ref{eq:delta-model}, a w grupie **B** układ równań \ref{eq:latent-model}. Jeśli badacz nie zauważy problemu i zastosuje we wszystkich przypadkach model opisany układem równań \ref{eq:latent-model}, wpływ zmiennej $\delta$, występującej w grupie A, zostanie w całości przypisany zmiennym $\lambda$, które mogą oznaczać zupełnie inną własność rzeczywistego świata niż $\delta$.  
+
+\begin{equation}
+\label{eq:delta-model}
+\begin{aligned} 
+x_1 = \alpha_01 + \alpha_11 \lambda_1 + ... + \alpha_k1 \lambda_k + \beta_1 \delta + \epsilon_1\\
+...\\
+x_p = \alpha_0p + \alpha_1p \lambda_1 + ... + \alpha_kp \lambda_k + \beta_p \delta + \epsilon_p\\
+\end{aligned}
+\end{equation}
+
+Nieuwzględnione związki między zmiennymi mierzalnymi mogą mieć bardzo różne przyczyny, niekoniecznie należące do badanej dziedziny. W badaniach międzykrajowych może to być na przykład brak dosłownego tłumaczenia, różnice kulturowe, kontekst historyczny. Przykładowo, słowo oznaczające “sąsiedztwo” w języku angielskim oznacza najbliższą przestrzeń, podczas gdy w języku niemieckim odnosi się do bliskości w sensie społecznym - co okazało się problemem przy tłumaczeniu skali dystansu społecznego Bogardusa [@Pokropek].  
+
+Z tego powodu każdy model czynnikowy powinien opierać się na solidnej podstawie teoretycznej, a po wyestymowaniu zostać przetestowany pod kątem równoważności pomiarowej [@LubGlog]. W przypadku badań obejmujących wiele państw, badacze korzystają na ogół z danych zbieranych przez duże organizacje, jak World Values Survey (WVS), które dbają o standardy tłumaczenia i doboru próby. Mimo to, test równoważności pomiarowej dla bazującego na danych WVS modelu nastawienia do demokracji pokazał, że jest ona zachowana tylko w pewnym stopniu i nie dla wszystkich państw [@ArDav]. Podobne problemy występują w międzynarodowych badaniach zaufania do aparatu państwa i rządzących [@Schneider].
+
+Różnice między grupami, ujawnione w badaniu równoważności pomiarowej, nie powinny być jednak traktowane wyłącznie jako problem, ograniczający możliwość badania (o ile niespełnienie równoważności nie wynika z błędu po stronie badaczy, np. w tłumaczeniu pytań). Mogą być źródłem informacji o tym, jak różne grupy postrzegają i konceptualizują rzeczywistość [Cheung, Rensvold, 2002].
+
+# Poziomy równoważności
+
+## Równoważność konfiguralna
+
+Najniższym poziomem jest równoważność konfiguralna (równoważność konstruktu), która oznacza zgodność badanego konceptu w grupach. Można mówić o jej spełnieniu, gdy w każdej grupie ten sam model czynnikowy jest identyfikowalny i dobrze dopasowany do danych. Równoważność konfiguralna zazwyczaj nie stanowi wyzwania w przypadku dobrze poznanych zjawisk, o ile grupy nie różnią się bardzo mocno [@LubGlog]. W przypadku badań międzynarodowych może być niespełniona na przykład z powodu błędów w tłumaczeniach, gdy konstrukty są oparte na specyficznym kulturowym kontekście lub mają inne znaczenie dla członków różnych grup [Cheung, Rensvold, 2002].
+
+Niespełnienie tego poziomu równoważności oznacza, że nie w każdej grupie istnieje założona relacja między zmiennymi latentnymi i mierzalnymi, więc stosowanie modelu i tej postaci jest bezpodstawne.
+
+## Równoważność metryczna
+
+Jeśli weryfikacja równoważności konfiguralnej przeszła pomyślnie, można zbadać równoważność metryczną. Oznacza ona, że w każdej grupie ładunki czynnikowe są na tym samym poziomie. Równoważność metryczną można zbadać, estymując osobno serię modeli dla każdej grupy, raz ze swobodą dopasowania ładunków czynnikowych do danych w każdej grupie, a drugi raz z restrykcjami równości odpowiadających ładunków w grupach. Jeśli model bez restrykcji okaże się istotnie lepszy, równoważność metryczna nie jest spełniona.
+
+Jej spełnienie gwarantuje, że można przeprowadzić w grupach badanie, w którym zmienna latentna występuje jako zmienna objaśniająca. Relacje między zmiennymi latentnymi i mierzalnymi mają statystycznie równą siłę, wobec czego zmiana poziomu zmiennej mierzalnej o jednostkę powoduje taką samą zmianę poziomu zmiennej latentnej w każdej grupie. 
+
+Mając $M$ grup, należy w każdej osobno wyestymować model postaci:
+
+\begin{equation}
+\label{eq:group-model}
+\begin{aligned} 
+x_1 = \alpha_01m + \alpha_11m \lambda_1 + ... + \alpha_k1m \lambda_k + \epsilon_1m\\
+...\\
+x_p = \alpha_0pm + \alpha_1pm \lambda_1 + ... + \alpha_kpm \lambda_k + \epsilon_pm\\
+\end{aligned}
+\end{equation}
+
+gdzie $m = 1, …, M$. Następnie nałożyć na ładunki czynnikowe restrykcje równości we wszystkich grupach i jeszcze raz wyestymować modele:
+
+\begin{equation}
+\label{eq:restricted-loadings}
+\begin{aligned} 
+x_1 = \alpha_01m + \alpha_11 \lambda_1 + ... + \alpha_k1 \lambda_k + \epsilon_1m\\
+...\\
+x_p = \alpha_0pm + \alpha_1p \lambda_1 + ... + \alpha_kp \lambda_k + \epsilon_pm\\
+\end{aligned}
+\end{equation}
+
+Do testowania można wykorzystać Test Ilorazu Wiarygodności. Ponieważ model \ref{eq:restricted-loadings} jest zagnieżdżony w modelu \ref{eq:group-model}, jego funkcja wiarygodności (LR) może być tylko mniejsza lub równa od funkcji wiarygodności (L0), maksymalizowanej przy estymacji modelu \ref{eq:group-model}. Są równe, jeśli narzucone restrykcje nie pogarszają modelu, to znaczy w rzeczywistości ładunki czynnikowe w grupach mają takie same wartości. Jeżeli LR jest istotnie niższe, ładunki czynnikowe w grupach są istotnie różne. Testowanie hipotez:
+
+$$H_0: L_0 = L_R
+H_1: L_0 > L_R$$
+
+jest równoznaczne z testowaniem hipotez:
+
+$$H_0: Równoważność metryczna jest spełniona
+H_1: Równoważność metryczna nie jest spełniona$$
+
+## Równoważność skalarna
+
+Trzeci poziom równoważności zakłada spełnienie obu poprzednich oraz równość wyrazów wolnych w grupach. Analogicznie do równoważności metrycznej, można go zweryfikować, estymując modele z restrykcjami i bez restrykcji, a następnie testując istotność różnicy funkcji wiarygodności. Spełnienie tego poziomu daje możliwość bezpośredniego porównywania zmiennych latentnych między grupami. 
+
+Model z restrykcjami ma postać:
+
+\begin{equation}
+\label{eq:restricted-intercepts}
+\begin{aligned} 
+x_1 = \alpha_01 + \alpha_11 \lambda_1 + ... + \alpha_k1 \lambda_k + \epsilon_1m\\
+...\\
+x_p = \alpha_0p + \alpha_1p \lambda_1 + ... + \alpha_kp \lambda_k + \epsilon_pm\\
+\end{aligned}
+\end{equation}
+
+a model bez restrykcji jest postaci danej wzorem \ref{eq:group-model}. Testowane są hipotezy:
+
+$$H_0: Równoważność skalarna jest spełniona
+H_1: Równoważność skalarna nie jest spełniona$$
+
+Spełnienie równoważności konfiguralnej daje w praktyce możliwość głębszego testowania (np. równości reszt) lub przeprowadzania szczegółowych testów, w których restrykcje są nałożone na wybrane parametry, podczas gdy pozostałe są pozostawione wolno. Wyniki takich testów mogą dostarczyć dodatkowych informacji o kształtowaniu się modeli badanego zjawiska w różnych grupach, ale nie dają dodatkowych możliwości statystycznych porównań międzygrupowych, dlatego w ogólnym przypadku rozważa się tylko te trzy poziomy.
+
+# Tytuł?
+
+## Zestaw danych i statystyki opisowe
+
+World Values Survey jest międzynarodową organizacją, zajmującą się badaniem zmian wartości i przekonań, oraz ich wpływu na życie społeczne i polityczne [@WVSData]. Jej ankieta, przeprowadzana co kilka lat w niemal stu krajach, pokrywa również zagadnienia związane z demokracją. 
+
+Ankietowanym zadano 10 pytań, z których każde było rozpięte na 10-stopniowej skali porządkowej. W pierwszych dziewięciu ankietowani mieli ocenić, na ile poszczególne cechy państwa są podstawowymi cechami demokracji (1 - nie jest podstawową cechą demokracji, 10 - zdecydowanie jest podstawową cechą demokracji):
+
+1. Rząd nakłada podatki na bogatych i wspiera biednych;
+2. Autorytety religijne mają wpływ na prawo;
+3. Ludzie wybierają swoich przywódców politycznych w wolnych wyborach;
+4. Bezrobotni otrzymują pomoc od państwa;
+5. Wojsko przejmuje władzę, jeśli rząd jest niekompetentny;
+6. Prawa obywatelskie chronią wolność ludzi;
+7. Rząd wyrównuje dochody ludzi;
+8. Ludzie są posłuszni tym, którzy nimi rządzą;
+9. Kobiety mają takie same prawa jak mężczyźni.
+
+W ostatnim pytaniu ankietowany miał wskazać, jak ważne jest, żeby kraj, w którym mieszka, był rządzony w sposób demokratyczny (1 - zupełnie nieważne, 10 - zdecydowanie ważne). Zmienne opisujące odpowiedzi na pytania będą w dalszej części oznaczane jako X1 - X10 w powyższej kolejności.
+
+W badaniu wykorzystano dane zebrane w edycji szóstej (lata 2010-2014) ze wszystkich objętych badaniem krajów europejskich. Są to: **Białoruś, Estonia, Gruzja, Niemcy, Kazachstan, Holandia, Polska, Rumunia, Rosja, Słowenia, Hiszpania, Szwecja, Turcja, Ukraina**. 
+
+```{r load-data}
+dem_data <- read.table("dem_data.csv")
+```
+
+`r fig_nums(name = "descr-plot", display = "cite")' przedstawia histogramy odpowiedzi na każde z pytań z osobna, łącznie dla wszystkich krajów. Na tej podstawie można podzielić cechy na trzy grupy:
+
+- zdecydowanie istotne dla demokracji: wolne wybory, pomoc dla bezrobotnych, prawa obywatelskie i równość płci, gdzie modalną jest wartość 10, a wszystkie pozostałe występują o wiele rzadziej; 
+- zdecydowanie nieistotne dla demokracji: wpływ autorytetów religijnych na prawo i możliwość przejęcia władzy przez wojsko, o modalnej 1 i niskich częstościach występowania wyższych wartości;
+- niespolaryzowane: wyższe opodatkowanie bogatych, wyrównywanie dochodów i posłuszeństwo wobec rządzących, których rozkłady są bardziej równomierne;
+
+`r fig_nums("dem-types", "Rozkład odpowiedzi na pytania o demokrację w ankiecie WVS. Źródło: opracowanie własne")`
+```{r descr-plot}
+dem_data %>% 
+  gather(key = "variable", value = "answer", -country, factor_key = T) %>%
+  ggplot(aes(answer)) + geom_histogram(bins = 10, col = "black") +
+  facet_wrap(~variable, nrow = 5, scales = "free", 
+    labeller = labeller(variable = questions)) + theme_light() +
+  scale_x_continuous("Odpowiedź", breaks = 1:10) +
+  scale_y_continuous("Liczba odpowiedzi")
+```
+
+Już ta prosta analiza opisowa pokazuje, że elitystyczna definicja demokracji Schumpetera nie jest wystarczająca w europejskich społeczeństwach. Obywatele zgodnie uważają, że demokracja nie polega tylko na wolnych wyborach, ale też służy zapewnianiu praw i wolności obywatelskich, równości płci, oraz - co najbardziej zaskakujące - pomocy bezrobotnym. Zdaniem samych wyborców, do demokracji nie wystarczy sam fakt wybrania rządzących, ale rządzący ci muszą spełniać podstawowe potrzeby wolności, równości i ekonomicznego bezpieczeństwa rządzonych.
+
+Istnieje też powszechne mniemanie, że system demokratyczny nie potrzebuje interwencji ze strony armii ani autorytetów religijnych. Natomiast opinia społeczna jest mniej jednogłośna, jeśli chodzi o kwestię redystrybucji i rozwarstwienia dochodowego. Choć większość uważa, że w demokracji państwo powinno się tym zajmować, przewaga najwyższej odpowiedzi nie jest aż tak wyraźna. 
+
+Ciekawym przypadkiem są tu odpowiedzi na pytanie o posłuszeństwo rządzącym. Koncepcja demokracji Schumpetera pośrednio zakłada raczej posłuszeństwo wobec rządzących, którzy zostali zaakceptowani, co jest też zresztą cechą jakichkolwiek systemów rządzenia czy zarządzania. 
+
+## Analiza korelacji
+
+Kiedy ankietowany odpowiada na pytanie “w jakim stopniu [pewna cecha] jest podstawową cechą demokracji?”, musi odwołać się do jakiejś koncepcji demokracji i odnieść do niej cechę, której dotyczy pytanie. Jeżeli istnieje ogólnie przyjęta społeczna koncepcja demokracji, obejmująca część spośród zawartych w pytaniach cech, można się spodziewać, że odpowiedzi na te pytania będą silnie skorelowane. Ankietowani będą odpowiadać w podobny sposób, ponieważ posiadają tę samą koncepcję demokracji. Analogicznie, jeśli nie istnieje społeczna koncepcja demokracji (to znaczy: pogląd na demokrację jest bardzo indywidualną kwestią), można się spodziewać, że siła związków między odpowiedziami na różne pytania będzie nieistotna.
+
+Siłę tych związków mierzono współczynnikiem korelacji Spearmana. Mimo, że dane mają charakter porządkowy, można je traktować jako ciągłe ze względu na dużą liczbę punktów skali [Revelle, 2019].
+
+Koncepcję demokracji można opisać zmienną latentną, która wpływa na odpowiedzi (zmienne mierzalne). Koncepcji może być kilka, ale nie więcej, niż pytań. Na odpowiedź na dane pytanie może wpływać więcej niż jedna koncepcja. Warto też zauważyć, że wyodrębnione z danych koncepcje są określone tylko w zakresie pytań, które zadano w ankiecie. Nie można na tej podstawie stwierdzić, czy koncepcja obejmuje też inne kwestie, np. bioetyczne. Teoretycznie mogą również istnieć koncepcje demokracji, które nie zawierają objętych pytaniami cech, wobec czego wymykają się badaniu.
+
+Wykres [nr] przedstawia macierz korelacji odpowiedzi na wszystkie pytania. Dla macierzy wykonano test sferyczności Bartletta, na podstawie którego stwierdzono, że jest istotnie różna od macierzy jednostkowej, zatem siła związków między zmiennymi jest istotna ($\Chi^2$ = 46805,62; $df$ = 45; $p$ < 0,001).
+
+```{r cor-matrix}
+
+```
+
