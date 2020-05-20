@@ -75,10 +75,29 @@ dem_data$country <- mapvalues(dem_data$country, from = country_nr, to = country_
 head(dem_data)
 
 # Ogólne wykresy odpowiedzi
+
+questions <- c("Rząd nakłada podatki na bogatych i wspiera biednych",
+               "Autorytety religijne mają wpływ na prawo",
+               "Ludzie wybierają swoich przywódców politycznych w wolnych wyborach",
+               "Bezrobotni otrzymują pomoc od państwa",
+               "Wojsko przejmuje władzę, jeśli rząd jest niekompetentny",
+               "Prawa obywatelskie chronią wolność ludzi",
+               "Rząd wyrównuje dochody ludzi",
+               "Ludzie są posłuszni tym, którzy nimi rządzą",
+               "Kobiety mają takie same prawa jak mężczyźni",
+               "Kraj, w którym mieszkam, powinien być rządzony demokratycznie")
+names(questions) <- c("taxRich", "religiousLaw", "freeElection", "helpUnemp", 
+                      "armyTakesOver", "civilRights", "equalIncome", "obeyRulers",
+                      "genderEquality", "importance")
+
 dem_data %>% 
   gather(key = "variable", value = "answer", -country, factor_key = T) %>%
   ggplot(aes(answer)) + geom_histogram(bins = 10, col = "black") +
-  facet_wrap(~variable, nrow = 5, scales = "free")
+  facet_wrap(~variable, nrow = 5, scales = "free", 
+    labeller = labeller(variable = questions)) + theme_light() +
+  scale_x_continuous("Odpowiedź", breaks = 1:10) +
+  scale_y_continuous("Liczba odpowiedzi")
+  
 
 
 # Braki niektórych poziomów
@@ -137,7 +156,7 @@ dem_data %>%
 
 
 # Wstępna analiza korelacji - "polychoric correlation"
-poly.cor <- polychoric(dem_data[,3:6])
+poly.cor <- polychoric(dem_data[,2:11])
 poly.cor.matrix <- poly.cor$rho
 corrplot(poly.cor.matrix, method="circle")
 # Democracy jest ujemnie skorelowana z wszystkimi pozostałymi
@@ -148,7 +167,7 @@ corrplot(poly.cor.matrix, method="circle")
 # Dla pozostałych pytań (które mają dłuższą skalę odpowiedzi)
 # Stosuję korelację rangową
 # (funkcja polychoric zwraca błąd, że przy więcej niż 8 wartości nie ma sensu jej stosowanie)
-cor.matrix <- cor(dem_data[,7:15], method="spearman")
+cor.matrix <- cor(dem_data[,2:11], method="pearson")
 corrplot(cor.matrix, method="circle", order='hclust')
 
 # Są tu trzy główne skupiska:
