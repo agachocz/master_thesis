@@ -325,7 +325,7 @@ W badaniu wykorzystano dane zebrane w edycji szóstej (lata 2010-2014) ze wszyst
 dem_data <- read.table("dem_data.csv")
 ```
 
-`r fig_nums(name = "descr-plot", display = "cite")' przedstawia histogramy odpowiedzi na każde z pytań z osobna, łącznie dla wszystkich krajów. Na tej podstawie można podzielić cechy na trzy grupy:
+`r fig_nums(name = "descr-plot", display = "cite")` przedstawia histogramy odpowiedzi na każde z pytań z osobna, łącznie dla wszystkich krajów. Na tej podstawie można podzielić cechy na trzy grupy:
 
 - zdecydowanie istotne dla demokracji: wolne wybory, pomoc dla bezrobotnych, prawa obywatelskie i równość płci, gdzie modalną jest wartość 10, a wszystkie pozostałe występują o wiele rzadziej; 
 - zdecydowanie nieistotne dla demokracji: wpływ autorytetów religijnych na prawo i możliwość przejęcia władzy przez wojsko, o modalnej 1 i niskich częstościach występowania wyższych wartości;
@@ -356,9 +356,27 @@ Siłę tych związków mierzono współczynnikiem korelacji Spearmana. Mimo, że
 
 Koncepcję demokracji można opisać zmienną latentną, która wpływa na odpowiedzi (zmienne mierzalne). Koncepcji może być kilka, ale nie więcej, niż pytań. Na odpowiedź na dane pytanie może wpływać więcej niż jedna koncepcja. Warto też zauważyć, że wyodrębnione z danych koncepcje są określone tylko w zakresie pytań, które zadano w ankiecie. Nie można na tej podstawie stwierdzić, czy koncepcja obejmuje też inne kwestie, np. bioetyczne. Teoretycznie mogą również istnieć koncepcje demokracji, które nie zawierają objętych pytaniami cech, wobec czego wymykają się badaniu.
 
-Wykres [nr] przedstawia macierz korelacji odpowiedzi na wszystkie pytania. Dla macierzy wykonano test sferyczności Bartletta, na podstawie którego stwierdzono, że jest istotnie różna od macierzy jednostkowej, zatem siła związków między zmiennymi jest istotna ($\Chi^2$ = 46805,62; $df$ = 45; $p$ < 0,001).
+`r fig_numes(name = "cor-matrix", display = "cite")` przedstawia macierz korelacji odpowiedzi na wszystkie pytania. Dla macierzy wykonano test sferyczności Bartletta, na podstawie którego stwierdzono, że jest istotnie różna od macierzy jednostkowej, zatem siła związków między zmiennymi jest istotna ($\Chi^2$ = 46805,62; $df$ = 45; $p$ < 0,001).
 
+
+`r fig_nums("cor-matrix", "Macierz korelacji odpowiedzi na pytania o demokrację. Źródło: opracowanie własne")`
 ```{r cor-matrix}
+cor.matrix <- cor(dem_data[,2:11], method="spearman")
 
+quest.short <- c("X1: Opodatkowanie bogatych",
+                  "X2: Autorytety religijne",
+                  "X3: Wolne wybory",
+                  "X4: Pomoc bezrobotnym",
+                  "X5: Wojsko przejmuje władzę",
+                  "X6: Prawa obywatelskie",
+                  "X7: Wyrównywanie dochodów",
+                  "X8: Posłuszenstwo rządzącym",
+                  "X9: Równouprawnienie",
+                  "X10: Ważność demokracji")
+
+colnames(cor.matrix) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9", "X10")
+rownames(cor.matrix) <- quest.short
+
+corrplot(cor.matrix, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
 ```
 

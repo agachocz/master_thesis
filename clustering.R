@@ -93,7 +93,21 @@ plot(sil, col = c("green", "blue", "red"), border = "black")
 cor.matrix <- cor(dem_data[,2:11], method="spearman")
 cortest.bartlett(cor.matrix, n = dim(dem_data)[1])
 
-corrplot(cor.matrix, method="circle", order='hclust')
+quest.short <- c("X1: Opodatkowanie bogatych",
+                  "X2: Autorytety religijne",
+                  "X3: Wolne wybory",
+                  "X4: Pomoc bezrobotnym",
+                  "X5: Wojsko przejmuje władzę",
+                  "X6: Prawa obywatelskie",
+                  "X7: Wyrównywanie dochodów",
+                  "X8: Posłuszenstwo rządzącym",
+                  "X9: Równouprawnienie",
+                  "X10: Ważność demokracji")
+
+colnames(cor.matrix) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9", "X10")
+rownames(cor.matrix) <- quest.short
+
+corrplot(cor.matrix, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
 
 
 
