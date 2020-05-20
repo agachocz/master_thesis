@@ -41,6 +41,8 @@ dem_data$country <- mapvalues(dem_data$country, from = country_nr, to = country_
 
 head(dem_data)
 
+write.table(dem_data, "dem_data.csv")
+
 # korelacje
 
 countries <- unique(dem_data$country)
