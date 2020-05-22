@@ -1,10 +1,22 @@
 \begin{thebibliography}{xx}
 
+\harvarditem{Ariely \harvardand\ Davidov}{2011}{ArDav}
+Ariely, G. \harvardand\ Davidov, E.  \harvardyearleft 2011\harvardyearright ,
+  `Can we rate public support for democracy in a comparable way? cross-national
+  equivalence of democratic attitudes in the world value survey', {\em Social
+  Indicators Research} {\bf 104(2)},~243–257.
+
 \harvarditem{Campbell}{2019}{Campbell}
 Campbell, R.  \harvardyearleft 2019\harvardyearright , Theories of popular
   support for democracy, {\em in} `Popular Support for Democracy in Unified
   Germany. New Perspectives in German Political Studies', Palgrave Macmillan,
   Cham.
+
+\harvarditem[Chen et~al.]{Chen, Sousa \harvardand\ West}{2005}{ChenEtAl}
+Chen, F.~F., Sousa, K.~H. \harvardand\ West, S.~G.  \harvardyearleft
+  2005\harvardyearright , `Teacher's corner: Testing measurement invariance of
+  second-order factor models', {\em Structural Equation Modeling: A
+  Multidisciplinary Journal} {\bf 12:3},~471--492.
 
 \harvarditem[Coppedge et~al.]{Coppedge, Gerring, Altman, Bernhard, Fish,
   Hicken, Kroenig, Lindberg, McMann, Paxton, Semetko, Skaaning, Staton
@@ -23,17 +35,55 @@ Doorenspleet, R.  \harvardyearleft 2019\harvardyearright , {\em Rethinking the
 Everitt, B.~S.  \harvardyearleft 1984\harvardyearright , {\em An Introduction
   to Latent Variable Models}, Chapman and Hall.
 
+\harvarditem{Hirschfeld \harvardand\ von Brachel}{2014}{HirBra}
+Hirschfeld, G. \harvardand\ von Brachel, R.  \harvardyearleft
+  2014\harvardyearright , `Improving multiple-group confirmatory factor
+  analysis in r – a tutorial in measurement invariance with continuous and
+  ordinal indicators', {\em Practical Assessment, Research, and Evaluation}
+  {\bf 19}(7).
+
+\harvarditem[Inglehart et~al.]{Inglehart, amd A.~Moreno, Welzel, Kizilova,
+  Diez-Medrano, Lagos, Norris, Ponarin \harvardand\ et~al.}{2014}{WVSData}
+Inglehart, R., amd A.~Moreno, C.~H., Welzel, C., Kizilova, K., Diez-Medrano,
+  J., Lagos, M., Norris, P., Ponarin, E. \harvardand\ et~al., B.~P.
+  \harvardyearleft 2014\harvardyearright , `World values survey: Round six -
+  country-pooled datafile version'.
+\newline\harvardurl{www.worldvaluessurvey.org/WVSDocumentationWV6.jsp}
+
 \harvarditem{Jasko \harvardand\ Kossowska}{2008}{JaskoKoss}
 Jasko, K. \harvardand\ Kossowska, M.  \harvardyearleft 2008\harvardyearright ,
   `Wplyw wartosci na rozumienie pojecia demokracji', {\em Psychologia
   spoleczna} {\bf tom 3 3 (8)},~243 – 257.
 
+\harvarditem{Lubiewska \harvardand\ Glogowska}{2018}{LubGlog}
+Lubiewska, K. \harvardand\ Glogowska, K.  \harvardyearleft
+  2018\harvardyearright , `Zastosowanie analizy rownowaznosci pomiarowej w
+  badaniach psychologicznych', {\em Polskie Forum Psychologiczne} {\bf
+  23}(2),~330 -- 356.
+
+\harvarditem{Pokropek}{2013}{Pokropek}
+Pokropek, A.  \harvardyearleft 2013\harvardyearright , Porownywalnosc w
+  badaniach miedzynarodowych. przyklad wskaznika motywacji do nauki w badaniu
+  pisa 2006, polska edukacja w swietle diagnoz prowadzonych z roznych
+  perspektyw badawczych, {\em in} `XIX Konferencja Diagnostyki Edukacyjnej'.
+
 \harvarditem{Przeworski}{1999}{Przeworski}
 Przeworski, A.  \harvardyearleft 1999\harvardyearright , {\em Minimalist
   Conception of Democracy: A Defense}, Cambridge University Press.
 
+\harvarditem{Schneider}{2016}{Schneider}
+Schneider, I.  \harvardyearleft 2016\harvardyearright , `Can we trust measures
+  of political trust? assessing measurement equivalence in diverse regime
+  types', {\em Social Indicators Research} {\bf 133},~963 -- 984.
+
 \harvarditem{Schumpeter}{1942}{Schumpeter}
 Schumpeter, J.~A.  \harvardyearleft 1942\harvardyearright , {\em Capitalism,
   Socialism, and Democracy}, 2 edn, Sublime Books.
+
+\harvarditem{t.~Hu \harvardand\ Bentler}{1999}{HuBentler}
+t.~Hu, L. \harvardand\ Bentler, P.~M.  \harvardyearleft 1999\harvardyearright ,
+  `Cutoff criteria for fit indexes in covariance structure analysis:
+  Conventional criteria versus new alternatives', {\em Structural Equation
+  Modeling} {\bf 6}(1),~1 – 55.
 
 \end{thebibliography}

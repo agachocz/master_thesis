@@ -116,21 +116,29 @@ corrplot(cor.matrix, method="circle", order='hclust', tl.col = "black", tl.cex =
 
 # Struktura modelu
 model <- '
-fundamentalistic =~ obeyRulers + religiousLaw + armyTakesOver + equalIncome;
-economic =~ taxRich + equalIncome + helpUnemp;
-liberal =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
+I =~ obeyRulers + religiousLaw + armyTakesOver + equalIncome;
+II =~ taxRich + equalIncome + helpUnemp;
+III =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
 
 
-fit <- cfa(model, data = dem_data, estimator = "MLR")
+fit <- cfa(model, data = dem_data, estimator = "MLM")
 summary_fit <- summary(fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
 reliability(fit)
+
+quest.min <- c(obeyRulers = "X8", religiousLaw = "X2", armyTakesOver = "X5", 
+               equalIncome = "X7", taxRich = "X1", helpUnemp = "X4", freeElection = "X3", 
+               genderEquality = "X9", civilRights = "X6", importance = "X10", "I", "II", "III")
 
 # schematy równań strukturalnych
 semPaths(object = fit,
          whatLabels = "std",           
-         edge.label.cex = 1,           
-         layout = "tree",          
-         what = "std", edge.color = "black")
+         edge.label.cex = 1, nCharNodes = 0,         
+         layout = "circle2",  sizeMan = 7, sizeMan2 = 7, shapeMan = "square",
+         sizeLat = 7, sizeLat2 = 7, shapeLat = "circle",
+         sizeInt = 5, sizeInt2 = 5,    
+         what = "std", edge.color = "black",
+         nodeLabels = quest.min, optimizeLatRes = T)
+
 
 # modificationIndices(fit, standardized = T, sort = T)
 
@@ -188,7 +196,11 @@ liberal =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
 group2_fit <- cfa(group2_model, data = group2_data, estimator = "MLR")
 group2_summary <- summary(group2_fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
 reliability(group2_fit)
-measurementInvariance(model = group2_model, data = group2_data, group="country", estimator = "MLR")
+
+group2_mi <- measurementInvariance(model = group2_model, data = group2_data, 
+                                   group="country", estimator = "MLR")
+
+
 
 # schemat równań strukturalnych
 semPaths(object = group2_fit,

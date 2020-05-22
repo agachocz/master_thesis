@@ -35,6 +35,13 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 library(captioner)
+library(corrplot)
+library(cluster)
+library(semTools)
+library(semPlot)
+library(lavaan)
+library(ggsci)
+library(ggpubr)
 
 table_nums <- captioner(prefix = "Tabela")
 fig_nums <- captioner(prefix = "Rys.")
@@ -79,7 +86,7 @@ dem_types <- data.frame(c("liberalna", "większościowa", "bezpośrednia",
         " decyzje podejmowane w drodze dyskusji i wypracowywania konsensusu (w kontraście do przegłosowania przeciwników)", "równość w prawach, ale też dostępie do zasobów; każdy obywatel ma szansę w takim samym stopniu korzystać ze wspólnego państwa"))
 
 kable(dem_types, format = "latex", col.names = c("Typ demokracji", " Postulaty"), longtable = T) %>%
-  column_spec(2, width = "35em")
+  column_spec(2, width = "30em")
 
 ```
 
@@ -120,9 +127,11 @@ Ogólna postać modelu czynnikowego została opisana układem równań \ref{eq:l
 \begin{equation}
 \label{eq:latent-model}
 \begin{aligned} 
-x_1 = \alpha_01 + \alpha_11 \lambda_1 + ... + \alpha_k1 \lambda_k + \epsilon_1\\
-...\\
-x_p = \alpha_0p + \alpha_1p \lambda_1 + ... + \alpha_kp \lambda_k + \epsilon_p\\
+x_1 = \alpha_{01} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \epsilon_1\\
+.\\
+.\\
+.\\
+x_p = \alpha_{0p} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \epsilon_p\\
 \end{aligned}
 \end{equation}
 
@@ -131,7 +140,7 @@ Każdy element $x$ oraz $\epsilon$ jest n-elementowym wektorem. Zakładamy, że 
 
 \begin{equation}
 \label{eq:shared-var}
-\sigma_ij = \sum_{r=1}^k \alpha_ir \alpha_jr, i != j
+\sigma_{ij} = \sum_{r=1}^k \alpha_{ir} \alpha_{jr} \text{, gdzie } i \neq j
 \end{equation}
 
 gdzie $\sigma_ij$ jest elementem macierzy wariancji i kowariancji $x$.
@@ -139,7 +148,7 @@ Jeśli jako $\psi_i$ oznaczymy wariancję błędu ($\epsilon$) i-tej zmiennej, w
 
 \begin{equation}
 \label{eq:spec-var}
-\sigma_ii = \sum_{j=1}^k \alpha_ij^2 + \psi_i
+\sigma_{ii} = \sum_{j=1}^k \alpha_{ij}^2 + \psi_i
 \end{equation}
 
 gdzie pierwszy człon oznacza zmienność, którą $x_i$ dzieli z innymi zmiennymi mierzalnymi poprzez wspólne zmienne latentne, a drugi to jej wariancja specyficzna.
@@ -154,14 +163,14 @@ Macierz wariancji i kowariancji, której elementy zostały wcześniej podane wzo
 
 \begin{equation}
 \label{eq:var-matrix}
-\Sigma = \Alpha \Alpha' + \Psi
+\Sigma = A A' + \Psi
 \end{equation}
 
-gdzie $\Alpha$ jest macierzą ładunków czynnikowych o rozmiarze $k x n$, a $\Psi$ jest macierzą diagonalną wariancji specyficznych. Można zauważyć, że dla ortogonalnej macierzy $T$ (tzn. takiej, że przemnożona przez swoją transpozycję daje macierz jednostkową) o rozmiarze $n x n$, zachodzi równość:
+gdzie $A$ jest macierzą ładunków czynnikowych o rozmiarze $k x n$, a $\Psi$ jest macierzą diagonalną wariancji specyficznych. Można zauważyć, że dla ortogonalnej macierzy $T$ (tzn. takiej, że przemnożona przez swoją transpozycję daje macierz jednostkową) o rozmiarze $n x n$, zachodzi równość:
 
 \begin{equation}
 \label{eq:scaling}
-\Alpha T (\Alpha T)' + \Psi = \Alpha T T' \Alpha' + \Psi = \Alpha \Alpha' + \Psi = \Sigma
+A T (A T)' + \Psi = A T T' A' + \Psi = A A' + \Psi = \Sigma
 \end{equation}
 
 Oznacza to, że ładunków czynnikowych nie da się jednoznacznie zidentyfikować; macierz $A$ może być wyznaczona tylko z dokładnością do przemnożenia przez dowolną ortogonalną macierz [@Shapiro]. Ładunki czynnikowe nie mają więc bezpośredniej interpretacji, jak współczynniki w modelu regresji, i mogą zostać przeskalowane, tak żeby ustawić wartość oczekiwaną lub wariancję zmiennej latentnej na określonym poziomie.
@@ -172,7 +181,7 @@ Warunkiem koniecznym identyfikowalności jest, aby liczba estymowanych parametr�
 
 \begin{equation}
 \label{eq:ident-condition}
-N_c = \frac{p(p+1)/2}
+N_c = \frac{p(p+1)}{2}
 \end{equation}
 
 Dla ogólnego przypadku z układu równań \ref{eq:latent-model}, gdzie każda z $p$ mierzalnych zmiennych może być objaśniana przez wszystkie $k$ zmiennych latentnych, można określić liczbę stopni swobody modelu na poziomie:
@@ -201,12 +210,12 @@ Do zbadania istotności modelu można wykorzystać statystykę GFI (Goodness of 
 
 \begin{equation}
 \label{eq:gfi}
-GFI = \frac{l(S, \Sigma)}{n-1} ~\Chi^2 (\frac{(p-k)^2 - (p+k)}{2})
+GFI = \frac{l(S, \Sigma)}{n-1} \text{   } \sim \chi^2 (\frac{(p-k)^2 - (p+k)}{2})
 \end{equation}
 
 Dzięki tej statystyce można testować hipotezę zerową, że zakładana macierz wariancji i kowariancji jest identyczna z zaobserwowaną. Ta statystyka jest jednak zależna od $n$ i dla dużych prób test jest zbyt czuły na drobne niedopasowanie do danych, żeby stosować go w praktyce [Cheung, Rensvold, 2002]. Istnieje wiele wskaźników dopasowania modelu do danych. Przyjmuje się, że wartości CFI (Comparative Fit Index) oraz TLI (Tucker-Lewis Index) powinny być w okolicach lub powyżej 0,95, natomiast RMSEA (Root Mean Square Error of Approximation) nie powinno przekraczać 0,06 [@HuBentler]. 
 
-W przypadku, gdy dane nie pochodzą z wielowymiarowego rozkładu normalnego, można wykorzystać estymator ADF (asymptotically distribution-free), ale tylko jeśli próba jest bardzo duża (n > 5000). Dlatego częściej stosowanym wyjściem jest stosowanie MNW z pewnymi korektami. Złamanie założenia o normalności prowadzi do poprawnych estymacji, ale z mocno niedoszacowanymi błędami standardowymi i zawyżoną statystyką GFI. Można to skorygować, stosując przeskalowaną statystykę Satorry-Bentlera oraz odporne błędy standardowe [Rosseel, 2012]. Również w sytuacji porównywania dwóch zagnieżdżonych modeli Testem Ilorazu Wiarygodności (Likelihood Ratio Test) stosuje się przeskalowanie statystyki testowej, tak by miała rozkład $\Chi^2$ [Satorra, Bentler, 2010].
+W przypadku, gdy dane nie pochodzą z wielowymiarowego rozkładu normalnego, można wykorzystać estymator ADF (asymptotically distribution-free), ale tylko jeśli próba jest bardzo duża (n > 5000). Dlatego częściej stosowanym wyjściem jest stosowanie MNW z pewnymi korektami. Złamanie założenia o normalności prowadzi do poprawnych estymacji, ale z mocno niedoszacowanymi błędami standardowymi i zawyżoną statystyką GFI. Można to skorygować, stosując przeskalowaną statystykę Satorry-Bentlera oraz odporne błędy standardowe [Rosseel, 2012]. Również w sytuacji porównywania dwóch zagnieżdżonych modeli Testem Ilorazu Wiarygodności (Likelihood Ratio Test) stosuje się przeskalowanie statystyki testowej, tak by miała rozkład $\chi^2$ [Satorra, Bentler, 2010].
 
 ## Zagadnienie równoważności pomiarowej
 
@@ -219,9 +228,11 @@ Taką sytuację można by opisać, przyjmując, że rzeczywistym opisem zjawiska
 \begin{equation}
 \label{eq:delta-model}
 \begin{aligned} 
-x_1 = \alpha_01 + \alpha_11 \lambda_1 + ... + \alpha_k1 \lambda_k + \beta_1 \delta + \epsilon_1\\
-...\\
-x_p = \alpha_0p + \alpha_1p \lambda_1 + ... + \alpha_kp \lambda_k + \beta_p \delta + \epsilon_p\\
+x_1 = \alpha_{01} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \beta_1 \delta + \epsilon_1\\
+.\\
+.\\
+.\\
+x_p = \alpha_{0p} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \beta_p \delta + \epsilon_p\\
 \end{aligned}
 \end{equation}
 
@@ -250,9 +261,11 @@ Mając $M$ grup, należy w każdej osobno wyestymować model postaci:
 \begin{equation}
 \label{eq:group-model}
 \begin{aligned} 
-x_1 = \alpha_01m + \alpha_11m \lambda_1 + ... + \alpha_k1m \lambda_k + \epsilon_1m\\
-...\\
-x_p = \alpha_0pm + \alpha_1pm \lambda_1 + ... + \alpha_kpm \lambda_k + \epsilon_pm\\
+x_1 = \alpha_{01m} + \alpha_{11m} \lambda_1 + ... + \alpha_{k1m} \lambda_k + \epsilon_{1m}\\
+.\\
+.\\
+.\\
+x_p = \alpha_{0pm} + \alpha_{1pm} \lambda_1 + ... + \alpha_{kpm} \lambda_k + \epsilon_{pm}\\
 \end{aligned}
 \end{equation}
 
@@ -261,21 +274,23 @@ gdzie $m = 1, …, M$. Następnie nałożyć na ładunki czynnikowe restrykcje r
 \begin{equation}
 \label{eq:restricted-loadings}
 \begin{aligned} 
-x_1 = \alpha_01m + \alpha_11 \lambda_1 + ... + \alpha_k1 \lambda_k + \epsilon_1m\\
-...\\
-x_p = \alpha_0pm + \alpha_1p \lambda_1 + ... + \alpha_kp \lambda_k + \epsilon_pm\\
+x_1 = \alpha_{01m} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \epsilon_{1m}\\
+.\\
+.\\
+.\\
+x_p = \alpha_{0pm} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \epsilon_{pm}\\
 \end{aligned}
 \end{equation}
 
 Do testowania można wykorzystać Test Ilorazu Wiarygodności. Ponieważ model \ref{eq:restricted-loadings} jest zagnieżdżony w modelu \ref{eq:group-model}, jego funkcja wiarygodności (LR) może być tylko mniejsza lub równa od funkcji wiarygodności (L0), maksymalizowanej przy estymacji modelu \ref{eq:group-model}. Są równe, jeśli narzucone restrykcje nie pogarszają modelu, to znaczy w rzeczywistości ładunki czynnikowe w grupach mają takie same wartości. Jeżeli LR jest istotnie niższe, ładunki czynnikowe w grupach są istotnie różne. Testowanie hipotez:
 
-$$H_0: L_0 = L_R
-H_1: L_0 > L_R$$
+$$H_0: L_0 = L_R$$
+$$H_1: L_0 > L_R$$
 
 jest równoznaczne z testowaniem hipotez:
 
-$$H_0: Równoważność metryczna jest spełniona
-H_1: Równoważność metryczna nie jest spełniona$$
+$$H_0: Równoważność metryczna jest spełniona$$
+$$H_1: Równoważność metryczna nie jest spełniona$$
 
 ## Równoważność skalarna
 
@@ -286,20 +301,22 @@ Model z restrykcjami ma postać:
 \begin{equation}
 \label{eq:restricted-intercepts}
 \begin{aligned} 
-x_1 = \alpha_01 + \alpha_11 \lambda_1 + ... + \alpha_k1 \lambda_k + \epsilon_1m\\
-...\\
-x_p = \alpha_0p + \alpha_1p \lambda_1 + ... + \alpha_kp \lambda_k + \epsilon_pm\\
+x_1 = \alpha_{01} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \epsilon_{1m}\\
+.\\
+.\\
+.\\
+x_p = \alpha_{0p} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \epsilon_{pm}\\
 \end{aligned}
 \end{equation}
 
 a model bez restrykcji jest postaci danej wzorem \ref{eq:group-model}. Testowane są hipotezy:
 
-$$H_0: Równoważność skalarna jest spełniona
-H_1: Równoważność skalarna nie jest spełniona$$
+$$H_0: Równoważność skalarna jest spełniona$$
+$$H_1: Równoważność skalarna nie jest spełniona$$
 
 Spełnienie równoważności konfiguralnej daje w praktyce możliwość głębszego testowania (np. równości reszt) lub przeprowadzania szczegółowych testów, w których restrykcje są nałożone na wybrane parametry, podczas gdy pozostałe są pozostawione wolno. Wyniki takich testów mogą dostarczyć dodatkowych informacji o kształtowaniu się modeli badanego zjawiska w różnych grupach, ale nie dają dodatkowych możliwości statystycznych porównań międzygrupowych, dlatego w ogólnym przypadku rozważa się tylko te trzy poziomy.
 
-# Tytuł?
+# Analiza Czynnikowa koncepcji demokracji
 
 ## Zestaw danych i statystyki opisowe
 
@@ -323,6 +340,19 @@ W badaniu wykorzystano dane zebrane w edycji szóstej (lata 2010-2014) ze wszyst
 
 ```{r load-data}
 dem_data <- read.table("dem_data.csv")
+questions <- c("Rząd nakłada podatki na bogatych i wspiera biednych",
+               "Autorytety religijne mają wpływ na prawo",
+               "Ludzie wybierają swoich przywódców politycznych w wolnych wyborach",
+               "Bezrobotni otrzymują pomoc od państwa",
+               "Wojsko przejmuje władzę, jeśli rząd jest niekompetentny",
+               "Prawa obywatelskie chronią wolność ludzi",
+               "Rząd wyrównuje dochody ludzi",
+               "Ludzie są posłuszni tym, którzy nimi rządzą",
+               "Kobiety mają takie same prawa jak mężczyźni",
+               "Kraj, w którym mieszkam, powinien być rządzony demokratycznie")
+names(questions) <- c("taxRich", "religiousLaw", "freeElection", "helpUnemp", 
+                      "armyTakesOver", "civilRights", "equalIncome", "obeyRulers",
+                      "genderEquality", "importance")
 ```
 
 `r fig_nums(name = "descr-plot", display = "cite")` przedstawia histogramy odpowiedzi na każde z pytań z osobna, łącznie dla wszystkich krajów. Na tej podstawie można podzielić cechy na trzy grupy:
@@ -333,6 +363,7 @@ dem_data <- read.table("dem_data.csv")
 
 `r fig_nums("dem-types", "Rozkład odpowiedzi na pytania o demokrację w ankiecie WVS. Źródło: opracowanie własne")`
 ```{r descr-plot}
+
 dem_data %>% 
   gather(key = "variable", value = "answer", -country, factor_key = T) %>%
   ggplot(aes(answer)) + geom_histogram(bins = 10, col = "black") +
@@ -356,7 +387,7 @@ Siłę tych związków mierzono współczynnikiem korelacji Spearmana. Mimo, że
 
 Koncepcję demokracji można opisać zmienną latentną, która wpływa na odpowiedzi (zmienne mierzalne). Koncepcji może być kilka, ale nie więcej, niż pytań. Na odpowiedź na dane pytanie może wpływać więcej niż jedna koncepcja. Warto też zauważyć, że wyodrębnione z danych koncepcje są określone tylko w zakresie pytań, które zadano w ankiecie. Nie można na tej podstawie stwierdzić, czy koncepcja obejmuje też inne kwestie, np. bioetyczne. Teoretycznie mogą również istnieć koncepcje demokracji, które nie zawierają objętych pytaniami cech, wobec czego wymykają się badaniu.
 
-`r fig_numes(name = "cor-matrix", display = "cite")` przedstawia macierz korelacji odpowiedzi na wszystkie pytania. Dla macierzy wykonano test sferyczności Bartletta, na podstawie którego stwierdzono, że jest istotnie różna od macierzy jednostkowej, zatem siła związków między zmiennymi jest istotna ($\Chi^2$ = 46805,62; $df$ = 45; $p$ < 0,001).
+`r fig_nums(name = "cor-matrix", display = "cite")` przedstawia macierz korelacji odpowiedzi na wszystkie pytania. Dla macierzy wykonano test sferyczności Bartletta, na podstawie którego stwierdzono, że jest istotnie różna od macierzy jednostkowej, zatem siła związków między zmiennymi jest istotna ($\chi^2$ = 46805,62; $df$ = 45; $p$ < 0,001).
 
 
 `r fig_nums("cor-matrix", "Macierz korelacji odpowiedzi na pytania o demokrację. Źródło: opracowanie własne")`
@@ -379,4 +410,305 @@ rownames(cor.matrix) <- quest.short
 
 corrplot(cor.matrix, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
 ```
+
+Na `r fig_nums(name = "cor-matrix", display = "cite")` wyraźnie wyłaniają się trzy skupiska. Wskazują na istnienie w badanej grupie trzech odrębnych koncepcji demokracji, przejawiających się w podobnych wzorcach odpowiedzi:  
+
+- Koncepcja I: zmienne oznaczające posłuszeństwo rządzącym, wpływ autorytetów religijnych na prawo, możliwość przejęcia władzy przez wojsko oraz (w mniejszym stopniu) wyrównywanie dochodów;
+- Koncpecja II: zmienne oznaczające wyrównywanie dochodów, wyższe opodatkowanie bogatych, pomoc dla bezrobotnych;
+- Koncepcja III: zmienne oznaczające pomoc dla bezrobotnych, równouprawnienie płci, wolne wybory i prawa obywatelskie;
+
+Pierwsza wizja charakteryzuje się przede wszystkim przekonaniem, że podstawową cechą demokracji jest ingerencja w działanie państwa stron trzecich, czyli autorytetów religijnych oraz wojska. Ceni również posłuszeństwo wobec rządzących. W tej koncepcji demokracji, skupionej raczej wokół porządkowania stosunków władzy, znalazło się też jednak przekonanie, że państwo powinno dbać o równy rozkład dochodów. Grupa ta jest wyraźnie negatywnie skorelowana z grupą III, a przede wszystkim - z potrzebą życia w demokratycznym państwie. Można przypuszczać, że członkowie grupy w rzeczywistości nie cenią demokracji, ale zapytani o jej istotę, i tak projektują na nią cechy swojego wymarzonego (niedemokratycznego) systemu. 
+
+Druga koncepcja przedstawia demokrację głównie jako gwaranta korzyści lub bezpieczeństwa ekonomicznego. Jej wyznawcy oczekują od państwa walki z nierównościami dochodowymi, opodatkowania najbogatszych, wsparcia dla najbiedniejszych oraz bezrobotnych. Można ten wzorzec określić jako koncepcję państwa opiekuńczego.
+
+W ostatniej koncepcji demokracja to system, którego istotą są wolne wybory, równość i swoboda obywatelska, ale również wsparcie dla bezrobotnych. Chociaż i ta koncepcja wychodzi daleko poza definicję Schumpetera (według której jedyną podstawową cechą demokracji są wolne wybory) to jest do niej najbliższa. Wyznawcy koncepcji postrzegają demokrację jako gwarancję wolności politycznych i bardziej niż innym zależy im, żeby mieszkać w demokratycznym kraju.
+
+Ponadto warto zauważyć, że zmienne oznaczające wyrównywanie dochodów oraz wyższe opodatkowanie bogatych charakteryzują się pozytywnymi korelacjami z niemal wszystkimi pozostałymi zmiennymi.
+
+Warto zestawić wykres `r fig_nums(name = "cor-matrix", display = "cite")` z informacjami wyniesionymi z `r fig_nums(name = "descr-plot", display = "cite")`. Analiza korelacji pozwala tylko wnioskować o kształcie i wewnętrznej spójności poszczególnych koncepcji, a nie o ich powszechności (ile osób jest do nich przekonanych) ani umiejscowieniu na skali odpowiedzi. Wykres [nr2] pozwala przypuszczać, że najbardziej powszechna jest koncepcja III i że jej wyznawcy wybierają najwyższe odpowiedzi w składających się na nią pytaniach, podczas gdy wyznawcy koncepcji I i tak wybierają generalnie niskie odpowiedzi na swoje pytania - choć nie tak niskie, jak reszta społeczeństwa. Nie można też wykluczyć, że funkcjonuje ona jako “anty-koncepcja”; powszechnie uznawany wzorzec, jak demokracja nie powinna wyglądać. 
+
+Koncepcja II i III wydają się pokrywać z badaniami Jaśko i Kossowskiej @JaskoKoss dla polskiego społeczeństwa. Wyodrębniły one, odpowiednio: “standard opiekuńczości” oraz “standard wolności”. Z kolei analizy przyczyn poparcia i zaufania ludzi do demokracji i demokratycznych rządów pokazują, że po części wynikają one z zaangażowania obywateli w działalność społeczną, częściowo ze sprzyjającej sytuacji ekonomicznej, a częściowo z psychologicznego mechanizmu, że ludzie generalnie popierają system, który już jest przyjęty, o ile nie mają silnych powodów do niezadowolenia z niego [@Campbell]. Poparcie dla demokracji wynikające z korzystnej sytuacji ekonomicznej jasno potwierdza, że obywatele oczekują od demokratycznego systemu, że pozwoli im żyć w ogólnie pojętym dobrobycie (koncepcja II). Po drugie, skoro ludzie ufają demokratycznym rządom dzięki możliwości zaangażowania w działalność społeczną, to można przypuszczać, że oczekują od demokracji zapewnienia swobody takiego działania. Pośrednio tę swobodę można wiązać z postulatami praw obywatelskich oraz równości płci (w kontekście emancypacji kobiet, która pozwoliła im na bardziej czynny udział w życiu społecznym), znajdującymi się w koncepcji III. Trzeci, behawioralny składnik poparcia demokracji wg. Campbella, nie jest kwestią koncepcji demokracji, więc nie ma tu zastosowania.
+
+Można również spojrzeć na społeczne koncepcje demokracji pod kątem jej trwałości. W szczególnie burzliwych momentach dziejowych wśród badaczy popularny staje się pogląd, że świat odwraca się od demokracji, choć dane jak dotąd temu przeczą [@Doorenspleet]. Padają wówczas pytania, co może sprawić, że naród odrzuci formę ustroju, uważaną przecież tak powszechnie za najlepszą z możliwych. Okazuje się, że nawet gdy obywatele nie są zadowoleni ze swoich rządzących, nie są skłonni przekreślić demokratycznego systemu ich wybierania, o ile ten system zapewnia im podstawowe prawa i zaspokaja oczekiwania. Z kolei niestabilna sytuacja ekonomiczna jest poważną próbą wytrzymałości dla młodych demokracji, jak to było widoczne pod koniec XX w. w Europie Środkowo-Wschodniej [@Klingemann]. 
+
+To, że obywatele są gotowi odrzucić system, który nie zaspokaja oczekiwań, może brzmieć jak truizm, ale odsłania ważną niedoskonałość elitystycznej definicji Schumpetera: ludzie nie postrzegają demokracji jako systemu, który pozwala im wybrać rządzących wedle upodobania, ale jako takiego, który daje największe możliwości realizowania swoich potrzeb, zarówno społecznych jak i ekonomicznych. Wybór rządzących jest tylko środkiem do osiągnięcia celu, nie celem samym w sobie.
+
+Pewną zagadką pozostaje kwestia koncepcji I, która wydaje się nie mieć żadnego poparcia w dotychczasowych badaniach. Na podstawie samej macierzy korelacji można by przypuszczać, że istnieje wyłącznie jako anty-koncepcja, jednak temu przeczy dalsza analiza, która pokazuje, że istnieje nieduża grupa ludzi bardziej przekonanych do tej koncepcji, niż do pozostałych.
+
+## Model strukturalny
+
+```{r model-all}
+model <- '
+fundamentalistic =~ obeyRulers + religiousLaw + armyTakesOver + equalIncome;
+economic =~ taxRich + equalIncome + helpUnemp;
+liberal =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
+
+
+fit <- cfa(model, data = dem_data, estimator = "MLR")
+summary_fit <- summary(fit, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
+```
+
+Postać modelu przedstawiono na diagramie na `r fig_nums(name = "diagram-all", display = "cite")`, zgodnie ze standardem przedstawiania równań strukturalnych [@Everitt]. Zmienne latentne zostały oznaczone przez okręgi, zmienne mierzalne przez kwadraty, a na liniach prostych między nimi podano wartości wyestymowanych ładunków czynnikowych. Zakrzywione linie oznaczają wariancje lub kowariancje. 
+
+Ze względu na złamanie założenia o normalności zmiennych mierzalnych, model estymowano Odporną Metodą Największej Wiarygodności. Ponieważ modele ze zmiennymi latentnymi nie są ściśle identyfikowalne, o czym pisano w rozdziale 2.2, przy estymacji przyjęto jednostkową wariancję zmiennych latentnych oraz wartość pierwszego ładunku czynnikowego na 1. Na diagramie na `r fig_nums("diagram-all", display = "cite")` jest on wyróżniony przerywaną linią, ale wartości ładunków czynnikowych zostały zestandaryzowane dla wygodniejszej interpretacji. Wszystkie współczynniki są istotne. 
+
+
+`r fig_nums("diagram-all", "Diagram modelu analizy czynnikowej koncepcji demokracji. Źródło: opracowanie własne")`
+```{r diagram-all}
+semPaths(object = fit,
+         whatLabels = "std",           
+         edge.label.cex = 1, nCharNodes = 0,         
+         layout = "circle2",  sizeMan = 7, sizeMan2 = 7, shapeMan = "square",
+         sizeLat = 7, sizeLat2 = 7, shapeLat = "circle",
+         sizeInt = 5, sizeInt2 = 5,    
+         what = "std", edge.color = "black",
+         nodeLabels = quest.min, optimizeLatRes = T)
+```
+
+I koncepcja najsilniej przejawia się w zmiennych oznaczających wpływ autorytetów religijnych na prawo oraz możliwość przejęcia władzy przez wojsko. II jest wyrażana przede wszystkim w poparciu opodatkowania bogatych i wsparcia ubogich. Koncepcja III wyraża się głównie przez docenienie wagi wolnych wyborów, a na drugim miejscu: równość płci i prawa obywatelskie. Koncepcje II i III są ze sobą pozytywnie skorelowane na średnim poziomie (0,5). Koncepcja I jest słabo, ale dodatnio skorelowana z II, oraz równie słabo, ale ujemnie, z koncepcją III.
+
+Model posiada dość dobre własności. CFI = 0,953, jest więc na dobrym poziomie, ale TLI wynosi tylko 0,930. RMSEA wynosi 0,057; CI90% (0,055; 0,060), co również jest bardzo korzystną wartością. Łączna rzetelność konstruktu (Composite Reliability) wynosi 0,74, co oznacza, że pytania są dobrze dobrane do badanych koncepcji.
+
+Dla każdej obserwacji w zbiorze można teraz obliczyć liczbową wartość każdej koncepcji jako średnią ważoną, gdzie wagami są standaryzowane ładunki czynnikowe. Taki wskaźnik można interpretować jako miarę tego, jak bardzo ankietowany zgadza się z daną koncepcją. `r fig_nums(name = "stats-all", display = "cite")` przedstawia, jak kształtują się te wskaźniki w całej grupie.
+
+
+`r fig_nums("stats-all", "Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole)")`
+```{r stats-all}
+coeff <- summary_fit$PE
+
+# wagi
+fnd_all_w <- coeff$std.all[1:4]
+lib_all_w <- coeff$std.all[8:12]
+econ_all_w <- coeff$std.all[5:7]
+
+all_stats <- dem_data %>% mutate(I = (obeyRulers*fnd_all_w[1]+religiousLaw*fnd_all_w[2]+ 
+                    armyTakesOver*fnd_all_w[3]+equalIncome*fnd_all_w[4])/sum(fnd_all_w),
+                    II = (taxRich*econ_all_w[1]+equalIncome*econ_all_w[2]+ 
+                    helpUnemp*econ_all_w[3])/sum(econ_all_w),
+                    III = (freeElection*lib_all_w[1]+genderEquality*lib_all_w[2]+
+                    civilRights*lib_all_w[3]+importance*lib_all_w[4]+
+                      helpUnemp*lib_all_w[5])/sum(lib_all_w)) %>%
+            mutate(leading = if_else(I > II, if_else(I > III, "I", "III"),
+                             if_else(II > III, "II", "III")))
+
+bxp <- all_stats %>% select(I, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
+        ggboxplot(x = "Koncepcja", y = "Wartość",
+                 color = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
+        theme(legend.position = "none")
+
+levels <- c("I", "II", "III")
+all_stats$leading <- factor(all_stats$leading, levels)
+
+bar <- all_stats %>% select(leading) %>% 
+              ggplot() + geom_bar(aes(leading, fill = "leading"), 
+              fill=c("blue", "orange", "darkgreen")) + 
+              geom_text(stat = "count", aes(label=..count..), vjust=-0.5, size=4) +
+              scale_x_discrete("Dominująca koncepcja", drop=F) +
+              labs(y = "Liczba osób")
+        
+
+yplot <- all_stats %>% select(I, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
+          ggdensity("Wartość", fill = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
+          rotate() + clean_theme()
+
+ggarrange(bxp, yplot, bar, NULL,
+          ncol = 2, nrow = 2,  align = "hv", 
+          widths = c(2, 1), heights = c(2, 0.7),
+          common.legend = TRUE)
+```
+
+Wyraźnie widać, że ludzie najmniej zgadzają się z koncepcją I (średnia 4,28) następnie II (średnia 6,85), a najbardziej z III (średnia 8,3). Przypadki, kiedy wskaźnik tej ostatniej jest poniżej 4 to wartości odstające, więc można powiedzieć, że prawie nie ma ludzi, którzy by się z tą koncepcją nie zgadzali. Policzono również obserwacje, w których najwyższą wartość mają wskaźniki poszczególnych koncepcji (wykres na dole). Zdecydowanie najwięcej jest ludzi, dla których najważniejsza jest koncepcja III.
+
+Pytanie brzmi, czy model jest równoważny pomiarowo, a więc czy można zastosować te wskaźniki do mierzenia różnic w postrzeganiu demokracji między krajami. W celu przetestowania pierwszego poziomu równoważności - równoważność konfiguralna - podjęto próbę estymacji tego samego modelu dla każdego kraju osobno. Okazało się, że w niektórych grupach (dla Gruzji i Słowenii) model nie mógł się poprawnie wyestymować, co oznacza, że postać modelu nie pasuje do danych. To oznacza, że równoważność konfiguralna nie jest zachowana. 
+
+W celu uzyskania wspólnego, międzynarodowego konceptu demokracji można by wykluczyć z badania kraje, dla których model okazał się nieidentyfikowalny, i ponowić procedurę. Takie rozwiązanie jest jednak tylko pominięciem problemu. Nie ma wspólnej dla europejskich społeczeństw koncepcji demokracji (obejmującej kwestie wymienione w rozdziale 4.2). Przyjęcie koncepcji powstałych przez nakładanie się na siebie koncepcji różnych państw i odrzucenie najbardziej odstających krajów nie daje zbyt wiele informacji o naturze różnic.
+
+Można jednak przypuszczać, że istnieją w Europie grupy państw o wystarczająco zbliżonych poglądach na demokrację, że można w nich używać wspólnych konstruktów. W następnych rozdziałach podjęto próbę znalezienia takich grup, modelowania występujących w nich koncepcji i pokazania różnic.
+
+# Podział państw według przebiegu Żelaznej Kurtyny
+
+## Linia podziału
+
+Można przypuszczać, że różnice wynikają z historycznych uwarunkowań. Spora część państw europejskich w drugiej połowie XX wieku znajdowała się w komunistycznej strefie wpływów (tzw. demokracje ludowe), podczas gdy inne pozostały kapitalistyczne i rozwijała się w nich idea tzw. demokracji liberalnej. Dlatego podjęto próbę podziału na następujące grupy:
+- demokracje liberalne: Niemcy, Holandia i Szwecja;
+- byłe demokracje ludowe: Polska, Estonia, Białoruś, Ukraina, Słowenia, Rumunia, Gruzja, Kazachstan i Rosja;
+- Turcja i Hiszpania to przypadki, które nie pasują do żadnej z grup;
+
+## Koncepcje demokracji w grupie demokracji liberalnych
+
+```{r clustering}
+countries <- unique(dem_data$country)
+
+cor.data <- data.frame()
+
+for(c in countries){
+  
+  #c = "Poland"
+  cor.matrix <- dem_data %>% filter(country == c) %>% select(taxRich : importance) %>%
+    cor(method="spearman")
+  
+  cor.vec <- vector()
+  
+   for(i in 2:10){
+    cor.vec <- c(cor.vec, cor.matrix[i, 1:(i-1)])   
+   }
+  
+  cor.data <- rbind(cor.data, cor.vec)
+}
+
+# cor.data <- cbind(countries, cor.data)
+rownames(cor.data) <- countries
+
+clustering <- agnes(cor.data, method="complete")
+
+tree <- cutree(clustering, 3) #dendrogram
+```
+
+Grupa demokracji liberalnych zawiera tylko trzy państwa: Niemcy, Holandię i Szwecję; jest też bardzo skupiona pod względem geograficznym. Test sferyczny Bartletta pokazał, że macierz korelacji jest istotnie różna od macierzy jednostkowej ($\chi^2$ = 10186,17; df = 45; p < 0,001). Na `r fig_nums(name="cor-matrix-lib", display = "cite")` można zauważyć podobne wzorce, jak w grupie ogólnej. Powiązania ze zmiennymi mierzalnymi przedstawiono na diagramie na `r fig_nums(name="diagram-west", display = "cite")`.
+
+`r fig_nums("cor-matrix", "Macierz korelacji odpowiedzi na pytania o demokrację w grupie demokracji liberalnych. Źródło: opracowanie własne")`
+```{r cor-matrix-lib}
+
+# GRUPA 2
+group2_countries <- countries[tree == 2]
+group2_data <- dem_data %>% filter(country %in% group2_countries)
+
+group2_cor <- cor(group2_data[,2:11], method="spearman")
+
+colnames(group2_cor) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9", "X10")
+rownames(group2_cor) <- quest.short
+
+corrplot(group2_cor, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
+```
+
+W tej grupie występują koncepcje II i III, opisane wcześniej. Ostatnia koncepcja ma nieco inną strukturę (przedstawioną na diagramie `r fig_nums("diagram-west", display = "cite")`), dlatego zostanie oznaczona jako Ilib. Dopasowanie modelu do danych jest bardzo dobre. CFI (Robust Comparative Fit Index) = 0,965; TLI (Robust Tucker-Lewis Index) =  0,950. RMSEA wynosi 0,043; CI90% (0,038; 0,049). Łączna rzetelność konstruktu wynosi 0,62, jest więc dość niska. Model w tej grupie charakteryzuje się silną ujemną korelacją między koncepcją III a Ilib, oraz brakiem związku między koncepcją II a pozostałymi.
+
+
+`r fig_nums(name="diagram-west", "Diagram modelu analizy czynnikowej koncepcji demokracji w grupie demokracji liberalnych. Źródło: opracowanie własne")`
+```{r diagram-west}
+# Struktura modelu dla pierwszej grupy
+group2_model <- '
+Ilib =~ obeyRulers + religiousLaw + armyTakesOver; 
+II =~ taxRich + equalIncome + helpUnemp;
+III =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
+
+group2_fit <- cfa(group2_model, data = group2_data, estimator = "MLM")
+
+semPaths(object = group2_fit,
+         whatLabels = "std",           
+         edge.label.cex = 1, nCharNodes = 0,         
+         layout = "circle2",  sizeMan = 7, sizeMan2 = 7, shapeMan = "square",
+         sizeLat = 7, sizeLat2 = 7, shapeLat = "circle",
+         sizeInt = 5, sizeInt2 = 5,    
+         what = "std", edge.color = "black",
+         nodeLabels = quest.min, optimizeLatRes = T)
+```
+
+Rozkłady wskaźników w tej grupie przedstawiono na `r fig_nums(name = "stats-west", display = "cite")`. Koncepcja Ilib ma średnią na poziomie 2,56, a wartości powyżej 7 są bardzo rzadkie. Koncepcja II ma średnią 6,11. III ma 8,7, a wartości poniżej 6 są przypadkami odstającymi. 
+
+```{r stats-west}
+coeff <- group2_summary$PE
+
+# wagi
+fnd_2_w <- coeff$std.all[1:3]
+lib_2_w <- coeff$std.all[7:11]
+econ_2_w <- coeff$std.all[4:6]
+
+gr2_stats <- group2_data %>% mutate(Ilib = (obeyRulers*fnd_2_w[1]+religiousLaw*fnd_2_w[2]+ 
+                             armyTakesOver*fnd_2_w[3])/sum(fnd_2_w),
+                             II = (taxRich*econ_2_w[1]+equalIncome*econ_2_w[2]+ 
+                                           helpUnemp*econ_2_w[3])/sum(econ_2_w),
+                                 III = (freeElection*lib_2_w[1]+genderEquality*lib_2_w[2]+
+                                          civilRights*lib_2_w[3]+importance*lib_2_w[4]+
+                                          helpUnemp*lib_2_w[5])/sum(lib_2_w)) %>%
+  mutate(leading = if_else(Ilib > II, if_else(Ilib > III, "Ilib", "III"),
+                           if_else(II > III, "II", "III")))
+
+
+bxp <- gr2_stats %>% select(Ilib, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
+  ggboxplot(x = "Koncepcja", y = "Wartość",
+            color = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
+  theme(legend.position = "none")
+
+levels <- c("Ilib", "II", "III")
+gr2_stats$leading <- factor(gr2_stats$leading, levels)
+
+bar <- gr2_stats %>% select(leading) %>% 
+  ggplot(aes(leading, fill = "leading")) + geom_bar(
+  fill=c(Ilib = "blue", II = "orange", III = "darkgreen")) + 
+  geom_text(stat = "count", aes(label=..count..), vjust=-0.5, size=4) +
+  scale_x_discrete("Dominująca koncepcja", drop=F) +
+  labs(y = "Liczba osób")
+
+
+yplot <- gr2_stats %>% select(Ilib, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
+  ggdensity("Wartość", fill = "Koncepcja", palette = c(Ilib = "blue", II = "orange", III = "darkgreen")) +
+  rotate() + clean_theme()
+
+ggarrange(bxp, yplot, bar, NULL,
+          ncol = 2, nrow = 2,  align = "hv", 
+          widths = c(2, 1), heights = c(2, 0.7),
+          common.legend = TRUE)
+```
+
+`r tab_nums(name = "tab-west", display = "cite")` przedstawia wyniki równoważności pomiarowej. Zachowana jest wyłącznie równoważność konfiguralna, co potwierdza istnienie tych samych koncepcji demokracji we wszystkich społeczeństwach państw grupy.
+
+
+`r tab_nums("tab-west", "Wyniki analizy równoważności pomiarowej dla grupy demokracji liberalnych. Źródło: opracowanie własne.")`
+```{r tab-west}
+mi_tab_west <- data.frame(level = c("Konfiguralna", "Metryczna", "Skalarna"),
+                          AIC = c(180493, 180611, 181894),
+                          BIC = c(181145, 181161, 182354),
+                          Chi = c("458,66", "608,95", "1919,63"),
+                          Chi_d = c(NA, "150,29", "1310,68"),
+                          df = c(93, 109, 123), p = c(NA,"< 2,2e-16", "< 2.2e-16"))
+
+kable(mi_tab_west, format = "latex", col.names = c("Poziom równoważności", "AIC", "BIC", "$\chi^2$", "Przyrost $\chi^2$", "Stopnie swobody", "p-value"))
+```
+
+Analiza równoważności pomiarowej pokazuje, że choć każda zmienna wynika z tej samej koncepcji we wszystkich krajach, to siła tego związku jest w różnych krajach różna. Oznacza to, że w państwach należących do grupy demokracji liberalnych występują te same społeczne koncepcje demokracji, jednak model nie pozwala na rzetelne porównywanie ich poziomów między państwami, ani bezpośrednio, ani w relacji z innymi zmiennymi.
+
+## Koncepcje demokracji w grupie byłych demokracji ludowych
+
+Grupa państw, które znajdowały się w komunistycznej strefie wpływów, jest znacznie liczniejsza. Jej macierz korelacji przedstawia wykres `r fig_nums(name = "cor-matrix-east", display = "cite")` . Test sferyczny Bartletta potwierdził, że jest istotnie różna od macierzy jednostkowej ($\chi^2$ = 27891,81; df = 45; p < 0,001). Można wyodrębnić trzy koncepcje. Koncepcja III, taka jak w grupie ogólnej; koncepcja II z dodatkiem zmiennej oznaczającej posłuszeństwo rządzącym, tu oznaczona jako IIlud; oraz koncepcja Ilib. Bazując na macierzy korelacji, z początku połączono zmienne oznaczające wyrównywanie dochodów i opodatkowanie bogatych ze zmiennymi koncepcji III, ale w wyestymowanym modelu okazały się one nieistotne. (opodatkowanie bogatych: Z = -0,011; p = 0,992; wyrównywanie dochodów: Z = -1,225; p = 0,221).
+
+
+`r fig_nums("cor-matrix-east", "Macierz korelacji odpowiedzi na pytania o demokrację w grupie byłych demokracji ludowych. Źródło: opracowanie własne")`
+```{r cor-matrix-east}
+
+east_countries <- c("Belarus", "Estonia", "Georgia", "Kazakhstan", "Poland",
+                    "Romania", "Russia", "Slovenia", "Ukraine")
+east_data <- dem_data %>% filter(country %in% east_countries)
+
+east_cor <- cor(east_data[,2:11], method="spearman")
+
+colnames(east_cor) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9", "X10")
+rownames(east_cor) <- quest.short
+
+corrplot(east_cor, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
+```
+
+Ostateczną postać modelu przedstawia diagram na `r fig_nums("diagram-east", display = "cite")`. CFI (Robust Comparative Fit Index) = 0,966; TLI (Robust Tucker-Lewis Index) =  0,948. RMSEA wynosi 0,049; CI90% (0,045; 0,052). Łączna rzetelność konstruktu wynosi 0,76. Model dla tej grupy jest bardzo dobrze dopasowany do danych.
+
+`r fig_nums(name="diagram-east", "Diagram modelu analizy czynnikowej koncepcji demokracji w grupie byłych demokracji ludowych. Źródło: opracowanie własne")`
+```{r diagram-east}
+east_model <- '
+Ilib =~ obeyRulers + religiousLaw + armyTakesOver;
+IIlud =~ taxRich + equalIncome + helpUnemp + obeyRulers;
+III =~ freeElection + genderEquality + civilRights + importance +
+            helpUnemp'
+
+east_fit <- cfa(east_model, data = east_data, estimator = "MLM")
+
+semPaths(object = east_fit,
+         whatLabels = "std",           
+         edge.label.cex = 1, nCharNodes = 0,         
+         layout = "circle2",  sizeMan = 7, sizeMan2 = 7, shapeMan = "square",
+         sizeLat = 7, sizeLat2 = 7, shapeLat = "circle",
+         sizeInt = 5, sizeInt2 = 5,    
+         what = "std", edge.color = "black",
+         nodeLabels = quest.min, optimizeLatRes = T)
+```
+
+Jednak nie udało się poprawnie wyestymować modelu w każdym kraju z osobna. Równoważność konfiguralna nie jest zachowana, co oznacza, że zilustrowana diagramem na `r fig_nums("diagram-east", display = "cite")` struktura koncepcji demokracji nie występuje w każdej z byłych demokracji ludowych.
 

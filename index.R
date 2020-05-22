@@ -14,15 +14,15 @@ fnd_all_w <- coeff$std.all[1:4]
 lib_all_w <- coeff$std.all[8:12]
 econ_all_w <- coeff$std.all[5:7]
 
-all_stats <- dem_data %>% mutate(fnd = (obeyRulers*fnd_all_w[1]+religiousLaw*fnd_all_w[2]+ 
+all_stats <- dem_data %>% mutate(I = (obeyRulers*fnd_all_w[1]+religiousLaw*fnd_all_w[2]+ 
                     armyTakesOver*fnd_all_w[3]+equalIncome*fnd_all_w[4])/sum(fnd_all_w),
-                    econ = (taxRich*econ_all_w[1]+equalIncome*econ_all_w[2]+ 
+                    II = (taxRich*econ_all_w[1]+equalIncome*econ_all_w[2]+ 
                     helpUnemp*econ_all_w[3])/sum(econ_all_w),
-                    lib = (freeElection*lib_all_w[1]+genderEquality*lib_all_w[2]+
+                    III = (freeElection*lib_all_w[1]+genderEquality*lib_all_w[2]+
                     civilRights*lib_all_w[3]+importance*lib_all_w[4]+
                       helpUnemp*lib_all_w[5])/sum(lib_all_w)) %>%
-            mutate(leading = if_else(fnd > econ, if_else(fnd > lib, "fundamentalistic", "liberal"),
-                             if_else(econ > lib, "economic", "liberal")))
+            mutate(leading = if_else(I > II, if_else(I > III, "I", "III"),
+                             if_else(II > III, "II", "III")))
 
 
 all_stats_summary <- all_stats %>% summarise(fnd_mean = mean(fnd), 
@@ -33,20 +33,23 @@ all_stats_summary <- all_stats %>% summarise(fnd_mean = mean(fnd),
                       lib_count = sum(is_lib))
 
 
-bxp <- all_stats %>% select(fnd, econ, lib) %>% gather(key="concept", value="value") %>%
-        ggboxplot(x = "concept", y = "value",
-                 color = "concept", palette = c("blue", "yellow", "grey"))
+bxp <- all_stats %>% select(I, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
+        ggboxplot(x = "Koncepcja", y = "Wartość",
+                 color = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
+        theme(legend.position = "none")
 
 levels <- c("fundamentalistic", "economic", "liberal")
 all_stats$leading <- factor(all_stats$leading, levels)
 
 bar <- all_stats %>% select(leading) %>% 
-              ggplot() + geom_bar(aes(leading, fill = "leading"), fill=c("blue", "yellow", "grey")) + 
-              scale_x_discrete(drop=F)
+              ggplot() + geom_bar(aes(leading, fill = "leading"), 
+              fill=c("blue", "orange", "darkgreen")) + 
+              scale_x_discrete("Dominująca koncepcja", drop=F) +
+              scale_y_discrete("Liczba osób")
         
 
-yplot <- all_stats %>% select(fnd, econ, lib) %>% gather(key="concept", value="value") %>%
-          ggdensity("value", fill = "concept", palette = c("yellow", "blue", "grey")) +
+yplot <- all_stats %>% select(I, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
+          ggdensity("Wartość", fill = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
           rotate() + clean_theme()
 
 ggarrange(bxp, yplot, bar, NULL,
@@ -64,31 +67,35 @@ fnd_2_w <- coeff$std.all[1:3]
 lib_2_w <- coeff$std.all[7:11]
 econ_2_w <- coeff$std.all[4:6]
 
-gr2_stats <- group2_data %>% mutate(fnd = (obeyRulers*fnd_2_w[1]+religiousLaw*fnd_2_w[2]+ 
+gr2_stats <- group2_data %>% mutate(Ilib = (obeyRulers*fnd_2_w[1]+religiousLaw*fnd_2_w[2]+ 
                              armyTakesOver*fnd_2_w[3])/sum(fnd_2_w),
-                             econ = (taxRich*econ_2_w[1]+equalIncome*econ_2_w[2]+ 
+                             II = (taxRich*econ_2_w[1]+equalIncome*econ_2_w[2]+ 
                                            helpUnemp*econ_2_w[3])/sum(econ_2_w),
-                                 lib = (freeElection*lib_2_w[1]+genderEquality*lib_2_w[2]+
+                                 III = (freeElection*lib_2_w[1]+genderEquality*lib_2_w[2]+
                                           civilRights*lib_2_w[3]+importance*lib_2_w[4]+
                                           helpUnemp*lib_2_w[5])/sum(lib_2_w)) %>%
-  mutate(leading = if_else(fnd > econ, if_else(fnd > lib, "fundamentalistic", "liberal"),
-                           if_else(econ > lib, "economic", "liberal")))
+  mutate(leading = if_else(Ilib > II, if_else(Ilib > III, "Ilib", "III"),
+                           if_else(II > III, "II", "III")))
 
 
-bxp <- gr2_stats %>% select(fnd, econ, lib) %>% gather(key="concept", value="value") %>%
-  ggboxplot(x = "concept", y = "value",
-            color = "concept", palette = c("blue", "yellow", "grey"))
+bxp <- gr2_stats %>% select(Ilib, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
+  ggboxplot(x = "Koncepcja", y = "Wartość",
+            color = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
+  theme(legend.position = "none")
 
-levels <- c("fundamentalistic", "economic", "liberal")
+levels <- c("Ilib", "II", "III")
 gr2_stats$leading <- factor(gr2_stats$leading, levels)
 
 bar <- gr2_stats %>% select(leading) %>% 
-  ggplot() + geom_bar(aes(leading, fill = "leading"), fill= c("blue", "yellow", "grey")) + 
-  scale_x_discrete(drop=F)
+  ggplot(aes(leading, fill = "leading")) + geom_bar(
+  fill=c(Ilib = "blue", II = "orange", III = "darkgreen")) + 
+  geom_text(stat = "count", aes(label=..count..), vjust=-0.5, size=4) +
+  scale_x_discrete("Dominująca koncepcja", drop=F) +
+  labs(y = "Liczba osób")
 
 
-yplot <- gr2_stats %>% select(fnd, econ, lib) %>% gather(key="concept", value="value") %>%
-  ggdensity("value", fill = "concept", palette = c("yellow", "blue", "grey")) +
+yplot <- gr2_stats %>% select(Ilib, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
+  ggdensity("Wartość", fill = "Koncepcja", palette = c(Ilib = "blue", II = "orange", III = "darkgreen")) +
   rotate() + clean_theme()
 
 ggarrange(bxp, yplot, bar, NULL,
