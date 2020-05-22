@@ -120,7 +120,7 @@ Wymienia się jeszcze kilka innych, szeroko wykorzystywanych podejść, które p
 
 Tabela 1: Koncepcje demokracji. Źródło \citep{Coppedge}
 
-\begin{longtable}{l|>{\raggedright\arraybackslash}p{35em}}
+\begin{longtable}{l|>{\raggedright\arraybackslash}p{30em}}
 \hline
 Typ demokracji &  Postulaty\\
 \hline
@@ -175,9 +175,9 @@ Ogólna postać modelu czynnikowego została opisana układem równań \ref{eq:l
 \begin{equation}
 \label{eq:latent-model}
 \begin{aligned} 
-x_1 = \alpha_01 + \alpha_11 \lambda_1 + ... + \alpha_k1 \lambda_k + \epsilon_1\\
-...\\
-x_p = \alpha_0p + \alpha_1p \lambda_1 + ... + \alpha_kp \lambda_k + \epsilon_p\\
+x_1 = \alpha_{01} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \epsilon_1\\
+\& \vdots \\
+x_p = \alpha_{0p} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \epsilon_p\\
 \end{aligned}
 \end{equation}
 
@@ -185,7 +185,7 @@ Każdy element \(x\) oraz \(\epsilon\) jest n-elementowym wektorem. Zakładamy, 
 
 \begin{equation}
 \label{eq:shared-var}
-\sigma_ij = \sum_{r=1}^k \alpha_ir \alpha_jr, i \neq j
+\sigma_{ij} = \sum_{r=1}^k \alpha_{ir} \alpha_{jr} \text{, gdzie } i \neq j
 \end{equation}
 
 gdzie \(\sigma_ij\) jest elementem macierzy wariancji i kowariancji \(x\).
@@ -193,7 +193,7 @@ Jeśli jako \(\psi_i\) oznaczymy wariancję błędu (\(\epsilon\)) i-tej zmienne
 
 \begin{equation}
 \label{eq:spec-var}
-\sigma_ii = \sum_{j=1}^k \alpha_ij^2 + \psi_i
+\sigma_{ii} = \sum_{j=1}^k \alpha_{ij}^2 + \psi_i
 \end{equation}
 
 gdzie pierwszy człon oznacza zmienność, którą \(x_i\) dzieli z innymi zmiennymi mierzalnymi poprzez wspólne zmienne latentne, a drugi to jej wariancja specyficzna.
@@ -257,7 +257,7 @@ Do zbadania istotności modelu można wykorzystać statystykę GFI (Goodness of 
 
 \begin{equation}
 \label{eq:gfi}
-GFI = \frac{l(S, \Sigma)}{n-1} ~\chi^2 (\frac{(p-k)^2 - (p+k)}{2})
+GFI = \frac{l(S, \Sigma)}{n-1} \text{   } \sim \chi^2 (\frac{(p-k)^2 - (p+k)}{2})
 \end{equation}
 
 Dzięki tej statystyce można testować hipotezę zerową, że zakładana macierz wariancji i kowariancji jest identyczna z zaobserwowaną. Ta statystyka jest jednak zależna od \(n\) i dla dużych prób test jest zbyt czuły na drobne niedopasowanie do danych, żeby stosować go w praktyce {[}Cheung, Rensvold, 2002{]}. Istnieje wiele wskaźników dopasowania modelu do danych. Przyjmuje się, że wartości CFI (Comparative Fit Index) oraz TLI (Tucker-Lewis Index) powinny być w okolicach lub powyżej 0,95, natomiast RMSEA (Root Mean Square Error of Approximation) nie powinno przekraczać 0,06 \citep{HuBentler}.
@@ -276,9 +276,9 @@ Taką sytuację można by opisać, przyjmując, że rzeczywistym opisem zjawiska
 \begin{equation}
 \label{eq:delta-model}
 \begin{aligned} 
-x_1 = \alpha_01 + \alpha_11 \lambda_1 + ... + \alpha_k1 \lambda_k + \beta_1 \delta + \epsilon_1\\
-...\\
-x_p = \alpha_0p + \alpha_1p \lambda_1 + ... + \alpha_kp \lambda_k + \beta_p \delta + \epsilon_p\\
+x_1 = \alpha_{01} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \beta_1 \delta + \epsilon_1\\
+\& \vdots \\
+x_p = \alpha_{0p} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \beta_p \delta + \epsilon_p\\
 \end{aligned}
 \end{equation}
 
@@ -310,9 +310,9 @@ Mając \(M\) grup, należy w każdej osobno wyestymować model postaci:
 \begin{equation}
 \label{eq:group-model}
 \begin{aligned} 
-x_1 = \alpha_01m + \alpha_11m \lambda_1 + ... + \alpha_k1m \lambda_k + \epsilon_1m\\
-...\\
-x_p = \alpha_0pm + \alpha_1pm \lambda_1 + ... + \alpha_kpm \lambda_k + \epsilon_pm\\
+x_1 = \alpha_{01m} + \alpha_{11m} \lambda_1 + ... + \alpha_{k1m} \lambda_k + \epsilon_{1m}\\
+\& \vdots \\
+x_p = \alpha_{0pm} + \alpha_{1pm} \lambda_1 + ... + \alpha_{kpm} \lambda_k + \epsilon_{pm}\\
 \end{aligned}
 \end{equation}
 
@@ -321,21 +321,21 @@ gdzie \(m = 1, …, M\). Następnie nałożyć na ładunki czynnikowe restrykcje
 \begin{equation}
 \label{eq:restricted-loadings}
 \begin{aligned} 
-x_1 = \alpha_01m + \alpha_11 \lambda_1 + ... + \alpha_k1 \lambda_k + \epsilon_1m\\
-...\\
-x_p = \alpha_0pm + \alpha_1p \lambda_1 + ... + \alpha_kp \lambda_k + \epsilon_pm\\
+x_1 = \alpha_{01m} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \epsilon_{1m}\\
+\& \vdots \\
+x_p = \alpha_{0pm} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \epsilon_{pm}\\
 \end{aligned}
 \end{equation}
 
 Do testowania można wykorzystać Test Ilorazu Wiarygodności. Ponieważ model \ref{eq:restricted-loadings} jest zagnieżdżony w modelu \ref{eq:group-model}, jego funkcja wiarygodności (LR) może być tylko mniejsza lub równa od funkcji wiarygodności (L0), maksymalizowanej przy estymacji modelu \ref{eq:group-model}. Są równe, jeśli narzucone restrykcje nie pogarszają modelu, to znaczy w rzeczywistości ładunki czynnikowe w grupach mają takie same wartości. Jeżeli LR jest istotnie niższe, ładunki czynnikowe w grupach są istotnie różne. Testowanie hipotez:
 
-\[H_0: L_0 = L_R
-H_1: L_0 > L_R\]
+\[H_0: L_0 = L_R\]
+\[H_1: L_0 > L_R\]
 
 jest równoznaczne z testowaniem hipotez:
 
-\[H_0: Równoważność metryczna jest spełniona
-H_1: Równoważność metryczna nie jest spełniona\]
+\[H_0: Równoważność metryczna jest spełniona\]
+\[H_1: Równoważność metryczna nie jest spełniona\]
 
 \hypertarget{ruxf3wnowaux17cnoux15bux107-skalarna}{%
 \subsection{Równoważność skalarna}\label{ruxf3wnowaux17cnoux15bux107-skalarna}}
@@ -347,21 +347,21 @@ Model z restrykcjami ma postać:
 \begin{equation}
 \label{eq:restricted-intercepts}
 \begin{aligned} 
-x_1 = \alpha_01 + \alpha_11 \lambda_1 + ... + \alpha_k1 \lambda_k + \epsilon_1m\\
-...\\
-x_p = \alpha_0p + \alpha_1p \lambda_1 + ... + \alpha_kp \lambda_k + \epsilon_pm\\
+x_1 = \alpha_{01} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \epsilon_{1m}\\
+\& \vdots \\
+x_p = \alpha_{0p} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \epsilon_{pm}\\
 \end{aligned}
 \end{equation}
 
 a model bez restrykcji jest postaci danej wzorem \ref{eq:group-model}. Testowane są hipotezy:
 
-\[H_0: Równoważność skalarna jest spełniona
-H_1: Równoważność skalarna nie jest spełniona\]
+\[H_0: Równoważność skalarna jest spełniona\]
+\[H_1: Równoważność skalarna nie jest spełniona\]
 
 Spełnienie równoważności konfiguralnej daje w praktyce możliwość głębszego testowania (np. równości reszt) lub przeprowadzania szczegółowych testów, w których restrykcje są nałożone na wybrane parametry, podczas gdy pozostałe są pozostawione wolno. Wyniki takich testów mogą dostarczyć dodatkowych informacji o kształtowaniu się modeli badanego zjawiska w różnych grupach, ale nie dają dodatkowych możliwości statystycznych porównań międzygrupowych, dlatego w ogólnym przypadku rozważa się tylko te trzy poziomy.
 
-\hypertarget{tytuux142}{%
-\section{Tytuł?}\label{tytuux142}}
+\hypertarget{analiza-czynnikowa-koncepcji-demokracji}{%
+\section{Analiza Czynnikowa koncepcji demokracji}\label{analiza-czynnikowa-koncepcji-demokracji}}
 
 \hypertarget{zestaw-danych-i-statystyki-opisowe}{%
 \subsection{Zestaw danych i statystyki opisowe}\label{zestaw-danych-i-statystyki-opisowe}}
@@ -431,6 +431,124 @@ Rys. 3 przedstawia macierz korelacji odpowiedzi na wszystkie pytania. Dla macier
 
 Rys. 3: Macierz korelacji odpowiedzi na pytania o demokrację. Źródło: opracowanie własne
 \includegraphics{text_ASA_files/figure-latex/cor-matrix-1.pdf}
+
+Na Rys. 3 wyraźnie wyłaniają się trzy skupiska. Wskazują na istnienie w badanej grupie trzech odrębnych koncepcji demokracji, przejawiających się w podobnych wzorcach odpowiedzi:
+
+\begin{itemize}
+\tightlist
+\item
+  Koncepcja I: zmienne oznaczające posłuszeństwo rządzącym, wpływ autorytetów religijnych na prawo, możliwość przejęcia władzy przez wojsko oraz (w mniejszym stopniu) wyrównywanie dochodów;
+\item
+  Koncpecja II: zmienne oznaczające wyrównywanie dochodów, wyższe opodatkowanie bogatych, pomoc dla bezrobotnych;
+\item
+  Koncepcja III: zmienne oznaczające pomoc dla bezrobotnych, równouprawnienie płci, wolne wybory i prawa obywatelskie;
+\end{itemize}
+
+Pierwsza wizja charakteryzuje się przede wszystkim przekonaniem, że podstawową cechą demokracji jest ingerencja w działanie państwa stron trzecich, czyli autorytetów religijnych oraz wojska. Ceni również posłuszeństwo wobec rządzących. W tej koncepcji demokracji, skupionej raczej wokół porządkowania stosunków władzy, znalazło się też jednak przekonanie, że państwo powinno dbać o równy rozkład dochodów. Grupa ta jest wyraźnie negatywnie skorelowana z grupą III, a przede wszystkim - z potrzebą życia w demokratycznym państwie. Można przypuszczać, że członkowie grupy w rzeczywistości nie cenią demokracji, ale zapytani o jej istotę, i tak projektują na nią cechy swojego wymarzonego (niedemokratycznego) systemu.
+
+Druga koncepcja przedstawia demokrację głównie jako gwaranta korzyści lub bezpieczeństwa ekonomicznego. Jej wyznawcy oczekują od państwa walki z nierównościami dochodowymi, opodatkowania najbogatszych, wsparcia dla najbiedniejszych oraz bezrobotnych. Można ten wzorzec określić jako koncepcję państwa opiekuńczego.
+
+W ostatniej koncepcji demokracja to system, którego istotą są wolne wybory, równość i swoboda obywatelska, ale również wsparcie dla bezrobotnych. Chociaż i ta koncepcja wychodzi daleko poza definicję Schumpetera (według której jedyną podstawową cechą demokracji są wolne wybory) to jest do niej najbliższa. Wyznawcy koncepcji postrzegają demokrację jako gwarancję wolności politycznych i bardziej niż innym zależy im, żeby mieszkać w demokratycznym kraju.
+
+Ponadto warto zauważyć, że zmienne oznaczające wyrównywanie dochodów oraz wyższe opodatkowanie bogatych charakteryzują się pozytywnymi korelacjami z niemal wszystkimi pozostałymi zmiennymi.
+
+Warto zestawić Rys. 3 z informacjami wyniesionymi z Rys. 1. Analiza korelacji pozwala tylko wnioskować o kształcie i wewnętrznej spójności poszczególnych koncepcji, a nie o ich powszechności (ile osób jest do nich przekonanych) ani umiejscowieniu na skali odpowiedzi. Rys. 1 pozwala przypuszczać, że najbardziej powszechna jest koncepcja III i że jej wyznawcy wybierają najwyższe odpowiedzi w składających się na nią pytaniach, podczas gdy wyznawcy koncepcji I i tak wybierają generalnie niskie odpowiedzi na swoje pytania - choć nie tak niskie, jak reszta społeczeństwa. Nie można też wykluczyć, że funkcjonuje ona jako ``anty-koncepcja''; powszechnie uznawany wzorzec, jak demokracja nie powinna wyglądać.
+
+Koncepcja II i III wydają się pokrywać z badaniami Jaśko i Kossowskiej \citeyearpar{JaskoKoss} dla polskiego społeczeństwa. Wyodrębniły one, odpowiednio: ``standard opiekuńczości'' oraz ``standard wolności''. Z kolei analizy przyczyn poparcia i zaufania ludzi do demokracji i demokratycznych rządów pokazują, że po części wynikają one z zaangażowania obywateli w działalność społeczną, częściowo ze sprzyjającej sytuacji ekonomicznej, a częściowo z psychologicznego mechanizmu, że ludzie generalnie popierają system, który już jest przyjęty, o ile nie mają silnych powodów do niezadowolenia z niego \citep{Campbell}. Poparcie dla demokracji wynikające z korzystnej sytuacji ekonomicznej jasno potwierdza, że obywatele oczekują od demokratycznego systemu, że pozwoli im żyć w ogólnie pojętym dobrobycie (koncepcja II). Po drugie, skoro ludzie ufają demokratycznym rządom dzięki możliwości zaangażowania w działalność społeczną, to można przypuszczać, że oczekują od demokracji zapewnienia swobody takiego działania. Pośrednio tę swobodę można wiązać z postulatami praw obywatelskich oraz równości płci (w kontekście emancypacji kobiet, która pozwoliła im na bardziej czynny udział w życiu społecznym), znajdującymi się w koncepcji III. Trzeci, behawioralny składnik poparcia demokracji wg. Campbella, nie jest kwestią koncepcji demokracji, więc nie ma tu zastosowania.
+
+Można również spojrzeć na społeczne koncepcje demokracji pod kątem jej trwałości. W szczególnie burzliwych momentach dziejowych wśród badaczy popularny staje się pogląd, że świat odwraca się od demokracji, choć dane jak dotąd temu przeczą \citep{Doorenspleet}. Padają wówczas pytania, co może sprawić, że naród odrzuci formę ustroju, uważaną przecież tak powszechnie za najlepszą z możliwych. Okazuje się, że nawet gdy obywatele nie są zadowoleni ze swoich rządzących, nie są skłonni przekreślić demokratycznego systemu ich wybierania, o ile ten system zapewnia im podstawowe prawa i zaspokaja oczekiwania. Z kolei niestabilna sytuacja ekonomiczna jest poważną próbą wytrzymałości dla młodych demokracji, jak to było widoczne pod koniec XX w. w Europie Środkowo-Wschodniej \citep{Klingemann}.
+
+To, że obywatele są gotowi odrzucić system, który nie zaspokaja oczekiwań, może brzmieć jak truizm, ale odsłania ważną niedoskonałość elitystycznej definicji Schumpetera: ludzie nie postrzegają demokracji jako systemu, który pozwala im wybrać rządzących wedle upodobania, ale jako takiego, który daje największe możliwości realizowania swoich potrzeb, zarówno społecznych jak i ekonomicznych. Wybór rządzących jest tylko środkiem do osiągnięcia celu, nie celem samym w sobie.
+
+Pewną zagadką pozostaje kwestia koncepcji I, która wydaje się nie mieć żadnego poparcia w dotychczasowych badaniach. Na podstawie samej macierzy korelacji można by przypuszczać, że istnieje wyłącznie jako anty-koncepcja, jednak temu przeczy dalsza analiza, która pokazuje, że istnieje nieduża grupa ludzi bardziej przekonanych do tej koncepcji, niż do pozostałych.
+
+\hypertarget{model-strukturalny}{%
+\subsection{Model strukturalny}\label{model-strukturalny}}
+
+Postać modelu przedstawiono na diagramie na Rys. 4, zgodnie ze standardem przedstawiania równań strukturalnych \citep{Everitt}. Zmienne latentne zostały oznaczone przez okręgi, zmienne mierzalne przez kwadraty, a na liniach prostych między nimi podano wartości wyestymowanych ładunków czynnikowych. Zakrzywione linie oznaczają wariancje lub kowariancje.
+
+Ze względu na złamanie założenia o normalności zmiennych mierzalnych, model estymowano Odporną Metodą Największej Wiarygodności. Ponieważ modele ze zmiennymi latentnymi nie są ściśle identyfikowalne, o czym pisano w rozdziale 2.2, przy estymacji przyjęto jednostkową wariancję zmiennych latentnych oraz wartość pierwszego ładunku czynnikowego na 1. Na diagramie na Rys. 4 jest on wyróżniony przerywaną linią, ale wartości ładunków czynnikowych zostały zestandaryzowane dla wygodniejszej interpretacji. Wszystkie współczynniki są istotne.
+
+Rys. 4: Diagram modelu analizy czynnikowej koncepcji demokracji. Źródło: opracowanie własne
+\includegraphics{text_ASA_files/figure-latex/diagram-all-1.pdf}
+
+I koncepcja najsilniej przejawia się w zmiennych oznaczających wpływ autorytetów religijnych na prawo oraz możliwość przejęcia władzy przez wojsko. II jest wyrażana przede wszystkim w poparciu opodatkowania bogatych i wsparcia ubogich. Koncepcja III wyraża się głównie przez docenienie wagi wolnych wyborów, a na drugim miejscu: równość płci i prawa obywatelskie. Koncepcje II i III są ze sobą pozytywnie skorelowane na średnim poziomie (0,5). Koncepcja I jest słabo, ale dodatnio skorelowana z II, oraz równie słabo, ale ujemnie, z koncepcją III.
+
+Model posiada dość dobre własności. CFI = 0,953, jest więc na dobrym poziomie, ale TLI wynosi tylko 0,930. RMSEA wynosi 0,057; CI90\% (0,055; 0,060), co również jest bardzo korzystną wartością. Łączna rzetelność konstruktu (Composite Reliability) wynosi 0,74, co oznacza, że pytania są dobrze dobrane do badanych koncepcji.
+
+Dla każdej obserwacji w zbiorze można teraz obliczyć liczbową wartość każdej koncepcji jako średnią ważoną, gdzie wagami są standaryzowane ładunki czynnikowe. Taki wskaźnik można interpretować jako miarę tego, jak bardzo ankietowany zgadza się z daną koncepcją. Rys. 5 przedstawia, jak kształtują się te wskaźniki w całej grupie.
+
+Rys. 5: Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole)
+\includegraphics{text_ASA_files/figure-latex/stats-all-1.pdf}
+
+Wyraźnie widać, że ludzie najmniej zgadzają się z koncepcją I (średnia 4,28) następnie II (średnia 6,85), a najbardziej z III (średnia 8,3). Przypadki, kiedy wskaźnik tej ostatniej jest poniżej 4 to wartości odstające, więc można powiedzieć, że prawie nie ma ludzi, którzy by się z tą koncepcją nie zgadzali. Policzono również obserwacje, w których najwyższą wartość mają wskaźniki poszczególnych koncepcji (wykres na dole). Zdecydowanie najwięcej jest ludzi, dla których najważniejsza jest koncepcja III.
+
+Pytanie brzmi, czy model jest równoważny pomiarowo, a więc czy można zastosować te wskaźniki do mierzenia różnic w postrzeganiu demokracji między krajami. W celu przetestowania pierwszego poziomu równoważności - równoważność konfiguralna - podjęto próbę estymacji tego samego modelu dla każdego kraju osobno. Okazało się, że w niektórych grupach (dla Gruzji i Słowenii) model nie mógł się poprawnie wyestymować, co oznacza, że postać modelu nie pasuje do danych. To oznacza, że równoważność konfiguralna nie jest zachowana.
+
+W celu uzyskania wspólnego, międzynarodowego konceptu demokracji można by wykluczyć z badania kraje, dla których model okazał się nieidentyfikowalny, i ponowić procedurę. Takie rozwiązanie jest jednak tylko pominięciem problemu. Nie ma wspólnej dla europejskich społeczeństw koncepcji demokracji (obejmującej kwestie wymienione w rozdziale 4.2). Przyjęcie koncepcji powstałych przez nakładanie się na siebie koncepcji różnych państw i odrzucenie najbardziej odstających krajów nie daje zbyt wiele informacji o naturze różnic.
+
+Można jednak przypuszczać, że istnieją w Europie grupy państw o wystarczająco zbliżonych poglądach na demokrację, że można w nich używać wspólnych konstruktów. W następnych rozdziałach podjęto próbę znalezienia takich grup, modelowania występujących w nich koncepcji i pokazania różnic.
+
+\hypertarget{podziaux142-paux144stw-wedux142ug-przebiegu-ux17celaznej-kurtyny}{%
+\section{Podział państw według przebiegu Żelaznej Kurtyny}\label{podziaux142-paux144stw-wedux142ug-przebiegu-ux17celaznej-kurtyny}}
+
+\hypertarget{linia-podziaux142u}{%
+\subsection{Linia podziału}\label{linia-podziaux142u}}
+
+Można przypuszczać, że różnice wynikają z historycznych uwarunkowań. Spora część państw europejskich w drugiej połowie XX wieku znajdowała się w komunistycznej strefie wpływów (tzw. demokracje ludowe), podczas gdy inne pozostały kapitalistyczne i rozwijała się w nich idea tzw. demokracji liberalnej. Dlatego podjęto próbę podziału na następujące grupy:
+- demokracje liberalne: Niemcy, Holandia i Szwecja;
+- byłe demokracje ludowe: Polska, Estonia, Białoruś, Ukraina, Słowenia, Rumunia, Gruzja, Kazachstan i Rosja;
+- Turcja i Hiszpania to przypadki, które nie pasują do żadnej z grup;
+
+\hypertarget{koncepcje-demokracji-w-grupie-demokracji-liberalnych}{%
+\subsection{Koncepcje demokracji w grupie demokracji liberalnych}\label{koncepcje-demokracji-w-grupie-demokracji-liberalnych}}
+
+Grupa demokracji liberalnych zawiera tylko trzy państwa: Niemcy, Holandię i Szwecję; jest też bardzo skupiona pod względem geograficznym. Test sferyczny Bartletta pokazał, że macierz korelacji jest istotnie różna od macierzy jednostkowej (\(\chi^2\) = 10186,17; df = 45; p \textless{} 0,001). Na Rys. 6 można zauważyć podobne wzorce, jak w grupie ogólnej. Powiązania ze zmiennymi mierzalnymi przedstawiono na diagramie na Rys. 7.
+
+Rys. 6: Macierz korelacji odpowiedzi na pytania o demokrację w grupie demokracji liberalnych. Źródło: opracowanie własne
+\includegraphics{text_ASA_files/figure-latex/cor-matrix-lib-1.pdf}
+
+W tej grupie występują koncepcje II i III, opisane wcześniej. Ostatnia koncepcja ma nieco inną strukturę (przedstawioną na diagramie Rys. 7), dlatego zostanie oznaczona jako Ilib. Dopasowanie modelu do danych jest bardzo dobre. CFI (Robust Comparative Fit Index) = 0,965; TLI (Robust Tucker-Lewis Index) = 0,950. RMSEA wynosi 0,043; CI90\% (0,038; 0,049). Łączna rzetelność konstruktu wynosi 0,62, jest więc dość niska. Model w tej grupie charakteryzuje się silną ujemną korelacją między koncepcją III a Ilib, oraz brakiem związku między koncepcją II a pozostałymi.
+
+Rys. 7: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie demokracji liberalnych. Źródło: opracowanie własne
+\includegraphics{text_ASA_files/figure-latex/diagram-west-1.pdf}
+
+Rozkłady wskaźników w tej grupie przedstawiono na Rys. 8. Koncepcja Ilib ma średnią na poziomie 2,56, a wartości powyżej 7 są bardzo rzadkie. Koncepcja II ma średnią 6,11. III ma 8,7, a wartości poniżej 6 są przypadkami odstającymi.
+
+\includegraphics{text_ASA_files/figure-latex/stats-west-1.pdf}
+
+Tabela 2 przedstawia wyniki równoważności pomiarowej. Zachowana jest wyłącznie równoważność konfiguralna, co potwierdza istnienie tych samych koncepcji demokracji we wszystkich społeczeństwach państw grupy.
+
+Tabela 2: Wyniki analizy równoważności pomiarowej dla grupy demokracji liberalnych. Źródło: opracowanie własne.
+
+\begin{tabular}{l|r|r|l|l|r|l}
+\hline
+Poziom równoważności & AIC & BIC & \$\textbackslash{}chi\textasciicircum{}2\$ & Przyrost \$\textbackslash{}chi\textasciicircum{}2\$ & Stopnie swobody & p-value\\
+\hline
+Konfiguralna & 180493 & 181145 & 458,66 & NA & 93 & NA\\
+\hline
+Metryczna & 180611 & 181161 & 608,95 & 150,29 & 109 & < 2,2e-16\\
+\hline
+Skalarna & 181894 & 182354 & 1919,63 & 1310,68 & 123 & < 2.2e-16\\
+\hline
+\end{tabular}
+
+Analiza równoważności pomiarowej pokazuje, że choć każda zmienna wynika z tej samej koncepcji we wszystkich krajach, to siła tego związku jest w różnych krajach różna. Oznacza to, że w państwach należących do grupy demokracji liberalnych występują te same społeczne koncepcje demokracji, jednak model nie pozwala na rzetelne porównywanie ich poziomów między państwami, ani bezpośrednio, ani w relacji z innymi zmiennymi.
+
+\hypertarget{koncepcje-demokracji-w-grupie-byux142ych-demokracji-ludowych}{%
+\subsection{Koncepcje demokracji w grupie byłych demokracji ludowych}\label{koncepcje-demokracji-w-grupie-byux142ych-demokracji-ludowych}}
+
+Grupa państw, które znajdowały się w komunistycznej strefie wpływów, jest znacznie liczniejsza. Jej macierz korelacji przedstawia wykres Rys. 9 . Test sferyczny Bartletta potwierdził, że jest istotnie różna od macierzy jednostkowej (\(\chi^2\) = 27891,81; df = 45; p \textless{} 0,001). Można wyodrębnić trzy koncepcje. Koncepcja III, taka jak w grupie ogólnej; koncepcja II z dodatkiem zmiennej oznaczającej posłuszeństwo rządzącym, tu oznaczona jako IIlud; oraz koncepcja Ilib. Bazując na macierzy korelacji, z początku połączono zmienne oznaczające wyrównywanie dochodów i opodatkowanie bogatych ze zmiennymi koncepcji III, ale w wyestymowanym modelu okazały się one nieistotne. (opodatkowanie bogatych: Z = -0,011; p = 0,992; wyrównywanie dochodów: Z = -1,225; p = 0,221).
+
+Rys. 9: Macierz korelacji odpowiedzi na pytania o demokrację w grupie byłych demokracji ludowych. Źródło: opracowanie własne
+\includegraphics{text_ASA_files/figure-latex/cor-matrix-east-1.pdf}
+
+Ostateczną postać modelu przedstawia diagram na Rys. 10. CFI (Robust Comparative Fit Index) = 0,966; TLI (Robust Tucker-Lewis Index) = 0,948. RMSEA wynosi 0,049; CI90\% (0,045; 0,052). Łączna rzetelność konstruktu wynosi 0,76. Model dla tej grupy jest bardzo dobrze dopasowany do danych.
+
+Rys. 10: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie byłych demokracji ludowych. Źródło: opracowanie własne
+\includegraphics{text_ASA_files/figure-latex/diagram-east-1.pdf}
+
+Jednak nie udało się poprawnie wyestymować modelu w każdym kraju z osobna. Równoważność konfiguralna nie jest zachowana, co oznacza, że zilustrowana diagramem na Rys. 10 struktura koncepcji demokracji nie występuje w każdej z byłych demokracji ludowych.
 
 \bibliographystyle{agsm}
 \bibliography{bibliography.bib}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.11.11)  21 MAY 2020 12:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.11.11)  22 MAY 2020 13:20
 entering extended mode
 **./text_ASA.tex
 (text_ASA.tex
@@ -651,11 +651,6 @@ e« zdemokraty-zowa-nia pa«stwa
  []
 
 [3]
-Overfull \hbox (54.20424pt too wide) in alignment at lines 123--137
- [] [] 
- []
-
-
 Underfull \vbox (badness 10000) detected at line 137
  []
 
@@ -720,6 +715,11 @@ LaTeX Warning: Command \' invalid in math mode on input line 337.
 
 LaTeX Warning: Command \l invalid in math mode on input line 337.
 
+Missing character: There is no ó in font cmr12!
+Missing character: There is no » in font cmr12!
+Missing character: There is no ± in font cmr12!
+Missing character: There is no ¢ in font cmr12!
+Missing character: There is no ª in font cmr12!
 
 LaTeX Warning: Command \' invalid in math mode on input line 338.
 
@@ -740,11 +740,6 @@ Missing character: There is no » in font cmr12!
 Missing character: There is no ± in font cmr12!
 Missing character: There is no ¢ in font cmr12!
 Missing character: There is no ª in font cmr12!
-Missing character: There is no ó in font cmr12!
-Missing character: There is no » in font cmr12!
-Missing character: There is no ± in font cmr12!
-Missing character: There is no ¢ in font cmr12!
-Missing character: There is no ª in font cmr12!
 
 LaTeX Warning: Command \' invalid in math mode on input line 358.
 
@@ -760,6 +755,12 @@ LaTeX Warning: Command \' invalid in math mode on input line 358.
 
 LaTeX Warning: Command \l invalid in math mode on input line 358.
 
+Missing character: There is no ó in font cmr12!
+Missing character: There is no » in font cmr12!
+Missing character: There is no ± in font cmr12!
+Missing character: There is no ¢ in font cmr12!
+Missing character: There is no ª in font cmr12!
+[14]
 
 LaTeX Warning: Command \' invalid in math mode on input line 359.
 
@@ -780,18 +781,13 @@ Missing character: There is no » in font cmr12!
 Missing character: There is no ± in font cmr12!
 Missing character: There is no ¢ in font cmr12!
 Missing character: There is no ª in font cmr12!
-Missing character: There is no ó in font cmr12!
-Missing character: There is no » in font cmr12!
-Missing character: There is no ± in font cmr12!
-Missing character: There is no ¢ in font cmr12!
-Missing character: There is no ª in font cmr12!
-[14] [15]
+[15]
 Overfull \hbox (41.85168pt too wide) in paragraph at lines 409--410
 []\T1/cmr/m/n/12 niespolaryzowane: wy»sze opo-datkowanie bo-gatych, wyrówny-wan
 ie do-chodów i posªusze«stwo
  []
 
-<text_ASA_files/figure-latex/descr-plot-1.pdf, id=283, 469.755pt x 325.215pt>
+<text_ASA_files/figure-latex/descr-plot-1.pdf, id=301, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/descr-plot-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/descr-plot-1.pdf>
 Package pdftex.def Info: text_ASA_files/figure-latex/descr-plot-1.pdf  used on 
@@ -809,7 +805,7 @@ no±ci, równo±ci i eko-nomicznego
  []
 
 [17 <./text_ASA_files/figure-latex/descr-plot-1.pdf>]
-<text_ASA_files/figure-latex/cor-matrix-1.pdf, id=298, 469.755pt x 325.215pt>
+<text_ASA_files/figure-latex/cor-matrix-1.pdf, id=318, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/cor-matrix-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/cor-matrix-1.pdf>
 Package pdftex.def Info: text_ASA_files/figure-latex/cor-matrix-1.pdf  used on 
@@ -820,28 +816,146 @@ Overfull \hbox (44.78104pt too wide) in paragraph at lines 432--434
 \T1/cmr/m/n/12 wªasne [] 
  []
 
-(text_ASA.bbl [18] [19 <./text_ASA_files/figure-latex/cor-matrix-1.pdf>] [20])
+[18] [19 <./text_ASA_files/figure-latex/cor-matrix-1.pdf>]
+Overfull \hbox (21.06114pt too wide) in paragraph at lines 449--450
+[]\T1/cmr/m/n/12 Druga kon-cepcja przed-stawia demokracj¦ gªównie jako gwaranta
+ ko-rzy±ci lub bez-piecze«stwa
+ []
+
+[20] [21]
+<text_ASA_files/figure-latex/diagram-all-1.pdf, id=352, 469.755pt x 325.215pt>
+File: text_ASA_files/figure-latex/diagram-all-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/diagram-all-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/diagram-all-1.pdf  used on
+ input line 473.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (68.27531pt too wide) in paragraph at lines 472--474
+\T1/cmr/m/n/12 anie wªasne [] 
+ []
+
+[22]
+<text_ASA_files/figure-latex/stats-all-1.pdf, id=358, 469.755pt x 325.215pt>
+File: text_ASA_files/figure-latex/stats-all-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/stats-all-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/stats-all-1.pdf  used on i
+nput line 482.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (263.01659pt too wide) in paragraph at lines 481--483
+\T1/cmr/m/n/12 których dana kon-cepcja byªa domin-u-j¡ca (na dole) [] 
+ []
+
+[23 <./text_ASA_files/figure-latex/diagram-all-1.pdf>] [24 <./text_ASA_files/fi
+gure-latex/stats-all-1.pdf>]
+Overfull \hbox (15.15068pt too wide) in paragraph at lines 490--491
+[]\T1/cmr/m/n/12 Mo»na jed-nak przy-puszcza¢, »e ist-niej¡ w Eu-ropie grupy pa«
+stw o wystar-cza-j¡co zbli»onych
+ []
+
+<text_ASA_files/figure-latex/cor-matrix-lib-1.pdf, id=380, 469.755pt x 325.215p
+t>
+File: text_ASA_files/figure-latex/cor-matrix-lib-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/cor-matrix-lib-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/cor-matrix-lib-1.pdf  used
+ on input line 509.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (202.96477pt too wide) in paragraph at lines 508--510
+\T1/cmr/m/n/12 er-al-nych. ™ródªo: opra-cow-anie wªasne [] 
+ []
+
+[25]
+<text_ASA_files/figure-latex/diagram-west-1.pdf, id=389, 469.755pt x 325.215pt>
+
+File: text_ASA_files/figure-latex/diagram-west-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/diagram-west-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/diagram-west-1.pdf  used o
+n input line 514.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (216.3434pt too wide) in paragraph at lines 513--515
+\T1/cmr/m/n/12 lib-er-al-nych. ™ródªo: opra-cow-anie wªasne [] 
+ []
+
+[26 <./text_ASA_files/figure-latex/cor-matrix-lib-1.pdf>]
+<text_ASA_files/figure-latex/stats-west-1.pdf, id=399, 469.755pt x 325.215pt>
+File: text_ASA_files/figure-latex/stats-west-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/stats-west-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/stats-west-1.pdf  used on 
+input line 518.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (25.10869pt too wide) in paragraph at lines 518--519
+[][] 
+ []
+
+[27 <./text_ASA_files/figure-latex/diagram-west-1.pdf>]
+Overfull \hbox (103.34732pt too wide) in paragraph at lines 524--535
+[][] 
+ []
+
+[28 <./text_ASA_files/figure-latex/stats-west-1.pdf>]
+<text_ASA_files/figure-latex/cor-matrix-east-1.pdf, id=422, 469.755pt x 325.215
+pt>
+File: text_ASA_files/figure-latex/cor-matrix-east-1.pdf Graphic file (type pdf)
+
+<use text_ASA_files/figure-latex/cor-matrix-east-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/cor-matrix-east-1.pdf  use
+d on input line 544.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (8.09155pt too wide) in paragraph at lines 543--545
+[]\T1/cmr/m/n/12 Rys. 9: Macierz ko-relacji odpowiedzi na py-ta-nia o demokracj
+¦ w grupie byªych demokracji
+ []
+
+
+Overfull \hbox (208.1857pt too wide) in paragraph at lines 543--545
+\T1/cmr/m/n/12 lu-dowych. ™ródªo: opra-cow-anie wªasne [] 
+ []
+
+[29 <./text_ASA_files/figure-latex/cor-matrix-east-1.pdf>]
+<text_ASA_files/figure-latex/diagram-east-1.pdf, id=432, 469.755pt x 325.215pt>
+
+File: text_ASA_files/figure-latex/diagram-east-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/diagram-east-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/diagram-east-1.pdf  used o
+n input line 549.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (266.92134pt too wide) in paragraph at lines 548--550
+\T1/cmr/m/n/12 demokracji lu-dowych. ™ródªo: opra-cow-anie wªasne [] 
+ []
+
+
+Overfull \hbox (36.84154pt too wide) in paragraph at lines 551--552
+[]\T1/cmr/m/n/12 Jednak nie udaªo si¦ poprawnie wyesty-mowa¢ mod-elu w ka»dym k
+raju z os-obna. Równowa»no±¢
+ []
+
+(text_ASA.bbl [30 <./text_ASA_files/figure-latex/diagram-east-1.pdf>] [31])
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 438.
-[21]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 438.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 556.
+[32]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 556.
 (text_ASA.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 438.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 438.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 556.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 556.
 Package rerunfilecheck Info: File `text_ASA.out' has not changed.
-(rerunfilecheck)             Checksum: 20B73270FAD142B2580131A05DEE40AB;1292.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 438.
+(rerunfilecheck)             Checksum: B432284A10B376C8FB250BA3CA6E7F33;1758.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 556.
  ) 
 Here is how much of TeX's memory you used:
- 9075 strings out of 492450
- 129946 string characters out of 3129736
- 233269 words of memory out of 3000000
- 13137 multiletter control sequences out of 15000+200000
- 19793 words of font info for 48 fonts, out of 3000000 for 9000
+ 9154 strings out of 492450
+ 132777 string characters out of 3129736
+ 233674 words of memory out of 3000000
+ 13186 multiletter control sequences out of 15000+200000
+ 20559 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,8n,37p,1004b,453s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,8n,37p,1481b,449s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Agnieszka\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi
 600\tcrm1200.pk> <C:\Users\Agnieszka\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/j
 knappen/ec/dpi600\ecbx1200.pk> <C:\Users\Agnieszka\AppData\Local\MiKTeX\2.9\fon
@@ -864,9 +978,9 @@ mmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on text_ASA.pdf (21 pages, 313991 bytes).
+Output written on text_ASA.pdf (32 pages, 461097 bytes).
 PDF statistics:
- 783 PDF objects out of 1000 (max. 8388607)
- 97 named destinations out of 1000 (max. 500000)
- 147 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 929 PDF objects out of 1000 (max. 8388607)
+ 119 named destinations out of 1000 (max. 500000)
+ 222 words of extra memory for PDF output out of 10000 (max. 10000000)
 

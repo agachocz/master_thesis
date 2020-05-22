@@ -7,12 +7,12 @@ library(ggsci)
 
 # grupa ogólna
 
-coeff <- summary_fit$PE
+coeff <- standardizedSolution(fit)
 
 # wagi
-fnd_all_w <- coeff$std.all[1:4]
-lib_all_w <- coeff$std.all[8:12]
-econ_all_w <- coeff$std.all[5:7]
+fnd_all_w <- coeff$est.std[1:4]
+lib_all_w <- coeff$est.std[8:12]
+econ_all_w <- coeff$est.std[5:7]
 
 all_stats <- dem_data %>% mutate(I = (obeyRulers*fnd_all_w[1]+religiousLaw*fnd_all_w[2]+ 
                     armyTakesOver*fnd_all_w[3]+equalIncome*fnd_all_w[4])/sum(fnd_all_w),
@@ -54,18 +54,18 @@ yplot <- all_stats %>% select(I, II, III) %>% gather(key="Koncepcja", value="War
 
 ggarrange(bxp, yplot, bar, NULL,
           ncol = 2, nrow = 2,  align = "hv", 
-          widths = c(2, 1), heights = c(2, 0.7),
+          widths = c(2, 1), heights = c(2, 1),
           common.legend = TRUE)
 
 
 # demokracje liberalne (grupa 2)
 
-coeff <- group2_summary$PE
+coeff <- standardizedSolution(group2_fit)
 
 # wagi
-fnd_2_w <- coeff$std.all[1:3]
-lib_2_w <- coeff$std.all[7:11]
-econ_2_w <- coeff$std.all[4:6]
+fnd_2_w <- coeff$est.std[1:3]
+lib_2_w <- coeff$est.std[7:11]
+econ_2_w <- coeff$est.std[4:6]
 
 gr2_stats <- group2_data %>% mutate(Ilib = (obeyRulers*fnd_2_w[1]+religiousLaw*fnd_2_w[2]+ 
                              armyTakesOver*fnd_2_w[3])/sum(fnd_2_w),
@@ -91,7 +91,7 @@ bar <- gr2_stats %>% select(leading) %>%
   fill=c(Ilib = "blue", II = "orange", III = "darkgreen")) + 
   geom_text(stat = "count", aes(label=..count..), vjust=-0.5, size=4) +
   scale_x_discrete("Dominująca koncepcja", drop=F) +
-  labs(y = "Liczba osób")
+  labs(y = "Liczba osób") + expand_limits(y = c(1, 4500))
 
 
 yplot <- gr2_stats %>% select(Ilib, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
@@ -107,12 +107,12 @@ ggarrange(bxp, yplot, bar, NULL,
 
 # grupa 1
 
-coeff <- group1_summary$PE
+coeff <- standardizedSolution(group1_fit)
 
 # wagi
-fnd_1_w <- coeff$std.all[1:3]
-lib_1_w <- coeff$std.all[8:12]
-econ_1_w <- coeff$std.all[4:7]
+fnd_1_w <- coeff$est.std[1:3]
+lib_1_w <- coeff$est.std[8:12]
+econ_1_w <- coeff$est.std[4:7]
 
 gr1_stats <- group1_data %>% mutate(fnd = (obeyRulers*fnd_1_w[1]+religiousLaw*fnd_1_w[2]+ 
                                              armyTakesOver*fnd_1_w[3])/sum(fnd_1_w),
@@ -153,11 +153,11 @@ ggarrange(bxp, yplot, bar, NULL,
 
 # grupa 3
 
-coeff <- group3_summary$PE
+coeff <- standardizedSolution(group3_fit)
 
 # wagi
-fnd_3_w <- coeff$std.all[1:3]
-lib_econ_3_w <- coeff$std.all[4:11]
+fnd_3_w <- coeff$est.std[1:3]
+lib_econ_3_w <- coeff$est.std[4:11]
 
 
 gr3_stats <- group3_data %>% mutate(fnd = (obeyRulers*fnd_3_w[1]+religiousLaw*fnd_3_w[2]+ 
