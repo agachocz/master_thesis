@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.11.11)  22 MAY 2020 13:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.11.11)  24 MAY 2020 22:05
 entering extended mode
 **./text_ASA.tex
 (text_ASA.tex
@@ -787,7 +787,7 @@ Overfull \hbox (41.85168pt too wide) in paragraph at lines 409--410
 ie do-chodów i posªusze«stwo
  []
 
-<text_ASA_files/figure-latex/descr-plot-1.pdf, id=301, 469.755pt x 325.215pt>
+<text_ASA_files/figure-latex/descr-plot-1.pdf, id=321, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/descr-plot-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/descr-plot-1.pdf>
 Package pdftex.def Info: text_ASA_files/figure-latex/descr-plot-1.pdf  used on 
@@ -805,7 +805,7 @@ no±ci, równo±ci i eko-nomicznego
  []
 
 [17 <./text_ASA_files/figure-latex/descr-plot-1.pdf>]
-<text_ASA_files/figure-latex/cor-matrix-1.pdf, id=318, 469.755pt x 325.215pt>
+<text_ASA_files/figure-latex/cor-matrix-1.pdf, id=338, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/cor-matrix-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/cor-matrix-1.pdf>
 Package pdftex.def Info: text_ASA_files/figure-latex/cor-matrix-1.pdf  used on 
@@ -823,7 +823,7 @@ Overfull \hbox (21.06114pt too wide) in paragraph at lines 449--450
  []
 
 [20] [21]
-<text_ASA_files/figure-latex/diagram-all-1.pdf, id=352, 469.755pt x 325.215pt>
+<text_ASA_files/figure-latex/diagram-all-1.pdf, id=372, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/diagram-all-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/diagram-all-1.pdf>
 Package pdftex.def Info: text_ASA_files/figure-latex/diagram-all-1.pdf  used on
@@ -835,7 +835,7 @@ Overfull \hbox (68.27531pt too wide) in paragraph at lines 472--474
  []
 
 [22]
-<text_ASA_files/figure-latex/stats-all-1.pdf, id=358, 469.755pt x 325.215pt>
+<text_ASA_files/figure-latex/stats-all-1.pdf, id=378, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/stats-all-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/stats-all-1.pdf>
 Package pdftex.def Info: text_ASA_files/figure-latex/stats-all-1.pdf  used on i
@@ -853,7 +853,7 @@ Overfull \hbox (15.15068pt too wide) in paragraph at lines 490--491
 stw o wystar-cza-j¡co zbli»onych
  []
 
-<text_ASA_files/figure-latex/cor-matrix-lib-1.pdf, id=380, 469.755pt x 325.215p
+<text_ASA_files/figure-latex/cor-matrix-lib-1.pdf, id=400, 469.755pt x 325.215p
 t>
 File: text_ASA_files/figure-latex/cor-matrix-lib-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/cor-matrix-lib-1.pdf>
@@ -866,7 +866,7 @@ Overfull \hbox (202.96477pt too wide) in paragraph at lines 508--510
  []
 
 [25]
-<text_ASA_files/figure-latex/diagram-west-1.pdf, id=389, 469.755pt x 325.215pt>
+<text_ASA_files/figure-latex/diagram-west-1.pdf, id=409, 469.755pt x 325.215pt>
 
 File: text_ASA_files/figure-latex/diagram-west-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/diagram-west-1.pdf>
@@ -879,83 +879,213 @@ Overfull \hbox (216.3434pt too wide) in paragraph at lines 513--515
  []
 
 [26 <./text_ASA_files/figure-latex/cor-matrix-lib-1.pdf>]
-<text_ASA_files/figure-latex/stats-west-1.pdf, id=399, 469.755pt x 325.215pt>
+<text_ASA_files/figure-latex/stats-west-1.pdf, id=419, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/stats-west-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/stats-west-1.pdf>
 Package pdftex.def Info: text_ASA_files/figure-latex/stats-west-1.pdf  used on 
-input line 518.
+input line 519.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (25.10869pt too wide) in paragraph at lines 518--519
-[][] 
+Overfull \hbox (263.01659pt too wide) in paragraph at lines 518--520
+\T1/cmr/m/n/12 których dana kon-cepcja byªa domin-u-j¡ca (na dole) [] 
  []
 
 [27 <./text_ASA_files/figure-latex/diagram-west-1.pdf>]
-Overfull \hbox (103.34732pt too wide) in paragraph at lines 524--535
+Overfull \hbox (103.34732pt too wide) in paragraph at lines 525--536
 [][] 
  []
 
 [28 <./text_ASA_files/figure-latex/stats-west-1.pdf>]
-<text_ASA_files/figure-latex/cor-matrix-east-1.pdf, id=422, 469.755pt x 325.215
+<text_ASA_files/figure-latex/cor-matrix-east-1.pdf, id=442, 469.755pt x 325.215
 pt>
 File: text_ASA_files/figure-latex/cor-matrix-east-1.pdf Graphic file (type pdf)
 
 <use text_ASA_files/figure-latex/cor-matrix-east-1.pdf>
 Package pdftex.def Info: text_ASA_files/figure-latex/cor-matrix-east-1.pdf  use
-d on input line 544.
+d on input line 545.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (8.09155pt too wide) in paragraph at lines 543--545
+Overfull \hbox (8.09155pt too wide) in paragraph at lines 544--546
 []\T1/cmr/m/n/12 Rys. 9: Macierz ko-relacji odpowiedzi na py-ta-nia o demokracj
 ¦ w grupie byªych demokracji
  []
 
 
-Overfull \hbox (208.1857pt too wide) in paragraph at lines 543--545
+Overfull \hbox (208.1857pt too wide) in paragraph at lines 544--546
 \T1/cmr/m/n/12 lu-dowych. ™ródªo: opra-cow-anie wªasne [] 
  []
 
 [29 <./text_ASA_files/figure-latex/cor-matrix-east-1.pdf>]
-<text_ASA_files/figure-latex/diagram-east-1.pdf, id=432, 469.755pt x 325.215pt>
+<text_ASA_files/figure-latex/diagram-east-1.pdf, id=452, 469.755pt x 325.215pt>
 
 File: text_ASA_files/figure-latex/diagram-east-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/diagram-east-1.pdf>
 Package pdftex.def Info: text_ASA_files/figure-latex/diagram-east-1.pdf  used o
-n input line 549.
+n input line 550.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (266.92134pt too wide) in paragraph at lines 548--550
+Overfull \hbox (266.92134pt too wide) in paragraph at lines 549--551
 \T1/cmr/m/n/12 demokracji lu-dowych. ™ródªo: opra-cow-anie wªasne [] 
  []
 
 
-Overfull \hbox (36.84154pt too wide) in paragraph at lines 551--552
+Overfull \hbox (36.84154pt too wide) in paragraph at lines 552--553
 []\T1/cmr/m/n/12 Jednak nie udaªo si¦ poprawnie wyesty-mowa¢ mod-elu w ka»dym k
 raju z os-obna. Równowa»no±¢
  []
 
-(text_ASA.bbl [30 <./text_ASA_files/figure-latex/diagram-east-1.pdf>] [31])
+
+Overfull \hbox (9.62515pt too wide) in paragraph at lines 562--563
+\T1/cmr/m/n/12 zwi¡zków mi¦dzy zmi-en-nymi. Dla ka»dego oblic-zono macierz ko-r
+elacji i wyko-nano grupowanie
+ []
+
+[30 <./text_ASA_files/figure-latex/diagram-east-1.pdf>]
+<text_ASA_files/figure-latex/dendrogram-1.pdf, id=464, 469.755pt x 325.215pt>
+File: text_ASA_files/figure-latex/dendrogram-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/dendrogram-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/dendrogram-1.pdf  used on 
+input line 567.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (198.94025pt too wide) in paragraph at lines 566--568
+\T1/cmr/m/n/12 a-cyjn¡. ™ródªo: opra-cow-anie wªasne. [] 
+ []
+
+[31 <./text_ASA_files/figure-latex/dendrogram-1.pdf>]
+<text_ASA_files/figure-latex/silhouette-1.pdf, id=475, 469.755pt x 325.215pt>
+File: text_ASA_files/figure-latex/silhouette-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/silhouette-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/silhouette-1.pdf  used on 
+input line 576.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (372.83237pt too wide) in paragraph at lines 575--577
+[]\T1/cmr/m/n/12 Rys. 12: Test syl-wetkowy grupowa-nia, ™ródªo: opra-cow-anie w
+ªasne. [] 
+ []
+
+[32 <./text_ASA_files/figure-latex/silhouette-1.pdf>]
+<text_ASA_files/figure-latex/cor-matrix-1-1.pdf, id=486, 469.755pt x 325.215pt>
+
+File: text_ASA_files/figure-latex/cor-matrix-1-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/cor-matrix-1-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/cor-matrix-1-1.pdf  used o
+n input line 586.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (195.45966pt too wide) in paragraph at lines 585--587
+\T1/cmr/m/n/12 zielono. ™ródªo: opra-cow-anie wªasne [] 
+ []
+
+[33 <./text_ASA_files/figure-latex/cor-matrix-1-1.pdf>]
+<text_ASA_files/figure-latex/diagram-1-1.pdf, id=496, 469.755pt x 325.215pt>
+File: text_ASA_files/figure-latex/diagram-1-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/diagram-1-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/diagram-1-1.pdf  used on i
+nput line 593.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (239.51143pt too wide) in paragraph at lines 592--594
+\T1/cmr/m/n/12 zonej na zielono. ™ródªo: opra-cow-anie wªasne [] 
+ []
+
+<text_ASA_files/figure-latex/stats-gr-1-1.pdf, id=497, 469.755pt x 325.215pt>
+File: text_ASA_files/figure-latex/stats-gr-1-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/stats-gr-1-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/stats-gr-1-1.pdf  used on 
+input line 598.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 597--599
+[] 
+ []
+
+[34 <./text_ASA_files/figure-latex/diagram-1-1.pdf>]
+Overfull \hbox (103.34732pt too wide) in paragraph at lines 604--615
+[][] 
+ []
+
+[35 <./text_ASA_files/figure-latex/stats-gr-1-1.pdf>]
+Overfull \hbox (6.66885pt too wide) in paragraph at lines 625--626
+\T1/cmr/m/n/12 Charak-terysty-czne dla tej grupy s¡ pozy-ty-wne ko-relacje zmi-
+en-nej oz-nacza-j¡cej posªusze«stwo
+ []
+
+<text_ASA_files/figure-latex/cor-matrix-3-1.pdf, id=520, 469.755pt x 325.215pt>
+
+File: text_ASA_files/figure-latex/cor-matrix-3-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/cor-matrix-3-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/cor-matrix-3-1.pdf  used o
+n input line 628.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (206.8805pt too wide) in paragraph at lines 627--629
+\T1/cmr/m/n/12 cz-er-wono. ™ródªo: opra-cow-anie wªasne [] 
+ []
+
+[36 <./text_ASA_files/figure-latex/cor-matrix-3-1.pdf>]
+<text_ASA_files/figure-latex/diagram-3-1.pdf, id=530, 469.755pt x 325.215pt>
+File: text_ASA_files/figure-latex/diagram-3-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/diagram-3-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/diagram-3-1.pdf  used on i
+nput line 635.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (250.93227pt too wide) in paragraph at lines 634--636
+\T1/cmr/m/n/12 zonej na cz-er-wono. ™ródªo: opra-cow-anie wªasne [] 
+ []
+
+<text_ASA_files/figure-latex/stats-gr-3-1.pdf, id=531, 469.755pt x 325.215pt>
+File: text_ASA_files/figure-latex/stats-gr-3-1.pdf Graphic file (type pdf)
+<use text_ASA_files/figure-latex/stats-gr-3-1.pdf>
+Package pdftex.def Info: text_ASA_files/figure-latex/stats-gr-3-1.pdf  used on 
+input line 640.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 639--641
+[] 
+ []
+
+[37 <./text_ASA_files/figure-latex/diagram-3-1.pdf>]
+Overfull \hbox (103.34732pt too wide) in paragraph at lines 646--657
+[][] 
+ []
+
+[38 <./text_ASA_files/figure-latex/stats-gr-3-1.pdf>]
+Overfull \hbox (8.72868pt too wide) in paragraph at lines 665--666
+[]\T1/cmr/m/n/12 Zestaw kon-cepcji demokracji, którymi kieruj¡ si¦ oby-wa-tele,
+ nie jest wspólny dla badanych
+ []
+
+[39]
+Overfull \hbox (14.5525pt too wide) in paragraph at lines 675--676
+\T1/cmr/m/n/12 dziesi¦-ciu py-ta-ni-ach, które znalazªy si¦ w ankiecie. Przepro
+wad-zone badanie, mimo ogranicze«,
+ []
+
+(text_ASA.bbl [40] [41])
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 556.
-[32]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 556.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 680.
+[42]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 680.
 (text_ASA.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 556.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 556.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 680.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 680.
 Package rerunfilecheck Info: File `text_ASA.out' has not changed.
-(rerunfilecheck)             Checksum: B432284A10B376C8FB250BA3CA6E7F33;1758.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 556.
+(rerunfilecheck)             Checksum: 3B2136A0A2A9436D456CBAC021B4292E;2089.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 680.
  ) 
 Here is how much of TeX's memory you used:
- 9154 strings out of 492450
- 132777 string characters out of 3129736
- 233674 words of memory out of 3000000
- 13186 multiletter control sequences out of 15000+200000
+ 9232 strings out of 492450
+ 135463 string characters out of 3129736
+ 233919 words of memory out of 3000000
+ 13236 multiletter control sequences out of 15000+200000
  20559 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,8n,37p,1481b,449s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,8n,37p,1481b,453s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Agnieszka\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi
 600\tcrm1200.pk> <C:\Users\Agnieszka\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/j
 knappen/ec/dpi600\ecbx1200.pk> <C:\Users\Agnieszka\AppData\Local\MiKTeX\2.9\fon
@@ -978,9 +1108,9 @@ mmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on text_ASA.pdf (32 pages, 461097 bytes).
+Output written on text_ASA.pdf (42 pages, 579603 bytes).
 PDF statistics:
- 929 PDF objects out of 1000 (max. 8388607)
- 119 named destinations out of 1000 (max. 500000)
- 222 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1061 PDF objects out of 1200 (max. 8388607)
+ 139 named destinations out of 1000 (max. 500000)
+ 302 words of extra memory for PDF output out of 10000 (max. 10000000)
 

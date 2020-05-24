@@ -515,6 +515,7 @@ Rys. 7: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie demokra
 
 Rozkłady wskaźników w tej grupie przedstawiono na Rys. 8. Koncepcja Ilib ma średnią na poziomie 2,56, a wartości powyżej 7 są bardzo rzadkie. Koncepcja II ma średnią 6,11. III ma 8,7, a wartości poniżej 6 są przypadkami odstającymi.
 
+Rys. 5: Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole)
 \includegraphics{text_ASA_files/figure-latex/stats-west-1.pdf}
 
 Tabela 2 przedstawia wyniki równoważności pomiarowej. Zachowana jest wyłącznie równoważność konfiguralna, co potwierdza istnienie tych samych koncepcji demokracji we wszystkich społeczeństwach państw grupy.
@@ -549,6 +550,129 @@ Rys. 10: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie byłyc
 \includegraphics{text_ASA_files/figure-latex/diagram-east-1.pdf}
 
 Jednak nie udało się poprawnie wyestymować modelu w każdym kraju z osobna. Równoważność konfiguralna nie jest zachowana, co oznacza, że zilustrowana diagramem na Rys. 10 struktura koncepcji demokracji nie występuje w każdej z byłych demokracji ludowych.
+
+\hypertarget{podziaux142-wedux142ug-podobieux144stwa-macierzy-korelacji}{%
+\section{Podział według podobieństwa macierzy korelacji}\label{podziaux142-wedux142ug-podobieux144stwa-macierzy-korelacji}}
+
+\hypertarget{metoda-podziaux142u}{%
+\subsection{Metoda podziału}\label{metoda-podziaux142u}}
+
+W poprzednim rozdziale pokazano, że linia podziału wyznaczona przez Żelazną Kurtynę nie dała grup o wspólnych koncepcjach demokracji. Jej drugą istotną wadą było odrzucenie dwóch państw, których losy w drugiej połowie XX wieku wyłamywały się z tego schematu.
+
+Zaproponowano więc zgrupowanie państw według podobieństwa występujących w nich związków między zmiennymi. Dla każdego obliczono macierz korelacji i wykonano grupowanie hierarchiczną metodą aglomeracyjną AGNES. Wyniki przedstawia dendrogram na Rys. 11. Na początku algorytmu każde państwo jest traktowane jako odrębne skupisko (dolna część dendrogramu). W każdym kolejnym kroku obliczana jest euklidesowa odległość między średnimi wartościami zmiennych dla każdej pary skupisk, a następnie dwa najbliżesze skupiska zostają połączone w jedno. Algorytm kończy się, gdy wszystkie państwa zostaną zebrane w jednym skupisku (szczyt dendrogramu) {[}Struyf, Hubert, Rousseeuw, 1997{]}.
+
+Wysokość jest tu miarą odległości dwóch skupisk, które zostają ze sobą połączone {[}Maechler at al., 2019{]}. Kraje, które łączą się ze sobą na najniższej wysokości, mają najbardziej podobne wzorce odpowiedzi - zatem można podejrzewać, że na odpowiedzi mają wpływ te same ukryte koncepcje demokracji.
+
+Rys. 11: Grupowanie państw według podobieństwa macierzy korelacji metodą aglomeracyjną. Źródło: opracowanie własne.
+\includegraphics{text_ASA_files/figure-latex/dendrogram-1.pdf}
+
+Na Rys. 11 widać trzy wyraźnie wyodrębnione grupy. Pierwszą (oznaczoną na mapie kolorem zielonym) tworzą państwa Europy środkowo-wschodniej oraz Gruzja; drugą (oznaczoną na czerwono) głównie państwa leżące nad Morzem Czarnym, ale też Słowenia i Hiszpania. Trzecia grupa (oznaczoną na niebiesko) składa się z krajów północno-zachodniej Europy i pokrywa się z grupą demokracji liberalnych, która została już przeanalizowana w poprzednim rozdziale. Wzorzec geograficzny jest więc wyraźny, ale nie pozbawiony wyjątków, co widać na rysunku {[}nr{]}. Dużą przeszkodą w wyciąganiu ogólnych wniosków jest ograniczony zasięg badania. Z większości państw zachodniej oraz południowej Europy nie ma danych, i trudno przewidzieć, jakie wzorce występują w tych rejonach.
+
+{[}MAPA{]}
+
+Jakość grupowania sprawdzono, obliczając wskaźnik sylwetkowy dla każdego kraju (Rys. 12). Wskaźnik przyjmuje wartości od -1 do 1, gdzie ujemne stanowią przesłankę, że obserwacja została umieszczona w niewłaściwej grupie, dodatnie - we właściwej, a zerowe oznaczają obserwacje, które nie pasują do żadnej z grup. Jak widać na wykresie, nie ma podstaw do przeniesienia któregokolwiek kraju do innej grupy. Z drugiej strony, wartości generalnie są niskie, co oznacza, że rozgrupowanie nie jest bardzo wyraźne. Najbliższe zeru wartości mają Turcja (0,017), Słowenia (0,039) i Hiszpania (0,102) w czerwonej grupie. Żeby nie tracić dużej ilości danych, zdecydowano się jednak pozostawić grupy w ich pierwotnym składzie, jeśli nie spowoduje to później problemów z estymacją.
+
+Rys. 12: Test sylwetkowy grupowania, Źródło: opracowanie własne.
+\includegraphics{text_ASA_files/figure-latex/silhouette-1.pdf}
+
+\hypertarget{grupa-zielona}{%
+\subsection{Grupa zielona}\label{grupa-zielona}}
+
+Pierwsza grupa składa się z pięciu państw: Polski, Białorusi, Estonii, Rumunii i Gruzji. Kraje te łączą liczne podobieństwa, przede wszystkim komunistyczne rządy i wpływy Związku Radzieckiego po II Wojnie Światowej oraz rewolucyjne zmiany w latach 80. i 90. XX wieku.
+
+Test sferyczny Bartletta pokazał, że macierz korelacji jest istotnie różna od macierzy jednostkowej (\(\chi^2\) = 12861,33; df = 45; p \textless{} 0,001). Relacje między odpowiedziami są dość podobne do wzorca dla wszystkich krajów. Nadal można wyodrębnić trzy koncepcje, chociaż nieco mniej wyraźne.
+
+Rys. 13: Macierz korelacji odpowiedzi na pytania o demokrację w grupie oznaczonej na zielono. Źródło: opracowanie własne
+\includegraphics{text_ASA_files/figure-latex/cor-matrix-1-1.pdf}
+
+Postać modelu i wyniki estymacji przedstawiono na diagramie na Rys. 14. CFI (Robust Comparative Fit Index) = 0,969; TLI (Robust Tucker-Lewis Index) = 0,953. RMSEA wynosi 0,045; CI90\% (0,040; 0,050). Łączna rzetelność konstruktu wynosi 0,75. Dopasowanie modelu w tej grupie jest więc lepsze niż dla całej próby.
+
+W tej grupie występuje koncepcja IIlud ze zmienną posłuszeństwo rządzącym, ale wyraźnie większe znaczenie ma w niej wyrównywanie przez państwo dochodów. Można interpretować to jako wizję paternalistycznego państwa, które wymaga posłuszeństwa, ale zaspokaja podstawowe potrzeby bytowe i chroni najsłabszych przed wyzyskiem. Warto też zwrócić uwagę na układ korelacji między zmiennymi latentnymi: w grupie ogólnej i grupie demokracji liberalnych koncepcje opiekuńczego państwa były silniej związane z koncepcją III - tutaj z koncepcją I.
+
+Rys. 14: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie oznaczonej na zielono. Źródło: opracowanie własne
+\includegraphics{text_ASA_files/figure-latex/diagram-1-1.pdf}
+
+Średnia wartość wskaźnika koncepcji I to 4,16, IIlud - 6,14, III - 8,08.
+
+Rys. 15: Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole) w grupie oznaczonej na zielono.
+\includegraphics{text_ASA_files/figure-latex/stats-gr-1-1.pdf}
+
+Wyniki analizy równoważności pomiarowej przedstawia tabela Tabela 3.
+
+Tabela 3: Wyniki analizy równoważności pomiarowej dla grupy oznaczonej na zielono. Źródło: opracowanie własne.
+
+\begin{tabular}{l|r|r|l|l|r|l}
+\hline
+Poziom równoważności & AIC & BIC & \$\textbackslash{}chi\textasciicircum{}2\$ & Przyrost \$\textbackslash{}chi\textasciicircum{}2\$ & Stopnie swobody & p-value\\
+\hline
+Konfiguralna & 249265 & 250325 & 1714,8 & NA & 165 & NA\\
+\hline
+Metryczna & 249434 & 250255 & 1955,7 & 240,81 & 201 & < 2,2e-16\\
+\hline
+Skalarna & 250656 & 251266 & 3242,4 & 1286,74 & 233 & < 2.2e-16\\
+\hline
+\end{tabular}
+
+W każdym z państw tej grupy model przedstawiony na Rys. 14 jest identyfikowalny. Jednak modele z restrykcjami nałożonymi na, kolejno: ładunki czynnikowe i wyrazy wolne, okazały się istotnie gorsze (p \textless{} 0,001 w obu przypadkach). Równoważność metryczna i skalarna nie są spełnione.
+
+Analiza równoważności pomiarowej pokazuje, że w państwach należących do grupy zielonej występują te same społeczne koncepcje demokracji, jednak model nie pozwala na rzetelne porównywanie ich poziomów między państwami, ani bezpośrednio, ani w relacji z innymi zmiennymi.
+
+\hypertarget{grupa-czerwona}{%
+\subsection{Grupa czerwona}\label{grupa-czerwona}}
+
+Drugą grupę tworzą cztery kraje Europy Wschodniej: Ukraina, Rosja, Kazachstan i Turcja, oraz Słowenia i Hiszpania. Dla grupy obliczono macierz korelacji, przedstawioną na Rys. 16. Test Bartletta pokazał, że jest istotnie różna od macierzy jednostkowej (\(\chi^2\) = 22256,39; df = 45; p \textless{} 0,001).
+
+Tym razem z analizy korelacji wyłaniają się tylko dwa czynniki: koncepcja I oraz zupełnie nowa koncepcja IV, której struktura została pokazana na diagramie na Rys. 17. Charakterystyczne dla tej grupy są pozytywne korelacje zmiennej oznaczającej posłuszeństwo rządzącym ze wszystkimi pozostałymi zmiennymi - przeciwnie niż w grupie demokracji liberalnych.
+
+Rys. 16: Macierz korelacji odpowiedzi na pytania o demokrację w grupie oznaczonej na czerwono. Źródło: opracowanie własne
+\includegraphics{text_ASA_files/figure-latex/cor-matrix-3-1.pdf}
+
+CFI (Robust Comparative Fit Index) = 0,876; TLI (Robust Tucker-Lewis Index) = 0,831. RMSEA wynosi 0,091; CI90\% (0,087; 0,099). Łączna rzetelność konstruktu wynosi 0,74. Modelu w tej grupie nie można uznać za dobrze dopasowany do danych. O ile koncepcja IV jest dobrze skonstruowana (rzetelność konceptu na poziomie 0,78), o tyle najwyraźniej brakuje odpowiednich pytań dla koncepcji I (rzetelność 0,56).
+
+W koncepcji I najważniejsza jest interpretacja prawa przez autorytety religijne, a w IV wolne wybory, równość płci i prawa obywatelskie (część liberalna gra większą rolę niż ekonomiczna). Zmienna oznaczająca posłuszeństwo rządzącym w podobny sposób mierzy obie koncepcje. Prawdopodobnie to właśnie ta grupa ``psuła'' europejską jednorodność w definiowaniu demokracji.
+
+Rys. 17: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie oznaczonej na czerwono. Źródło: opracowanie własne
+\includegraphics{text_ASA_files/figure-latex/diagram-3-1.pdf}
+
+Rozkład wskaźników dla całej grupy, przedstawiony na Rys. 18, pokazuje, że koncepcja IV jest bardziej powszechna. Średnia dla koncepcji I wynosi 4,56 a dla IV - 7,77.
+
+Rys. 18: Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole) w grupie oznaczonej na czerwono.
+\includegraphics{text_ASA_files/figure-latex/stats-gr-3-1.pdf}
+
+Wyniki analizy równoważności pomiarowej przedstawia tabela Tabela 4.
+
+Tabela 4: Wyniki analizy równoważności pomiarowej dla grupy oznaczonej na czerwono. Źródło: opracowanie własne.
+
+\begin{tabular}{l|r|r|l|l|r|l}
+\hline
+Poziom równoważności & AIC & BIC & \$\textbackslash{}chi\textasciicircum{}2\$ & Przyrost \$\textbackslash{}chi\textasciicircum{}2\$ & Stopnie swobody & p-value\\
+\hline
+Konfiguralna & 361023 & 362370 & 2498,0 & NA & 198 & NA\\
+\hline
+Metryczna & 361393 & 362423 & 2957,1 & 459,1 & 243 & < 2,2e-16\\
+\hline
+Skalarna & 363453 & 364203 & 5097,1 & 2140,0 & 283 & < 2.2e-16\\
+\hline
+\end{tabular}
+
+W każdym z państw tej grupy model przedstawiony na Rys. 17 jest identyfikowalny. Jednak modele z restrykcjami nałożonymi na, kolejno: ładunki czynnikowe i wyrazy wolne, okazały się istotnie gorsze (p \textless{} 0,001 w obu przypadkach). Równoważność metryczna i skalarna nie są spełnione.
+
+\hypertarget{podsumowanie}{%
+\section{Podsumowanie}\label{podsumowanie}}
+
+Przeprowadzona analiza czynnikowa dostarcza szeregu wniosków o społecznych koncepcjach demokracji w krajach europejskich. Przede wszystkim pokazuje, że we wszystkich krajach społeczne przekonanie o tym, co stanowi istotę demokracji, wychodzi daleko poza minimalistyczną definicję Schumpetera.
+
+Zestaw koncepcji demokracji, którymi kierują się obywatele, nie jest wspólny dla badanych państw Europy. Znaleziono jednak trzy grupy, wewnątrz których występują wspólne koncepcje. W każdej z tych grup dalsze poziomy równoważności nie są spełnione, nie pozwalając na przeprowadzanie analiz porównawczych między krajami.
+
+W grupie państw, w których po II Wojnie Światowej rozwijała się idea demokracji liberalnej (Niemcy, Holandia, Szwecja) można wyróżnić trzy koncepcje demokracji. Według koncepcji I istotna dla demokracji jest możliwość przejęcia władzy przez wojsko, interpretacja prawa przez autorytety religijne oraz posłuszeństwo rządzącym. Według II najistotniejsze jest, aby państwo wyżej opodatkowało bogatych i pomagało ubogim, a także wspierało bezrobotnych i walczyło z rozwarstwieniem dochodowym. W koncepcji III istotę demokracji stanowią wolne wybory, równość płci, prawa obywatelskie oraz (w mniejszym stopniu) również wsparcie państwa dla bezrobotnych. Ta trzecia koncepcja jest zdecydowanie najbardziej powszechna i silnie ujemnie skorelowana z pierwszą.
+
+Druga grupa składa się z Polski, Estonii, Rumunii, Białorusi i Gruzji. Wyróżniono w niej również trzy koncepcje, I i III wymienione wyżej, oraz koncepcję IIlud, podobną do II. W koncepcji IIlud na pierwsze miejsce wybija się tu walka z nierównościami dochodowymi. W niedużym, ale istotnym stopniu, jest w niej też zawarte przekonanie o konieczności posłuszeństwa wobec rządzących. Koncepcja IIlud jest silnie pozytywnie skorelowana z I, nie ma z kolei związków tych dwóch koncepcji z III. Można przypuszczać, że na kształt tych koncepcji miała wpływ komunistyczna przeszłość państw tej grupy, sprawiając, że postulaty socjalne są związane z posłuszeństwem wobec władzy i możliwością przejęcia władzy przez armię. Zdecydowanie więcej jest jednak zwolenników koncepcji III.
+
+Trzecia grupa jest najbardziej zróżnicowana pod względem geograficznym, politycznym i historycznym. Znajdują się w niej państwa: Hiszpania, Słowenia, Ukraina, Turcja, Kazachstan i Rosja. W tej grupie znaleziono tylko dwie koncepcje demokracji: jedna łączy oczekiwania wolności, równości i praw obywatelskich z postulatami socjalnymi (koncepcja IV); druga uznaje za istotne przede wszystkim wpływ autorytetów religijnych na prawo, możliwość przejęcia władzy przez armię i (w mniejszym stopniu) posłuszeństwo rządzącym (koncepcja I). Te dwie koncepcje są niezależne od siebie i IV jest bardziej powszechna. Ciekawa jest też istotność i podobny poziom ładunków czynnikowych zmiennej oznaczającej posłuszeństwo rządzącym w obu koncepcjach. W tej grupie przekonanie o konieczności posłuszeństwa wobec rządzących jest powszechne.
+
+Dodatkowo można zauważyć, że niezależnie od grupy, wtrącanie się stron trzecich (przejęcie władzy przez wojsko oraz wpływ autorytetów religijnych na prawo) są częścią tej samej koncepcji. Z kolei wsparcie państwa dla bezrobotnych wszędzie występuje zarówno w koncepcjach skupionych na prawach politycznych i równości, jak i postulatach socjalnych.
+
+Przeszkodą w wyciąganiu ogólnych wniosków jest brak danych dla pozostałych państw europejskich; szczególnie niedoreprezentowana jest Europa Zachodnia. Nie można również zakładać, że wszystkie istniejące społeczne koncepcje demokracji zamykają się w tych dziesięciu pytaniach, które znalazły się w ankiecie. Przeprowadzone badanie, mimo ograniczeń, rzuca jednak trochę światła na podobieństwa i różnice w tym, co jest powszechnie uważane za trzon systemu demokratycznego.
 
 \bibliographystyle{agsm}
 \bibliography{bibliography.bib}

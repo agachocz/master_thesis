@@ -72,9 +72,19 @@ summary(cor.data)
 
 # drzewa
 library(cluster)
+library(ggdendro)
 
+countr.pl <- c("Białoruś", "Estonia", "Gruzja", "Niemcy", "Kazahstan", "Holandia", "Polska",
+               "Rumunia", "Rosja", "Słowenia", "Hiszpania", "Szwecja", "Turcja", "Ukraina")
+rownames(cor.data) <- countr.pl
 clustering <- agnes(cor.data, method="complete")
-plot(clustering)
+
+dg <- as.dendrogram(clustering)
+
+ggdendrogram(dg) + labs(y = "Wysokość") + 
+  theme(panel.grid.major.y = element_line(size = 0.5, color = "lightgrey"),
+        panel.grid.minor.y = element_line(size = 0.5, color = "lightgrey"))
+
 
 tree <- cutree(clustering, 3) #dendrogram
 tree
@@ -85,8 +95,14 @@ countries[tree == 3]
 
 sil <- silhouette(tree, clustering$diss)
 
-windows()
-plot(sil, col = c("green", "blue", "red"), border = "black")
+sil_data <- data.frame(countr.pl, cluster = sil[,1], width = sil[,3])
+sil_data$countr.pl <- reorder(sil_data$countr.pl, sil_data$cluster)
+sil_data$cluster <- as.factor(sil_data$cluster)
+
+ggplot(sil_data) + 
+  geom_col(aes(x = countr.pl, y = width, fill = cluster)) +
+  scale_fill_manual(values = c("darkgreen", "blue", "red")) +
+  coord_flip() + labs(x = "Państwo", y = "Wskaźnik sylwetkowy", fill = "Grupa")
 
 # analiza CFA
 
