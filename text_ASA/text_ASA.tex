@@ -26,8 +26,16 @@
 
 
 
-\usepackage[T1]{fontenc}
 \usepackage{longtable}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[polish]{babel}
+\usepackage[nosingleletter]{impnattypo}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{parskip}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -118,9 +126,9 @@ Po drugie, problematyczna jest sama kwestia definiowania demokracji. W klasyczny
 
 Wymienia się jeszcze kilka innych, szeroko wykorzystywanych podejść, które przedstawia Tabela 1.
 
-Tabela 1: Koncepcje demokracji. Źródło \citep{Coppedge}
+\emph{Tabela 1: Koncepcje demokracji. Źródło \citep{Coppedge}}
 
-\begin{longtable}{l|>{\raggedright\arraybackslash}p{30em}}
+\begin{longtable}{l|>{\raggedright\arraybackslash}p{33em}}
 \hline
 Typ demokracji &  Postulaty\\
 \hline
@@ -156,7 +164,7 @@ Wskaźniki demokracji weszły do powszechnego użytku, ale doczekały się też 
 
 Zupełnie innym podejściem do mierzenia demokracji jest oparcie wskaźnika o zdanie samych obywateli. Nie jest to alternatywny sposób na osiągnięcie tego samego celu, ale raczej próba badania demokracji takiej, jaka jest - niekoniecznie zgodnej z definicją, za to odzwierciedlającej zamysł ludzi, którzy ją wprowadzali i podtrzymywali.
 
-Jak wskazuje \citet{Campbell}, u podstaw poparcia dla demokracji i demokratycznych rządów leży proces modernizacji, który dotknął każdej dziedziny ludzkiego życia, przez co zmiany stały się właściwie ``sprawą każdego''. Jako wskazywane przez badaczy wyjaśnienia tego poparcia podaje: a) zaangażowanie w działalność społeczną, która \emph{``zapewnia antidotum na uczucie apatii i alienacji, oraz projektuje atmosferę zaufania na organy rządowe''}\footnote{Tłumaczenie własne}, b) czynniki ekonomiczne - sprzyjająca sytuacja powoduje wyższe poparcie, które spada w trudniejszych czasach, c) czynniki behawioralne, które powodują, że ludzie generalnie popierają wygrywających.
+Jak wskazuje \citet{Campbell}, u podstaw poparcia dla demokracji i demokratycznych rządów leży proces modernizacji, który dotknął każdej dziedziny ludzkiego życia, przez co zmiany stały się właściwie ``sprawą każdego''. Jako wskazywane przez badaczy wyjaśnienia tego poparcia podaje: a)\(~\)zaangażowanie w działalność społeczną, która \emph{``zapewnia antidotum na uczucie apatii i alienacji, oraz projektuje atmosferę zaufania na organy rządowe''}\footnote{Tłumaczenie własne}, b)\(~\)czynniki ekonomiczne - sprzyjająca sytuacja powoduje wyższe poparcie, które spada w trudniejszych czasach, c)\(~\)czynniki behawioralne, które powodują, że ludzie generalnie popierają wygrywających.
 
 Badania przeprowadzone na polskim gruncie również wykazały utożsamianie demokracji z realizowaniem określonego zestawu wartości (standard wolności) albo ``zapewnieniem obywatelom bezpieczeństwa, dobrych warunków życia i rozwiązaniem problemów uboższych członków społeczeństwa'' (standard opiekuńczości) \citep{JaskoKoss}.
 
@@ -170,16 +178,16 @@ Poparcie demokracji nie wynika więc głównie z jej własności ściśle polity
 
 W naukach społecznych bardzo często badacze zajmują się własnościami, które nie są mierzalne. Ich istnienia można się domyślać, obserwując wpływ jaki wywierają na poziom innych, mierzalnych własności. Taka własnością jest również społeczna koncepcja demokracji, której kształt i wpływ można badać wyłącznie przez badanie poglądów poszczególnych członków społeczeństwa. Metoda została sformalizowana w postaci analizy czynnikowej przez psychologów, takich jak Spearman, Thomson, Thurstone i Burt \citep{Everitt}.
 
-Ogólna postać modelu czynnikowego została opisana układem równań \ref{eq:latent-model}. Czynniki (inaczej określane jako zmienne ukryte lub latentne) \(\lambda\) wpływają na zmienne mierzalne \(X\) z siłą wyrażoną ładunkami czynnikowymi \(\alpha\), zgodnie z układem równań \ref{eq:latent-model}.
+Ogólna postać modelu czynnikowego została opisana układem równań (\ref{eq:latent-model}). Czynniki (inaczej określane jako zmienne ukryte lub latentne) \(\lambda\) wpływają na zmienne mierzalne \(X\) z siłą wyrażoną ładunkami czynnikowymi \(\alpha\), zgodnie z układem równań (\ref{eq:latent-model}).
 
-\begin{equation}
+\begin{align} 
 \label{eq:latent-model}
-\begin{aligned} 
-x_1 = \alpha_{01} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \epsilon_1\\
-\& \vdots \\
-x_p = \alpha_{0p} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \epsilon_p\\
-\end{aligned}
-\end{equation}
+\begin{split}
+x_1 &= \alpha_{01} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \epsilon_1\\
+& \vdotswithin{=} \\
+x_p &= \alpha_{0p} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \epsilon_p\\
+\end{split}
+\end{align}
 
 Każdy element \(x\) oraz \(\epsilon\) jest n-elementowym wektorem. Zakładamy, że zmienne mierzalne są warunkowo niezależne. Oznacza to, że wzajemny związek dwóch dowolnych \(x\) wynika wyłącznie z uzależnienia każdego z nich od jednej lub więcej wspólnych zmiennych latentnych. Można to wyrazić wzorem:
 
@@ -196,16 +204,16 @@ Jeśli jako \(\psi_i\) oznaczymy wariancję błędu (\(\epsilon\)) i-tej zmienne
 \sigma_{ii} = \sum_{j=1}^k \alpha_{ij}^2 + \psi_i
 \end{equation}
 
-gdzie pierwszy człon oznacza zmienność, którą \(x_i\) dzieli z innymi zmiennymi mierzalnymi poprzez wspólne zmienne latentne, a drugi to jej wariancja specyficzna.
+gdzie pierwszy człon oznacza zmienność, którą \(x_i\) dzieli z realizacjami innych zmiennych mierzalnych poprzez wspólne zmienne latentne, a drugi to jej wariancja specyficzna.
 
 Istotą estymacji jest więc znalezienie takich wartości parametrów, żeby między zmiennymi mierzalnymi występowały związki założone w strukturze modelu i nie występowały żadne inne. Model o błędnej specyfikacji może okazać się nieidentyfikowalny lub cechować się złymi własnościami, np. negatywnymi wariancjami zmiennych.
 
 \hypertarget{identyfikowalnoux15bux107-modelu-analizy-czynnikowej}{%
 \subsection{Identyfikowalność modelu analizy czynnikowej}\label{identyfikowalnoux15bux107-modelu-analizy-czynnikowej}}
 
-Model jest identyfikowalny, jeśli dla danego rozkładu zmiennych mierzalnych istnieje jeden możliwy zestaw parametrów modelu. Jeżeli ten warunek nie jest spełniony i można znaleźć więcej zestawów parametrów, skutkujących tym samym rozkładem zmiennych mierzalnych, to parametrów nie można jednoznacznie zinterpretować {[}Katsikatsou, Kuha, ?{]}. Można zauważyć, że model ze zmiennymi latentnymi nigdy nie jest ściśle identyfikowalny.
+Model jest identyfikowalny, jeśli dla danego rozkładu zmiennych mierzalnych istnieje jeden możliwy zestaw parametrów modelu. Jeżeli ten warunek nie jest spełniony i można znaleźć więcej zestawów parametrów, skutkujących tym samym rozkładem zmiennych mierzalnych, to parametrów nie można jednoznacznie zinterpretować \citep{ESSEduNet}. Można zauważyć, że model ze zmiennymi latentnymi nigdy nie jest ściśle identyfikowalny.
 
-Macierz wariancji i kowariancji, której elementy zostały wcześniej podane wzorami \ref{eq:shared-var} i \ref{eq:spec-var}, można zapisać w postaci macierzowej:
+Macierz wariancji i kowariancji, której elementy zostały wcześniej podane wzorami (\ref{eq:shared-var}) i (\ref{eq:spec-var}), można zapisać w postaci macierzowej:
 
 \begin{equation}
 \label{eq:var-matrix}
@@ -221,7 +229,7 @@ A T (A T)' + \Psi = A T T' A' + \Psi = A A' + \Psi = \Sigma
 
 Oznacza to, że ładunków czynnikowych nie da się jednoznacznie zidentyfikować; macierz \(A\) może być wyznaczona tylko z dokładnością do przemnożenia przez dowolną ortogonalną macierz \citep{Shapiro}. Ładunki czynnikowe nie mają więc bezpośredniej interpretacji, jak współczynniki w modelu regresji, i mogą zostać przeskalowane, tak żeby ustawić wartość oczekiwaną lub wariancję zmiennej latentnej na określonym poziomie.
 
-O modelu analizy czynnikowej mówi się, że jest identyfikowalny, kiedy wszystkie możliwe zestawy parametrów wynikają z przeskalowania macierzy ładunków czynnikowych. Jeśli po wybraniu skali model nie jest w pełni identyfikowalny, musi zostać zmodyfikowany {[}Katsikatsou, Kuha, ?{]}.
+O modelu analizy czynnikowej mówi się, że jest identyfikowalny, kiedy wszystkie możliwe zestawy parametrów wynikają z przeskalowania macierzy ładunków czynnikowych. Jeśli po wybraniu skali model nie jest w pełni identyfikowalny, musi zostać zmodyfikowany \citep{ESSEduNet}.
 
 Warunkiem koniecznym identyfikowalności jest, aby liczba estymowanych parametrów nie przekraczała liczby wariancji i kowariancji zmiennych mierzalnych \(N_c\), która dla \(p\) zmiennych mierzalnych wynosi:
 
@@ -230,14 +238,14 @@ Warunkiem koniecznym identyfikowalności jest, aby liczba estymowanych parametr�
 N_c = \frac{p(p+1)}{2}
 \end{equation}
 
-Dla ogólnego przypadku z układu równań \ref{eq:latent-model}, gdzie każda z \(p\) mierzalnych zmiennych może być objaśniana przez wszystkie \(k\) zmiennych latentnych, można określić liczbę stopni swobody modelu na poziomie:
+Dla ogólnego przypadku z układu równań (\ref{eq:latent-model}), gdzie każda z \(p\) mierzalnych zmiennych może być objaśniana przez wszystkie \(k\) zmiennych latentnych, można określić liczbę stopni swobody modelu na poziomie:
 
 \begin{equation}
 \label{eq:df}
 df = \frac{(p-k)^2 - (p+k)}{2}
 \end{equation}
 
-Model \ref{eq:latent-model} jest identyfikowalny, jeśli \(df\) jest nieujemne. Każda restrykcja nałożona na model (w najczęstszym przypadku ustalenie części ładunków czynnikowych na 0, tak że poszczególne zmienne \(X\) są objaśniane tylko przez niektóre czynniki) zmniejsza liczbę parametrów do estymacji.
+Model (\ref{eq:latent-model}) jest identyfikowalny, jeśli \(df\) jest nieujemne. Każda restrykcja nałożona na model (w najczęstszym przypadku ustalenie części ładunków czynnikowych na 0, tak że poszczególne zmienne \(X\) są objaśniane tylko przez niektóre czynniki) zmniejsza liczbę parametrów do estymacji.
 
 \hypertarget{estymacja-modelu-analizy-czynnikowej}{%
 \subsection{Estymacja modelu analizy czynnikowej}\label{estymacja-modelu-analizy-czynnikowej}}
@@ -260,33 +268,33 @@ Do zbadania istotności modelu można wykorzystać statystykę GFI (Goodness of 
 GFI = \frac{l(S, \Sigma)}{n-1} \text{   } \sim \chi^2 (\frac{(p-k)^2 - (p+k)}{2})
 \end{equation}
 
-Dzięki tej statystyce można testować hipotezę zerową, że zakładana macierz wariancji i kowariancji jest identyczna z zaobserwowaną. Ta statystyka jest jednak zależna od \(n\) i dla dużych prób test jest zbyt czuły na drobne niedopasowanie do danych, żeby stosować go w praktyce {[}Cheung, Rensvold, 2002{]}. Istnieje wiele wskaźników dopasowania modelu do danych. Przyjmuje się, że wartości CFI (Comparative Fit Index) oraz TLI (Tucker-Lewis Index) powinny być w okolicach lub powyżej 0,95, natomiast RMSEA (Root Mean Square Error of Approximation) nie powinno przekraczać 0,06 \citep{HuBentler}.
+Dzięki tej statystyce można testować hipotezę zerową, że zakładana macierz wariancji i kowariancji jest identyczna z zaobserwowaną. Ta statystyka jest jednak zależna od \(n\) i dla dużych prób test jest zbyt czuły na drobne niedopasowanie do danych, żeby stosować go w praktyce \citep{CheungRens}. Istnieje wiele wskaźników dopasowania modelu do danych. Przyjmuje się, że wartości CFI (Comparative Fit Index) oraz TLI (Tucker-Lewis Index) powinny być w okolicach lub powyżej 0,95, natomiast RMSEA (Root Mean Square Error of Approximation) nie powinno przekraczać 0,06 \citep{HuBentler}.
 
-W przypadku, gdy dane nie pochodzą z wielowymiarowego rozkładu normalnego, można wykorzystać estymator ADF (asymptotically distribution-free), ale tylko jeśli próba jest bardzo duża (n \textgreater{} 5000). Dlatego częściej stosowanym wyjściem jest stosowanie MNW z pewnymi korektami. Złamanie założenia o normalności prowadzi do poprawnych estymacji, ale z mocno niedoszacowanymi błędami standardowymi i zawyżoną statystyką GFI. Można to skorygować, stosując przeskalowaną statystykę Satorry-Bentlera oraz odporne błędy standardowe {[}Rosseel, 2012{]}. Również w sytuacji porównywania dwóch zagnieżdżonych modeli Testem Ilorazu Wiarygodności (Likelihood Ratio Test) stosuje się przeskalowanie statystyki testowej, tak by miała rozkład \(\chi^2\) {[}Satorra, Bentler, 2010{]}.
+W przypadku, gdy dane nie pochodzą z wielowymiarowego rozkładu normalnego, można wykorzystać estymator ADF (asymptotically distribution-free), ale tylko jeśli próba jest bardzo duża (n \textgreater{} 5000). Dlatego częściej stosowanym wyjściem jest stosowanie MNW z pewnymi korektami. Złamanie założenia o normalności prowadzi do poprawnych estymacji, ale z mocno niedoszacowanymi błędami standardowymi i zawyżoną statystyką GFI. Można to skorygować, stosując przeskalowaną statystykę Satorry-Bentlera oraz odporne błędy standardowe \citep{Rosseel}. Również w sytuacji porównywania dwóch zagnieżdżonych modeli Testem Ilorazu Wiarygodności (Likelihood Ratio Test) stosuje się przeskalowanie statystyki testowej, tak by miała rozkład \(\chi^2\) \citep{SatorraBentler}.
 
 \hypertarget{zagadnienie-ruxf3wnowaux17cnoux15bci-pomiarowej}{%
 \subsection{Zagadnienie równoważności pomiarowej}\label{zagadnienie-ruxf3wnowaux17cnoux15bci-pomiarowej}}
 
 Badania porównawcze stanowią podstawowy cel stosowania analizy czynnikowej. Wartości zmiennych latentnych zwykle nie mają interpretacji same z siebie, ale nabierają znaczenia dzięki porównaniu ich poziomów w innych grupach, np. wiekowych, płciowych, kulturowych, albo w innym punkcie czasowym \citep{Pokropek}. Poważnym mankamentem modeli czynnikowych jest to, że jeśli badacz chce przeprowadzać analizy międzygrupowe - szczególnie, jeśli wiadomo, że grupy są pod wieloma względami zróżnicowane - musi mieć pewność, że relacja między zmiennymi mierzalnymi i ukrytymi, opisana modelem czynnikowym, jest we wszystkich grupach taka sama. Taką własność nazywa się równoważnością pomiarową \citep{ChenEtAl}.
 
-W modelu czynnikowym poziom zmiennej ukrytej jest estymowany na podstawie zależności łączących mierzalne zmienne. Inaczej mówiąc, badacz uznaje, że ta zależność wynika z powiązania wszystkich\footnote{W modelu opisanym równaniem \ref{eq:latent-model}} zmiennych mierzalnych w modelu ze zmienną ukrytą. Niespełnienie równoważności pomiarowej oznacza, że w niektórych grupach występuje inna, nieuwzględniona zależność, której wpływ zostanie zinterpretowany jako wpływ zmiennej ukrytej \citep{HirBra}.
+W modelu czynnikowym poziom zmiennej ukrytej jest estymowany na podstawie zależności łączących mierzalne zmienne. Inaczej mówiąc, badacz uznaje, że ta zależność wynika z powiązania wszystkich\footnote{W modelu opisanym równaniem (\ref{eq:latent-model})} zmiennych mierzalnych w modelu ze zmienną ukrytą. Niespełnienie równoważności pomiarowej oznacza, że w niektórych grupach występuje inna, nieuwzględniona zależność, której wpływ zostanie zinterpretowany jako wpływ zmiennej ukrytej \citep{HirBra}.
 
-Taką sytuację można by opisać, przyjmując, że rzeczywistym opisem zjawiska w grupie \textbf{A} jest układ równań \ref{eq:delta-model}, a w grupie \textbf{B} układ równań \ref{eq:latent-model}. Jeśli badacz nie zauważy problemu i zastosuje we wszystkich przypadkach model opisany układem równań \ref{eq:latent-model}, wpływ zmiennej \(\delta\), występującej w grupie A, zostanie w całości przypisany zmiennym \(\lambda\), które mogą oznaczać zupełnie inną własność rzeczywistego świata niż \(\delta\).
+Taką sytuację można by opisać, przyjmując, że rzeczywistym opisem zjawiska w grupie \textbf{A} jest układ równań (\ref{eq:delta-model}), a w grupie \textbf{B} układ równań \ref{eq:latent-model}. Jeśli badacz nie zauważy problemu i zastosuje we wszystkich przypadkach model opisany układem równań (\ref{eq:latent-model}), wpływ zmiennej \(\delta\), występującej w grupie A, zostanie w całości przypisany zmiennym \(\lambda\), które mogą oznaczać zupełnie inną własność rzeczywistego świata niż \(\delta\).
 
-\begin{equation}
+\begin{align}
 \label{eq:delta-model}
-\begin{aligned} 
-x_1 = \alpha_{01} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \beta_1 \delta + \epsilon_1\\
-\& \vdots \\
-x_p = \alpha_{0p} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \beta_p \delta + \epsilon_p\\
-\end{aligned}
-\end{equation}
+\begin{split}
+x_1 &= \alpha_{01} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \beta_1 \delta + \epsilon_1 \\
+& \vdotswithin{=} \\
+x_p &= \alpha_{0p} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \beta_p \delta + \epsilon_p \\
+\end{split}
+\end{align}
 
 Nieuwzględnione związki między zmiennymi mierzalnymi mogą mieć bardzo różne przyczyny, niekoniecznie należące do badanej dziedziny. W badaniach międzykrajowych może to być na przykład brak dosłownego tłumaczenia, różnice kulturowe, kontekst historyczny. Przykładowo, słowo oznaczające ``sąsiedztwo'' w języku angielskim oznacza najbliższą przestrzeń, podczas gdy w języku niemieckim odnosi się do bliskości w sensie społecznym - co okazało się problemem przy tłumaczeniu skali dystansu społecznego Bogardusa \citep{Pokropek}.
 
 Z tego powodu każdy model czynnikowy powinien opierać się na solidnej podstawie teoretycznej, a po wyestymowaniu zostać przetestowany pod kątem równoważności pomiarowej \citep{LubGlog}. W przypadku badań obejmujących wiele państw, badacze korzystają na ogół z danych zbieranych przez duże organizacje, jak World Values Survey (WVS), które dbają o standardy tłumaczenia i doboru próby. Mimo to, test równoważności pomiarowej dla bazującego na danych WVS modelu nastawienia do demokracji pokazał, że jest ona zachowana tylko w pewnym stopniu i nie dla wszystkich państw \citep{ArDav}. Podobne problemy występują w międzynarodowych badaniach zaufania do aparatu państwa i rządzących \citep{Schneider}.
 
-Różnice między grupami, ujawnione w badaniu równoważności pomiarowej, nie powinny być jednak traktowane wyłącznie jako problem, ograniczający możliwość badania (o ile niespełnienie równoważności nie wynika z błędu po stronie badaczy, np. w tłumaczeniu pytań). Mogą być źródłem informacji o tym, jak różne grupy postrzegają i konceptualizują rzeczywistość {[}Cheung, Rensvold, 2002{]}.
+Różnice między grupami, ujawnione w badaniu równoważności pomiarowej, nie powinny być jednak traktowane wyłącznie jako problem, ograniczający możliwość badania (o ile niespełnienie równoważności nie wynika z błędu po stronie badaczy, np. w tłumaczeniu pytań). Mogą być źródłem informacji o tym, jak różne grupy postrzegają i konceptualizują rzeczywistość \citep{CheungRens}.
 
 \hypertarget{poziomy-ruxf3wnowaux17cnoux15bci}{%
 \section{Poziomy równoważności}\label{poziomy-ruxf3wnowaux17cnoux15bci}}
@@ -294,7 +302,7 @@ Różnice między grupami, ujawnione w badaniu równoważności pomiarowej, nie 
 \hypertarget{ruxf3wnowaux17cnoux15bux107-konfiguralna}{%
 \subsection{Równoważność konfiguralna}\label{ruxf3wnowaux17cnoux15bux107-konfiguralna}}
 
-Najniższym poziomem jest równoważność konfiguralna (równoważność konstruktu), która oznacza zgodność badanego konceptu w grupach. Można mówić o jej spełnieniu, gdy w każdej grupie ten sam model czynnikowy jest identyfikowalny i dobrze dopasowany do danych. Równoważność konfiguralna zazwyczaj nie stanowi wyzwania w przypadku dobrze poznanych zjawisk, o ile grupy nie różnią się bardzo mocno \citep{LubGlog}. W przypadku badań międzynarodowych może być niespełniona na przykład z powodu błędów w tłumaczeniach, gdy konstrukty są oparte na specyficznym kulturowym kontekście lub mają inne znaczenie dla członków różnych grup {[}Cheung, Rensvold, 2002{]}.
+Najniższym poziomem jest równoważność konfiguralna (równoważność konstruktu), która oznacza zgodność badanego konceptu w grupach. Można mówić o jej spełnieniu, gdy w każdej grupie ten sam model czynnikowy jest identyfikowalny i dobrze dopasowany do danych. Równoważność konfiguralna zazwyczaj nie stanowi wyzwania w przypadku dobrze poznanych zjawisk, o ile grupy nie różnią się bardzo mocno \citep{LubGlog}. W przypadku badań międzynarodowych może być niespełniona na przykład z powodu błędów w tłumaczeniach, gdy konstrukty są oparte na specyficznym kulturowym kontekście lub mają inne znaczenie dla członków różnych grup \citep{CheungRens}.
 
 Niespełnienie tego poziomu równoważności oznacza, że nie w każdej grupie istnieje założona relacja między zmiennymi latentnymi i mierzalnymi, więc stosowanie modelu i tej postaci jest bezpodstawne.
 
@@ -307,27 +315,27 @@ Jej spełnienie gwarantuje, że można przeprowadzić w grupach badanie, w któr
 
 Mając \(M\) grup, należy w każdej osobno wyestymować model postaci:
 
-\begin{equation}
+\begin{align} 
 \label{eq:group-model}
-\begin{aligned} 
-x_1 = \alpha_{01m} + \alpha_{11m} \lambda_1 + ... + \alpha_{k1m} \lambda_k + \epsilon_{1m}\\
-\& \vdots \\
-x_p = \alpha_{0pm} + \alpha_{1pm} \lambda_1 + ... + \alpha_{kpm} \lambda_k + \epsilon_{pm}\\
-\end{aligned}
-\end{equation}
+\begin{split}
+x_1 &= \alpha_{01m} + \alpha_{11m} \lambda_1 + ... + \alpha_{k1m} \lambda_k + \epsilon_{1m}\\
+& \vdotswithin{=} \\
+x_p &= \alpha_{0pm} + \alpha_{1pm} \lambda_1 + ... + \alpha_{kpm} \lambda_k + \epsilon_{pm}\\
+\end{split}
+\end{align}
 
 gdzie \(m = 1, …, M\). Następnie nałożyć na ładunki czynnikowe restrykcje równości we wszystkich grupach i jeszcze raz wyestymować modele:
 
-\begin{equation}
+\begin{align} 
 \label{eq:restricted-loadings}
-\begin{aligned} 
-x_1 = \alpha_{01m} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \epsilon_{1m}\\
-\& \vdots \\
-x_p = \alpha_{0pm} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \epsilon_{pm}\\
-\end{aligned}
-\end{equation}
+\begin{split}
+x_1 &= \alpha_{01m} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \epsilon_{1m}\\
+& \vdotswithin{=} \\
+x_p &= \alpha_{0pm} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \epsilon_{pm}\\
+\end{split}
+\end{align}
 
-Do testowania można wykorzystać Test Ilorazu Wiarygodności. Ponieważ model \ref{eq:restricted-loadings} jest zagnieżdżony w modelu \ref{eq:group-model}, jego funkcja wiarygodności (LR) może być tylko mniejsza lub równa od funkcji wiarygodności (L0), maksymalizowanej przy estymacji modelu \ref{eq:group-model}. Są równe, jeśli narzucone restrykcje nie pogarszają modelu, to znaczy w rzeczywistości ładunki czynnikowe w grupach mają takie same wartości. Jeżeli LR jest istotnie niższe, ładunki czynnikowe w grupach są istotnie różne. Testowanie hipotez:
+Do testowania można wykorzystać Test Ilorazu Wiarygodności. Ponieważ model (\ref{eq:restricted-loadings}) jest zagnieżdżony w modelu (\ref{eq:group-model}), jego funkcja wiarygodności (\(L_R\)) może być tylko mniejsza lub równa od funkcji wiarygodności (\(L_0\)), maksymalizowanej przy estymacji modelu (\ref{eq:group-model}). Są równe, jeśli narzucone restrykcje nie pogarszają modelu, to znaczy w rzeczywistości ładunki czynnikowe w grupach mają takie same wartości. Jeżeli \(L_R\) jest istotnie niższe, ładunki czynnikowe w grupach są istotnie różne. Testowanie hipotez:
 
 \[H_0: L_0 = L_R\]
 \[H_1: L_0 > L_R\]
@@ -344,16 +352,16 @@ Trzeci poziom równoważności zakłada spełnienie obu poprzednich oraz równo�
 
 Model z restrykcjami ma postać:
 
-\begin{equation}
+\begin{align} 
 \label{eq:restricted-intercepts}
-\begin{aligned} 
-x_1 = \alpha_{01} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \epsilon_{1m}\\
-\& \vdots \\
-x_p = \alpha_{0p} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \epsilon_{pm}\\
-\end{aligned}
-\end{equation}
+\begin{split}
+x_1 &= \alpha_{01} + \alpha_{11} \lambda_1 + ... + \alpha_{k1} \lambda_k + \epsilon_{1m}\\
+& \vdotswithin{=} \\
+x_p &= \alpha_{0p} + \alpha_{1p} \lambda_1 + ... + \alpha_{kp} \lambda_k + \epsilon_{pm}\\
+\end{split}
+\end{align}
 
-a model bez restrykcji jest postaci danej wzorem \ref{eq:group-model}. Testowane są hipotezy:
+a model bez restrykcji jest postaci danej wzorem (\ref{eq:group-model}). Testowane są hipotezy:
 
 \[H_0: Równoważność skalarna jest spełniona\]
 \[H_1: Równoważność skalarna nie jest spełniona\]
@@ -409,8 +417,9 @@ Rys. 1 przedstawia histogramy odpowiedzi na każde z pytań z osobna, łącznie 
   niespolaryzowane: wyższe opodatkowanie bogatych, wyrównywanie dochodów i posłuszeństwo wobec rządzących, których rozkłady są bardziej równomierne;
 \end{itemize}
 
-Rys. 2: Rozkład odpowiedzi na pytania o demokrację w ankiecie WVS. Źródło: opracowanie własne
-\includegraphics{text_ASA_files/figure-latex/descr-plot-1.pdf}
+\emph{Rys. 2: Rozkład odpowiedzi na pytania o demokrację w ankiecie WVS. Źródło: opracowanie własne.}
+
+\begin{center}\includegraphics{text_ASA_files/figure-latex/descr-plot-1} \end{center}
 
 Już ta prosta analiza opisowa pokazuje, że elitystyczna definicja demokracji Schumpetera nie jest wystarczająca w europejskich społeczeństwach. Obywatele zgodnie uważają, że demokracja nie polega tylko na wolnych wyborach, ale też służy zapewnianiu praw i wolności obywatelskich, równości płci, oraz - co najbardziej zaskakujące - pomocy bezrobotnym. Zdaniem samych wyborców, do demokracji nie wystarczy sam fakt wybrania rządzących, ale rządzący ci muszą spełniać podstawowe potrzeby wolności, równości i ekonomicznego bezpieczeństwa rządzonych.
 
@@ -423,14 +432,15 @@ Ciekawym przypadkiem są tu odpowiedzi na pytanie o posłuszeństwo rządzącym.
 
 Kiedy ankietowany odpowiada na pytanie ``w jakim stopniu {[}pewna cecha{]} jest podstawową cechą demokracji?'', musi odwołać się do jakiejś koncepcji demokracji i odnieść do niej cechę, której dotyczy pytanie. Jeżeli istnieje ogólnie przyjęta społeczna koncepcja demokracji, obejmująca część spośród zawartych w pytaniach cech, można się spodziewać, że odpowiedzi na te pytania będą silnie skorelowane. Ankietowani będą odpowiadać w podobny sposób, ponieważ posiadają tę samą koncepcję demokracji. Analogicznie, jeśli nie istnieje społeczna koncepcja demokracji (to znaczy: pogląd na demokrację jest bardzo indywidualną kwestią), można się spodziewać, że siła związków między odpowiedziami na różne pytania będzie nieistotna.
 
-Siłę tych związków mierzono współczynnikiem korelacji Spearmana. Mimo, że dane mają charakter porządkowy, można je traktować jako ciągłe ze względu na dużą liczbę punktów skali {[}Revelle, 2019{]}.
+Siłę tych związków mierzono współczynnikiem korelacji Spearmana. Mimo, że dane mają charakter porządkowy, można je traktować jako ciągłe ze względu na dużą liczbę punktów skali \citep{Revelle}.
 
 Koncepcję demokracji można opisać zmienną latentną, która wpływa na odpowiedzi (zmienne mierzalne). Koncepcji może być kilka, ale nie więcej, niż pytań. Na odpowiedź na dane pytanie może wpływać więcej niż jedna koncepcja. Warto też zauważyć, że wyodrębnione z danych koncepcje są określone tylko w zakresie pytań, które zadano w ankiecie. Nie można na tej podstawie stwierdzić, czy koncepcja obejmuje też inne kwestie, np. bioetyczne. Teoretycznie mogą również istnieć koncepcje demokracji, które nie zawierają objętych pytaniami cech, wobec czego wymykają się badaniu.
 
 Rys. 3 przedstawia macierz korelacji odpowiedzi na wszystkie pytania. Dla macierzy wykonano test sferyczności Bartletta, na podstawie którego stwierdzono, że jest istotnie różna od macierzy jednostkowej, zatem siła związków między zmiennymi jest istotna (\(\chi^2\) = 46805,62; \(df\) = 45; \(p\) \textless{} 0,001).
 
-Rys. 3: Macierz korelacji odpowiedzi na pytania o demokrację. Źródło: opracowanie własne
-\includegraphics{text_ASA_files/figure-latex/cor-matrix-1.pdf}
+\emph{Rys. 3: Macierz korelacji odpowiedzi na pytania o demokrację. Źródło: opracowanie własne.}
+
+\begin{flushleft}\includegraphics{text_ASA_files/figure-latex/cor-matrix-1} \end{flushleft}
 
 Na Rys. 3 wyraźnie wyłaniają się trzy skupiska. Wskazują na istnienie w badanej grupie trzech odrębnych koncepcji demokracji, przejawiających się w podobnych wzorcach odpowiedzi:
 
@@ -469,8 +479,9 @@ Postać modelu przedstawiono na diagramie na Rys. 4, zgodnie ze standardem przed
 
 Ze względu na złamanie założenia o normalności zmiennych mierzalnych, model estymowano Odporną Metodą Największej Wiarygodności. Ponieważ modele ze zmiennymi latentnymi nie są ściśle identyfikowalne, o czym pisano w rozdziale 2.2, przy estymacji przyjęto jednostkową wariancję zmiennych latentnych oraz wartość pierwszego ładunku czynnikowego na 1. Na diagramie na Rys. 4 jest on wyróżniony przerywaną linią, ale wartości ładunków czynnikowych zostały zestandaryzowane dla wygodniejszej interpretacji. Wszystkie współczynniki są istotne.
 
-Rys. 4: Diagram modelu analizy czynnikowej koncepcji demokracji. Źródło: opracowanie własne
-\includegraphics{text_ASA_files/figure-latex/diagram-all-1.pdf}
+\emph{Rys. 4: Diagram modelu analizy czynnikowej koncepcji demokracji. Źródło: opracowanie własne.}
+
+\begin{center}\includegraphics{text_ASA_files/figure-latex/diagram-all-1} \end{center}
 
 I koncepcja najsilniej przejawia się w zmiennych oznaczających wpływ autorytetów religijnych na prawo oraz możliwość przejęcia władzy przez wojsko. II jest wyrażana przede wszystkim w poparciu opodatkowania bogatych i wsparcia ubogich. Koncepcja III wyraża się głównie przez docenienie wagi wolnych wyborów, a na drugim miejscu: równość płci i prawa obywatelskie. Koncepcje II i III są ze sobą pozytywnie skorelowane na średnim poziomie (0,5). Koncepcja I jest słabo, ale dodatnio skorelowana z II, oraz równie słabo, ale ujemnie, z koncepcją III.
 
@@ -478,8 +489,9 @@ Model posiada dość dobre własności. CFI = 0,953, jest więc na dobrym poziom
 
 Dla każdej obserwacji w zbiorze można teraz obliczyć liczbową wartość każdej koncepcji jako średnią ważoną, gdzie wagami są standaryzowane ładunki czynnikowe. Taki wskaźnik można interpretować jako miarę tego, jak bardzo ankietowany zgadza się z daną koncepcją. Rys. 5 przedstawia, jak kształtują się te wskaźniki w całej grupie.
 
-Rys. 5: Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole)
-\includegraphics{text_ASA_files/figure-latex/stats-all-1.pdf}
+\emph{Rys. 5: Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole). Źródło: opracowanie własne.}
+
+\begin{center}\includegraphics{text_ASA_files/figure-latex/stats-all-1} \end{center}
 
 Wyraźnie widać, że ludzie najmniej zgadzają się z koncepcją I (średnia 4,28) następnie II (średnia 6,85), a najbardziej z III (średnia 8,3). Przypadki, kiedy wskaźnik tej ostatniej jest poniżej 4 to wartości odstające, więc można powiedzieć, że prawie nie ma ludzi, którzy by się z tą koncepcją nie zgadzali. Policzono również obserwacje, w których najwyższą wartość mają wskaźniki poszczególnych koncepcji (wykres na dole). Zdecydowanie najwięcej jest ludzi, dla których najważniejsza jest koncepcja III.
 
@@ -503,51 +515,60 @@ Można przypuszczać, że różnice wynikają z historycznych uwarunkowań. Spor
 \hypertarget{koncepcje-demokracji-w-grupie-demokracji-liberalnych}{%
 \subsection{Koncepcje demokracji w grupie demokracji liberalnych}\label{koncepcje-demokracji-w-grupie-demokracji-liberalnych}}
 
-Grupa demokracji liberalnych zawiera tylko trzy państwa: Niemcy, Holandię i Szwecję; jest też bardzo skupiona pod względem geograficznym. Test sferyczny Bartletta pokazał, że macierz korelacji jest istotnie różna od macierzy jednostkowej (\(\chi^2\) = 10186,17; df = 45; p \textless{} 0,001). Na Rys. 6 można zauważyć podobne wzorce, jak w grupie ogólnej. Powiązania ze zmiennymi mierzalnymi przedstawiono na diagramie na Rys. 7.
+Grupa demokracji liberalnych zawiera tylko trzy państwa: Niemcy, Holandię i Szwecję; jest też bardzo skupiona pod względem geograficznym. Test sferyczny Bartletta pokazał, że macierz korelacji jest istotnie różna od macierzy jednostkowej (\(\chi^2\) = 10186,17; \(df\) = 45; \(p\) \textless{} 0,001). Na Rys. 6 można zauważyć podobne wzorce, jak w grupie ogólnej. Powiązania ze zmiennymi mierzalnymi przedstawiono na diagramie na Rys. 7.
 
-Rys. 6: Macierz korelacji odpowiedzi na pytania o demokrację w grupie demokracji liberalnych. Źródło: opracowanie własne
-\includegraphics{text_ASA_files/figure-latex/cor-matrix-lib-1.pdf}
+\emph{Rys. 6: Macierz korelacji odpowiedzi na pytania o demokrację w grupie demokracji liberalnych. Źródło: opracowanie własne.}
+
+\begin{flushleft}\includegraphics{text_ASA_files/figure-latex/cor-matrix-lib-1} \end{flushleft}
 
 W tej grupie występują koncepcje II i III, opisane wcześniej. Ostatnia koncepcja ma nieco inną strukturę (przedstawioną na diagramie Rys. 7), dlatego zostanie oznaczona jako Ilib. Dopasowanie modelu do danych jest bardzo dobre. CFI (Robust Comparative Fit Index) = 0,965; TLI (Robust Tucker-Lewis Index) = 0,950. RMSEA wynosi 0,043; CI90\% (0,038; 0,049). Łączna rzetelność konstruktu wynosi 0,62, jest więc dość niska. Model w tej grupie charakteryzuje się silną ujemną korelacją między koncepcją III a Ilib, oraz brakiem związku między koncepcją II a pozostałymi.
 
-Rys. 7: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie demokracji liberalnych. Źródło: opracowanie własne
-\includegraphics{text_ASA_files/figure-latex/diagram-west-1.pdf}
+\emph{Rys. 7: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie demokracji liberalnych. Źródło: opracowanie własne.}
+
+\begin{center}\includegraphics{text_ASA_files/figure-latex/diagram-west-1} \end{center}
 
 Rozkłady wskaźników w tej grupie przedstawiono na Rys. 8. Koncepcja Ilib ma średnią na poziomie 2,56, a wartości powyżej 7 są bardzo rzadkie. Koncepcja II ma średnią 6,11. III ma 8,7, a wartości poniżej 6 są przypadkami odstającymi.
 
-Rys. 5: Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole)
-\includegraphics{text_ASA_files/figure-latex/stats-west-1.pdf}
+\emph{Rys. 5: Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole). Źródło: opracowanie własne.}
+
+\begin{center}\includegraphics{text_ASA_files/figure-latex/stats-west-1} \end{center}
 
 Tabela 2 przedstawia wyniki równoważności pomiarowej. Zachowana jest wyłącznie równoważność konfiguralna, co potwierdza istnienie tych samych koncepcji demokracji we wszystkich społeczeństwach państw grupy.
 
-Tabela 2: Wyniki analizy równoważności pomiarowej dla grupy demokracji liberalnych. Źródło: opracowanie własne.
+\emph{Tabela 2: Wyniki analizy równoważności pomiarowej dla grupy demokracji liberalnych. Źródło: opracowanie własne.}
 
+\begin{table}[H]
+\centering
+\resizebox{\linewidth}{!}{
 \begin{tabular}{l|r|r|l|l|r|l}
 \hline
 Poziom równoważności & AIC & BIC & \$\textbackslash{}chi\textasciicircum{}2\$ & Przyrost \$\textbackslash{}chi\textasciicircum{}2\$ & Stopnie swobody & p-value\\
 \hline
-Konfiguralna & 180493 & 181145 & 458,66 & NA & 93 & NA\\
+Konfiguralna & 180493 & 181145 & 458,66 &  & 93 & \\
 \hline
 Metryczna & 180611 & 181161 & 608,95 & 150,29 & 109 & < 2,2e-16\\
 \hline
 Skalarna & 181894 & 182354 & 1919,63 & 1310,68 & 123 & < 2.2e-16\\
 \hline
-\end{tabular}
+\end{tabular}}
+\end{table}
 
 Analiza równoważności pomiarowej pokazuje, że choć każda zmienna wynika z tej samej koncepcji we wszystkich krajach, to siła tego związku jest w różnych krajach różna. Oznacza to, że w państwach należących do grupy demokracji liberalnych występują te same społeczne koncepcje demokracji, jednak model nie pozwala na rzetelne porównywanie ich poziomów między państwami, ani bezpośrednio, ani w relacji z innymi zmiennymi.
 
 \hypertarget{koncepcje-demokracji-w-grupie-byux142ych-demokracji-ludowych}{%
 \subsection{Koncepcje demokracji w grupie byłych demokracji ludowych}\label{koncepcje-demokracji-w-grupie-byux142ych-demokracji-ludowych}}
 
-Grupa państw, które znajdowały się w komunistycznej strefie wpływów, jest znacznie liczniejsza. Jej macierz korelacji przedstawia wykres Rys. 9 . Test sferyczny Bartletta potwierdził, że jest istotnie różna od macierzy jednostkowej (\(\chi^2\) = 27891,81; df = 45; p \textless{} 0,001). Można wyodrębnić trzy koncepcje. Koncepcja III, taka jak w grupie ogólnej; koncepcja II z dodatkiem zmiennej oznaczającej posłuszeństwo rządzącym, tu oznaczona jako IIlud; oraz koncepcja Ilib. Bazując na macierzy korelacji, z początku połączono zmienne oznaczające wyrównywanie dochodów i opodatkowanie bogatych ze zmiennymi koncepcji III, ale w wyestymowanym modelu okazały się one nieistotne. (opodatkowanie bogatych: Z = -0,011; p = 0,992; wyrównywanie dochodów: Z = -1,225; p = 0,221).
+Grupa państw, które znajdowały się w komunistycznej strefie wpływów, jest znacznie liczniejsza. Jej macierz korelacji przedstawia wykres Rys. 9 . Test sferyczny Bartletta potwierdził, że jest istotnie różna od macierzy jednostkowej (\(\chi^2\) = 27891,81; \(df\) = 45; \(p\) \textless{} 0,001). Można wyodrębnić trzy koncepcje. Koncepcja III, taka jak w grupie ogólnej; koncepcja II z dodatkiem zmiennej oznaczającej posłuszeństwo rządzącym, tu oznaczona jako IIlud; oraz koncepcja Ilib. Bazując na macierzy korelacji, z początku połączono zmienne oznaczające wyrównywanie dochodów i opodatkowanie bogatych ze zmiennymi koncepcji III, ale w wyestymowanym modelu okazały się one nieistotne. (opodatkowanie bogatych: \(Z\) = -0,011; \(p\) = 0,992; wyrównywanie dochodów: \(Z\) = -1,225; \(p\) = 0,221).
 
-Rys. 9: Macierz korelacji odpowiedzi na pytania o demokrację w grupie byłych demokracji ludowych. Źródło: opracowanie własne
-\includegraphics{text_ASA_files/figure-latex/cor-matrix-east-1.pdf}
+\emph{Rys. 9: Macierz korelacji odpowiedzi na pytania o demokrację w grupie byłych demokracji ludowych. Źródło: opracowanie własne.}
+
+\begin{flushleft}\includegraphics{text_ASA_files/figure-latex/cor-matrix-east-1} \end{flushleft}
 
 Ostateczną postać modelu przedstawia diagram na Rys. 10. CFI (Robust Comparative Fit Index) = 0,966; TLI (Robust Tucker-Lewis Index) = 0,948. RMSEA wynosi 0,049; CI90\% (0,045; 0,052). Łączna rzetelność konstruktu wynosi 0,76. Model dla tej grupy jest bardzo dobrze dopasowany do danych.
 
-Rys. 10: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie byłych demokracji ludowych. Źródło: opracowanie własne
-\includegraphics{text_ASA_files/figure-latex/diagram-east-1.pdf}
+\emph{Rys. 10: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie byłych demokracji ludowych. Źródło: opracowanie własne.}
+
+\begin{center}\includegraphics{text_ASA_files/figure-latex/diagram-east-1} \end{center}
 
 Jednak nie udało się poprawnie wyestymować modelu w każdym kraju z osobna. Równoważność konfiguralna nie jest zachowana, co oznacza, że zilustrowana diagramem na Rys. 10 struktura koncepcji demokracji nie występuje w każdej z byłych demokracji ludowych.
 
@@ -559,103 +580,119 @@ Jednak nie udało się poprawnie wyestymować modelu w każdym kraju z osobna. R
 
 W poprzednim rozdziale pokazano, że linia podziału wyznaczona przez Żelazną Kurtynę nie dała grup o wspólnych koncepcjach demokracji. Jej drugą istotną wadą było odrzucenie dwóch państw, których losy w drugiej połowie XX wieku wyłamywały się z tego schematu.
 
-Zaproponowano więc zgrupowanie państw według podobieństwa występujących w nich związków między zmiennymi. Dla każdego obliczono macierz korelacji i wykonano grupowanie hierarchiczną metodą aglomeracyjną AGNES. Wyniki przedstawia dendrogram na Rys. 11. Na początku algorytmu każde państwo jest traktowane jako odrębne skupisko (dolna część dendrogramu). W każdym kolejnym kroku obliczana jest euklidesowa odległość między średnimi wartościami zmiennych dla każdej pary skupisk, a następnie dwa najbliżesze skupiska zostają połączone w jedno. Algorytm kończy się, gdy wszystkie państwa zostaną zebrane w jednym skupisku (szczyt dendrogramu) {[}Struyf, Hubert, Rousseeuw, 1997{]}.
+Zaproponowano więc zgrupowanie państw według podobieństwa występujących w nich związków między zmiennymi. Dla każdego obliczono macierz korelacji i wykonano grupowanie hierarchiczną metodą aglomeracyjną AGNES. Wyniki przedstawia dendrogram na Rys. 11. Na początku algorytmu każde państwo jest traktowane jako odrębne skupisko (dolna część dendrogramu). W każdym kolejnym kroku obliczana jest euklidesowa odległość między średnimi wartościami zmiennych dla każdej pary skupisk, a następnie dwa najbliżesze skupiska zostają połączone w jedno. Algorytm kończy się, gdy wszystkie państwa zostaną zebrane w jednym skupisku (szczyt dendrogramu) \citep{Struyf}.
 
-Wysokość jest tu miarą odległości dwóch skupisk, które zostają ze sobą połączone {[}Maechler at al., 2019{]}. Kraje, które łączą się ze sobą na najniższej wysokości, mają najbardziej podobne wzorce odpowiedzi - zatem można podejrzewać, że na odpowiedzi mają wpływ te same ukryte koncepcje demokracji.
+Wysokość jest tu miarą odległości dwóch skupisk, które zostają ze sobą połączone \citep{MaechRouss}. Kraje, które łączą się ze sobą na najniższej wysokości, mają najbardziej podobne wzorce odpowiedzi - zatem można podejrzewać, że na odpowiedzi mają wpływ te same ukryte koncepcje demokracji.
 
-Rys. 11: Grupowanie państw według podobieństwa macierzy korelacji metodą aglomeracyjną. Źródło: opracowanie własne.
-\includegraphics{text_ASA_files/figure-latex/dendrogram-1.pdf}
+\emph{Rys. 11: Grupowanie państw według podobieństwa macierzy korelacji metodą aglomeracyjną. Źródło: opracowanie własne.}
+
+\begin{center}\includegraphics{text_ASA_files/figure-latex/dendrogram-1} \end{center}
 
 Na Rys. 11 widać trzy wyraźnie wyodrębnione grupy. Pierwszą (oznaczoną na mapie kolorem zielonym) tworzą państwa Europy środkowo-wschodniej oraz Gruzja; drugą (oznaczoną na czerwono) głównie państwa leżące nad Morzem Czarnym, ale też Słowenia i Hiszpania. Trzecia grupa (oznaczoną na niebiesko) składa się z krajów północno-zachodniej Europy i pokrywa się z grupą demokracji liberalnych, która została już przeanalizowana w poprzednim rozdziale. Wzorzec geograficzny jest więc wyraźny, ale nie pozbawiony wyjątków, co widać na rysunku {[}nr{]}. Dużą przeszkodą w wyciąganiu ogólnych wniosków jest ograniczony zasięg badania. Z większości państw zachodniej oraz południowej Europy nie ma danych, i trudno przewidzieć, jakie wzorce występują w tych rejonach.
 
 {[}MAPA{]}
 
-Jakość grupowania sprawdzono, obliczając wskaźnik sylwetkowy dla każdego kraju (Rys. 12). Wskaźnik przyjmuje wartości od -1 do 1, gdzie ujemne stanowią przesłankę, że obserwacja została umieszczona w niewłaściwej grupie, dodatnie - we właściwej, a zerowe oznaczają obserwacje, które nie pasują do żadnej z grup. Jak widać na wykresie, nie ma podstaw do przeniesienia któregokolwiek kraju do innej grupy. Z drugiej strony, wartości generalnie są niskie, co oznacza, że rozgrupowanie nie jest bardzo wyraźne. Najbliższe zeru wartości mają Turcja (0,017), Słowenia (0,039) i Hiszpania (0,102) w czerwonej grupie. Żeby nie tracić dużej ilości danych, zdecydowano się jednak pozostawić grupy w ich pierwotnym składzie, jeśli nie spowoduje to później problemów z estymacją.
+Jakość grupowania sprawdzono, obliczając wskaźnik sylwetkowy dla każdego kraju (Rys. 12). Wskaźnik przyjmuje wartości od -1 do 1, gdzie ujemne stanowią przesłankę, że obserwacja została umieszczona w niewłaściwej grupie, dodatnie - we właściwej, a zerowe oznaczają obserwacje, które nie pasują do żadnej z grup \citep{Rousseeuw}. Jak można zauważyć na wykresie, nie ma podstaw do przeniesienia któregokolwiek kraju do innej grupy. Z drugiej strony, wartości generalnie są niskie, co oznacza, że rozgrupowanie nie jest bardzo wyraźne. Najbliższe zeru wartości mają Turcja (0,017), Słowenia (0,039) i Hiszpania (0,102) w czerwonej grupie. Żeby nie tracić dużej ilości danych, zdecydowano się jednak pozostawić grupy w ich pierwotnym składzie, jeśli nie spowoduje to później problemów z estymacją.
 
-Rys. 12: Test sylwetkowy grupowania, Źródło: opracowanie własne.
-\includegraphics{text_ASA_files/figure-latex/silhouette-1.pdf}
+\emph{Rys. 12: Test sylwetkowy grupowania, Źródło: opracowanie własne.}
+
+\begin{center}\includegraphics{text_ASA_files/figure-latex/silhouette-1} \end{center}
 
 \hypertarget{grupa-zielona}{%
 \subsection{Grupa zielona}\label{grupa-zielona}}
 
 Pierwsza grupa składa się z pięciu państw: Polski, Białorusi, Estonii, Rumunii i Gruzji. Kraje te łączą liczne podobieństwa, przede wszystkim komunistyczne rządy i wpływy Związku Radzieckiego po II Wojnie Światowej oraz rewolucyjne zmiany w latach 80. i 90. XX wieku.
 
-Test sferyczny Bartletta pokazał, że macierz korelacji jest istotnie różna od macierzy jednostkowej (\(\chi^2\) = 12861,33; df = 45; p \textless{} 0,001). Relacje między odpowiedziami są dość podobne do wzorca dla wszystkich krajów. Nadal można wyodrębnić trzy koncepcje, chociaż nieco mniej wyraźne.
+Test sferyczny Bartletta pokazał, że macierz korelacji jest istotnie różna od macierzy jednostkowej (\(\chi^2\) = 12861,33; \(df\) = 45; \(p\) \textless{} 0,001). Relacje między odpowiedziami są dość podobne do wzorca dla wszystkich krajów. Nadal można wyodrębnić trzy koncepcje, chociaż nieco mniej wyraźne.
 
-Rys. 13: Macierz korelacji odpowiedzi na pytania o demokrację w grupie oznaczonej na zielono. Źródło: opracowanie własne
-\includegraphics{text_ASA_files/figure-latex/cor-matrix-1-1.pdf}
+\emph{Rys. 13: Macierz korelacji odpowiedzi na pytania o demokrację w grupie oznaczonej na zielono. Źródło: opracowanie własne.}
+
+\begin{flushleft}\includegraphics{text_ASA_files/figure-latex/cor-matrix-1-1} \end{flushleft}
 
 Postać modelu i wyniki estymacji przedstawiono na diagramie na Rys. 14. CFI (Robust Comparative Fit Index) = 0,969; TLI (Robust Tucker-Lewis Index) = 0,953. RMSEA wynosi 0,045; CI90\% (0,040; 0,050). Łączna rzetelność konstruktu wynosi 0,75. Dopasowanie modelu w tej grupie jest więc lepsze niż dla całej próby.
 
 W tej grupie występuje koncepcja IIlud ze zmienną posłuszeństwo rządzącym, ale wyraźnie większe znaczenie ma w niej wyrównywanie przez państwo dochodów. Można interpretować to jako wizję paternalistycznego państwa, które wymaga posłuszeństwa, ale zaspokaja podstawowe potrzeby bytowe i chroni najsłabszych przed wyzyskiem. Warto też zwrócić uwagę na układ korelacji między zmiennymi latentnymi: w grupie ogólnej i grupie demokracji liberalnych koncepcje opiekuńczego państwa były silniej związane z koncepcją III - tutaj z koncepcją I.
 
-Rys. 14: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie oznaczonej na zielono. Źródło: opracowanie własne
-\includegraphics{text_ASA_files/figure-latex/diagram-1-1.pdf}
+\emph{Rys. 14: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie oznaczonej na zielono. Źródło: opracowanie własne.}
+
+\begin{center}\includegraphics{text_ASA_files/figure-latex/diagram-1-1} \end{center}
 
 Średnia wartość wskaźnika koncepcji I to 4,16, IIlud - 6,14, III - 8,08.
 
-Rys. 15: Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole) w grupie oznaczonej na zielono.
-\includegraphics{text_ASA_files/figure-latex/stats-gr-1-1.pdf}
+\emph{Rys. 15: Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole) w grupie oznaczonej na zielono. Źródło: opracowanie własne.}
+
+\begin{center}\includegraphics{text_ASA_files/figure-latex/stats-gr-1-1} \end{center}
 
 Wyniki analizy równoważności pomiarowej przedstawia tabela Tabela 3.
 
-Tabela 3: Wyniki analizy równoważności pomiarowej dla grupy oznaczonej na zielono. Źródło: opracowanie własne.
+\emph{Tabela 3: Wyniki analizy równoważności pomiarowej dla grupy oznaczonej na zielono. Źródło: opracowanie własne.}
 
+\begin{table}[H]
+\centering
+\resizebox{\linewidth}{!}{
 \begin{tabular}{l|r|r|l|l|r|l}
 \hline
 Poziom równoważności & AIC & BIC & \$\textbackslash{}chi\textasciicircum{}2\$ & Przyrost \$\textbackslash{}chi\textasciicircum{}2\$ & Stopnie swobody & p-value\\
 \hline
-Konfiguralna & 249265 & 250325 & 1714,8 & NA & 165 & NA\\
+Konfiguralna & 249265 & 250325 & 1714,8 &  & 165 & \\
 \hline
 Metryczna & 249434 & 250255 & 1955,7 & 240,81 & 201 & < 2,2e-16\\
 \hline
 Skalarna & 250656 & 251266 & 3242,4 & 1286,74 & 233 & < 2.2e-16\\
 \hline
-\end{tabular}
+\end{tabular}}
+\end{table}
 
-W każdym z państw tej grupy model przedstawiony na Rys. 14 jest identyfikowalny. Jednak modele z restrykcjami nałożonymi na, kolejno: ładunki czynnikowe i wyrazy wolne, okazały się istotnie gorsze (p \textless{} 0,001 w obu przypadkach). Równoważność metryczna i skalarna nie są spełnione.
+W każdym z państw tej grupy model przedstawiony na Rys. 14 jest identyfikowalny. Jednak modele z restrykcjami nałożonymi na, kolejno: ładunki czynnikowe i wyrazy wolne, okazały się istotnie gorsze (\(p\) \textless{} 0,001 w obu przypadkach). Równoważność metryczna i skalarna nie są spełnione.
 
 Analiza równoważności pomiarowej pokazuje, że w państwach należących do grupy zielonej występują te same społeczne koncepcje demokracji, jednak model nie pozwala na rzetelne porównywanie ich poziomów między państwami, ani bezpośrednio, ani w relacji z innymi zmiennymi.
 
 \hypertarget{grupa-czerwona}{%
 \subsection{Grupa czerwona}\label{grupa-czerwona}}
 
-Drugą grupę tworzą cztery kraje Europy Wschodniej: Ukraina, Rosja, Kazachstan i Turcja, oraz Słowenia i Hiszpania. Dla grupy obliczono macierz korelacji, przedstawioną na Rys. 16. Test Bartletta pokazał, że jest istotnie różna od macierzy jednostkowej (\(\chi^2\) = 22256,39; df = 45; p \textless{} 0,001).
+Drugą grupę tworzą cztery kraje Europy Wschodniej: Ukraina, Rosja, Kazachstan i Turcja, oraz Słowenia i Hiszpania. Dla grupy obliczono macierz korelacji, przedstawioną na Rys. 16. Test Bartletta pokazał, że jest istotnie różna od macierzy jednostkowej (\(\chi^2\) = 22256,39; \(df\) = 45; \(p\) \textless{} 0,001).
 
 Tym razem z analizy korelacji wyłaniają się tylko dwa czynniki: koncepcja I oraz zupełnie nowa koncepcja IV, której struktura została pokazana na diagramie na Rys. 17. Charakterystyczne dla tej grupy są pozytywne korelacje zmiennej oznaczającej posłuszeństwo rządzącym ze wszystkimi pozostałymi zmiennymi - przeciwnie niż w grupie demokracji liberalnych.
 
-Rys. 16: Macierz korelacji odpowiedzi na pytania o demokrację w grupie oznaczonej na czerwono. Źródło: opracowanie własne
-\includegraphics{text_ASA_files/figure-latex/cor-matrix-3-1.pdf}
+\emph{Rys. 16: Macierz korelacji odpowiedzi na pytania o demokrację w grupie oznaczonej na czerwono. Źródło: opracowanie własne.}
+
+\begin{flushleft}\includegraphics{text_ASA_files/figure-latex/cor-matrix-3-1} \end{flushleft}
 
 CFI (Robust Comparative Fit Index) = 0,876; TLI (Robust Tucker-Lewis Index) = 0,831. RMSEA wynosi 0,091; CI90\% (0,087; 0,099). Łączna rzetelność konstruktu wynosi 0,74. Modelu w tej grupie nie można uznać za dobrze dopasowany do danych. O ile koncepcja IV jest dobrze skonstruowana (rzetelność konceptu na poziomie 0,78), o tyle najwyraźniej brakuje odpowiednich pytań dla koncepcji I (rzetelność 0,56).
 
 W koncepcji I najważniejsza jest interpretacja prawa przez autorytety religijne, a w IV wolne wybory, równość płci i prawa obywatelskie (część liberalna gra większą rolę niż ekonomiczna). Zmienna oznaczająca posłuszeństwo rządzącym w podobny sposób mierzy obie koncepcje. Prawdopodobnie to właśnie ta grupa ``psuła'' europejską jednorodność w definiowaniu demokracji.
 
-Rys. 17: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie oznaczonej na czerwono. Źródło: opracowanie własne
-\includegraphics{text_ASA_files/figure-latex/diagram-3-1.pdf}
+\emph{Rys. 17: Diagram modelu analizy czynnikowej koncepcji demokracji w grupie oznaczonej na czerwono. Źródło: opracowanie własne.}
+
+\begin{center}\includegraphics{text_ASA_files/figure-latex/diagram-3-1} \end{center}
 
 Rozkład wskaźników dla całej grupy, przedstawiony na Rys. 18, pokazuje, że koncepcja IV jest bardziej powszechna. Średnia dla koncepcji I wynosi 4,56 a dla IV - 7,77.
 
-Rys. 18: Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole) w grupie oznaczonej na czerwono.
-\includegraphics{text_ASA_files/figure-latex/stats-gr-3-1.pdf}
+\emph{Rys. 18: Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole) w grupie oznaczonej na czerwono. Źródło: opracowanie własne.}
+
+\begin{center}\includegraphics{text_ASA_files/figure-latex/stats-gr-3-1} \end{center}
 
 Wyniki analizy równoważności pomiarowej przedstawia tabela Tabela 4.
 
-Tabela 4: Wyniki analizy równoważności pomiarowej dla grupy oznaczonej na czerwono. Źródło: opracowanie własne.
+\emph{Tabela 4: Wyniki analizy równoważności pomiarowej dla grupy oznaczonej na czerwono. Źródło: opracowanie własne.}
 
+\begin{table}[H]
+\centering
+\resizebox{\linewidth}{!}{
 \begin{tabular}{l|r|r|l|l|r|l}
 \hline
 Poziom równoważności & AIC & BIC & \$\textbackslash{}chi\textasciicircum{}2\$ & Przyrost \$\textbackslash{}chi\textasciicircum{}2\$ & Stopnie swobody & p-value\\
 \hline
-Konfiguralna & 361023 & 362370 & 2498,0 & NA & 198 & NA\\
+Konfiguralna & 361023 & 362370 & 2498,0 &  & 198 & \\
 \hline
 Metryczna & 361393 & 362423 & 2957,1 & 459,1 & 243 & < 2,2e-16\\
 \hline
 Skalarna & 363453 & 364203 & 5097,1 & 2140,0 & 283 & < 2.2e-16\\
 \hline
-\end{tabular}
+\end{tabular}}
+\end{table}
 
-W każdym z państw tej grupy model przedstawiony na Rys. 17 jest identyfikowalny. Jednak modele z restrykcjami nałożonymi na, kolejno: ładunki czynnikowe i wyrazy wolne, okazały się istotnie gorsze (p \textless{} 0,001 w obu przypadkach). Równoważność metryczna i skalarna nie są spełnione.
+W każdym z państw tej grupy model przedstawiony na Rys. 17 jest identyfikowalny. Jednak modele z restrykcjami nałożonymi na, kolejno: ładunki czynnikowe i wyrazy wolne, okazały się istotnie gorsze (\(p\) \textless{} 0,001 w obu przypadkach). Równoważność metryczna i skalarna nie są spełnione.
 
 \hypertarget{podsumowanie}{%
 \section{Podsumowanie}\label{podsumowanie}}
@@ -675,6 +712,6 @@ Dodatkowo można zauważyć, że niezależnie od grupy, wtrącanie się stron tr
 Przeszkodą w wyciąganiu ogólnych wniosków jest brak danych dla pozostałych państw europejskich; szczególnie niedoreprezentowana jest Europa Zachodnia. Nie można również zakładać, że wszystkie istniejące społeczne koncepcje demokracji zamykają się w tych dziesięciu pytaniach, które znalazły się w ankiecie. Przeprowadzone badanie, mimo ograniczeń, rzuca jednak trochę światła na podobieństwa i różnice w tym, co jest powszechnie uważane za trzon systemu demokratycznego.
 
 \bibliographystyle{agsm}
-\bibliography{bibliography.bib}
+\bibliography{bibliography}
 
 \end{document}

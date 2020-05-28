@@ -18,6 +18,12 @@ Chen, F.~F., Sousa, K.~H. \harvardand\ West, S.~G.  \harvardyearleft
   second-order factor models', {\em Structural Equation Modeling: A
   Multidisciplinary Journal} {\bf 12:3},~471--492.
 
+\harvarditem{Cheung \harvardand\ Rensvold}{2002}{CheungRens}
+Cheung, G.~W. \harvardand\ Rensvold, R.~B.  \harvardyearleft
+  2002\harvardyearright , `Evaluating goodness-of-fit indexes for testing
+  measurement invariance', {\em Structural Equation Modeling} {\bf
+  9},~233–255.
+
 \harvarditem[Coppedge et~al.]{Coppedge, Gerring, Altman, Bernhard, Fish,
   Hicken, Kroenig, Lindberg, McMann, Paxton, Semetko, Skaaning, Staton
   \harvardand\ Teorell}{2011}{Coppedge}
@@ -35,12 +41,11 @@ Doorenspleet, R.  \harvardyearleft 2019\harvardyearright , {\em Rethinking the
 Everitt, B.~S.  \harvardyearleft 1984\harvardyearright , {\em An Introduction
   to Latent Variable Models}, Chapman and Hall.
 
-\harvarditem{Hirschfeld \harvardand\ von Brachel}{2014}{HirBra}
-Hirschfeld, G. \harvardand\ von Brachel, R.  \harvardyearleft
-  2014\harvardyearright , `Improving multiple-group confirmatory factor
-  analysis in r – a tutorial in measurement invariance with continuous and
-  ordinal indicators', {\em Practical Assessment, Research, and Evaluation}
-  {\bf 19}(7).
+\harvarditem{G. \harvardand\ R.}{2014}{HirBra}
+G., H. \harvardand\ R., v.~B.  \harvardyearleft 2014\harvardyearright ,
+  `Improving multiple-group confirmatory factor analysis in r – a tutorial in
+  measurement invariance with continuous and ordinal indicators', {\em
+  Practical Assessment, Research, and Evaluation} {\bf 19}(7).
 
 \harvarditem[Inglehart et~al.]{Inglehart, amd A.~Moreno, Welzel, Kizilova,
   Diez-Medrano, Lagos, Norris, Ponarin \harvardand\ et~al.}{2014}{WVSData}
@@ -55,6 +60,12 @@ Jasko, K. \harvardand\ Kossowska, M.  \harvardyearleft 2008\harvardyearright ,
   `Wplyw wartosci na rozumienie pojecia demokracji', {\em Psychologia
   spoleczna} {\bf tom 3 3 (8)},~243 – 257.
 
+\harvarditem{Katsikatsou \harvardand\ Kuha}{2019}{ESSEduNet}
+Katsikatsou, M. \harvardand\ Kuha, J.  \harvardyearleft 2019\harvardyearright ,
+  Latent variable modelling of cross-national survey data, Technical report,
+  European Social Survey Education Net.
+\newline\harvardurl{https://essedunet.nsd.no}
+
 \harvarditem{Klingemann}{1998}{Klingemann}
 Klingemann, H.-D.  \harvardyearleft 1998\harvardyearright , `Mapping political
   support in the 1990s: A global analysis', {\em WZB Discussion Paper} {\bf
@@ -66,6 +77,13 @@ Lubiewska, K. \harvardand\ Glogowska, K.  \harvardyearleft
   badaniach psychologicznych', {\em Polskie Forum Psychologiczne} {\bf
   23}(2),~330 -- 356.
 
+\harvarditem[Maechler et~al.]{Maechler, Rousseeuw, Struyf, Hubert \harvardand\
+  Hornik}{2019}{MaechRouss}
+Maechler, M., Rousseeuw, P., Struyf, A., Hubert, M. \harvardand\ Hornik, K.
+  \harvardyearleft 2019\harvardyearright , {\em cluster: Cluster Analysis
+  Basics and Extensions}.
+\newblock R package version 2.1.0.
+
 \harvarditem{Pokropek}{2013}{Pokropek}
 Pokropek, A.  \harvardyearleft 2013\harvardyearright , Porownywalnosc w
   badaniach miedzynarodowych. przyklad wskaznika motywacji do nauki w badaniu
@@ -76,6 +94,28 @@ Pokropek, A.  \harvardyearleft 2013\harvardyearright , Porownywalnosc w
 Przeworski, A.  \harvardyearleft 1999\harvardyearright , {\em Minimalist
   Conception of Democracy: A Defense}, Cambridge University Press.
 
+\harvarditem{Revelle}{2019}{Revelle}
+Revelle, W.  \harvardyearleft 2019\harvardyearright , {\em psych: Procedures
+  for Psychological, Psychometric, and Personality Research}, Northwestern
+  University, Evanston, Illinois.
+\newblock R package version 1.9.12.
+\newline\harvardurl{https://CRAN.R-project.org/package=psych}
+
+\harvarditem{Rosseel}{2012}{Rosseel}
+Rosseel, Y.  \harvardyearleft 2012\harvardyearright , `lavaan: An r package for
+  structural equation modeling', {\em Journal of Statistical Software} {\bf
+  48}.
+
+\harvarditem{Rousseeuw}{1987}{Rousseeuw}
+Rousseeuw, P.  \harvardyearleft 1987\harvardyearright , `Silhouettes: a
+  graphical aid to the interpretation and validation of cluster analysis', {\em
+  Journal of Computational and Applied Mathematics} {\bf 20},~53--65.
+
+\harvarditem{Satorra \harvardand\ Bentler}{2010}{SatorraBentler}
+Satorra, A. \harvardand\ Bentler, P.~M.  \harvardyearleft 2010\harvardyearright
+  , `Ensuring positivenes of the scaled difference chi-square test statistic',
+  {\em Psychometrica} {\bf 75},~243–248.
+
 \harvarditem{Schneider}{2016}{Schneider}
 Schneider, I.  \harvardyearleft 2016\harvardyearright , `Can we trust measures
   of political trust? assessing measurement equivalence in diverse regime
@@ -84,6 +124,17 @@ Schneider, I.  \harvardyearleft 2016\harvardyearright , `Can we trust measures
 \harvarditem{Schumpeter}{1942}{Schumpeter}
 Schumpeter, J.~A.  \harvardyearleft 1942\harvardyearright , {\em Capitalism,
   Socialism, and Democracy}, 2 edn, Sublime Books.
+
+\harvarditem{Shapiro}{1985}{Shapiro}
+Shapiro, A.  \harvardyearleft 1985\harvardyearright , `Identifiability of
+  factor analysis: some results and open problems', {\em Linear Algebra and its
+  Applications} {\bf 70},~1--7.
+
+\harvarditem[Struyf et~al.]{Struyf, Hubert \harvardand\
+  Rousseeuw}{1997}{Struyf}
+Struyf, A., Hubert, M. \harvardand\ Rousseeuw, P.  \harvardyearleft
+  1997\harvardyearright , `Clustering in an object-oriented environment', {\em
+  Journal of Statistical Software} {\bf 1}.
 
 \harvarditem{t.~Hu \harvardand\ Bentler}{1999}{HuBentler}
 t.~Hu, L. \harvardand\ Bentler, P.~M.  \harvardyearleft 1999\harvardyearright ,

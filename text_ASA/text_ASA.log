@@ -1,13 +1,68 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.11.11)  24 MAY 2020 22:05
-entering extended mode
-**./text_ASA.tex
-(text_ASA.tex
+This is LuaTeX, Version 1.10.0 (MiKTeX 2.9.7200 64-bit)  (format=lualatex 2020.5.27)  27 MAY 2020 16:58
+ restricted system commands enabled.
+**text_ASA.tex
+(./text_ASA.tex
 LaTeX2e <2019-10-01> patch level 2
-("C:\Program Files\MiKTeX 2.9\tex/latex/base\article.cls"
+Lua module: luaotfload-main 2019-11-04 3.1 luaotfload entry point
+Lua module: luaotfload-init 2019-11-04 3.1 luaotfload submodule / initialization
+Lua module: lualibs 2019-11-06 2.69 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2019-11-06 2.69 ConTeXt Lua libraries -- extended c
+ollection.
+Lua module: luaotfload-log 2019-11-04 3.1 luaotfload submodule / logging
+Lua module: luaotfload-parsers 2019-11-04 3.1 luaotfload submodule / filelist
+Lua module: luaotfload-configuration 2019-11-04 3.1 luaotfload submodule / confi
+g file reader
+luaotfload | conf : Root cache directory is C:/Users/Agnieszka/AppData/Local/MiK
+TeX/2.9/luatex-cache/generic/names.
+luaotfload | init : Loading fontloader ‚Äúfontloader-2019-10-29.lua‚Äù from kpse
+-resolved path ‚ÄúC:/Program Files/MiKTeX 2.9/tex/luatex/luaotfload/fontloader-2
+019-10-29.lua‚Äù.
+Lua-only attribute luaotfload@state = 2
+Lua-only attribute luaotfload@noligature = 3
+Lua-only attribute luaotfload@syllabe = 4
+luaotfload | init : Context OpenType loader version ‚Äú3.11‚Äù
+Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
+Lua module: luaotfload-loaders 2019-11-04 3.1 luaotfload submodule / callback ha
+ndling
+Inserting `luaotfload.define_font' at position 1 in `define_font'.
+Lua module: luaotfload-database 2019-11-04 3.1 luaotfload submodule / database
+Lua module: luaotfload-unicode 2019-11-04 3.1 luaotfload submodule / Unicode hel
+pers
+Lua module: luaotfload-colors 2019-11-04 3.1 luaotfload submodule / color
+Lua-only attribute luaotfload_color_attribute = 5
+Lua module: luaotfload-resolvers 2019-11-04 3.1 luaotfload submodule / resolvers
+luaotfload | conf : Root cache directory is C:/Users/Agnieszka/AppData/Local/MiK
+TeX/2.9/luatex-cache/generic/names.
+Lua module: luaotfload-features 2019-11-04 3.1 luaotfload submodule / features
+Lua module: luaotfload-letterspace 2019-11-04 3.1 luaotfload submodule / color
+Lua module: luaotfload-embolden 2019-11-04 3.1 luaotfload submodule / color
+Lua module: luaotfload-notdef 2019-11-04 3.1 luaotfload submodule / color
+Lua module: luaotfload-auxiliary 2019-11-04 3.1 luaotfload submodule / auxiliary
+ functions
+Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
+font'.
+Inserting `luaotfload.aux.set_font_index' at position 2 in `luaotfload.patch_fon
+t'.
+Inserting `luaotfload.aux.patch_cambria_domh' at position 3 in `luaotfload.patch
+_font'.
+Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
+t_unsafe'.
+Inserting `luaotfload.aux.set_capheight' at position 4 in `luaotfload.patch_font
+'.
+Inserting `luaotfload.aux.set_xheight' at position 5 in `luaotfload.patch_font'.
+Lua module: luaotfload-multiscript 2019-11-04 3.1 luaotfload submodule / multisc
+ript
+Lua module: luaotfload-tounicode 2019-11-04 3.1 luaotfload submodule / tounicode
+Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'
+.
+luaotfload | main : initialization completed in 6.700 seconds
+("C:/Program Files/MiKTeX 2.9/tex/latex/base/article.cls"
 Document Class: article 2019/10/25 v1.4k Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex/latex/base\size12.clo"
+("C:/Program Files/MiKTeX 2.9/tex/latex/base/size12.clo"
 File: size12.clo 2019/10/25 v1.4k Standard LaTeX file (size option)
-)
+luaotfload | db : Font names database loaded from C:/Users/Agnieszka/AppData/Loc
+al/MiKTeX/2.9/luatex-cache/generic/names/luaotfload-names.luc)
 \c@part=\count80
 \c@section=\count81
 \c@subsection=\count82
@@ -19,20 +74,20 @@ File: size12.clo 2019/10/25 v1.4k Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsmath.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsmath.sty"
 Package: amsmath 2019/04/01 v2.17c AMS math features
 \@mathmargin=\skip43
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amstext.sty"
+("C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amstext.sty"
 Package: amstext 2000/06/29 v2.01 AMS text
-("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty"
+("C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks14
 \ex@=\dimen103
-)) ("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty"
+)) ("C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen104
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count88
@@ -72,30 +127,30 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \mathdisplay@stack=\toks18
 LaTeX Info: Redefining \[ on input line 2855.
 LaTeX Info: Redefining \] on input line 2856.
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphicx.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/graphics/graphicx.sty"
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
-("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\keyval.sty"
+("C:/Program Files/MiKTeX 2.9/tex/latex/graphics/keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks19
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphics.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/graphics/graphics.sty"
 Package: graphics 2019/11/01 v1.3d Standard LaTeX Graphics (DPC,SPQR)
-("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+("C:/Program Files/MiKTeX 2.9/tex/latex/graphics/trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\graphics.cfg"
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/graphics-cfg/graphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 105.
-("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-def\pdftex.def"
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+Package graphics Info: Driver file: luatex.def on input line 105.
+("C:/Program Files/MiKTeX 2.9/tex/latex/graphics-def/luatex.def"
+File: luatex.def 2018/01/08 v1.0l Graphics/color driver for luatex
 ))
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
-) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/psfrag\psfrag.sty
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/psfrag/psfrag.sty
 Package: psfrag 1998/04/11 v3.04 PSfrag (MCG)
 \pfg@pcount=\count100
 \pfg@scount=\count101
 \pfg@temp=\write3
-) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/epsf\epsf.sty
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/epsf/epsf.sty
 This is `epsf.tex' v2.7.4 <14 February 2011>
 \epsffilein=\read1
 \epsfframemargin=\dimen114
@@ -106,16 +161,16 @@ This is `epsf.tex' v2.7.4 <14 February 2011>
 \epsfxsize=\dimen119
 \epsfysize=\dimen120
 \pspoints=\dimen121
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\enumerate.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/tools/enumerate.sty"
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks20
-) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/natbib\natbib.sty
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip46
 \bibsep=\skip47
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count102
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/base\textcomp.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/base/textcomp.sty"
 Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -129,85 +184,9 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             Family '?' is the default used for unknown fonts.
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
-("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1enc.def"
+("C:/Program Files/MiKTeX 2.9/tex/latex/base/ts1enc.def"
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
-Now handling font encoding TS1 ...
-... processing UTF-8 mapping file for font encoding TS1
-("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1enc.dfu"
-File: ts1enc.dfu 2019/07/11 v1.2j UTF-8 support for inputenc
-   defining Unicode char U+00A2 (decimal 162)
-   defining Unicode char U+00A3 (decimal 163)
-   defining Unicode char U+00A4 (decimal 164)
-   defining Unicode char U+00A5 (decimal 165)
-   defining Unicode char U+00A6 (decimal 166)
-   defining Unicode char U+00A7 (decimal 167)
-   defining Unicode char U+00A8 (decimal 168)
-   defining Unicode char U+00A9 (decimal 169)
-   defining Unicode char U+00AA (decimal 170)
-   defining Unicode char U+00AC (decimal 172)
-   defining Unicode char U+00AE (decimal 174)
-   defining Unicode char U+00AF (decimal 175)
-   defining Unicode char U+00B0 (decimal 176)
-   defining Unicode char U+00B1 (decimal 177)
-   defining Unicode char U+00B2 (decimal 178)
-   defining Unicode char U+00B3 (decimal 179)
-   defining Unicode char U+00B4 (decimal 180)
-   defining Unicode char U+00B5 (decimal 181)
-   defining Unicode char U+00B6 (decimal 182)
-   defining Unicode char U+00B7 (decimal 183)
-   defining Unicode char U+00B9 (decimal 185)
-   defining Unicode char U+00BA (decimal 186)
-   defining Unicode char U+00BC (decimal 188)
-   defining Unicode char U+00BD (decimal 189)
-   defining Unicode char U+00BE (decimal 190)
-   defining Unicode char U+00D7 (decimal 215)
-   defining Unicode char U+00F7 (decimal 247)
-   defining Unicode char U+0192 (decimal 402)
-   defining Unicode char U+02C7 (decimal 711)
-   defining Unicode char U+02D8 (decimal 728)
-   defining Unicode char U+02DD (decimal 733)
-   defining Unicode char U+0E3F (decimal 3647)
-   defining Unicode char U+2016 (decimal 8214)
-   defining Unicode char U+2020 (decimal 8224)
-   defining Unicode char U+2021 (decimal 8225)
-   defining Unicode char U+2022 (decimal 8226)
-   defining Unicode char U+2030 (decimal 8240)
-   defining Unicode char U+2031 (decimal 8241)
-   defining Unicode char U+203B (decimal 8251)
-   defining Unicode char U+203D (decimal 8253)
-   defining Unicode char U+2044 (decimal 8260)
-   defining Unicode char U+204E (decimal 8270)
-   defining Unicode char U+2052 (decimal 8274)
-   defining Unicode char U+20A1 (decimal 8353)
-   defining Unicode char U+20A4 (decimal 8356)
-   defining Unicode char U+20A6 (decimal 8358)
-   defining Unicode char U+20A9 (decimal 8361)
-   defining Unicode char U+20AB (decimal 8363)
-   defining Unicode char U+20AC (decimal 8364)
-   defining Unicode char U+20B1 (decimal 8369)
-   defining Unicode char U+2103 (decimal 8451)
-   defining Unicode char U+2116 (decimal 8470)
-   defining Unicode char U+2117 (decimal 8471)
-   defining Unicode char U+211E (decimal 8478)
-   defining Unicode char U+2120 (decimal 8480)
-   defining Unicode char U+2122 (decimal 8482)
-   defining Unicode char U+2126 (decimal 8486)
-   defining Unicode char U+2127 (decimal 8487)
-   defining Unicode char U+212E (decimal 8494)
-   defining Unicode char U+2190 (decimal 8592)
-   defining Unicode char U+2191 (decimal 8593)
-   defining Unicode char U+2192 (decimal 8594)
-   defining Unicode char U+2193 (decimal 8595)
-   defining Unicode char U+2329 (decimal 9001)
-   defining Unicode char U+232A (decimal 9002)
-   defining Unicode char U+2422 (decimal 9250)
-   defining Unicode char U+25E6 (decimal 9702)
-   defining Unicode char U+25EF (decimal 9711)
-   defining Unicode char U+266A (decimal 9834)
-   defining Unicode char U+27E8 (decimal 10216)
-   defining Unicode char U+27E9 (decimal 10217)
-   defining Unicode char U+FEFF (decimal 65279)
-))
+)
 LaTeX Info: Redefining \oldstylenums on input line 334.
 Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
 Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
@@ -233,7 +212,6 @@ Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
 Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
 Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
 Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
-
 Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
 Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
 Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
@@ -271,62 +249,60 @@ Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
 Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
-) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/url\url.sty
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hyperref.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/hyperref/hyperref.sty"
 Package: hyperref 2019/11/06 v7.00b Hypertext links for LaTeX
-("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\ltxcmds.sty"
+("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/ltxcmds.sty"
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/generic/iftex\iftex.sty
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/generic/iftex/iftex.sty
 Package: iftex 2019/11/07 v1.0c TeX engine tests
-) ("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\pdftexcmds.sty"
-Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO
-)
-("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\infwarerr.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/pdftexcmds.sty"
+Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO)
+
+("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/infwarerr.sty"
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/generic/iftex\ifluatex.sty
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/generic/iftex\ifpdf.sty
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/generic/iftex/ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
 )
-Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-) ("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\kvsetkeys.sty"
+\pdftexcmds@toks=\toks21
+) ("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/kvsetkeys.sty"
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\etexcmds.sty"
+("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/etexcmds.sty"
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-)) ("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\kvdefinekeys.sty"
+)) ("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/kvdefinekeys.sty"
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\pdfescape.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/pdfescape.sty"
 Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\hycolor.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/hycolor.sty"
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
-("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\xcolor-patch.sty"
+("C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/xcolor-patch.sty"
 Package: xcolor-patch 2016/05/16 xcolor patch
-("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\hopatch.sty"
+("C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/hopatch.sty"
 Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
-))) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\letltxmacro.sty"
+))) ("C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/letltxmacro.sty"
 Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\auxhook.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/auxhook.sty"
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\kvoptions.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/kvoptions.sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen122
 \Hy@linkcounter=\count103
 \Hy@pagecounter=\count104
-("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
+("C:/Program Files/MiKTeX 2.9/tex/latex/hyperref/pd1enc.def"
 File: pd1enc.def 2019/11/06 v7.00b Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
-) ("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\intcalc.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/intcalc.sty"
 Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count105
-("C:\Program Files\MiKTeX 2.9\tex/latex/00miktex\hyperref.cfg"
+("C:/Program Files/MiKTeX 2.9/tex/latex/00miktex/hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Hyper figures OFF on input line 4535.
@@ -339,11 +315,11 @@ Package hyperref Info: Bookmarks ON on input line 4790.
 \c@Hy@tempcnt=\count106
 LaTeX Info: Redefining \url on input line 5149.
 \XeTeXLinkMargin=\dimen123
-("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\bitset.sty"
+("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/bitset.sty"
 Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
-("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\bigintcalc.sty"
-Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
-)
+("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/bigintcalc.sty"
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO)
+
 ))
 \Fld@menulength=\count107
 \Field@Width=\dimen124
@@ -357,37 +333,37 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6445.
 Package hyperref Info: PDF/A mode OFF on input line 6450.
 LaTeX Info: Redefining \ref on input line 6490.
 LaTeX Info: Redefining \pageref on input line 6494.
-("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\atbegshi.sty"
+("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/atbegshi.sty"
 Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 )
 \Hy@abspage=\count108
 \c@Item=\count109
 \c@Hfootnote=\count110
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
-("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hpdftex.def"
-File: hpdftex.def 2019/11/06 v7.00b Hyperref driver for pdfTeX
-("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\atveryend.sty"
+Package hyperref Info: Driver (autodetected): hluatex.
+("C:/Program Files/MiKTeX 2.9/tex/latex/hyperref/hluatex.def"
+File: hluatex.def 2019/11/06 v7.00b Hyperref driver for luaTeX
+("C:/Program Files/MiKTeX 2.9/tex/latex/hyperref/puenc.def"
+File: puenc.def 2019/11/06 v7.00b Hyperref: PDF Unicode definition (HO)
+) ("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/stringenc.sty"
+Package: stringenc 2016/05/16 v1.11 Convert strings between diff. encodings (HO)
+
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/atveryend.sty"
 Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
 )
 \Fld@listcount=\count111
 \c@bookmark@seq@number=\count112
-("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\rerunfilecheck.sty"
+("C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/rerunfilecheck.sty"
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
-("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\uniquecounter.sty"
+("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/uniquecounter.sty"
 Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-82.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
+2.
 )
 \Hy@SectionHShift=\skip48
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/base\fontenc.sty"
-Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
-("C:\Program Files\MiKTeX 2.9\tex/latex/base\t1enc.def"
-File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
-)) ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\longtable.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/tools/longtable.sty"
 Package: longtable 2019/02/06 v4.12 Multi-page Table package (DPC)
 \LTleft=\skip49
 \LTright=\skip50
@@ -403,148 +379,140 @@ Package: longtable 2019/02/06 v4.12 Multi-page Table package (DPC)
 \LT@rows=\count115
 \c@LT@tables=\count116
 \c@LT@chunks=\count117
-\LT@p@ftn=\toks21
-) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/booktabs\booktabs.st
-y
-Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen127
-\lightrulewidth=\dimen128
-\cmidrulewidth=\dimen129
-\belowrulesep=\dimen130
-\belowbottomsep=\dimen131
-\aboverulesep=\dimen132
-\abovetopsep=\dimen133
-\cmidrulesep=\dimen134
-\cmidrulekern=\dimen135
-\defaultaddspace=\dimen136
-\@cmidla=\count118
-\@cmidlb=\count119
-\@aboverulesep=\dimen137
-\@belowrulesep=\dimen138
-\@thisruleclass=\count120
-\@lastruleclass=\count121
-\@thisrulewidth=\dimen139
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\array.sty"
-Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen140
-\ar@mcellbox=\box33
-\extrarowheight=\dimen141
-\NC@list=\toks22
-\extratabsurround=\skip53
-\backup@length=\skip54
-\ar@cellbox=\box34
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/multirow\multirow.sty"
-Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
-\multirow@colwidth=\skip55
-\multirow@cntb=\count122
-\multirow@dima=\skip56
-\bigstrutjot=\dimen142
-) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/wrapfig\wrapfig.sty
-\wrapoverhang=\dimen143
-\WF@size=\dimen144
-\c@WF@wrappedlines=\count123
-\WF@box=\box35
-\WF@everypar=\toks23
-Package: wrapfig 2003/01/31  v 3.6
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/float\float.sty"
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count124
-\float@exts=\toks24
-\float@box=\box36
-\@float@everytoks=\toks25
-\@floatcapt=\box37
-) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/colortbl\colortbl.st
-y
-Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
-("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\color.sty"
-Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
-("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\color.cfg"
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: pdftex.def on input line 147.
-)
-\everycr=\toks26
-\minrowclearance=\skip57
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\pdflscape.sty"
-Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
-("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\lscape.sty"
-Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
-)
-Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-(C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/generic/iftex\ifxetex.sty
-Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-)) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/tabu\tabu.sty
-Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
-(C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/varwidth\varwidth.sty
-Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box38
-\sift@deathcycles=\count125
-\@vwid@loff=\dimen145
-\@vwid@roff=\dimen146
-)
-\c@taburow=\count126
-\tabu@nbcols=\count127
-\tabu@cnt=\count128
-\tabu@Xcol=\count129
-\tabu@alloc=\count130
-\tabu@nested=\count131
-\tabu@target=\dimen147
-\tabu@spreadtarget=\dimen148
-\tabu@naturalX=\dimen149
-\tabucolX=\dimen150
-\tabu@Xsum=\dimen151
-\extrarowdepth=\dimen152
-\abovetabulinesep=\dimen153
-\belowtabulinesep=\dimen154
-\tabustrutrule=\dimen155
-\tabu@thebody=\toks27
-\tabu@footnotes=\toks28
-\tabu@box=\box39
-\tabu@arstrutbox=\box40
-\tabu@hleads=\box41
-\tabu@vleads=\box42
-\tabu@cellskip=\skip58
-)
-(C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/threeparttable\threepa
-rttable.sty
-Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box43
-)
-(C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/threeparttablex\threep
-arttablex.sty
-Package: threeparttablex 2013/07/23 v0.3 by daleif
-(C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/environ\environ.sty
-Package: environ 2014/05/04 v0.3 A new way to define environments
+\LT@p@ftn=\toks22
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/base/inputenc.sty"
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks23
+\inpenc@posthook=\toks24
 
-(C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/trimspaces\trimspaces.
-sty
-Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/polski/polski.sty
+Package: polski 2017/05/04 v1.3.4 Polish language package
+\l@polish=\language2
+("C:/Program Files/MiKTeX 2.9/tex/generic/hyph-utf8/patterns/tex/hyph-pl.tex")) ("C:/Program Files/MiKTeX 2.9/tex/generic/babel/babel.sty"
+Package: babel 2019/10/15 3.35 The Babel package
+("C:/Program Files/MiKTeX 2.9/tex/generic/babel/switch.def"
+File: switch.def 2019/10/15 3.35 Babel switching mechanism
+) ("C:/Program Files/MiKTeX 2.9/tex/generic/babel/luababel.def"
+\l@afrikaans=\language3
+Package babel Info: Non-standard hyphenation setup on input line 114.
+\l@ancientgreek=\language4
+\l@arabic=\language5
+\l@armenian=\language6
+\l@assamese=\language7
+\l@basque=\language8
+\l@belarusian=\language9
+\l@bengali=\language10
+\l@bokmal=\language11
+\l@bulgarian=\language12
+\l@catalan=\language13
+\l@churchslavonic=\language14
+\l@classiclatin=\language15
+\l@coptic=\language16
+\l@croatian=\language17
+\l@czech=\language18
+\l@danish=\language19
+\l@dutch=\language20
+\l@esperanto=\language21
+\l@estonian=\language22
+\l@ethiopic=\language23
+\l@farsi=\language24
+\l@finnish=\language25
+\l@french=\language26
+\l@friulan=\language27
+\l@galician=\language28
+\l@georgian=\language29
+\l@german=\language30
+\l@german-x-2019-04-04=\language31
+\l@greek=\language32
+\l@gujarati=\language33
+\l@hindi=\language34
+\l@hungarian=\language35
+\l@icelandic=\language36
+\l@indonesian=\language37
+\l@interlingua=\language38
+\l@irish=\language39
+\l@italian=\language40
+\l@kannada=\language41
+\l@kurmanji=\language42
+\l@latin=\language43
+\l@latvian=\language44
+\l@lithuanian=\language45
+\l@liturgicallatin=\language46
+\l@malayalam=\language47
+\l@marathi=\language48
+\l@mongolian=\language49
+\l@mongolianlmc=\language50
+\l@monogreek=\language51
+\l@ngerman=\language52
+\l@ngerman-x-2019-04-04=\language53
+\l@nynorsk=\language54
+\l@occitan=\language55
+\l@oriya=\language56
+\l@pali=\language57
+\l@panjabi=\language58
+\l@piedmontese=\language59
+\l@polish=\language60
+\l@portuguese=\language61
+\l@romanian=\language62
+\l@romansh=\language63
+\l@russian=\language64
+\l@sanskrit=\language65
+\l@serbian=\language66
+\l@serbianc=\language67
+\l@slovak=\language68
+\l@slovenian=\language69
+\l@spanish=\language70
+\l@swedish=\language71
+\l@swissgerman=\language72
+\l@tamil=\language73
+\l@telugu=\language74
+\l@thai=\language75
+\l@turkish=\language76
+\l@turkmen=\language77
+\l@ukenglish=\language78
+\l@ukrainian=\language79
+\l@uppersorbian=\language80
+\l@usenglishmax=\language81
+\l@welsh=\language82
+)
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/arabi/bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of 
+babel
+)
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/babel-polish/polish.ld
+f
+Language: polish 2005/03/31 v1.2l Polish support from the babel system
+("C:/Program Files/MiKTeX 2.9/tex/generic/babel/babel.def"
+File: babel.def 2019/10/15 3.35 Babel common definitions
+\babel@savecnt=\count118
+\U@D=\dimen127
+("C:/Program Files/MiKTeX 2.9/tex/generic/babel/luababel.def"
+\bbl@attr@locale=\attribute6
 ))
-\TPTL@width=\skip59
-) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/ulem\ulem.sty
-\UL@box=\box44
-\UL@hyphenbox=\box45
-\UL@skip=\skip60
-\UL@hook=\toks29
-\UL@height=\dimen156
-\UL@pe=\count132
-\UL@pixel=\dimen157
-\ULC@box=\box46
-Package: ulem 2019/11/18
-\ULdepth=\dimen158
-) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/makecell\makecell.st
-y
-Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen159
-\c@nlinenum=\count133
-\TeXr@lab=\toks30
-) (C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/latex/xcolor\xcolor.sty
+Package babel Info: Making " an active character on input line 83.
+\pl@left=\dimen128
+\pl@down=\dimen129
+\pl@right=\dimen130
+\pl@temp=\dimen131
+("C:/Program Files/MiKTeX 2.9/tex/generic/hyph-utf8/loadhyph/loadhyph-pl.tex" U
+TF-8 Polish hyphenation patterns ("C:/Program Files/MiKTeX 2.9/tex/generic/hyph
+-utf8/patterns/tex/hyph-pl.tex"))))
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/impnattypo/impnattypo.
+sty
+Package: impnattypo 2019/03/04 1.5 Typographic utilities inspired by the French 
+Imprimerie Nationale
+Package: impnattypo 
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
-("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\color.cfg"
+("C:/Program Files/MiKTeX 2.9/tex/latex/graphics-cfg/color.cfg"
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 225.
-LaTeX Info: Redefining \color on input line 709.
+Package xcolor Info: Driver file: luatex.def on input line 225.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -554,563 +522,595 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-) (text_ASA.aux)
-\openout1 = `text_ASA.aux'.
+) ("C:/Program Files/MiKTeX 2.9/tex/luatex/luatexbase/luatexbase.sty"
+Package: luatexbase 2015/10/04 v1.3 luatexbase interface to LuaTeX 
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
-6.
-("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/luatex/ctablestack/ctablesta
+ck.sty
+Package: ctablestack 2015/10/01 v1.0 Catcode table stable support
+\@catcodetablestackcnt=\count119
+)
+\CatcodeTableOther=\catcodetable5
+\CatcodeTableExpl=\catcodetable6
+)
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/lualatex/luacode/luacode.sty
+Package: luacode 2012/01/23 v1.2a lua-in-tex helpers (mpg)
+\luacode@lines=\toks25
+\luacode@table@soft=\catcodetable7
+)
+Inserting `~' at position 2 in `pre_linebreak_filter'.)
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/mathtools/mathtools.st
+y
+Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
+("C:/Program Files/MiKTeX 2.9/tex/latex/tools/calc.sty"
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count120
+\calc@Bcount=\count121
+\calc@Adimen=\dimen132
+\calc@Bdimen=\dimen133
+\calc@Askip=\skip53
+\calc@Bskip=\skip54
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count122
+\calc@Cskip=\skip55
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/mathtools/mhsetup.st
+y
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
+\g_MT_multlinerow_int=\count123
+\l_MT_multwidth_dim=\dimen134
+\origjot=\skip56
+\l_MT_shortvdotswithinadjustabove_dim=\dimen135
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen136
+\l_MT_above_intertext_sep=\dimen137
+\l_MT_below_intertext_sep=\dimen138
+\l_MT_above_shortintertext_sep=\dimen139
+\l_MT_below_shortintertext_sep=\dimen140
+\xmathstrut@box=\box33
+\xmathstrut@dim=\dimen141
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/parskip/parskip.sty
+Package: parskip 2019-01-16 v2.0c non-zero parskip adjustments
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count124
+)) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/booktabs/booktabs.s
+ty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen142
+\lightrulewidth=\dimen143
+\cmidrulewidth=\dimen144
+\belowrulesep=\dimen145
+\belowbottomsep=\dimen146
+\aboverulesep=\dimen147
+\abovetopsep=\dimen148
+\cmidrulesep=\dimen149
+\cmidrulekern=\dimen150
+\defaultaddspace=\dimen151
+\@cmidla=\count125
+\@cmidlb=\count126
+\@aboverulesep=\dimen152
+\@belowrulesep=\dimen153
+\@thisruleclass=\count127
+\@lastruleclass=\count128
+\@thisrulewidth=\dimen154
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/tools/array.sty"
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen155
+\ar@mcellbox=\box34
+\extrarowheight=\dimen156
+\NC@list=\toks26
+\extratabsurround=\skip57
+\backup@length=\skip58
+\ar@cellbox=\box35
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/multirow/multirow.sty"
+Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
+\multirow@colwidth=\skip59
+\multirow@cntb=\count129
+\multirow@dima=\skip60
+\bigstrutjot=\dimen157
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen158
+\WF@size=\dimen159
+\c@WF@wrappedlines=\count130
+\WF@box=\box36
+\WF@everypar=\toks27
+Package: wrapfig 2003/01/31  v 3.6
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/float/float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count131
+\float@exts=\toks28
+\float@box=\box37
+\@float@everytoks=\toks29
+\@floatcapt=\box38
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/colortbl/colortbl.st
+y
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+\everycr=\toks30
+\minrowclearance=\skip61
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/pdflscape.sty"
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+("C:/Program Files/MiKTeX 2.9/tex/latex/graphics/lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/generic/iftex/ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/tabu/tabu.sty
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box39
+\sift@deathcycles=\count132
+\@vwid@loff=\dimen160
+\@vwid@roff=\dimen161
+)
+\c@taburow=\count133
+\tabu@nbcols=\count134
+\tabu@cnt=\count135
+\tabu@Xcol=\count136
+\tabu@alloc=\count137
+\tabu@nested=\count138
+\tabu@target=\dimen162
+\tabu@spreadtarget=\dimen163
+\tabu@naturalX=\dimen164
+\tabucolX=\dimen165
+\tabu@Xsum=\dimen166
+\extrarowdepth=\dimen167
+\abovetabulinesep=\dimen168
+\belowtabulinesep=\dimen169
+\tabustrutrule=\dimen170
+\tabu@thebody=\toks31
+\tabu@footnotes=\toks32
+\tabu@box=\box40
+\tabu@arstrutbox=\box41
+\tabu@hleads=\box42
+\tabu@vleads=\box43
+\tabu@cellskip=\skip62
+)
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/threeparttable/threepa
+rttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box44
+)
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/threeparttablex/threep
+arttablex.sty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/trimspaces/trimspaces.
+sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\TPTL@width=\skip63
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/ulem/ulem.sty
+\UL@box=\box45
+\UL@hyphenbox=\box46
+\UL@skip=\skip64
+\UL@hook=\toks33
+\UL@height=\dimen171
+\UL@pe=\count139
+\UL@pixel=\dimen172
+\ULC@box=\box47
+Package: ulem 2019/11/18
+\ULdepth=\dimen173
+) (C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/latex/makecell/makecell.st
+y
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen174
+\c@nlinenum=\count140
+\TeXr@lab=\toks34
+) (./text_ASA.aux)
+\openout1 = text_ASA.aux
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 54
+.
+("C:/Program Files/MiKTeX 2.9/tex/latex/base/ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
 
-(C:\Users\Agnieszka\AppData\Roaming\MiKTeX\2.9\tex/context/base/mkii\supp-pdf.m
+(C:/Users/Agnieszka/AppData/Roaming/MiKTeX/2.9/tex/context/base/mkii/supp-pdf.m
 kii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count134
-\scratchdimen=\dimen160
-\scratchbox=\box47
-\nofMPsegments=\count135
-\nofMParguments=\count136
-\everyMPshowfont=\toks31
-\MPscratchCnt=\count137
-\MPscratchDim=\dimen161
-\MPnumerator=\count138
-\makeMPintoPDFobject=\count139
-\everyMPtoPDFconversion=\toks32
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-base.sty"
+\scratchcounter=\count141
+\scratchdimen=\dimen175
+\scratchbox=\box48
+\nofMPsegments=\count142
+\nofMParguments=\count143
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count144
+\MPscratchDim=\dimen176
+\MPnumerator=\count145
+\makeMPintoPDFobject=\count146
+\everyMPtoPDFconversion=\toks36
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\grfext.sty"
+("C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/grfext.sty"
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 43
+8.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG
+,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-\AtBeginShipoutBox=\box48
-Package hyperref Info: Link coloring OFF on input line 46.
-("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
+\AtBeginShipoutBox=\box49
+Package hyperref Info: Link coloring OFF on input line 54.
+("C:/Program Files/MiKTeX 2.9/tex/latex/hyperref/nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
-("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\refcount.sty"
+("C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/refcount.sty"
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\gettitlestring.sty"
+) ("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count140
+\c@section@level=\count147
 )
-LaTeX Info: Redefining \ref on input line 46.
-LaTeX Info: Redefining \pageref on input line 46.
-LaTeX Info: Redefining \nameref on input line 46.
-(text_ASA.out) (text_ASA.out)
+LaTeX Info: Redefining \ref on input line 54.
+LaTeX Info: Redefining \pageref on input line 54.
+LaTeX Info: Redefining \nameref on input line 54.
+(./text_ASA.out) (./text_ASA.out)
 \@outlinefile=\write4
-\openout4 = `text_ASA.out'.
 
+\openout4 = text_ASA.out
 [1
 Non-PDF special ignored!
-<special> header=psfrag.pro
 
 {C:/Users/Agnieszka/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (6.3751pt too wide) in paragraph at lines 95--96
-\T1/cmr/m/n/12 ocena demokraty-czno±ci pa´stw lub nastaw-ienia do demokracji gr
-up czy ca™ych spo™ecze´stw,
+Overfull \hbox (16.90445pt too wide) in paragraph at lines 110--110
+[]\TU/lmr/bx/n/17.28 Ilo-≈õciowe ba-da-nia nad de-mo-kra-cjƒÖ w li-te-ra-tu-rze
+ przed-
+ []
+
+[2] [3]
+Overfull \hbox (39.08202pt too wide) in alignment at lines 131--145
+ [][] 
  []
 
 
-Overfull \hbox (0.23764pt too wide) in paragraph at lines 102--102
-[]\T1/cmr/bx/n/17.28 Ilo±ciowe bada-nia nad demokracj° w lit-er-aturze przed-
+Underfull \vbox (badness 10000) detected at line 145
  []
 
-
-Overfull \hbox (8.5979pt too wide) in paragraph at lines 107--108
-\T1/cmr/m/n/12 po™owie XX wieku w Stanach Zjed-noc-zonych Ameryki. Wed™ug panu-
-j°cego wÛwczas paradyg-
+[4] [5] [6] [7] [8] [9] [10]
+Overfull \hbox (10.40198pt too wide) in paragraph at lines 257--258
+\TU/lmr/m/n/12 ob-ser-wa-cje majƒÖ wie-lo-wy-mia-rowy roz-k≈Çad nor-malny. Funk
+-cja prze-ciwna do log-wiarygodno≈õci,
  []
 
-[2]
-Overfull \hbox (7.48454pt too wide) in paragraph at lines 109--110
-\T1/cmr/m/n/12 rÛwnieª sze-rokie moªli-wo±ci tworzenia mod-eli, w ktÛrych stopi
-e´ zdemokraty-zowa-nia pa´stwa
- []
-
-[3]
-Underfull \vbox (badness 10000) detected at line 137
- []
-
-[4]
-Overfull \hbox (6.04877pt too wide) in paragraph at lines 146--147
-\T1/cmr/m/n/12 Zdecydowana wi¶k-szo±¢ wskaπnikÛw demokracji jest twor-zona na p
-od-stawie oceny ekspertÛw.
- []
-
-[5] [6]
-Overfull \hbox (8.2567pt too wide) in paragraph at lines 171--172
-\T1/cmr/m/n/12 in-nych, mierzal-nych w™as-no±ci. Taka w™as-no±-ci° jest rÛwnieª
- spo™eczna kon-cepcja demokracji,
- []
-
-
-Overfull \hbox (3.29773pt too wide) in paragraph at lines 184--185
-[]\T1/cmr/m/n/12 Kaªdy el-e-ment $\OML/cmm/m/it/12 x$ \T1/cmr/m/n/12 oraz $\OML
-/cmm/m/it/12 $ \T1/cmr/m/n/12 jest n-elementowym wek-torem. Za-k™adamy, ªe zmi
--enne mierzalne
- []
-
-[7]
-
-Package natbib Warning: Citation `Shapiro' on page 8 undefined on input line 22
-2.
-
-[8] [9]
-Overfull \hbox (8.84264pt too wide) in paragraph at lines 247--248
-\T1/cmr/m/n/12 jbardziej pod-sta-wowej Metodzie Na-jm-niejszych KwadratÛw min-i
--mal-izuje si¶ sum¶ kwadratÛw
- []
-
-[10] [11]
-Overfull \hbox (23.17787pt too wide) in paragraph at lines 285--286
-\T1/cmr/m/n/12 Przyk™ad-owo, s™owo oz-nacza-j°ce ``s°siedztwo'' w j¶zyku ang-ie
-l-skim oz-nacza na-jbliªsz° przestrze´,
- []
-
-[12]
-Overfull \hbox (16.22752pt too wide) in paragraph at lines 304--305
-\T1/cmr/m/n/12 Je±li wery-fikacja rÛwnowaªno±ci kon-fig-u-ral-nej przesz™a pomy
-±l-nie, moªna zbada¢ rÛwnowaªno±¢
- []
-
-
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 319.
-
-[13]
-
-LaTeX Warning: Command \' invalid in math mode on input line 337.
-
-
-LaTeX Warning: Command \. invalid in math mode on input line 337.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 337.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 337.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 337.
-
-Missing character: There is no Û in font cmr12!
-Missing character: There is no ª in font cmr12!
-Missing character: There is no ± in font cmr12!
-Missing character: There is no ¢ in font cmr12!
-Missing character: There is no ™ in font cmr12!
-
-LaTeX Warning: Command \' invalid in math mode on input line 338.
-
-
-LaTeX Warning: Command \. invalid in math mode on input line 338.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 338.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 338.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 338.
-
-Missing character: There is no Û in font cmr12!
-Missing character: There is no ª in font cmr12!
-Missing character: There is no ± in font cmr12!
-Missing character: There is no ¢ in font cmr12!
-Missing character: There is no ™ in font cmr12!
-
-LaTeX Warning: Command \' invalid in math mode on input line 358.
-
-
-LaTeX Warning: Command \. invalid in math mode on input line 358.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 358.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 358.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 358.
-
-Missing character: There is no Û in font cmr12!
-Missing character: There is no ª in font cmr12!
-Missing character: There is no ± in font cmr12!
-Missing character: There is no ¢ in font cmr12!
-Missing character: There is no ™ in font cmr12!
-[14]
-
-LaTeX Warning: Command \' invalid in math mode on input line 359.
-
-
-LaTeX Warning: Command \. invalid in math mode on input line 359.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 359.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 359.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 359.
-
-Missing character: There is no Û in font cmr12!
-Missing character: There is no ª in font cmr12!
-Missing character: There is no ± in font cmr12!
-Missing character: There is no ¢ in font cmr12!
-Missing character: There is no ™ in font cmr12!
+[11] [12] [13] [14]
+Missing character: There is no ‚Ä¶ (U+2026) in font cmr12!
+Missing character: There is no √≥ (U+00F3) in font cmmi12!
+Missing character: There is no √≥ (U+00F3) in font cmmi12!
+Missing character: There is no ≈º (U+017C) in font cmmi12!
+Missing character: There is no ≈º (U+017C) in font cmmi12!
+Missing character: There is no ≈õ (U+015B) in font cmmi12!
+Missing character: There is no ≈õ (U+015B) in font cmmi12!
+Missing character: There is no ƒá (U+0107) in font cmmi12!
+Missing character: There is no ƒá (U+0107) in font cmmi12!
+Missing character: There is no ≈Ç (U+0142) in font cmmi12!
+Missing character: There is no ≈Ç (U+0142) in font cmmi12!
+Missing character: There is no √≥ (U+00F3) in font cmmi12!
+Missing character: There is no √≥ (U+00F3) in font cmmi12!
+Missing character: There is no ≈º (U+017C) in font cmmi12!
+Missing character: There is no ≈º (U+017C) in font cmmi12!
+Missing character: There is no ≈õ (U+015B) in font cmmi12!
+Missing character: There is no ≈õ (U+015B) in font cmmi12!
+Missing character: There is no ƒá (U+0107) in font cmmi12!
+Missing character: There is no ƒá (U+0107) in font cmmi12!
+Missing character: There is no ≈Ç (U+0142) in font cmmi12!
+Missing character: There is no ≈Ç (U+0142) in font cmmi12!
 [15]
-Overfull \hbox (41.85168pt too wide) in paragraph at lines 409--410
-[]\T1/cmr/m/n/12 niespolaryzowane: wyªsze opo-datkowanie bo-gatych, wyrÛwny-wan
-ie do-chodÛw i pos™usze´stwo
- []
-
-<text_ASA_files/figure-latex/descr-plot-1.pdf, id=321, 469.755pt x 325.215pt>
+Missing character: There is no √≥ (U+00F3) in font cmmi12!
+Missing character: There is no √≥ (U+00F3) in font cmmi12!
+Missing character: There is no ≈º (U+017C) in font cmmi12!
+Missing character: There is no ≈º (U+017C) in font cmmi12!
+Missing character: There is no ≈õ (U+015B) in font cmmi12!
+Missing character: There is no ≈õ (U+015B) in font cmmi12!
+Missing character: There is no ƒá (U+0107) in font cmmi12!
+Missing character: There is no ƒá (U+0107) in font cmmi12!
+Missing character: There is no ≈Ç (U+0142) in font cmmi12!
+Missing character: There is no ≈Ç (U+0142) in font cmmi12!
+Missing character: There is no √≥ (U+00F3) in font cmmi12!
+Missing character: There is no √≥ (U+00F3) in font cmmi12!
+Missing character: There is no ≈º (U+017C) in font cmmi12!
+Missing character: There is no ≈º (U+017C) in font cmmi12!
+Missing character: There is no ≈õ (U+015B) in font cmmi12!
+Missing character: There is no ≈õ (U+015B) in font cmmi12!
+Missing character: There is no ƒá (U+0107) in font cmmi12!
+Missing character: There is no ƒá (U+0107) in font cmmi12!
+Missing character: There is no ≈Ç (U+0142) in font cmmi12!
+Missing character: There is no ≈Ç (U+0142) in font cmmi12!
+[16] [17]
+<text_ASA_files/figure-latex/descr-plot-1.pdf, id=363, 505.89pt x 578.16pt>
 File: text_ASA_files/figure-latex/descr-plot-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/descr-plot-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/descr-plot-1.pdf  used on 
-input line 413.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/descr-plot-1.pdf  used on i
+nput line 422.
+(luatex.def)             Requested size: 505.88875pt x 578.15858pt.
 
-Overfull \hbox (87.20123pt too wide) in paragraph at lines 412--414
-\T1/cmr/m/n/12 cow-anie w™asne [] 
+Overfull \hbox (43.61876pt too wide) in paragraph at lines 422--422
+ [] 
  []
 
-[16]
-Overfull \hbox (9.80125pt too wide) in paragraph at lines 415--416
-\T1/cmr/m/n/12 cych, ale rz°dz°cy ci musz° spe™-nia¢ pod-sta-wowe potrzeby wol-
-no±ci, rÛwno±ci i eko-nomicznego
+[18] [19<./text_ASA_files/figure-latex/descr-plot-1.pdf>]
+Overfull \hbox (7.19952pt too wide) in paragraph at lines 437--438
+[]\TU/lmr/m/n/12 Kon-cep-cjƒô de-mo-kra-cji mo≈ºna opi-saƒá zmiennƒÖ la-tentn
+ƒÖ, kt√≥ra wp≈Çywa na od-po-wie-dzi (zmienne
  []
 
-[17 <./text_ASA_files/figure-latex/descr-plot-1.pdf>]
-<text_ASA_files/figure-latex/cor-matrix-1.pdf, id=338, 469.755pt x 325.215pt>
+[20]
+<text_ASA_files/figure-latex/cor-matrix-1.pdf, id=385, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/cor-matrix-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/cor-matrix-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/cor-matrix-1.pdf  used on 
-input line 433.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/cor-matrix-1.pdf  used on i
+nput line 443.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (44.78104pt too wide) in paragraph at lines 432--434
-\T1/cmr/m/n/12 w™asne [] 
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 443--443
+[]  
  []
 
-[18] [19 <./text_ASA_files/figure-latex/cor-matrix-1.pdf>]
-Overfull \hbox (21.06114pt too wide) in paragraph at lines 449--450
-[]\T1/cmr/m/n/12 Druga kon-cepcja przed-stawia demokracj¶ g™Ûwnie jako gwaranta
- ko-rzy±ci lub bez-piecze´stwa
+[21<./text_ASA_files/figure-latex/cor-matrix-1.pdf>] [22] [23]
+Overfull \hbox (5.07669pt too wide) in paragraph at lines 469--470
+[]\TU/lmr/m/n/12 Mo≈ºna r√≥w-nie≈º spoj-rzeƒá na spo-≈Çeczne kon-cep-cje de-mo-
+kra-cji pod kƒÖ-tem jej trwa-≈Ço-≈õci. W szcze-
  []
 
-[20] [21]
-<text_ASA_files/figure-latex/diagram-all-1.pdf, id=372, 469.755pt x 325.215pt>
+[24]
+<text_ASA_files/figure-latex/diagram-all-1.pdf, id=421, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/diagram-all-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/diagram-all-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/diagram-all-1.pdf  used on
- input line 473.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/diagram-all-1.pdf  used on 
+input line 484.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (68.27531pt too wide) in paragraph at lines 472--474
-\T1/cmr/m/n/12 anie w™asne [] 
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 484--484
+ [] 
  []
 
-[22]
-<text_ASA_files/figure-latex/stats-all-1.pdf, id=378, 469.755pt x 325.215pt>
+[25<./text_ASA_files/figure-latex/diagram-all-1.pdf>]
+<text_ASA_files/figure-latex/stats-all-1.pdf, id=430, 505.89pt x 578.16pt>
 File: text_ASA_files/figure-latex/stats-all-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/stats-all-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/stats-all-1.pdf  used on i
-nput line 482.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/stats-all-1.pdf  used on in
+put line 494.
+(luatex.def)             Requested size: 505.88875pt x 578.15858pt.
 
-Overfull \hbox (263.01659pt too wide) in paragraph at lines 481--483
-\T1/cmr/m/n/12 ktÛrych dana kon-cepcja by™a domin-u-j°ca (na dole) [] 
+Overfull \hbox (43.61876pt too wide) in paragraph at lines 494--494
+ [] 
  []
 
-[23 <./text_ASA_files/figure-latex/diagram-all-1.pdf>] [24 <./text_ASA_files/fi
-gure-latex/stats-all-1.pdf>]
-Overfull \hbox (15.15068pt too wide) in paragraph at lines 490--491
-[]\T1/cmr/m/n/12 Moªna jed-nak przy-puszcza¢, ªe ist-niej° w Eu-ropie grupy pa´
-stw o wystar-cza-j°co zbliªonych
+[26] [27<./text_ASA_files/figure-latex/stats-all-1.pdf>]
+Overfull \hbox (0.83522pt too wide) in paragraph at lines 510--514
+\TU/lmr/m/n/12 Mo≈ºna przy-pusz-czaƒá, ≈ºe r√≥≈º-nice wy-ni-kajƒÖ z hi-sto-rycz
+-nych uwa-run-ko-wa≈Ñ. Spora czƒô≈õƒá pa≈Ñstw
  []
 
-<text_ASA_files/figure-latex/cor-matrix-lib-1.pdf, id=400, 469.755pt x 325.215p
-t>
+[28]
+<text_ASA_files/figure-latex/cor-matrix-lib-1.pdf, id=452, 469.755pt x 325.215pt
+>
 File: text_ASA_files/figure-latex/cor-matrix-lib-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/cor-matrix-lib-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/cor-matrix-lib-1.pdf  used
- on input line 509.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/cor-matrix-lib-1.pdf  used 
+on input line 522.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (202.96477pt too wide) in paragraph at lines 508--510
-\T1/cmr/m/n/12 er-al-nych. ôrÛd™o: opra-cow-anie w™asne [] 
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 522--522
+[]  
  []
 
-[25]
-<text_ASA_files/figure-latex/diagram-west-1.pdf, id=409, 469.755pt x 325.215pt>
-
+[29]
+<text_ASA_files/figure-latex/diagram-west-1.pdf, id=458, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/diagram-west-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/diagram-west-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/diagram-west-1.pdf  used o
-n input line 514.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/diagram-west-1.pdf  used on
+ input line 528.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (216.3434pt too wide) in paragraph at lines 513--515
-\T1/cmr/m/n/12 lib-er-al-nych. ôrÛd™o: opra-cow-anie w™asne [] 
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 528--528
+ [] 
  []
 
-[26 <./text_ASA_files/figure-latex/cor-matrix-lib-1.pdf>]
-<text_ASA_files/figure-latex/stats-west-1.pdf, id=419, 469.755pt x 325.215pt>
+[30<./text_ASA_files/figure-latex/cor-matrix-lib-1.pdf>]
+<text_ASA_files/figure-latex/stats-west-1.pdf, id=467, 505.89pt x 578.16pt>
 File: text_ASA_files/figure-latex/stats-west-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/stats-west-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/stats-west-1.pdf  used on 
-input line 519.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/stats-west-1.pdf  used on i
+nput line 534.
+(luatex.def)             Requested size: 505.88875pt x 578.15858pt.
 
-Overfull \hbox (263.01659pt too wide) in paragraph at lines 518--520
-\T1/cmr/m/n/12 ktÛrych dana kon-cepcja by™a domin-u-j°ca (na dole) [] 
+Overfull \hbox (43.61876pt too wide) in paragraph at lines 534--534
+ [] 
  []
 
-[27 <./text_ASA_files/figure-latex/diagram-west-1.pdf>]
-Overfull \hbox (103.34732pt too wide) in paragraph at lines 525--536
-[][] 
- []
-
-[28 <./text_ASA_files/figure-latex/stats-west-1.pdf>]
-<text_ASA_files/figure-latex/cor-matrix-east-1.pdf, id=442, 469.755pt x 325.215
-pt>
+[31<./text_ASA_files/figure-latex/diagram-west-1.pdf>] [32<./text_ASA_files/figu
+re-latex/stats-west-1.pdf>]
+<text_ASA_files/figure-latex/cor-matrix-east-1.pdf, id=488, 469.755pt x 325.215p
+t>
 File: text_ASA_files/figure-latex/cor-matrix-east-1.pdf Graphic file (type pdf)
-
 <use text_ASA_files/figure-latex/cor-matrix-east-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/cor-matrix-east-1.pdf  use
-d on input line 545.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/cor-matrix-east-1.pdf  used
+ on input line 565.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (8.09155pt too wide) in paragraph at lines 544--546
-[]\T1/cmr/m/n/12 Rys. 9: Macierz ko-relacji odpowiedzi na py-ta-nia o demokracj
-¶ w grupie by™ych demokracji
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 565--565
+[]  
  []
 
-
-Overfull \hbox (208.1857pt too wide) in paragraph at lines 544--546
-\T1/cmr/m/n/12 lu-dowych. ôrÛd™o: opra-cow-anie w™asne [] 
- []
-
-[29 <./text_ASA_files/figure-latex/cor-matrix-east-1.pdf>]
-<text_ASA_files/figure-latex/diagram-east-1.pdf, id=452, 469.755pt x 325.215pt>
-
+[33]
+<text_ASA_files/figure-latex/diagram-east-1.pdf, id=494, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/diagram-east-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/diagram-east-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/diagram-east-1.pdf  used o
-n input line 550.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/diagram-east-1.pdf  used on
+ input line 571.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (266.92134pt too wide) in paragraph at lines 549--551
-\T1/cmr/m/n/12 demokracji lu-dowych. ôrÛd™o: opra-cow-anie w™asne [] 
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 571--571
+ [] 
  []
 
-
-Overfull \hbox (36.84154pt too wide) in paragraph at lines 552--553
-[]\T1/cmr/m/n/12 Jednak nie uda™o si¶ poprawnie wyesty-mowa¢ mod-elu w kaªdym k
-raju z os-obna. RÛwnowaªno±¢
- []
-
-
-Overfull \hbox (9.62515pt too wide) in paragraph at lines 562--563
-\T1/cmr/m/n/12 zwi°zkÛw mi¶dzy zmi-en-nymi. Dla kaªdego oblic-zono macierz ko-r
-elacji i wyko-nano grupowanie
- []
-
-[30 <./text_ASA_files/figure-latex/diagram-east-1.pdf>]
-<text_ASA_files/figure-latex/dendrogram-1.pdf, id=464, 469.755pt x 325.215pt>
+[34<./text_ASA_files/figure-latex/cor-matrix-east-1.pdf>] [35<./text_ASA_files/f
+igure-latex/diagram-east-1.pdf>]
+<text_ASA_files/figure-latex/dendrogram-1.pdf, id=517, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/dendrogram-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/dendrogram-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/dendrogram-1.pdf  used on 
-input line 567.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/dendrogram-1.pdf  used on i
+nput line 589.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (198.94025pt too wide) in paragraph at lines 566--568
-\T1/cmr/m/n/12 a-cyjn°. ôrÛd™o: opra-cow-anie w™asne. [] 
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 589--589
+ [] 
  []
 
-[31 <./text_ASA_files/figure-latex/dendrogram-1.pdf>]
-<text_ASA_files/figure-latex/silhouette-1.pdf, id=475, 469.755pt x 325.215pt>
+[36<./text_ASA_files/figure-latex/dendrogram-1.pdf>]
+<text_ASA_files/figure-latex/silhouette-1.pdf, id=532, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/silhouette-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/silhouette-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/silhouette-1.pdf  used on 
-input line 576.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/silhouette-1.pdf  used on i
+nput line 599.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (372.83237pt too wide) in paragraph at lines 575--577
-[]\T1/cmr/m/n/12 Rys. 12: Test syl-wetkowy grupowa-nia, ôrÛd™o: opra-cow-anie w
-™asne. [] 
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 599--599
+ [] 
  []
 
-[32 <./text_ASA_files/figure-latex/silhouette-1.pdf>]
-<text_ASA_files/figure-latex/cor-matrix-1-1.pdf, id=486, 469.755pt x 325.215pt>
-
+[37]
+<text_ASA_files/figure-latex/cor-matrix-1-1.pdf, id=539, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/cor-matrix-1-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/cor-matrix-1-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/cor-matrix-1-1.pdf  used o
-n input line 586.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/cor-matrix-1-1.pdf  used on
+ input line 610.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (195.45966pt too wide) in paragraph at lines 585--587
-\T1/cmr/m/n/12 zielono. ôrÛd™o: opra-cow-anie w™asne [] 
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 610--610
+[]  
  []
 
-[33 <./text_ASA_files/figure-latex/cor-matrix-1-1.pdf>]
-<text_ASA_files/figure-latex/diagram-1-1.pdf, id=496, 469.755pt x 325.215pt>
+[38<./text_ASA_files/figure-latex/silhouette-1.pdf>] [39<./text_ASA_files/figure
+-latex/cor-matrix-1-1.pdf>]
+<text_ASA_files/figure-latex/diagram-1-1.pdf, id=557, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/diagram-1-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/diagram-1-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/diagram-1-1.pdf  used on i
-nput line 593.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/diagram-1-1.pdf  used on in
+put line 618.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (239.51143pt too wide) in paragraph at lines 592--594
-\T1/cmr/m/n/12 zonej na zielono. ôrÛd™o: opra-cow-anie w™asne [] 
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 618--618
+ [] 
  []
 
-<text_ASA_files/figure-latex/stats-gr-1-1.pdf, id=497, 469.755pt x 325.215pt>
+<text_ASA_files/figure-latex/stats-gr-1-1.pdf, id=558, 505.89pt x 578.16pt>
 File: text_ASA_files/figure-latex/stats-gr-1-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/stats-gr-1-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/stats-gr-1-1.pdf  used on 
-input line 598.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/stats-gr-1-1.pdf  used on i
+nput line 624.
+(luatex.def)             Requested size: 505.88875pt x 578.15858pt.
 
-Overfull \hbox (7.48387pt too wide) in paragraph at lines 597--599
-[] 
+Overfull \hbox (43.61876pt too wide) in paragraph at lines 624--624
+ [] 
  []
 
-[34 <./text_ASA_files/figure-latex/diagram-1-1.pdf>]
-Overfull \hbox (103.34732pt too wide) in paragraph at lines 604--615
-[][] 
- []
-
-[35 <./text_ASA_files/figure-latex/stats-gr-1-1.pdf>]
-Overfull \hbox (6.66885pt too wide) in paragraph at lines 625--626
-\T1/cmr/m/n/12 Charak-terysty-czne dla tej grupy s° pozy-ty-wne ko-relacje zmi-
-en-nej oz-nacza-j°cej pos™usze´stwo
- []
-
-<text_ASA_files/figure-latex/cor-matrix-3-1.pdf, id=520, 469.755pt x 325.215pt>
-
+[40<./text_ASA_files/figure-latex/diagram-1-1.pdf>] [41<./text_ASA_files/figure-
+latex/stats-gr-1-1.pdf>]
+<text_ASA_files/figure-latex/cor-matrix-3-1.pdf, id=579, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/cor-matrix-3-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/cor-matrix-3-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/cor-matrix-3-1.pdf  used o
-n input line 628.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/cor-matrix-3-1.pdf  used on
+ input line 659.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (206.8805pt too wide) in paragraph at lines 627--629
-\T1/cmr/m/n/12 cz-er-wono. ôrÛd™o: opra-cow-anie w™asne [] 
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 659--659
+[]  
  []
 
-[36 <./text_ASA_files/figure-latex/cor-matrix-3-1.pdf>]
-<text_ASA_files/figure-latex/diagram-3-1.pdf, id=530, 469.755pt x 325.215pt>
+[42]
+<text_ASA_files/figure-latex/diagram-3-1.pdf, id=585, 469.755pt x 325.215pt>
 File: text_ASA_files/figure-latex/diagram-3-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/diagram-3-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/diagram-3-1.pdf  used on i
-nput line 635.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/diagram-3-1.pdf  used on in
+put line 667.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (250.93227pt too wide) in paragraph at lines 634--636
-\T1/cmr/m/n/12 zonej na cz-er-wono. ôrÛd™o: opra-cow-anie w™asne [] 
+Overfull \hbox (7.48387pt too wide) in paragraph at lines 667--667
+ [] 
  []
 
-<text_ASA_files/figure-latex/stats-gr-3-1.pdf, id=531, 469.755pt x 325.215pt>
+[43<./text_ASA_files/figure-latex/cor-matrix-3-1.pdf>]
+<text_ASA_files/figure-latex/stats-gr-3-1.pdf, id=594, 505.89pt x 578.16pt>
 File: text_ASA_files/figure-latex/stats-gr-3-1.pdf Graphic file (type pdf)
 <use text_ASA_files/figure-latex/stats-gr-3-1.pdf>
-Package pdftex.def Info: text_ASA_files/figure-latex/stats-gr-3-1.pdf  used on 
-input line 640.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package luatex.def Info: text_ASA_files/figure-latex/stats-gr-3-1.pdf  used on i
+nput line 673.
+(luatex.def)             Requested size: 505.88875pt x 578.15858pt.
 
-Overfull \hbox (7.48387pt too wide) in paragraph at lines 639--641
-[] 
+Overfull \hbox (43.61876pt too wide) in paragraph at lines 673--673
+ [] 
  []
 
-[37 <./text_ASA_files/figure-latex/diagram-3-1.pdf>]
-Overfull \hbox (103.34732pt too wide) in paragraph at lines 646--657
-[][] 
- []
-
-[38 <./text_ASA_files/figure-latex/stats-gr-3-1.pdf>]
-Overfull \hbox (8.72868pt too wide) in paragraph at lines 665--666
-[]\T1/cmr/m/n/12 Zestaw kon-cepcji demokracji, ktÛrymi kieruj° si¶ oby-wa-tele,
- nie jest wspÛlny dla badanych
- []
-
-[39]
-Overfull \hbox (14.5525pt too wide) in paragraph at lines 675--676
-\T1/cmr/m/n/12 dziesi¶-ciu py-ta-ni-ach, ktÛre znalaz™y si¶ w ankiecie. Przepro
-wad-zone badanie, mimo ogranicze´,
- []
-
-(text_ASA.bbl [40] [41])
-
-Package natbib Warning: There were undefined citations.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 680.
-[42]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 680.
-(text_ASA.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 680.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 680.
+[44<./text_ASA_files/figure-latex/diagram-3-1.pdf>] [45<./text_ASA_files/figure-
+latex/stats-gr-3-1.pdf>] [46] [47] (./text_ASA.bbl [48] [49])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 717.
+[50]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 717.
+(./text_ASA.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 717.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 717.
 Package rerunfilecheck Info: File `text_ASA.out' has not changed.
-(rerunfilecheck)             Checksum: 3B2136A0A2A9436D456CBAC021B4292E;2089.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 680.
- ) 
-Here is how much of TeX's memory you used:
- 9232 strings out of 492450
- 135463 string characters out of 3129736
- 233919 words of memory out of 3000000
- 13236 multiletter control sequences out of 15000+200000
- 20559 words of font info for 49 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 39i,8n,37p,1481b,453s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Agnieszka\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi
-600\tcrm1200.pk> <C:\Users\Agnieszka\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/j
-knappen/ec/dpi600\ecbx1200.pk> <C:\Users\Agnieszka\AppData\Local\MiKTeX\2.9\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Agnieszka\AppData\Local\
-MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\Agnieszka\
-AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Us
-ers\Agnieszka\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1
-440.pk> <C:\Users\Agnieszka\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/e
-c/dpi600\ecbx1728.pk> <C:\Users\Agnieszka\AppData\Local\MiKTeX\2.9\fonts/pk/ljf
-our/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Agnieszka\AppData\Local\MiKTeX\2.
-9\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\Agnieszka\AppData\L
-ocal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\Agnie
-szka\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <
-C:\Users\Agnieszka\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
-ecrm1440.pk> <C:\Users\Agnieszka\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecbx2074.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on text_ASA.pdf (42 pages, 579603 bytes).
-PDF statistics:
- 1061 PDF objects out of 1200 (max. 8388607)
- 139 named destinations out of 1000 (max. 500000)
- 302 words of extra memory for PDF output out of 10000 (max. 10000000)
+(rerunfilecheck)             Checksum: 09CA511307C121AEF275C5BC860095BC;5873.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 717.
+)
+
+Here is how much of LuaTeX's memory you used:
+ 15010 strings out of 493861
+ 100000,383344 words of node,token memory allocated
+ 2253 words of node memory still in use:
+   50 hlist, 7 vlist, 5 rule, 14 math, 47 glue, 10 kern, 56 glyph, 140 attribute
+, 61 glue_spec, 71 attribute_list, 1 write, 5 pdf_action nodes
+   avail lists: 2:426,3:109,4:26,5:301,6:19,7:3201,8:54,9:234,10:15,11:438
+ 18771 multiletter control sequences out of 65536+200000
+ 58 fonts using 4351903 bytes
+ 39i,20n,42p,1478b,504s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/program files/miktex 2.9/fonts/opentype/public/lm/lmroman7-regular.otf><c:/p
+rogram files/miktex 2.9/fonts/opentype/public/lm/lmroman8-regular.otf><c:/progra
+m files/miktex 2.9/fonts/opentype/public/lm/lmroman12-italic.otf><c:/program fil
+es/miktex 2.9/fonts/opentype/public/lm/lmroman10-regular.otf><c:/program files/m
+iktex 2.9/fonts/opentype/public/lm/lmroman10-bold.otf><c:/program files/miktex 2
+.9/fonts/opentype/public/lm/lmroman12-regular.otf><c:/program files/miktex 2.9/f
+onts/opentype/public/lm/lmroman12-bold.otf><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on text_ASA.pdf (50 pages, 501071 bytes).
+
+PDF statistics: 709 PDF objects out of 1000 (max. 8388607)
+ 156 named destinations out of 1000 (max. 131072)
+ 217 words of extra memory for PDF output out of 10000 (max. 100000000)
 
