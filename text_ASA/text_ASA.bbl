@@ -41,11 +41,18 @@ Doorenspleet, R.  \harvardyearleft 2019\harvardyearright , {\em Rethinking the
 Everitt, B.~S.  \harvardyearleft 1984\harvardyearright , {\em An Introduction
   to Latent Variable Models}, Chapman and Hall.
 
-\harvarditem{G. \harvardand\ R.}{2014}{HirBra}
-G., H. \harvardand\ R., v.~B.  \harvardyearleft 2014\harvardyearright ,
-  `Improving multiple-group confirmatory factor analysis in r – a tutorial in
-  measurement invariance with continuous and ordinal indicators', {\em
-  Practical Assessment, Research, and Evaluation} {\bf 19}(7).
+\harvarditem{Hirschfeld \harvardand\ von Brachel}{2014}{HirBra}
+Hirschfeld, G. \harvardand\ von Brachel, R.  \harvardyearleft
+  2014\harvardyearright , `Improving multiple-group confirmatory factor
+  analysis in r – a tutorial in measurement invariance with continuous and
+  ordinal indicators', {\em Practical Assessment, Research, and Evaluation}
+  {\bf 19}(7).
+
+\harvarditem{Hu \harvardand\ Bentler}{1999}{HuBentler}
+Hu, L.~t. \harvardand\ Bentler, P.~M.  \harvardyearleft 1999\harvardyearright ,
+  `Cutoff criteria for fit indexes in covariance structure analysis:
+  Conventional criteria versus new alternatives', {\em Structural Equation
+  Modeling} {\bf 6}(1),~1 – 55.
 
 \harvarditem[Inglehart et~al.]{Inglehart, amd A.~Moreno, Welzel, Kizilova,
   Diez-Medrano, Lagos, Norris, Ponarin \harvardand\ et~al.}{2014}{WVSData}
@@ -55,10 +62,10 @@ Inglehart, R., amd A.~Moreno, C.~H., Welzel, C., Kizilova, K., Diez-Medrano,
   country-pooled datafile version'.
 \newline\harvardurl{www.worldvaluessurvey.org/WVSDocumentationWV6.jsp}
 
-\harvarditem{Jasko \harvardand\ Kossowska}{2008}{JaskoKoss}
-Jasko, K. \harvardand\ Kossowska, M.  \harvardyearleft 2008\harvardyearright ,
-  `Wplyw wartosci na rozumienie pojecia demokracji', {\em Psychologia
-  spoleczna} {\bf tom 3 3 (8)},~243 – 257.
+\harvarditem{Jaśko \harvardand\ Kossowska}{2008}{JaskoKoss}
+Jaśko, K. \harvardand\ Kossowska, M.  \harvardyearleft 2008\harvardyearright ,
+  `Wplyw wartości na rozumienie pojęcia demokracji', {\em Psychologia
+  społeczna} {\bf tom 3 3 (8)},~243 – 257.
 
 \harvarditem{Katsikatsou \harvardand\ Kuha}{2019}{ESSEduNet}
 Katsikatsou, M. \harvardand\ Kuha, J.  \harvardyearleft 2019\harvardyearright ,
@@ -71,9 +78,9 @@ Klingemann, H.-D.  \harvardyearleft 1998\harvardyearright , `Mapping political
   support in the 1990s: A global analysis', {\em WZB Discussion Paper} {\bf
   3},~98--202.
 
-\harvarditem{Lubiewska \harvardand\ Glogowska}{2018}{LubGlog}
-Lubiewska, K. \harvardand\ Glogowska, K.  \harvardyearleft
-  2018\harvardyearright , `Zastosowanie analizy rownowaznosci pomiarowej w
+\harvarditem{Lubiewska \harvardand\ Głogowska}{2018}{LubGlog}
+Lubiewska, K. \harvardand\ Głogowska, K.  \harvardyearleft
+  2018\harvardyearright , `Zastosowanie analizy równoważności pomiarowej w
   badaniach psychologicznych', {\em Polskie Forum Psychologiczne} {\bf
   23}(2),~330 -- 356.
 
@@ -85,9 +92,9 @@ Maechler, M., Rousseeuw, P., Struyf, A., Hubert, M. \harvardand\ Hornik, K.
 \newblock R package version 2.1.0.
 
 \harvarditem{Pokropek}{2013}{Pokropek}
-Pokropek, A.  \harvardyearleft 2013\harvardyearright , Porownywalnosc w
-  badaniach miedzynarodowych. przyklad wskaznika motywacji do nauki w badaniu
-  pisa 2006, polska edukacja w swietle diagnoz prowadzonych z roznych
+Pokropek, A.  \harvardyearleft 2013\harvardyearright , Porównywalność w
+  badaniach międzynarodowych. przykład wskaźnika motywacji do nauki w
+  badaniu pisa 2006, polska edukacja w świetle diagnz prowadzonych z różnych
   perspektyw badawczych, {\em in} `XIX Konferencja Diagnostyki Edukacyjnej'.
 
 \harvarditem{Przeworski}{1999}{Przeworski}
@@ -135,11 +142,5 @@ Shapiro, A.  \harvardyearleft 1985\harvardyearright , `Identifiability of
 Struyf, A., Hubert, M. \harvardand\ Rousseeuw, P.  \harvardyearleft
   1997\harvardyearright , `Clustering in an object-oriented environment', {\em
   Journal of Statistical Software} {\bf 1}.
-
-\harvarditem{t.~Hu \harvardand\ Bentler}{1999}{HuBentler}
-t.~Hu, L. \harvardand\ Bentler, P.~M.  \harvardyearleft 1999\harvardyearright ,
-  `Cutoff criteria for fit indexes in covariance structure analysis:
-  Conventional criteria versus new alternatives', {\em Structural Equation
-  Modeling} {\bf 6}(1),~1 – 55.
 
 \end{thebibliography}

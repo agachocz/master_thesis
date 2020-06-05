@@ -1,0 +1,52 @@
+Strona tytułowa w stylu AGH 
+Trzeba też otaczać tabele \begin{table} \end{table}, żeby zawrzeć je w spisie 
+
+\if0\blind
+{
+  \begin{center}
+  \includegraphics{AGHlogo.jpg}\\[8ex]
+    \textbf{WYDZIAŁ ZARZĄDZANIA}
+
+   Pracownia Zastosowań Matematyki w Ekonomii
+  \end{center}
+  \begin{center}
+    \large{Praca dyplomowa  magisterska}
+  \end{center}
+\begin{center}
+  \large{\bf Zagadnienie równoważności pomiarowej w badaniach różnic w postrzeganiu demokracji w UE.}
+
+  \large{\bf The problem of measurement invariance in the reaserch of differences in attitude toward democracy in the EU.}
+\end{center}
+\bigskip
+\vspace{2cm}
+\begin{tabbing}
+\hspace{5cm} \= \hspace{5cm} \\
+Autor:	 \> Agnieszka Choczyńska \\
+Kierunek studiów: \>  Informatyka i Ekonometria \\
+Opiekun pracy: \> dr Jacek Wolak \\
+\end{tabbing}
+
+\begin{center}
+	Kraków, 2020
+\end{center}
+
+} \fi
+
+\if1\blind
+{
+  \bigskip
+  \bigskip
+  \bigskip
+  \begin{center}
+    {\LARGE\bf Zagadnienie równoważności pomiarowej w badaniach różnic w postrzeganiu demokracji w UE.}
+  \end{center}
+  \medskip
+} \fi
+
+
+\newpage
+\spacingset{1.45} % DON'T change the spacing!
+
+\tableofcontents
+\listoftables
+\listoffigures
