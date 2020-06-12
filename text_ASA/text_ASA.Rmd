@@ -1,5 +1,5 @@
 ---
-title: Zagadnienie równoważności pomiarowej w badaniach różnic w postrzeganiu demokracji w UE.
+title: Zagadnienie równoważności pomiarowej w badaniach różnic w postrzeganiu demokracji w krajach europejskich.
 
 # to produce blinded version set to 1
 blinded: 0
@@ -23,7 +23,8 @@ fontsize: 12pt
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F, warning = F, message = F)
-knitr::opts_knit$set(eval.after = "fig.cap")
+library(tikzDevice)
+knitr::opts_knit$set(eval.after = "fig.cap", dev = 'tikz')
 library(knitr)
 library(kableExtra)
 library(ggplot2)
@@ -42,6 +43,10 @@ library(ggdendro)
 table_nums <- captioner(prefix = "Tabela")
 fig_nums <- captioner(prefix = "Rys.")
 
+```
+
+```{r, echo=FALSE}
+pdf.options(encoding='CP1250')
 ```
 
 # Wprowadzenie {.unnumbered}
@@ -437,6 +442,7 @@ dem_data %>%
   ggplot(aes(answer)) + geom_histogram(bins = 10, col = "black") +
   facet_wrap(~variable, nrow = 5, scales = "free", 
     labeller = labeller(variable = questions)) + theme_light() +
+ # theme(text = element_text(family = "serif")) +
   scale_x_continuous("Odpowiedź", breaks = 1:10) +
   scale_y_continuous("Liczba odpowiedzi")
 ```
@@ -467,6 +473,7 @@ Koncepcję demokracji można opisać zmienną latentną, która wpływa na odpow
 
 
 ```{r cor-matrix, fig.align = 'left', fig.cap = "Macierz korelacji odpowiedzi na pytania o demokrację. Źródło: opracowanie własne."}
+
 cor.matrix <- cor(dem_data[,2:11], method="spearman")
 
 quest.short <- c("X1: Opodatkowanie bogatych",
@@ -476,13 +483,14 @@ quest.short <- c("X1: Opodatkowanie bogatych",
                   "X5: Wojsko przejmuje władzę",
                   "X6: Prawa obywatelskie",
                   "X7: Wyrównywanie dochodów",
-                  "X8: Posłuszenstwo rządzącym",
+                  "X8: Posłuszeństwo rządzącym",
                   "X9: Równouprawnienie",
                   "X10: Ważność demokracji")
 
 colnames(cor.matrix) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9", "X10")
 rownames(cor.matrix) <- quest.short
 
+par(family = 'serif')
 corrplot(cor.matrix, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
 ```
 
@@ -541,10 +549,13 @@ Ze względu na złamanie założenia o normalności zmiennych mierzalnych, model
 
 
 ```{r diagram-all, fig.align = 'center', fig.cap = "Diagram modelu analizy czynnikowej koncepcji demokracji. Źródło: opracowanie własne."}
+par(family = 'serif')
+
 quest.min <- c(obeyRulers = "X8", religiousLaw = "X2", armyTakesOver = "X5", 
                equalIncome = "X7", taxRich = "X1", helpUnemp = "X4", freeElection = "X3", 
                genderEquality = "X9", civilRights = "X6", importance = "X10", "I", "II", "III")
 
+par(family = 'serif')
 semPaths(object = fit,
          whatLabels = "std",           
          edge.label.cex = 1, nCharNodes = 0,         
@@ -585,8 +596,8 @@ all_stats <- dem_data %>% mutate(I = (obeyRulers*fnd_all_w[1]+religiousLaw*fnd_a
 
 bxp <- all_stats %>% select(I, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
         ggboxplot(x = "Koncepcja", y = "Wartość",
-                 color = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
-        theme(legend.position = "none")
+        color = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
+  theme(legend.position = "none", text = element_text(family = "serif"))
 
 levels <- c("I", "II", "III")
 all_stats$leading <- factor(all_stats$leading, levels)
@@ -596,7 +607,8 @@ bar <- all_stats %>% select(leading) %>%
               geom_bar(fill=c("blue", "orange", "darkgreen")) + 
               geom_text(stat = "count", aes(label=..count..), vjust=-0.5, size=4) +
               scale_x_discrete("Dominująca koncepcja", drop=F) +
-              labs(y = "Liczba osób") + expand_limits(y = c(1, 20000))
+              labs(y = "Liczba osób") + expand_limits(y = c(1, 20000)) +
+              theme(text = element_text(family = "serif"))
         
 
 yplot <- all_stats %>% select(I, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
@@ -686,6 +698,7 @@ group2_cor <- cor(group2_data[,2:11], method="spearman")
 colnames(group2_cor) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9", "X10")
 rownames(group2_cor) <- quest.short
 
+par(family = 'serif')
 corrplot(group2_cor, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
 ```
 
@@ -711,6 +724,7 @@ quest.min <- c(obeyRulers = "X8", religiousLaw = "X2", armyTakesOver = "X5",
                equalIncome = "X7", taxRich = "X1", helpUnemp = "X4", freeElection = "X3", 
                genderEquality = "X9", civilRights = "X6", importance = "X10", "Ilib", "II", "III")
 
+par(family = 'serif')
 semPaths(object = group2_fit,
          whatLabels = "std",           
          edge.label.cex = 1, nCharNodes = 0,         
@@ -748,7 +762,7 @@ gr2_stats <- group2_data %>% mutate(Ilib = (obeyRulers*fnd_2_w[1]+religiousLaw*f
 bxp <- gr2_stats %>% select(Ilib, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
   ggboxplot(x = "Koncepcja", y = "Wartość",
             color = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
-  theme(legend.position = "none")
+  theme(legend.position = "none", text = element_text(family = "serif"))
 
 levels <- c("Ilib", "II", "III")
 gr2_stats$leading <- factor(gr2_stats$leading, levels)
@@ -758,7 +772,8 @@ bar <- gr2_stats %>% select(leading) %>%
   fill=c(Ilib = "blue", II = "orange", III = "darkgreen")) + 
   geom_text(stat = "count", aes(label=..count..), vjust=-0.5, size=4) +
   scale_x_discrete("Dominująca koncepcja", drop=F) +
-  labs(y = "Liczba osób") + expand_limits(y = c(1, 5000))
+  labs(y = "Liczba osób") + expand_limits(y = c(1, 5000)) +
+  theme(text = element_text(family = "serif"))
 
 
 yplot <- gr2_stats %>% select(Ilib, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
@@ -811,6 +826,7 @@ east_cor <- cor(east_data[,2:11], method="spearman")
 colnames(east_cor) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9", "X10")
 rownames(east_cor) <- quest.short
 
+par(family = 'serif')
 corrplot(east_cor, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
 ```
 
@@ -833,6 +849,7 @@ quest.min <- c(obeyRulers = "X8", religiousLaw = "X2", armyTakesOver = "X5",
                genderEquality = "X9", civilRights = "X6", importance = "X10", 
                "Ilib", "IIlud", "III")
 
+par(family = 'serif')
 semPaths(object = east_fit,
          whatLabels = "std",           
          edge.label.cex = 1, nCharNodes = 0,         
@@ -869,11 +886,12 @@ dg <- as.dendrogram(clustering)
 
 ggdendrogram(dg) + labs(y = "Wysokość") + 
   theme(panel.grid.major.y = element_line(size = 0.5, color = "lightgrey"),
-        panel.grid.minor.y = element_line(size = 0.5, color = "lightgrey"))
+        panel.grid.minor.y = element_line(size = 0.5, color = "lightgrey"),
+        text = element_text(family = "serif"))
 ```
 
 
-Na `r fig_nums(name = "dendrogram", display = "cite")` widać trzy wyraźnie wyodrębnione grupy. Pierwszą (oznaczoną na mapie kolorem zielonym) tworzą państwa Europy środkowo-wschodniej oraz Gruzja; drugą (oznaczoną na czerwono) głównie państwa leżące nad Morzem Czarnym, ale też Słowenia i Hiszpania. Trzecia grupa (oznaczoną na niebiesko) składa się z krajów północno-zachodniej Europy i pokrywa się z grupą demokracji liberalnych, która została już przeanalizowana w poprzednim rozdziale. Wzorzec geograficzny jest więc wyraźny, ale nie pozbawiony wyjątków, co widać na `r fig_nums(name = "map2", display = "cite")`. Dużą przeszkodą w wyciąganiu ogólnych wniosków jest ograniczony zasięg badania. Z większości państw zachodniej oraz południowej Europy nie ma danych, i trudno przewidzieć, jakie wzorce występują w tych rejonach.
+Na `r fig_nums(name = "dendrogram", display = "cite")` widać trzy wyraźnie wyodrębnione grupy. Pierwszą (oznaczoną na mapie kolorem zielonym) tworzą państwa Europy środkowo-wschodniej oraz Gruzja; drugą (oznaczoną na czerwono) głównie państwa leżące nad Morzem Czarnym, ale też Słowenia i Hiszpania. Trzecia grupa (oznaczona na niebiesko) składa się z krajów północno-zachodniej Europy i pokrywa się z grupą demokracji liberalnych, która została już przeanalizowana w poprzednim rozdziale. Wzorzec geograficzny jest więc wyraźny, ale nie pozbawiony wyjątków, co widać na `r fig_nums(name = "map2", display = "cite")`. Dużą przeszkodą w wyciąganiu ogólnych wniosków jest ograniczony zasięg badania. Z większości państw zachodniej oraz południowej Europy nie ma danych, i trudno przewidzieć, jakie wzorce występują w tych rejonach.
 
 ```{r map2, fig.cap = "Mapa podziału na grupy według podobieństwa macierzy korelacji. Źródło: opracowanie własne.", out.width="450px"}
 include_graphics("map2.png")
@@ -895,7 +913,8 @@ sil_data$cluster <- as.factor(sil_data$cluster)
 ggplot(sil_data) + 
   geom_col(aes(x = countr.pl, y = width, fill = cluster)) +
   scale_fill_manual(values = c("darkgreen", "blue", "red")) +
-  coord_flip() + labs(x = "Państwo", y = "Wskaźnik sylwetkowy", fill = "Grupa")
+  coord_flip() + labs(x = "Państwo", y = "Wskaźnik sylwetkowy", fill = "Grupa") +
+  theme(text = element_text(family = "serif"))
 ```
 
 
@@ -919,6 +938,7 @@ group1_cor <- cor(group1_data[,2:11], method="spearman")
 colnames(group1_cor) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9", "X10")
 rownames(group1_cor) <- quest.short
 
+par(family = 'serif')
 corrplot(group1_cor, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
 ```
 
@@ -943,6 +963,7 @@ quest.min <- c(obeyRulers = "X8", religiousLaw = "X2", armyTakesOver = "X5",
                genderEquality = "X9", civilRights = "X6", importance = "X10", 
                "I", "IIlud", "III")
 
+par(family = 'serif')
 semPaths(object = group1_fit,
          whatLabels = "std",           
          edge.label.cex = 1, nCharNodes = 0,         
@@ -980,7 +1001,7 @@ gr1_stats <- group1_data %>% mutate(I = (obeyRulers*fnd_1_w[1]+religiousLaw*fnd_
 bxp <- gr1_stats %>% select(I, IIlud, III) %>% gather(key="Koncepcja", value="Wartość") %>%
   ggboxplot(x = "Koncepcja", y = "Wartość",
             color = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
-  theme(legend.position = "none")
+  theme(legend.position = "none", text = element_text(family = "serif"))
 
 levels <- c("I", "IIlud", "III")
 gr1_stats$leading <- factor(gr1_stats$leading, levels)
@@ -990,7 +1011,8 @@ bar <- gr1_stats %>% select(leading) %>%
   fill=c(I = "blue", IIlud = "orange", III = "darkgreen")) + 
   geom_text(stat = "count", aes(label=..count..), vjust=-0.5, size=4) +
   scale_x_discrete("Dominująca koncepcja", drop=F) +
-  labs(y = "Liczba osób") + expand_limits(y = c(1, 6000))
+  labs(y = "Liczba osób") + expand_limits(y = c(1, 6000)) +
+  theme(text = element_text(family = "serif"))
 
 
 yplot <- gr1_stats %>% select(I, IIlud, III) %>% gather(key="Koncepcja", value="Wartość") %>%
@@ -1048,6 +1070,7 @@ group3_cor <- cor(group1_data[,2:11], method="spearman")
 colnames(group3_cor) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9", "X10")
 rownames(group3_cor) <- quest.short
 
+par(family = 'serif')
 corrplot(group3_cor, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
 ```
 
@@ -1059,6 +1082,7 @@ W koncepcji I najważniejsza jest interpretacja prawa przez autorytety religijne
 
 
 ```{r diagram-3, fig.align = 'center', fig.cap = "Diagram modelu analizy czynnikowej koncepcji demokracji w grupie oznaczonej na czerwono. Źródło: opracowanie własne."}
+
 group3_model <- '
 I =~ obeyRulers + religiousLaw + armyTakesOver; 
 IV =~ taxRich + equalIncome + helpUnemp +
@@ -1071,6 +1095,7 @@ quest.min <- c(obeyRulers = "X8", religiousLaw = "X2", armyTakesOver = "X5",
                genderEquality = "X9", civilRights = "X6", importance = "X10", 
                "I", "IV")
 
+par(family = 'serif')
 semPaths(object = group3_fit,
          whatLabels = "std",           
          edge.label.cex = 1, nCharNodes = 0,         
@@ -1104,7 +1129,7 @@ gr3_stats <- group3_data %>% mutate(I = (obeyRulers*fnd_3_w[1]+religiousLaw*fnd_
 bxp <- gr3_stats %>% select(I, IV) %>% gather(key="Koncepcja", value="Wartość") %>%
   ggboxplot(x = "Koncepcja", y = "Wartość",
             color = "Koncepcja", palette = c("blue", "darkgreen")) +
-  theme(legend.position = "none")
+  theme(legend.position = "none", text = element_text(family = "serif"))
 
 levels <- c("I", "IV")
 gr3_stats$leading <- factor(gr3_stats$leading, levels)
@@ -1114,7 +1139,8 @@ bar <- gr3_stats %>% select(leading) %>%
   fill=c(I = "blue", IV = "darkgreen")) + 
   geom_text(stat = "count", aes(label=..count..), vjust=-0.5, size=4) +
   scale_x_discrete("Dominująca koncepcja", drop=F) +
-  labs(y = "Liczba osób") + expand_limits(y = c(1, 9000))
+  labs(y = "Liczba osób") + expand_limits(y = c(1, 9000)) +
+  theme(text = element_text(family = "serif"))
 
 
 yplot <- gr3_stats %>% select(I, IV) %>% gather(key="Koncepcja", value="Wartość") %>%

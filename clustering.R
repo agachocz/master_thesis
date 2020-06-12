@@ -1,5 +1,8 @@
 # koncepcja: szukanie podobnych krajów metodą aglomeracyjną
 
+#czcionka
+font_import(pattern = "lmroman*")
+font_import()
 
 # włączenie wszystkich państw europejskich
 
@@ -81,9 +84,11 @@ clustering <- agnes(cor.data, method="complete")
 
 dg <- as.dendrogram(clustering)
 
+
 ggdendrogram(dg) + labs(y = "Wysokość") + 
   theme(panel.grid.major.y = element_line(size = 0.5, color = "lightgrey"),
-        panel.grid.minor.y = element_line(size = 0.5, color = "lightgrey"))
+        panel.grid.minor.y = element_line(size = 0.5, color = "lightgrey"),
+        text = element_text(family = "serif"))
 
 
 tree <- cutree(clustering, 3) #dendrogram
@@ -102,7 +107,8 @@ sil_data$cluster <- as.factor(sil_data$cluster)
 ggplot(sil_data) + 
   geom_col(aes(x = countr.pl, y = width, fill = cluster)) +
   scale_fill_manual(values = c("darkgreen", "blue", "red")) +
-  coord_flip() + labs(x = "Państwo", y = "Wskaźnik sylwetkowy", fill = "Grupa")
+  coord_flip() + labs(x = "Państwo", y = "Wskaźnik sylwetkowy", fill = "Grupa") +
+  theme(text = element_text(family = 'serif'))
 
 # analiza CFA
 

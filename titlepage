@@ -1,21 +1,65 @@
 Strona tytułowa w stylu AGH 
 Trzeba też otaczać tabele \begin{table} \end{table}, żeby zawrzeć je w spisie 
 
+\usepackage{longtable}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[polish]{babel}
+\usepackage[nosingleletter]{impnattypo}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{parskip}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+\usepackage{caption}
+\captionsetup[table]{name=Tabela}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\addto\captionspolish{
+  \renewcommand{\listtablename}
+    {Spis tabel}
+}
+
+\begin{document}
+
+
+\def\spacingset#1{\renewcommand{\baselinestretch}%
+{#1}\small\normalsize} \spacingset{1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \if0\blind
 {
   \begin{center}
-  \includegraphics{AGHlogo.jpg}\\[8ex]
-    \textbf{WYDZIAŁ ZARZĄDZANIA}
+  \includegraphics{AGHlogo.jpg}\\[2ex]
+    \textbf{\normalsize WYDZIAŁ ZARZĄDZANIA}
 
-   Pracownia Zastosowań Matematyki w Ekonomii
+  \normalsize{PRACOWNIA ZASTOSOWAŃ MATEMATYKI W EKONOMII}
   \end{center}
+\vspace{1cm}
   \begin{center}
     \large{Praca dyplomowa  magisterska}
   \end{center}
+\vspace{1cm}
 \begin{center}
-  \large{\bf Zagadnienie równoważności pomiarowej w badaniach różnic w postrzeganiu demokracji w UE.}
+  \large{\bf Zagadnienie równoważności pomiarowej w badaniach różnic w postrzeganiu demokracji w krajach europejskich.}
 
-  \large{\bf The problem of measurement invariance in the reaserch of differences in attitude toward democracy in the EU.}
+  \large{\bf The problem of measurement invariance in the reaserch of differences in attitude toward democracy in european countries.
+}
 \end{center}
 \bigskip
 \vspace{2cm}
@@ -30,6 +74,8 @@ Opiekun pracy: \> dr Jacek Wolak \\
 	Kraków, 2020
 \end{center}
 
+\thispagestyle{empty}
+
 } \fi
 
 \if1\blind
@@ -38,7 +84,7 @@ Opiekun pracy: \> dr Jacek Wolak \\
   \bigskip
   \bigskip
   \begin{center}
-    {\LARGE\bf Zagadnienie równoważności pomiarowej w badaniach różnic w postrzeganiu demokracji w UE.}
+    {\LARGE\bf Zagadnienie równoważności pomiarowej w badaniach różnic w postrzeganiu demokracji w krajach europejskich.}
   \end{center}
   \medskip
 } \fi
@@ -50,3 +96,5 @@ Opiekun pracy: \> dr Jacek Wolak \\
 \tableofcontents
 \listoftables
 \listoffigures
+
+\newpage
