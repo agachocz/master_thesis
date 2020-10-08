@@ -90,7 +90,21 @@ names(questions) <- c("taxRich", "religiousLaw", "freeElection", "helpUnemp",
                       "armyTakesOver", "civilRights", "equalIncome", "obeyRulers",
                       "genderEquality", "importance")
 
-dem_data %>% 
+questions <- c("Podatki dla bogatych i wsparcie biednych",
+               "Wpływ autorytetów religijnych",
+               "Wybór przywódców w wolnych wyborach",
+               "Pomoc dla bezrobotnych",
+               "Wojsko może przejąć władzę",
+               "Prawa obywatelskie",
+               "Wyrównywanie dochodów",
+               "Posłuszeństwo rządzącym",
+               "Równouprawnienie płci",
+               "Kraj powinien być demokratyczny")
+names(questions) <- c("taxRich", "religiousLaw", "freeElection", "helpUnemp", 
+                      "armyTakesOver", "civilRights", "equalIncome", "obeyRulers",
+                      "genderEquality", "importance")
+
+dem_data %>% filter(country == "Poland") %>%
   gather(key = "variable", value = "answer", -country, factor_key = T) %>%
   ggplot(aes(answer)) + geom_histogram(bins = 10, col = "black") +
   facet_wrap(~variable, nrow = 5, scales = "free", 
@@ -99,6 +113,8 @@ dem_data %>%
   scale_y_continuous("Liczba odpowiedzi")
   
 
+dem_data %>% select(country) %>% group_by(country) %>%
+  summarise(n = n())
 
 # Braki niektórych poziomów
 

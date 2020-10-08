@@ -44,7 +44,42 @@ dem_data$country <- mapvalues(dem_data$country, from = country_nr, to = country_
 
 head(dem_data)
 
-write.table(dem_data, "dem_data.csv")
+# Kolejność i liczebność grup
+group_sizes <- dem_data %>% arrange(country) %>% group_by(country) %>% 
+  select(country) %>% summarise(n = n()) %>% mutate(cumsum = cumsum(n)-n)
+
+base_size <- 739
+
+sample_numbers <- sapply(group_sizes$n, function(x){
+  return(sample(x = x, size = base_size, replace = F))
+})
+
+colnames(sample_numbers) <- group_sizes$country
+sample_numbers <- as.data.frame(sample_numbers)
+
+sample_numbers$Estonia <- sample_numbers$Estonia + 1492
+sample_numbers$Georgia <- sample_numbers$Georgia + 2708
+sample_numbers$Germany <- sample_numbers$Germany + 3586
+sample_numbers$Kazakhstan <- sample_numbers$Kazakhstan + 5470
+sample_numbers$Netherlands <- sample_numbers$Netherlands + 6970
+sample_numbers$Poland <- sample_numbers$Poland + 8437
+sample_numbers$Romania <- sample_numbers$Romania + 9176
+sample_numbers$Russia <- sample_numbers$Russia + 10415
+sample_numbers$Slovenia <- sample_numbers$Slovenia + 12196
+sample_numbers$Spain <- sample_numbers$Spain + 13080
+sample_numbers$Sweden <- sample_numbers$Sweden + 14079
+sample_numbers$Turkey <- sample_numbers$Turkey + 15154
+sample_numbers$Ukraine <- sample_numbers$Ukraine + 16695
+
+sample_numbers <- sample_numbers %>% pivot_longer(everything(), names_to = "country")
+
+dem_data_even <- dem_data %>% arrange(country) %>% slice(sample_numbers$value)
+
+# Sprawdzenie, czy są równe
+dem_data_even %>% arrange(country) %>% group_by(country) %>% 
+  select(country) %>% summarise(n = n())
+
+write.table(dem_data_even, "dem_data_even.csv")
 
 # korelacje
 
@@ -305,3 +340,36 @@ small_group_fit_2 <- cfa(small_group_model_2, data = small_group_data_2)
 summary(small_group_fit_2, standardized = TRUE, fit.measures = TRUE, rsquare = TRUE)
 
 measurementInvariance(model = small_group_model_2, data = small_group_data_2, group="country")
+
+coeff <- standardizedSolution(fit)
+
+# wagi
+fnd_all_w <- coeff$est.std[1:4]
+lib_all_w <- coeff$est.std[8:12]
+econ_all_w <- coeff$est.std[5:7]
+
+all_stats <- dem_data %>% mutate(I = (obeyRulers*fnd_all_w[1]+religiousLaw*fnd_all_w[2]+ 
+                                        armyTakesOver*fnd_all_w[3]+equalIncome*fnd_all_w[4])/sum(fnd_all_w),
+                                 II = (taxRich*econ_all_w[1]+equalIncome*econ_all_w[2]+ 
+                                         helpUnemp*econ_all_w[3])/sum(econ_all_w),
+                                 III = (freeElection*lib_all_w[1]+genderEquality*lib_all_w[2]+
+                                          civilRights*lib_all_w[3]+importance*lib_all_w[4]+
+                                          helpUnemp*lib_all_w[5])/sum(lib_all_w)) %>%
+  mutate(leading = if_else(I > II, if_else(I > III, "Ia", "III"),
+                           if_else(II > III, "II", "III")))
+
+
+levels <- c("Ia", "II", "III")
+all_stats$leading <- factor(all_stats$leading, levels)
+
+bar <- gr2_stats %>% select(leading) %>% 
+  ggplot(aes(as.factor(leading))) + 
+  geom_bar(aes(y = ..count../sum(..count..), fill = "leading"),
+           fill=c("blue", "orange", "darkgreen")) + 
+  geom_text(aes(y = (..count..)/sum(..count..), 
+                label = scales::percent(round(..count../sum(..count..),2), accuracy = 1L)),
+            stat = "count", vjust=-0.5, size=4, family = 'serif') +
+  scale_y_continuous(labels = percent) +
+  scale_x_discrete("Dominująca koncepcja", drop=F) +
+  labs(y = "Procent grupy") + expand_limits(y = c(0, 1)) +
+  theme(text = element_text(family = "serif"))
