@@ -228,7 +228,7 @@ In the last questions a responded needed to determine, how important it is to li
 Variables containing answers for all above questions will be noted as X1 - X10. I used data from 6th Wave (2010-2014) from all geographicly european countries covered in survey. There are: **Belarus, Estonia, Georgia, Germany, Kazakhstan, Netherland, Poland, Romania, Russia, Slovenia, Spain, Sweden, Turkey, and Ukraine**
 
 ```{r load-data}
-dem_data <- read.table("dem_data.csv")
+dem_data <- read.table("dem_data_even.csv")
 questions <- c("Taxes for rich, aid for poor",
                "Influence of religious authorities",
                "Free elections",
@@ -244,7 +244,7 @@ names(questions) <- c("taxRich", "religiousLaw", "freeElection", "helpUnemp",
                       "genderEquality", "importance")
 ```
 
-```{r descr-plot, fig.align = 'left', fig.width = 7, fig.height = 8, fig.cap = "Rozkład odpowiedzi na pytania o demokrację w ankiecie WVS. Źródło: opracowanie własne."}
+```{r descr-plot, fig.align = 'left', fig.width = 7, fig.height = 8, fig.cap = "Distribution of answers on questions about the essence of democracy. Source of data: WVS Wave 6."}
 
 dem_data %>% 
   gather(key = "variable", value = "answer", -country, factor_key = T) %>%
@@ -252,8 +252,8 @@ dem_data %>%
   facet_wrap(~variable, nrow = 5, scales = "free", 
     labeller = labeller(variable = questions)) + theme_light() +
   theme(text = element_text(family = "serif")) +
-  scale_x_continuous("Odpowiedź", breaks = 1:10) +
-  scale_y_continuous("Liczba odpowiedzi")
+  scale_x_continuous("Answer", breaks = 1:10) +
+  scale_y_continuous("Number of answers")
 ```
 
 `r fig_nums(name = "descr-plot", display = "cite")` presents the histograms of answers in the whole sample. This basic plot already suggest, that minimalistic Schumpeter's concept of democracy is not enough for european society. Citizens commonly believe, that democracy means not only "free elections", but also civil rights, gender equality, and - what is probably more surprising - help for unemployed. In voters opinion, a possibility to choose the rulers is not enough to have a democratic country. These rulers need to satisfy the basic needs of freedom, equality, and economic safty of the ruled. 
@@ -268,10 +268,10 @@ When a respondent answer the question "how essential [something] is as a charact
 A concept of democracy can be expressed as a latent factor, which impacts answers (measurable variables). There can exist several concept, but not more than questions. The answer for a given question can be affected by more than one concept. It's worth mentioning, that the concepts can be specified only up to the topics covered by questions. It's impossible to say, whether a concept include some other opinions, e.g. on bioethics. Theoretically, there can exist as well some other concepts, based on ideas not coverd in questionare, therefore they can't be revealed in this research.
 
 
-`r fig_nums(name = "cor-matrix", display = "cite")` presents a correlation matric of answers. It was tested with Bartlett's test of sphericity, which confirmed the significance of relationships between variables ($\chi^2$ = 46805,62; $df$ = 45; $p$ < 0,001).
+`r fig_nums(name = "cor-matrix", display = "cite")` presents a correlation matric of answers. It was tested with Bartlett's test of sphericity, which confirmed the significance of relationships between variables ($\chi^2$ = 26276.56; $df$ = 45; $p$ < 0,001).
 
 
-```{r cor-matrix, fig.align = 'left', fig.cap = "Macierz korelacji odpowiedzi na pytania o demokrację. Źródło: opracowanie własne."}
+```{r cor-matrix, fig.align = 'left', fig.cap = "Correlation matrix of answers. Source of data: WVS Wave 6."}
 
 cor.matrix <- cor(dem_data[,2:11], method="spearman")
 
@@ -300,7 +300,7 @@ On `r fig_nums("cor-matrix", display = "cite")` we can clearly see three cluster
 - Concept II: income equality, higher taxes for rich, help for unemployed;
 - Concept III: help for unemployed, gender equality, free elections and civil rights;
 
-The first conception is characterised mostly by a belief, that a democracy in its core needs an ingerention of aome kind of third party: army and religious authhorities. It values obedience of citizens. It seems that this conception is built around the need of order and creal relations of power, although it also contains opinion about income inequality. This conception is negatively correlated with the third one, and more importantly - with the importance of living in democratic country at the beggining. Supposedly, people with this conception in minds actually don't value democracy, but having beed asked for its essential, project the properties of their ideal (not democratic) system on it, anyway.
+The first conception is characterised mostly by a belief, that a democracy in its core needs an ingerention of aome kind of third party: army and religious authhorities. It values obedience of citizens. It seems that this conception is built around the need of order and creal relations of power, although it also contains opinion about income inequality. This conception is negatively correlated with the third one, and more importantly - with the importance of living in democratic country at the beggining. Moreover, it doesn't seem to correspond with any theoretical knowledge. Supposedly, people with this conception in minds actually don't value democracy, but having beed asked for its essential, project the properties of their ideal (not democratic) system on it, anyway.
 
 The second concept view democracy as a warranter of economic benefits and safty. Its supporters expect from their government to fight income inequality, tax rich, help poor and unemployed. It shows simmilarities to the concept of welfare-state.
 
@@ -310,21 +310,14 @@ Interestingly, that variables describing opinions on income inequality and highe
 
 It's good to compare `r fig_nums("cor-matrix", display = "cite")` with information drawn from `r fig_nums("descr-plot", display = "cite")`. An analysis of correlation allows merely to reason about the shape and cohesion of conceptions, and not about their popularity (how many people actually support them) and their place on the scale of answers. `r fig_nums("descr-plot", display = "cite")` suggest, that Concept III is the most popular, and its supporters were chosing the highest scores for opinions connected to it. On the other hand, supporters of Concept I were probably choosing rather low scores for questions about army or religious authorities - although relatively high, compared to rest of the population. It is also possible, that the relationships forming this conception, function more like an "anti-conception", i.e. a common notion, how democracy *shouldn't* look like.
 
+Conceptions II and III seem to confirm the studies of @JaskoKoss, refered in Chapter 1. They represent, respectively, the "standard of welfare" and the "standard of freedom". It's also compatible with the analysis of the support for democracy, performed by @Campbell. Support for democracy based on a favorable economic situation, clearly shows, that citizens expect from a democratic system to ensure the common welfare (Concept II). Next, if the people trust democratic institutions because of the possibility to engage in social and political activities, we can expect they treat this civil freedom as the essential part of democracy. It is closely conncected with the postulates of civil rights, free elections, and gender equality (as women's emancipation allowed them to take full and active part in social and political life), which are crucial to the Concept III. The behavioral part of support for democracy, mentioned by Campbell, cannot be confirmed here, as it is not related to one's concept of democracy.
+
+We can also consider the social concepts of democracy from quite a different angle, if we think of what makes them persist. In turbulent times researchers tend to believe, that the world turns its back toward democracy, although for now data seem to deny it [@Doorenspleet]. We can ask, what can make a country overthrow the form of government, commonly though to be the best possible option. It turns out, even if citizens are not content with their rulers, they are not willing to give up a democratic system, as long as it provides basic rights, and satisfies basic needs. However, an unstable economic situation can be a serious challenge for young democracies, as it was in the case of East European Countries at the end of 20th century [@Klingemann].
+
+The fact, that citizens are able to reject the system, that won't meet their expectations, may seem to be a truism. But it reveal a big caveat in elitist definition of democracy: people don't consider democracy as a system, that allows them to choose the rulers as they please - but as a system, that gives the greatest opportunities to realise their needs, both social and economic. The mechanism of choosing rulers is just a mean to reach a goal, not a goal itself.
 
 
-Koncepcja II i III wydają się pokrywać z badaniami Jaśko i Kossowskiej \citeyearpar{JaskoKoss} dla polskiego społeczeństwa. Wyodrębniły one, odpowiednio: “standard opiekuńczości” oraz “standard wolności”. Z kolei analizy przyczyn poparcia i zaufania ludzi do demokracji i demokratycznych rządów pokazują, że po części wynikają one z zaangażowania obywateli w działalność społeczną, częściowo ze sprzyjającej sytuacji ekonomicznej, a częściowo z psychologicznego mechanizmu, że ludzie generalnie popierają system, który już jest przyjęty, o ile nie mają silnych powodów do niezadowolenia z niego [@Campbell]. Poparcie dla demokracji wynikające z korzystnej sytuacji ekonomicznej jasno potwierdza, że obywatele oczekują od demokratycznego systemu, że pozwoli im żyć w ogólnie pojętym dobrobycie (koncepcja II). Po drugie, skoro ludzie ufają demokratycznym rządom dzięki możliwości zaangażowania w działalność społeczną, to można przypuszczać, że oczekują od demokracji zapewnienia swobody takiego działania. Pośrednio tę swobodę można wiązać z postulatami praw obywatelskich oraz równości płci (w kontekście emancypacji kobiet, która pozwoliła im na bardziej czynny udział w życiu społecznym), znajdującymi się w koncepcji III. Trzeci, behawioralny składnik poparcia demokracji wg. Campbella, nie jest kwestią koncepcji demokracji, więc nie ma tu zastosowania.
-
-
-Można również spojrzeć na społeczne koncepcje demokracji pod kątem jej trwałości. W szczególnie burzliwych momentach dziejowych wśród badaczy popularny staje się pogląd, że świat odwraca się od demokracji, choć dane jak dotąd temu przeczą [@Doorenspleet]. Padają wówczas pytania, co może sprawić, że naród odrzuci formę ustroju, uważaną przecież tak powszechnie za najlepszą z możliwych. Okazuje się, że nawet gdy obywatele nie są zadowoleni ze swoich rządzących, nie są skłonni przekreślić demokratycznego systemu ich wybierania, o ile ten system zapewnia im podstawowe prawa i zaspokaja oczekiwania. Z kolei niestabilna sytuacja ekonomiczna jest poważną próbą wytrzymałości dla młodych demokracji, jak to było widoczne pod koniec XX w. w Europie Środkowo-Wschodniej [@Klingemann]. 
-
-
-To, że obywatele są gotowi odrzucić system, który nie zaspokaja oczekiwań, może brzmieć jak truizm, ale odsłania ważną niedoskonałość elitystycznej definicji Schumpetera: ludzie nie postrzegają demokracji jako systemu, który pozwala im wybrać rządzących wedle upodobania, ale jako takiego, który daje największe możliwości realizowania swoich potrzeb, zarówno społecznych jak i ekonomicznych. Wybór rządzących jest tylko środkiem do osiągnięcia celu, nie celem samym w sobie.
-
-
-Pewną zagadką pozostaje kwestia koncepcji I, która wydaje się nie mieć żadnego poparcia w dotychczasowych badaniach. Na podstawie samej macierzy korelacji można by przypuszczać, że istnieje wyłącznie jako anty-koncepcja, jednak temu przeczy dalsza analiza, która pokazuje, że istnieje nieduża grupa ludzi bardziej przekonanych do tej koncepcji, niż do pozostałych.
-
-
-## Model strukturalny
+## A structural model
 
 
 ```{r model-all}
@@ -337,13 +330,10 @@ liberal =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
 fit <- cfa(model, data = dem_data, estimator = "MLR")
 ```
 
-Postać modelu przedstawiono na diagramie na `r fig_nums(name = "diagram-all", display = "cite")`, zgodnie ze standardem przedstawiania równań strukturalnych [@Everitt]. Zmienne latentne zostały oznaczone przez okręgi, zmienne mierzalne przez kwadraty, a na liniach prostych między nimi podano wartości wyestymowanych ładunków czynnikowych. Zakrzywione linie oznaczają wariancje lub kowariancje. 
+Model's structure is shown on `r fig_nums(name = "diagram-all", display = "cite")` in a standard graphic representation of structural equations [@Everitt]. Latent factors are represented by circles, measurable variables by squares, and estimated values of factor loadings are written on straight lines. The curved lines represent variances or covariances. The model was estimated using Robust Maximum Likelihood Method, with the variance of latent factors set as 1.
 
 
-Ze względu na złamanie założenia o normalności zmiennych mierzalnych, model estymowano Odporną Metodą Największej Wiarygodności. Ponieważ modele ze zmiennymi latentnymi nie są ściśle identyfikowalne, o czym pisano w rozdziale 2.2, przy estymacji przyjęto jednostkową wariancję zmiennych latentnych oraz wartość pierwszego ładunku czynnikowego na 1. Na diagramie na `r fig_nums("diagram-all", display = "cite")` jest on wyróżniony przerywaną linią, ale wartości ładunków czynnikowych zostały zestandaryzowane dla wygodniejszej interpretacji. Wszystkie współczynniki są istotne. 
-
-
-```{r diagram-all, fig.align = 'center', fig.cap = "Diagram modelu analizy czynnikowej koncepcji demokracji. Źródło: opracowanie własne."}
+```{r diagram-all, fig.align = 'center', fig.cap = "Factor analysis model for the whole sample. Source of data: WVS Wave 6."}
 par(family = 'serif')
 
 quest.min <- c(obeyRulers = "X8", religiousLaw = "X2", armyTakesOver = "X5", 
@@ -362,16 +352,14 @@ semPaths(object = fit,
 ```
 
 
-I koncepcja najsilniej przejawia się w zmiennych oznaczających wpływ autorytetów religijnych na prawo oraz możliwość przejęcia władzy przez wojsko. II jest wyrażana przede wszystkim w poparciu opodatkowania bogatych i wsparcia ubogich. Koncepcja III wyraża się głównie przez docenienie wagi wolnych wyborów, a na drugim miejscu: równość płci i prawa obywatelskie. Koncepcje II i III są ze sobą pozytywnie skorelowane na średnim poziomie (0,5). Koncepcja I jest słabo, ale dodatnio skorelowana z II, oraz równie słabo, ale ujemnie, z koncepcją III.
+Concept I has the strongest impact on the opinion on the role of religious authorities, and posiiobilty of army's takeover. Concept II affects mainly the view on taxation and support for the poor, whereas Concept III - free election, with gender equality and civil rights in second place. Concepts II and III are positively correlated on a medium level (0.5). Concept I is faintly, positively correlated with Concept II, but negatively with Concept III.
+
+Model has quite good, but not great properties, with CFI = 0.947, TLI = 0.921, and RMSEA = 0.06 (0.057; 0.064). The Composite Reliability equals 0.74, which means that questions make good representation of considered conceptions.
+
+For each observation in the sample, we can now compute the numeric value of each conception, taken as weighted average, where factor loadings are weights. It can be interpreted as the measure of how strongly a respondent agree with a given concept. `r fig_nums(name = "stats-all", display = "cite")` presents the distributions of democracy concepts in the whole sample.
 
 
-Model posiada dość dobre własności. CFI = 0,953, jest więc na dobrym poziomie, ale TLI wynosi tylko 0,930. RMSEA wynosi 0,057; CI90% (0,055; 0,060), co również jest bardzo korzystną wartością. Łączna rzetelność konstruktu (Composite Reliability) wynosi 0,74, co oznacza, że pytania są dobrze dobrane do badanych koncepcji.
-
-
-Dla każdej obserwacji w zbiorze można teraz obliczyć liczbową wartość każdej koncepcji jako średnią ważoną, gdzie wagami są standaryzowane ładunki czynnikowe. Taki wskaźnik można interpretować jako miarę tego, jak bardzo ankietowany zgadza się z daną koncepcją. `r fig_nums(name = "stats-all", display = "cite")` przedstawia, jak kształtują się te wskaźniki w całej grupie.
-
-
-```{r stats-all, fig.align = 'center', fig.width = 7, fig.height = 8, fig.cap = "Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole). Źródło: opracowanie własne."}
+```{r stats-all, fig.align = 'center', fig.width = 7, fig.height = 8, fig.cap = "Concepts' impact indices: distributions (top chart), and number of observations, where a concept was dominant (bottom chart). Source of data: WVS Wave 6."}
 coeff <- standardizedSolution(fit)
 
 # wagi
@@ -390,9 +378,10 @@ all_stats <- dem_data %>% mutate(I = (obeyRulers*fnd_all_w[1]+religiousLaw*fnd_a
                              if_else(II > III, "II", "III")))
 
 bxp <- all_stats %>% select(I, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
-        ggboxplot(x = "Koncepcja", y = "Wartość",
-        color = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
-  theme(legend.position = "none", text = element_text(family = "serif"))
+        ggboxplot(x = "Concept", y = "Value",
+        color = "Concept", palette = c("blue", "orange", "darkgreen")) +
+  theme(legend.position = "none", text = element_text(family = "serif")) 
+  + theme_light()
 
 levels <- c("I", "II", "III")
 all_stats$leading <- factor(all_stats$leading, levels)
@@ -405,13 +394,13 @@ bar <- all_stats %>% select(leading) %>%
                 label = scales::percent(round(..count../sum(..count..), 2), accuracy = 1L)),
             stat = "count", vjust=-0.5, size=4, family = 'serif') +
   scale_y_continuous(labels = percent) +
-  scale_x_discrete("Dominująca koncepcja", drop=F) +
-  labs(y = "Procent grupy") + expand_limits(y = c(0, 1)) +
-  theme(text = element_text(family = "serif"))
+  scale_x_discrete("Dominant concept", drop=F) +
+  labs(y = "Percent of sample") + expand_limits(y = c(0, 1))  + 
+  theme_light() + theme(text = element_text(family = "serif"))
         
 
-yplot <- all_stats %>% select(I, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
-          ggdensity("Wartość", fill = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
+yplot <- all_stats %>% select(I, II, III) %>% gather(key="Concept", value="Value") %>%
+          ggdensity("Value", fill = "Concept", palette = c("blue", "orange", "darkgreen")) +
           rotate() + clean_theme()
 
 ggarrange(bxp, yplot, bar, NULL,
@@ -420,267 +409,22 @@ ggarrange(bxp, yplot, bar, NULL,
           common.legend = TRUE)
 ```
 
+It's clear that people are the least likely to agree with Concept I (average 4.26), next with Concept (average 6.75) and the most with Concept III (8.3). For each conception I also counted respondents, for whom it was the most important one (the chart on the bottom). The group of people with dominant Concept III is obviously the most numerous.
 
-Wyraźnie widać, że ludzie najmniej zgadzają się z koncepcją I (średnia 4,28) następnie II (średnia 6,85), a najbardziej z III (średnia 8,3). Przypadki, kiedy wskaźnik tej ostatniej jest poniżej 4 to wartości odstające, więc można powiedzieć, że prawie nie ma ludzi, którzy by się z tą koncepcją nie zgadzali. Policzono również obserwacje, w których najwyższą wartość mają wskaźniki poszczególnych koncepcji (wykres na dole). Zdecydowanie najwięcej jest ludzi, dla których najważniejsza jest koncepcja III.
+The question is, if the model is measurement invariant, i.e. if we can use the computed indices to measure the differences in support for conceptions between countries. To test the first level of measurement invariance - the configural invariance - I attempted to estimate this model for each country separately. It turned out, for some groups (namely for Georgia and Slovenia), model couldn't be correctly estimated, which means, that it doesn't fit the data. Configural invariance isn't met.
 
+In order to achive a common, international set of conception one could exclude these countries and try to repeat the procedure. But that would only ommit the problem, as rejecting part of the group stray as further from forming any knowledge on the whole. However, one could expect, that there exist in Europe some subgroups of countries with opinions on democracy similar enough, to form the common concepts. The next chapter will describe an attempt to find these groups, model their concepts, and show differences.
 
-Pytanie brzmi, czy model jest równoważny pomiarowo, a więc czy można zastosować te wskaźniki do mierzenia różnic w postrzeganiu demokracji między krajami. W celu przetestowania pierwszego poziomu równoważności - równoważność konfiguralna - podjęto próbę estymacji tego samego modelu dla każdego kraju osobno. Okazało się, że w niektórych grupach (dla Gruzji i Słowenii) model nie mógł się poprawnie wyestymować, co oznacza, że postać modelu nie pasuje do danych. To oznacza, że równoważność konfiguralna nie jest zachowana. 
-
-
-W celu uzyskania wspólnego, międzynarodowego konceptu demokracji można by wykluczyć z badania kraje, dla których model okazał się nieidentyfikowalny, i ponowić procedurę. Takie rozwiązanie jest jednak tylko pominięciem problemu. Nie ma wspólnej dla europejskich społeczeństw koncepcji demokracji (obejmującej kwestie wymienione w rozdziale 4.2). Przyjęcie koncepcji powstałych przez nakładanie się na siebie koncepcji różnych państw i odrzucenie najbardziej odstających krajów nie daje zbyt wiele informacji o naturze różnic.
-
-
-Można jednak przypuszczać, że istnieją w Europie grupy państw o wystarczająco zbliżonych poglądach na demokrację, że można w nich używać wspólnych konstruktów. W następnych rozdziałach podjęto próbę znalezienia takich grup, modelowania występujących w nich koncepcji i pokazania różnic.
 
 \newpage
 
-# Podział państw według przebiegu Żelaznej Kurtyny
+# Clustering countries by similarity of their opinions on democracy
 
 
-## Linia podziału
+## Method
 
-W poprzednim rozdziale zbudowano model koncepcji demokracji dla grupy wszystkich ujętych w badaniu państw, ale wykazano też, że koncepcje nie występują w identycznej formie we wszystkich państwach. W tym rozdziale zostanie podjęta próba wyodrębnienia mniejszych grup, w których przypuszczalnie mogą występować wspólne koncepcje.
 
-Można przypuszczać, że różnice wynikają z historycznych uwarunkowań. Spora część państw europejskich w drugiej połowie XX wieku znajdowała się w komunistycznej strefie wpływów (tzw. demokracje ludowe), podczas gdy inne pozostały kapitalistyczne i rozwijała się w nich idea tzw. demokracji liberalnej. Dlatego podjęto próbę podziału na następujące grupy:
-- demokracje liberalne: Niemcy, Holandia i Szwecja (oznaczone na `r fig_nums(name = "map1", display = "cite")` kolorem żółtym);
-- byłe demokracje ludowe: Polska, Estonia, Białoruś, Ukraina, Słowenia, Rumunia, Gruzja, Kazachstan i Rosja (oznaczone na `r fig_nums("map1", display = "cite")` kolorem fioletowym);
-- Turcja i Hiszpania to przypadki, które nie pasują do żadnej z grup;
-
-```{r map1, fig.cap = "Mapa podziału na grupy według przebiegu Żelaznej Kurtyny. Źródło: opracowanie własne.", out.width="450px"}
-include_graphics("map1.png")
-```
-
-
-## Koncepcje demokracji w grupie demokracji liberalnych
-
-
-```{r clustering}
-countries <- unique(dem_data$country)
-
-cor.data <- data.frame()
-
-for(c in countries){
-  
-  #c = "Poland"
-  cor.matrix <- dem_data %>% filter(country == c) %>% select(taxRich : importance) %>%
-    cor(method="spearman")
-  
-  cor.vec <- vector()
-  
-   for(i in 2:10){
-    cor.vec <- c(cor.vec, cor.matrix[i, 1:(i-1)])   
-   }
-  
-  cor.data <- rbind(cor.data, cor.vec)
-}
-
-# cor.data <- cbind(countries, cor.data)
-countr.pl <- c("Białoruś", "Estonia", "Gruzja", "Niemcy", "Kazahstan", "Holandia", "Polska", "Rumunia", "Rosja", "Słowenia", "Hiszpania", "Szwecja", "Turcja", "Ukraina")
-rownames(cor.data) <- countr.pl
-
-clustering <- agnes(cor.data, method="complete")
-
-tree <- cutree(clustering, 3) #dendrogram
-```
-
-Grupa demokracji liberalnych zawiera tylko trzy państwa: Niemcy, Holandię i Szwecję; jest też bardzo skupiona pod względem geograficznym. Test sferyczny Bartletta pokazał, że macierz korelacji jest istotnie różna od macierzy jednostkowej ($\chi^2$ = 10186,17; $df$ = 45; $p$ < 0,001). Na `r fig_nums(name="cor-matrix-lib", display = "cite")` można zauważyć podobne wzorce, jak w grupie ogólnej. Powiązania ze zmiennymi mierzalnymi przedstawiono na diagramie na `r fig_nums(name="diagram-west", display = "cite")`.
-
-
-```{r cor-matrix-lib, fig.align = 'left', fig.cap = "Macierz korelacji odpowiedzi na pytania o demokrację w grupie demokracji liberalnych. Źródło: opracowanie własne."}
-
-# GRUPA 2
-group2_countries <- countries[tree == 2]
-group2_data <- dem_data %>% filter(country %in% group2_countries)
-
-group2_cor <- cor(group2_data[,2:11], method="spearman")
-
-colnames(group2_cor) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9", "X10")
-rownames(group2_cor) <- quest.short
-
-par(family = 'serif')
-corrplot(group2_cor, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
-```
-
-
-W tej grupie występują koncepcje II i III, opisane wcześniej. Ostatnia koncepcja ma nieco inną strukturę (przedstawioną na diagramie `r fig_nums("diagram-west", display = "cite")`), dlatego zostanie oznaczona jako Ilib. Dopasowanie modelu do danych jest bardzo dobre. CFI (Robust Comparative Fit Index) = 0,965; TLI (Robust Tucker-Lewis Index) =  0,950. RMSEA wynosi 0,043; CI90% (0,038; 0,049). Łączna rzetelność konstruktu wynosi 0,62, jest więc dość niska. Model w tej grupie charakteryzuje się silną ujemną korelacją między koncepcją III a Ilib, oraz brakiem związku między koncepcją II a pozostałymi.
-
-
-```{r model-west}
-# Struktura modelu dla pierwszej grupy
-group2_model <- '
-Ilib =~ obeyRulers + religiousLaw + armyTakesOver; 
-II =~ taxRich + equalIncome + helpUnemp;
-III =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
-
-group2_fit <- cfa(group2_model, data = group2_data, estimator = "MLM")
-```
-
-
-
-```{r diagram-west, fig.align = 'center', fig.cap = "Diagram modelu analizy czynnikowej koncepcji demokracji w grupie demokracji liberalnych. Źródło: opracowanie własne."}
-
-quest.min <- c(obeyRulers = "X8", religiousLaw = "X2", armyTakesOver = "X5", 
-               equalIncome = "X7", taxRich = "X1", helpUnemp = "X4", freeElection = "X3", 
-               genderEquality = "X9", civilRights = "X6", importance = "X10", "Ilib", "II", "III")
-
-par(family = 'serif')
-semPaths(object = group2_fit,
-         whatLabels = "std",           
-         edge.label.cex = 1, nCharNodes = 0,         
-         layout = "circle2",  sizeMan = 7, sizeMan2 = 7, shapeMan = "square",
-         sizeLat = 7, sizeLat2 = 7, shapeLat = "circle",
-         sizeInt = 5, sizeInt2 = 5,    
-         what = "std", edge.color = "black",
-         nodeLabels = quest.min, optimizeLatRes = T)
-```
-
-
-Rozkłady wskaźników w tej grupie przedstawiono na `r fig_nums(name = "stats-west", display = "cite")`. Koncepcja Ilib ma średnią na poziomie 2,56, a wartości powyżej 7 są bardzo rzadkie. Koncepcja II ma średnią 6,11. III ma 8,7, a wartości poniżej 6 są przypadkami odstającymi. 
-
-
-
-```{r stats-west, fig.align = 'center', fig.width = 7, fig.height = 8, fig.cap = "Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole) w grupie demokracji liberalnych. Źródło: opracowanie własne."}
-coeff <- standardizedSolution(group2_fit)
-
-# wagi
-fnd_2_w <- coeff$est.std[1:3]
-lib_2_w <- coeff$est.std[7:11]
-econ_2_w <- coeff$est.std[4:6]
-
-gr2_stats <- group2_data %>% mutate(Ilib = (obeyRulers*fnd_2_w[1]+religiousLaw*fnd_2_w[2]+ 
-                             armyTakesOver*fnd_2_w[3])/sum(fnd_2_w),
-                             II = (taxRich*econ_2_w[1]+equalIncome*econ_2_w[2]+ 
-                                           helpUnemp*econ_2_w[3])/sum(econ_2_w),
-                                 III = (freeElection*lib_2_w[1]+genderEquality*lib_2_w[2]+
-                                          civilRights*lib_2_w[3]+importance*lib_2_w[4]+
-                                          helpUnemp*lib_2_w[5])/sum(lib_2_w)) %>%
-  mutate(leading = if_else(Ilib > II, if_else(Ilib > III, "Ilib", "III"),
-                           if_else(II > III, "II", "III")))
-
-
-bxp <- gr2_stats %>% select(Ilib, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
-  ggboxplot(x = "Koncepcja", y = "Wartość",
-            color = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
-  theme(legend.position = "none", text = element_text(family = "serif"))
-
-levels <- c("Ilib", "II", "III")
-gr2_stats$leading <- factor(gr2_stats$leading, levels)
-
-bar <- gr2_stats %>% select(leading) %>% 
-  ggplot(aes(as.factor(leading))) + 
-  geom_bar(aes(y = ..count../sum(..count..), fill = "leading"),
-           fill=c("blue", "orange", "darkgreen")) + 
-  geom_text(aes(y = (..count..)/sum(..count..), 
-                label = scales::percent(round(..count../sum(..count..), 2), accuracy = 1L)),
-            stat = "count", vjust=-0.5, size=4, family = 'serif') +
-  scale_y_continuous(labels = percent) +
-  scale_x_discrete("Dominująca koncepcja", drop=F) +
-  labs(y = "Procent grupy") + expand_limits(y = c(0, 1)) +
-  theme(text = element_text(family = "serif"))
-
-
-yplot <- gr2_stats %>% select(Ilib, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
-  ggdensity("Wartość", fill = "Koncepcja", palette = c(Ilib = "blue", II = "orange", III = "darkgreen")) +
-  rotate() + clean_theme()
-
-ggarrange(bxp, yplot, bar, NULL,
-          ncol = 2, nrow = 2,  align = "hv", 
-          widths = c(2, 1), heights = c(2, 1),
-          common.legend = TRUE)
-```
-
-
-`r table_nums(name = "tab-west", display = "cite")` przedstawia wyniki równoważności pomiarowej. Zachowana jest wyłącznie równoważność konfiguralna, co potwierdza istnienie tych samych koncepcji demokracji we wszystkich społeczeństwach państw grupy.
-
-
-```{r tab-west}
-options(knitr.kable.NA = '')
-mi_tab_west <- data.frame(level = c("Konfiguralna", "Metryczna", "Skalarna"),
-                          AIC = c(180493, 180611, 181894),
-                          BIC = c(181145, 181161, 182354),
-                          Chi = c("458,66", "608,95", "1919,63"),
-                          Chi_d = c(NA, "150,29", "1310,68"),
-                          df = c(93, 109, 123), p = c(NA,"< 2,2e-16", "< 2.2e-16"))
-
-cap = "Wyniki analizy równoważności pomiarowej dla grupy demokracji liberalnych. Źródło: opracowanie własne."
-
-kable(mi_tab_west, format = "latex", col.names = c("Poziom równoważności", "AIC", "BIC", "$\\chi^2$", "Przyrost $\\chi^2$", "Stopnie swobody", "p-value"), caption = cap) %>%
-kable_styling(latex_options = c("scale_down"))
-```
-
-Analiza równoważności pomiarowej pokazuje, że choć każda zmienna wynika z tej samej koncepcji we wszystkich krajach, to siła tego związku jest w różnych krajach różna. Oznacza to, że w państwach należących do grupy demokracji liberalnych występują te same społeczne koncepcje demokracji, jednak model nie pozwala na rzetelne porównywanie ich poziomów między państwami, ani bezpośrednio, ani w relacji z innymi zmiennymi.
-
-
-## Koncepcje demokracji w grupie byłych demokracji ludowych
-
-
-Grupa państw, które znajdowały się w komunistycznej strefie wpływów, jest znacznie liczniejsza. Jej macierz korelacji przedstawia wykres `r fig_nums(name = "cor-matrix-east", display = "cite")` . Test sferyczny Bartletta potwierdził, że jest istotnie różna od macierzy jednostkowej ($\chi^2$ = 27891,81; $df$ = 45; $p$ < 0,001). Można wyodrębnić trzy koncepcje. Koncepcja III, taka jak w grupie ogólnej; koncepcja II z dodatkiem zmiennej oznaczającej posłuszeństwo rządzącym, tu oznaczona jako IIlud; oraz koncepcja Ilib. Bazując na macierzy korelacji, z początku połączono zmienne oznaczające wyrównywanie dochodów i opodatkowanie bogatych ze zmiennymi koncepcji III, ale w wyestymowanym modelu okazały się one nieistotne. (opodatkowanie bogatych: $Z$ = -0,011; $p$ = 0,992; wyrównywanie dochodów: $Z$ = -1,225; $p$ = 0,221).
-
-
-
-```{r cor-matrix-east, fig.align = 'left', fig.cap = "Macierz korelacji odpowiedzi na pytania o demokrację w grupie byłych demokracji ludowych. Źródło: opracowanie własne."}
-
-east_countries <- c("Belarus", "Estonia", "Georgia", "Kazakhstan", "Poland",
-                    "Romania", "Russia", "Slovenia", "Ukraine")
-east_data <- dem_data %>% filter(country %in% east_countries)
-
-east_cor <- cor(east_data[,2:11], method="spearman")
-
-colnames(east_cor) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9", "X10")
-rownames(east_cor) <- quest.short
-
-par(family = 'serif')
-corrplot(east_cor, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
-```
-
-
-Ostateczną postać modelu przedstawia diagram na `r fig_nums("diagram-east", display = "cite")`. CFI (Robust Comparative Fit Index) = 0,966; TLI (Robust Tucker-Lewis Index) =  0,948. RMSEA wynosi 0,049; CI90% (0,045; 0,052). Łączna rzetelność konstruktu wynosi 0,76. Model dla tej grupy jest bardzo dobrze dopasowany do danych.
-
-
-
-```{r diagram-east, fig.align = 'center', fig.cap = "Diagram modelu analizy czynnikowej koncepcji demokracji w grupie byłych demokracji ludowych. Źródło: opracowanie własne."}
-east_model <- '
-Ilib =~ obeyRulers + religiousLaw + armyTakesOver;
-IIlud =~ taxRich + equalIncome + helpUnemp + obeyRulers;
-III =~ freeElection + genderEquality + civilRights + importance +
-            helpUnemp'
-
-east_fit <- cfa(east_model, data = east_data, estimator = "MLM")
-
-quest.min <- c(obeyRulers = "X8", religiousLaw = "X2", armyTakesOver = "X5", 
-               equalIncome = "X7", taxRich = "X1", helpUnemp = "X4", freeElection = "X3", 
-               genderEquality = "X9", civilRights = "X6", importance = "X10", 
-               "Ilib", "IIlud", "III")
-
-par(family = 'serif')
-semPaths(object = east_fit,
-         whatLabels = "std",           
-         edge.label.cex = 1, nCharNodes = 0,         
-         layout = "circle2",  sizeMan = 7, sizeMan2 = 7, shapeMan = "square",
-         sizeLat = 7, sizeLat2 = 7, shapeLat = "circle",
-         sizeInt = 5, sizeInt2 = 5,    
-         what = "std", edge.color = "black",
-         nodeLabels = quest.min, optimizeLatRes = T)
-```
-
-
-Jednak nie udało się poprawnie wyestymować modelu w każdym kraju z osobna. Równoważność konfiguralna nie jest zachowana, co oznacza, że zilustrowana diagramem na `r fig_nums("diagram-east", display = "cite")` struktura koncepcji demokracji nie występuje w każdej z byłych demokracji ludowych.
-
-\newpage
-
-# Podział według podobieństwa macierzy korelacji
-
-
-## Metoda podziału
-
-
-W poprzednim rozdziale pokazano, że linia podziału wyznaczona przez Żelazną Kurtynę nie dała grup o wspólnych koncepcjach demokracji. Jej drugą istotną wadą było odrzucenie dwóch państw, których losy w drugiej połowie XX wieku wyłamywały się z tego schematu. 
-
-
-Zaproponowano więc zgrupowanie państw według podobieństwa występujących w nich związków między zmiennymi. Dla każdego obliczono macierz korelacji i wykonano grupowanie hierarchiczną metodą aglomeracyjną AGNES. Wyniki przedstawia dendrogram na `r fig_nums(name = "dendrogram", display = "cite")`. Na początku algorytmu każde państwo jest traktowane jako odrębne skupisko (dolna część dendrogramu). W każdym kolejnym kroku obliczana jest euklidesowa odległość między średnimi wartościami zmiennych dla każdej pary skupisk, a następnie dwa najbliżesze skupiska zostają połączone w jedno. Algorytm kończy się, gdy wszystkie państwa zostaną zebrane w jednym skupisku (szczyt dendrogramu) [@Struyf]. 
-
-
-Wysokość jest tu miarą odległości dwóch skupisk, które zostają ze sobą połączone [@MaechRouss]. Kraje, które łączą się ze sobą na najniższej wysokości, mają najbardziej podobne wzorce odpowiedzi - zatem można podejrzewać, że na odpowiedzi mają wpływ te same ukryte koncepcje demokracji.
+As the concepts shows through relationships between answers, we should look for the groups of countries with the most similar relationships structure, i.e. the correlation matrix. I have computed a correlation matrix for each country and grouped them with hierarhic, aglomerative method AGNES. The result is presented on `r fig_nums(name = "dendrogram", display = "cite")`. At the beggining each country is treated like a separate cluster (bottom part of the diagram). In each oncoming steps, an euclidean distance between means of every pair of clusters is computed, and then the closest two clusters are being combined into one. Algorythm ends, when all countries are jointed in one cluster (the pick of dendrogram) [@Struyf]. The high is mearured as the distance between two clusters, that are being merged in a given step [@MaechRouss]. Clusters, that are merged in the lowest high, have the most similar patterns of answers - so we can guess these answers are affected by the same conceptions of democracy.
 
 
 
@@ -693,16 +437,14 @@ ggdendrogram(dg) + labs(y = "Wysokość") +
         text = element_text(family = "serif"))
 ```
 
+`r fig_nums(name = "dendrogram", display = "cite")` shows three distinct groups, which was mapped geographically on the `r fig_nums(name = "map2", display = "cite")`. The first one (marked green on the map) is made by Middle-East European countries and Georgia. The second one (marked red) contains mostly by countries lying by the Black Sea, but also Slovenia and Spain. The third group (marked blue) contains North-West Europe countries. A geographical patterns is discernible, though not definitive. The big issue is a limited range of the survey. There are no data from most of the Western and Southern Europe, and it's hard to speculate, how their citizens would tend to answer.
 
-Na `r fig_nums(name = "dendrogram", display = "cite")` widać trzy wyraźnie wyodrębnione grupy. Pierwszą (oznaczoną na mapie kolorem zielonym) tworzą państwa Europy środkowo-wschodniej oraz Gruzja; drugą (oznaczoną na czerwono) głównie państwa leżące nad Morzem Czarnym, ale też Słowenia i Hiszpania. Trzecia grupa (oznaczona na niebiesko) składa się z krajów północno-zachodniej Europy i pokrywa się z grupą demokracji liberalnych, która została już przeanalizowana w poprzednim rozdziale. Wzorzec geograficzny jest więc wyraźny, ale nie pozbawiony wyjątków, co widać na `r fig_nums(name = "map2", display = "cite")`. Dużą przeszkodą w wyciąganiu ogólnych wniosków jest ograniczony zasięg badania. Z większości państw zachodniej oraz południowej Europy nie ma danych, i trudno przewidzieć, jakie wzorce występują w tych rejonach.
 
 ```{r map2, fig.cap = "Mapa podziału na grupy według podobieństwa macierzy korelacji. Źródło: opracowanie własne.", out.width="450px"}
 include_graphics("map2.png")
 ```
 
-
-Jakość grupowania sprawdzono, obliczając wskaźnik sylwetkowy dla każdego kraju (`r fig_nums(name = "silhouette", display = "cite")`). Wskaźnik przyjmuje wartości od -1 do 1, gdzie ujemne stanowią przesłankę, że obserwacja została umieszczona w niewłaściwej grupie, dodatnie - we właściwej, a zerowe oznaczają obserwacje, które nie pasują do żadnej z grup [@Rousseeuw]. Jak można zauważyć na wykresie, nie ma podstaw do przeniesienia któregokolwiek kraju do innej grupy. Z drugiej strony, wartości generalnie są niskie, co oznacza, że rozgrupowanie nie jest bardzo wyraźne. Najbliższe zeru wartości mają Turcja (0,017), Słowenia (0,039) i Hiszpania (0,102) w czerwonej grupie. Żeby nie tracić dużej ilości danych, zdecydowano się jednak pozostawić grupy w ich pierwotnym składzie, jeśli nie spowoduje to później problemów z estymacją.
-
+The quality of clustering was verified with a silhouette index (`r fig_nums(name = "silhouette", display = "cite")`). The index takes values from -1 to 1, where negative values signify observation placed in the wrong group, positive ones - in the proper group, and values close to zero - the observations that doesn't seem to match any of the groups [@Rousseeuw]. As we can see from the plot, there is no justification for moving and country to a different group. On the other hand, all values are rather low, which indicates that clustering is not very distinctive. The closest to zero values were obtained for Turkey (0.017), Slovenia (0.039) and Spain (0.102) in the red group. As the clusters are only a hint for where to look for common concepts of democracy, I decided to preserve the groups in their original shape, as long as it will not cause problems with estimation. In the oncoming sections I will perform a factor analysis for each grop separately and check for measurement invariance within them.
 
 
 ```{r silhouette, fig.align = 'center', fig_width = 7, fig_height = 7, fig.cap = "Test sylwetkowy grupowania, Źródło: opracowanie własne."}
@@ -721,17 +463,12 @@ ggplot(sil_data) +
 ```
 
 
-## Grupa oznaczona na zielono
+## Group marked in green
+
+The first group contain five countries: Poland, Belarus, Estonia, Romania, and Georgia. These countries have many similarities, mainly communist governments influenced by USSR after the II World War, and revolutionary changes in 80s and 90s. The correlation matrix is showed on `r fig_nums(name = "cor-matrix-1", display = "cite")`. It is confirmed to be significant by a Bartlett's test of sphericity ($\chi^2$ = 12861,33; $df$ = 45; $p$ < 0,001). Relationships between answers seem to be similar to those in the full sample. We can still distinguish three conception, though they seem more blurry.
 
 
-Pierwsza grupa składa się z pięciu państw: Polski, Białorusi, Estonii, Rumunii i Gruzji. Kraje te łączą liczne podobieństwa, przede wszystkim komunistyczne rządy i wpływy Związku Radzieckiego po II Wojnie Światowej oraz rewolucyjne zmiany w latach 80. i 90. XX wieku.
-
-
-Test sferyczny Bartletta pokazał, że macierz korelacji jest istotnie różna od macierzy jednostkowej ($\chi^2$ = 12861,33; $df$ = 45; $p$ < 0,001). Relacje między odpowiedziami są dość podobne do wzorca dla wszystkich krajów. Nadal można wyodrębnić trzy koncepcje, chociaż nieco mniej wyraźne.
-
-
-
-```{r cor-matrix-1, fig.align = 'left', fig.cap = "Macierz korelacji odpowiedzi na pytania o demokrację w grupie oznaczonej na zielono. Źródło: opracowanie własne."}
+```{r cor-matrix-1, fig.align = 'left', fig.cap = "Correlation matrix of answers in the group marked with green. Source of data: WVS Wave 6."}
 
 group1_countries <- countries[tree == 1]
 group1_data <- dem_data %>% filter(country %in% group1_countries)
@@ -745,15 +482,16 @@ par(family = 'serif')
 corrplot(group1_cor, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
 ```
 
+The structre of the model and result of estimation is presented on the diagram on `r fig_nums(name = "diagram-1", display = "cite")`. CFI = 0,969, TLI = 0,953 and RMSEA equals 0,045, with CI90% (0,040; 0,050), so the model is definietly well fitted. Composite Reliability equals 0.75.
 
-Postać modelu i wyniki estymacji przedstawiono na diagramie na `r fig_nums(name = "diagram-1", display = "cite")`. CFI (Robust Comparative Fit Index) = 0,969; TLI (Robust Tucker-Lewis Index) =  0,953. RMSEA wynosi 0,045; CI90% (0,040; 0,050). Łączna rzetelność konstruktu wynosi 0,75. Dopasowanie modelu w tej grupie jest więc lepsze niż dla całej próby. 
+[nazwy koncepcji???]
 
 
 W tej grupie występuje koncepcja IIlud ze zmienną posłuszeństwo rządzącym, ale wyraźnie większe znaczenie ma w niej wyrównywanie przez państwo dochodów. Można interpretować to jako wizję paternalistycznego państwa, które wymaga posłuszeństwa, ale zaspokaja podstawowe potrzeby bytowe i chroni najsłabszych przed wyzyskiem. Warto też zwrócić uwagę na układ korelacji między zmiennymi latentnymi: w grupie ogólnej i grupie demokracji liberalnych koncepcje opiekuńczego państwa były silniej związane z koncepcją III - tutaj z koncepcją I.
 
 
 
-```{r diagram-1, fig.align = 'center', fig.cap = "Diagram modelu analizy czynnikowej koncepcji demokracji w grupie oznaczonej na zielono. Źródło: opracowanie własne."}
+```{r diagram-1, fig.align = 'center', fig.cap = "Factor analysis model for the group marked with green. Source of data: WVS Wave 6."}
 group1_model <- '
 I =~ obeyRulers + religiousLaw + armyTakesOver;
 IIlud =~ taxRich + equalIncome + helpUnemp + obeyRulers;
@@ -777,12 +515,10 @@ semPaths(object = group1_fit,
          nodeLabels = quest.min, optimizeLatRes = T)
 ```
 
-
-Średnia wartość wskaźnika koncepcji I to 4,16, IIlud - 6,14, III -  8,08. 
-
+`r fig_nums(name = "stats-gr-1", display = "cite")` presents indices of concepts' impact in this grop. The avarage for Concept I is 4.16, for Concept II 6.14, and for Concept III 8.08.
 
 
-```{r stats-gr-1, fig.align = 'center', fig.width = 7, fig.height = 8, fig.cap = "Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole) w grupie oznaczonej na zielono. Źródło: opracowanie własne."}
+```{r stats-gr-1, fig.align = 'center', fig.width = 7, fig.height = 8, fig.cap = "Concepts' impact indices in group marked with green: distributions (top chart), and number of observations, where a concept was dominant (bottom chart). Source of data: WVS Wave 6."}
 coeff <- standardizedSolution(group1_fit)
 
 # wagi
@@ -833,8 +569,6 @@ ggarrange(bxp, yplot, bar, NULL,
 ```
 
 
-Wyniki analizy równoważności pomiarowej przedstawia tabela `r table_nums(name = "tab-gr-1", display = "cite")`.
-
 
 ```{r tab-gr-1}
 options(knitr.kable.NA = '')
@@ -851,23 +585,134 @@ kable(mi_tab_west, format = "latex", col.names = c("Poziom równoważności", "A
 kable_styling(latex_options = c("scale_down"))
 ```
 
+The results of testing measeurement invariance are presented in `r table_nums(name = "tab-gr-1", display = "cite")`. Model from `r fig_nums(name = "diagram-1", display = "cite")` is identified in all countries in the group, which mean it fulfill the condition of configural invariance. But models with restrictions on, respectively, factor loadings and constants, turned out to be significantly worse ($p$ < 0,001 in both cases). Metric and scalar invariance are not met. In other words, countries from the green group have the same common concepts of democracy, but they vary in the intensity of impact, and don't allow numeric comparison.
 
-W każdym z państw tej grupy model przedstawiony na `r fig_nums(name = "diagram-1", display = "cite")` jest identyfikowalny. Jednak modele z restrykcjami nałożonymi na, kolejno: ładunki czynnikowe i wyrazy wolne, okazały się istotnie gorsze ($p$ < 0,001 w obu przypadkach). Równoważność metryczna i skalarna nie są spełnione.
+## Group marked in blue
+
+This group contains only three countries: Germany, Netherland, and Sweden. It is also the most concise geographicaly. Correlation matrix is presented on `r fig_nums(name = "cor-matrix-2", display = "cite")`, and was proved to be significant ($\chi^2$ = 22256,39; $df$ = 45; $p$ < 0,001). It reveals similar concept as those in the whole sample, presented on the diagram on `r fig_nums(name="diagram-west", display = "cite")`.
+
+```{r cor-matrix-2, fig.align = 'left', fig.cap = "Correlation matrix of answers in the group marked with blue. Source of data: WVS Wave 6."}
+
+# GRUPA 2
+group2_countries <- countries[tree == 2]
+group2_data <- dem_data %>% filter(country %in% group2_countries)
+
+group2_cor <- cor(group2_data[,2:11], method="spearman")
+
+colnames(group2_cor) <- c("X1", "X2", "X3", "X4", "X5", "X6", "X7", "X8", "X9", "X10")
+rownames(group2_cor) <- quest.short
+
+par(family = 'serif')
+corrplot(group2_cor, method="circle", order='hclust', tl.col = "black", tl.cex = 0.7)
+```
+
+Concepts II and III has already been described. There is one new concept - denoted here as IBlue - similar to Concept I from `r fig_nums(name="diagram-all", display = "cite")`, but with no connection to income equality. CFI = 0.965; TLI =  0.950. RMSEA = 0.043, with CI90% (0.038; 0.049). Composite Reliability equals 0.62, so is quite low, despite good properties of the model. The group is characterised by strong negative correlation between concepts III and IBlue, and rather weak relationships of Conctep II with any other.
+
+```{r model-west}
+# Struktura modelu dla pierwszej grupy
+group2_model <- '
+Ilib =~ obeyRulers + religiousLaw + armyTakesOver; 
+II =~ taxRich + equalIncome + helpUnemp;
+III =~ freeElection + genderEquality + civilRights + importance + helpUnemp'
+
+group2_fit <- cfa(group2_model, data = group2_data, estimator = "MLM")
+```
+```{r diagram-west, fig.align = 'center', fig.cap = "Factor analysis model for the group marked with blue. Source of data: WVS Wave 6."}
+
+quest.min <- c(obeyRulers = "X8", religiousLaw = "X2", armyTakesOver = "X5", 
+               equalIncome = "X7", taxRich = "X1", helpUnemp = "X4", freeElection = "X3", 
+               genderEquality = "X9", civilRights = "X6", importance = "X10", "Ilib", "II", "III")
+
+par(family = 'serif')
+semPaths(object = group2_fit,
+         whatLabels = "std",           
+         edge.label.cex = 1, nCharNodes = 0,         
+         layout = "circle2",  sizeMan = 7, sizeMan2 = 7, shapeMan = "square",
+         sizeLat = 7, sizeLat2 = 7, shapeLat = "circle",
+         sizeInt = 5, sizeInt2 = 5,    
+         what = "std", edge.color = "black",
+         nodeLabels = quest.min, optimizeLatRes = T)
+```
+
+Distributions of concepts' impact indices are shown on `r fig_nums(name = "stats-west", display = "cite")`. Concept IBlue has average of 2.56, with values over 7 being outliers. Concept II has average of 6.11, and III - 8.7, with only outliers below 6.
+
+```{r stats-west, fig.align = 'center', fig.width = 7, fig.height = 8, fig.cap = "Concepts' impact indices in group marked with blue: distributions (top chart), and number of observations, where a concept was dominant (bottom chart). Source of data: WVS Wave 6."}
+coeff <- standardizedSolution(group2_fit)
+
+# wagi
+fnd_2_w <- coeff$est.std[1:3]
+lib_2_w <- coeff$est.std[7:11]
+econ_2_w <- coeff$est.std[4:6]
+
+gr2_stats <- group2_data %>% mutate(Ilib = (obeyRulers*fnd_2_w[1]+religiousLaw*fnd_2_w[2]+ 
+                             armyTakesOver*fnd_2_w[3])/sum(fnd_2_w),
+                             II = (taxRich*econ_2_w[1]+equalIncome*econ_2_w[2]+ 
+                                           helpUnemp*econ_2_w[3])/sum(econ_2_w),
+                                 III = (freeElection*lib_2_w[1]+genderEquality*lib_2_w[2]+
+                                          civilRights*lib_2_w[3]+importance*lib_2_w[4]+
+                                          helpUnemp*lib_2_w[5])/sum(lib_2_w)) %>%
+  mutate(leading = if_else(Ilib > II, if_else(Ilib > III, "Ilib", "III"),
+                           if_else(II > III, "II", "III")))
 
 
-Analiza równoważności pomiarowej pokazuje, że w państwach należących do grupy zielonej występują te same społeczne koncepcje demokracji, jednak model nie pozwala na rzetelne porównywanie ich poziomów między państwami, ani bezpośrednio, ani w relacji z innymi zmiennymi.
+bxp <- gr2_stats %>% select(Ilib, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
+  ggboxplot(x = "Koncepcja", y = "Wartość",
+            color = "Koncepcja", palette = c("blue", "orange", "darkgreen")) +
+  theme(legend.position = "none", text = element_text(family = "serif"))
+
+levels <- c("Ilib", "II", "III")
+gr2_stats$leading <- factor(gr2_stats$leading, levels)
+
+bar <- gr2_stats %>% select(leading) %>% 
+  ggplot(aes(as.factor(leading))) + 
+  geom_bar(aes(y = ..count../sum(..count..), fill = "leading"),
+           fill=c("blue", "orange", "darkgreen")) + 
+  geom_text(aes(y = (..count..)/sum(..count..), 
+                label = scales::percent(round(..count../sum(..count..), 2), accuracy = 1L)),
+            stat = "count", vjust=-0.5, size=4, family = 'serif') +
+  scale_y_continuous(labels = percent) +
+  scale_x_discrete("Dominująca koncepcja", drop=F) +
+  labs(y = "Procent grupy") + expand_limits(y = c(0, 1)) +
+  theme(text = element_text(family = "serif"))
 
 
-## Grupa oznaczona na czerwono
+yplot <- gr2_stats %>% select(Ilib, II, III) %>% gather(key="Koncepcja", value="Wartość") %>%
+  ggdensity("Wartość", fill = "Koncepcja", palette = c(Ilib = "blue", II = "orange", III = "darkgreen")) +
+  rotate() + clean_theme()
+
+ggarrange(bxp, yplot, bar, NULL,
+          ncol = 2, nrow = 2,  align = "hv", 
+          widths = c(2, 1), heights = c(2, 1),
+          common.legend = TRUE)
+```
+
+`r table_nums(name = "tab-west", display = "cite")` presents the results of measurement invariance analysis. Same as in group marked with green, configural invariance was met, but the higher levels were not.
+
+```{r tab-west}
+options(knitr.kable.NA = '')
+mi_tab_west <- data.frame(level = c("Konfiguralna", "Metryczna", "Skalarna"),
+                          AIC = c(180493, 180611, 181894),
+                          BIC = c(181145, 181161, 182354),
+                          Chi = c("458,66", "608,95", "1919,63"),
+                          Chi_d = c(NA, "150,29", "1310,68"),
+                          df = c(93, 109, 123), p = c(NA,"< 2,2e-16", "< 2.2e-16"))
+
+cap = "Wyniki analizy równoważności pomiarowej dla grupy demokracji liberalnych. Źródło: opracowanie własne."
+
+kable(mi_tab_west, format = "latex", col.names = c("Poziom równoważności", "AIC", "BIC", "$\\chi^2$", "Przyrost $\\chi^2$", "Stopnie swobody", "p-value"), caption = cap) %>%
+kable_styling(latex_options = c("scale_down"))
+```
 
 
-Drugą grupę tworzą cztery kraje Europy Wschodniej: Ukraina, Rosja, Kazachstan i Turcja, oraz Słowenia i Hiszpania. Dla grupy obliczono macierz korelacji, przedstawioną na `r fig_nums(name = "cor-matrix-3", display = "cite")`. Test Bartletta pokazał, że jest istotnie różna od macierzy jednostkowej ($\chi^2$ = 22256,39; $df$ = 45; $p$ < 0,001).
+
+## Group marked in red
+
+The second group contains Ukraine, Russia, Kazakhstan, Turkey, Spain, and Slovenia. Correlation matrix is presented on `r fig_nums(name = "cor-matrix-3", display = "cite")`, and was proved to be significant ($\chi^2$ = 22256,39; $df$ = 45; $p$ < 0,001).
+
+This tam an analysis found only two factors: Concept I and a new Concept IV, with structure presented on the diagram on `r fig_nums(name = "diagram-3", display = "cite")`. Interesting characteristic of this group is a positive correlation of obediance to rulers with every other variable - the opposite to what was found in group marked in blue.
 
 
-Tym razem z analizy korelacji wyłaniają się tylko dwa czynniki: koncepcja I oraz zupełnie nowa koncepcja IV, której struktura została pokazana na diagramie na `r fig_nums(name = "diagram-3", display = "cite")`. Charakterystyczne dla tej grupy są pozytywne korelacje zmiennej oznaczającej posłuszeństwo rządzącym ze wszystkimi pozostałymi zmiennymi - przeciwnie niż w grupie demokracji liberalnych.
-
-
-```{r cor-matrix-3, fig.align = 'left', fig.cap = "Macierz korelacji odpowiedzi na pytania o demokrację w grupie oznaczonej na czerwono. Źródło: opracowanie własne."}
+```{r cor-matrix-3, fig.align = 'left', fig.cap = "Correlation matrix of answers in the group marked with red. Source of data: WVS Wave 6."}
 
 group3_countries <- countries[tree == 3]
 group3_data <- dem_data %>% filter(country %in% group1_countries)
@@ -882,13 +727,10 @@ corrplot(group3_cor, method="circle", order='hclust', tl.col = "black", tl.cex =
 ```
 
 
-CFI (Robust Comparative Fit Index) = 0,876; TLI (Robust Tucker-Lewis Index) =  0,831. RMSEA wynosi 0,091; CI90% (0,087; 0,099). Łączna rzetelność konstruktu wynosi 0,74. Modelu w tej grupie nie można uznać za dobrze dopasowany do danych. O ile koncepcja IV jest dobrze skonstruowana (rzetelność konceptu na poziomie 0,78), o tyle najwyraźniej brakuje odpowiednich pytań dla koncepcji I (rzetelność 0,56). 
+With CFI = 0.876, TLI =  0.831, RMSEA = 0.091 with CI90% (0.087; 0.099), and Composite Reliability = 0.74, this model is not ideal. As far as the Concept I is well constructed (Composite Reliability equals 0.78), it seems to lack questions to truly reveal Concept I (CR = 0.56). We can notice, that the socio-political part is stronger than the economic one in Concept IV, and opinion on obeing rulers was similar in both concepts.
 
 
-W koncepcji I najważniejsza jest interpretacja prawa przez autorytety religijne, a w IV wolne wybory, równość płci i prawa obywatelskie (część liberalna gra większą rolę niż ekonomiczna). Zmienna oznaczająca posłuszeństwo rządzącym w podobny sposób mierzy obie koncepcje. Prawdopodobnie to właśnie ta grupa “psuła” europejską jednorodność w definiowaniu demokracji.
-
-
-```{r diagram-3, fig.align = 'center', fig.cap = "Diagram modelu analizy czynnikowej koncepcji demokracji w grupie oznaczonej na czerwono. Źródło: opracowanie własne."}
+```{r diagram-3, fig.align = 'center', fig.cap = "Factor analysis model for the group marked with red. Source of data: WVS Wave 6."}
 
 group3_model <- '
 I =~ obeyRulers + religiousLaw + armyTakesOver; 
@@ -913,11 +755,10 @@ semPaths(object = group3_fit,
          nodeLabels = quest.min, optimizeLatRes = T)
 ```
 
+Distributions of concepts' impact indices, presented on `r fig_nums(name = "stats-gr-3", display = "cite")`, show Concept IV to be more popular. The avarage for it is 7.77, whereas for Concept I it's 4.56.
 
-Rozkład wskaźników dla całej grupy, przedstawiony na `r fig_nums(name = "stats-gr-3", display = "cite")`, pokazuje, że koncepcja IV jest bardziej powszechna. Średnia dla koncepcji I wynosi 4,56 a dla IV - 7,77.
 
-
-```{r stats-gr-3, fig.align = 'center', fig.width = 7, fig.height = 8, fig.cap = "Rozkład wartości wskaźników koncepcji demokracji (na górze) i liczby osób, u których dana koncepcja była dominująca (na dole) w grupie oznaczonej na czerwono. Źródło: opracowanie własne."}
+```{r stats-gr-3, fig.align = 'center', fig.width = 7, fig.height = 8, fig.cap = "Concepts' impact indices in group marked with red: distributions (top chart), and number of observations, where a concept was dominant (bottom chart). Source of data: WVS Wave 6."}
 coeff <- standardizedSolution(group3_fit)
 
 # wagi
@@ -963,8 +804,7 @@ ggarrange(bxp, yplot, bar, NULL,
           common.legend = TRUE)
 ```
 
-
-Wyniki analizy równoważności pomiarowej przedstawia tabela `r table_nums(name = "tab-gr-3", display = "cite")`.
+The results of measurement invariance tests are presented in `r table_nums(name = "tab-gr-3", display = "cite")`. In each country model from `r fig_nums("diagram-3", display = "cite")` was identified, but it's neither metric nor scalar invariant.
 
 
 ```{r tab-gr-3}
@@ -983,23 +823,22 @@ kable_styling(latex_options = c("scale_down"))
 ```
 
 
-W każdym z państw tej grupy model przedstawiony na `r fig_nums("diagram-3", display = "cite")` jest identyfikowalny. Jednak modele z restrykcjami nałożonymi na, kolejno: ładunki czynnikowe i wyrazy wolne, okazały się istotnie gorsze ($p$ < 0,001 w obu przypadkach). Równoważność metryczna i skalarna nie są spełnione.
+
 
 \newpage
 
-# Podsumowanie
+# Conclusions
 
+Performed analysis bears plenty of conclusions about social concepts of democracy in European Countries. First of all, it proves that common belives on the essence of democracy go way beyond a minimalistic definition. The set of concepts isn't common for the whole continent, but I found three groups, within which the common concepts can be found. Still, it doesn't allow meaningful numeric comparison, as the higher levels of measurement invariance were not met in any of the groups. 
 
-Przeprowadzona analiza czynnikowa dostarcza szeregu wniosków o społecznych koncepcjach demokracji w krajach europejskich. Przede wszystkim pokazuje, że we wszystkich krajach społeczne przekonanie o tym, co stanowi istotę demokracji, wychodzi daleko poza minimalistyczną definicję Schumpetera. 
+The first group containes Poland, Estonia, Romania, Belarus, and Georgia. It has three conception of democracy. 
 
-
-Zestaw koncepcji demokracji, którymi kierują się obywatele, nie jest wspólny dla badanych państw Europy. Znaleziono jednak trzy grupy, wewnątrz których występują wspólne koncepcje. W każdej z tych grup dalsze poziomy równoważności nie są spełnione, nie pozwalając na przeprowadzanie analiz porównawczych między krajami.
-
+Druga grupa składa się z Polski, Estonii, Rumunii, Białorusi i Gruzji. Wyróżniono w niej również trzy koncepcje, I i III wymienione wyżej, oraz koncepcję IIlud, podobną do II. W koncepcji IIlud na pierwsze miejsce wybija się tu walka z nierównościami dochodowymi. W niedużym, ale istotnym stopniu, jest w niej też zawarte przekonanie o konieczności posłuszeństwa wobec rządzących. Koncepcja IIlud jest silnie pozytywnie skorelowana z I, nie ma z kolei związków tych dwóch koncepcji z III. Można przypuszczać, że na kształt tych koncepcji miała wpływ komunistyczna przeszłość państw tej grupy, sprawiając, że postulaty socjalne są związane z posłuszeństwem wobec władzy i możliwością przejęcia władzy przez armię. Zdecydowanie więcej jest jednak zwolenników koncepcji III.
 
 W grupie państw, w których po II Wojnie Światowej rozwijała się idea demokracji liberalnej (Niemcy, Holandia, Szwecja) można wyróżnić trzy koncepcje demokracji. Według koncepcji I istotna dla demokracji jest możliwość przejęcia władzy przez wojsko, interpretacja prawa przez autorytety religijne oraz posłuszeństwo rządzącym. Według II najistotniejsze jest, aby państwo wyżej opodatkowało bogatych i pomagało ubogim, a także wspierało bezrobotnych i walczyło z rozwarstwieniem dochodowym. W koncepcji III istotę demokracji stanowią wolne wybory, równość płci, prawa obywatelskie oraz (w mniejszym stopniu) również wsparcie państwa dla bezrobotnych. Ta trzecia koncepcja jest zdecydowanie najbardziej powszechna i silnie ujemnie skorelowana z pierwszą. 
 
 
-Druga grupa składa się z Polski, Estonii, Rumunii, Białorusi i Gruzji. Wyróżniono w niej również trzy koncepcje, I i III wymienione wyżej, oraz koncepcję IIlud, podobną do II. W koncepcji IIlud na pierwsze miejsce wybija się tu walka z nierównościami dochodowymi. W niedużym, ale istotnym stopniu, jest w niej też zawarte przekonanie o konieczności posłuszeństwa wobec rządzących. Koncepcja IIlud jest silnie pozytywnie skorelowana z I, nie ma z kolei związków tych dwóch koncepcji z III. Można przypuszczać, że na kształt tych koncepcji miała wpływ komunistyczna przeszłość państw tej grupy, sprawiając, że postulaty socjalne są związane z posłuszeństwem wobec władzy i możliwością przejęcia władzy przez armię. Zdecydowanie więcej jest jednak zwolenników koncepcji III.
+
 
 
 Trzecia grupa jest najbardziej zróżnicowana pod względem geograficznym, politycznym i historycznym. Znajdują się w niej państwa: Hiszpania, Słowenia, Ukraina, Turcja, Kazachstan i Rosja. W tej grupie znaleziono tylko dwie koncepcje demokracji: jedna łączy oczekiwania wolności, równości i praw obywatelskich z postulatami socjalnymi (koncepcja IV); druga uznaje za istotne przede wszystkim  wpływ autorytetów religijnych na prawo, możliwość przejęcia władzy przez armię i (w mniejszym stopniu) posłuszeństwo rządzącym (koncepcja I). Te dwie koncepcje są niezależne od siebie i IV jest bardziej powszechna. Ciekawa jest też istotność i podobny poziom ładunków czynnikowych zmiennej oznaczającej posłuszeństwo rządzącym w obu koncepcjach. W tej grupie przekonanie o konieczności posłuszeństwa wobec rządzących jest powszechne.
